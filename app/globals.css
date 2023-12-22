@@ -18,10 +18,18 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+}
+
+@font-face {
+    font-family: 'Rockwell';
+    src: url('/fonts/Rockwell-Regular-01.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Rockwell';
+    src: url('/fonts/Rockwell-Bold-03.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
 }

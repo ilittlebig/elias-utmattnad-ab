@@ -13,6 +13,20 @@ const config: Config = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      colors: {
+        'primary': '#6B8E23',
+        'primary-hover': '#55711C',
+        'primary-click': '#55711C',
+      },
+      fontFamily: {
+        rockwell: ['Rockwell', 'sans-serif'],
+      },
+      dropShadow: {
+	'card': '0px 24px 24px rgba(149, 157, 165, 0.20)'
+      },
+      transitionProperty: {
+	'max-height': 'max-height'
+      }
     },
   },
   plugins: [],
