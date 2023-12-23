@@ -46,7 +46,7 @@ const Footer = () => {
 	    <div className="flex flex-col gap-y-3">
 	      <div className="text-2xl font-rockwell font-bold">Sidor</div>
 	      {pages.map((page, index) => (
-		<Link key={index} href={page.href} className="font-rockwell text-xl hover:text-primary">
+		<Link key={index} href={page.href} className="font-rockwell hover:underline text-xl hover:text-primary">
 		  {page.label}
 		</Link>
 	      ))}
@@ -56,7 +56,7 @@ const Footer = () => {
 	    <div className="flex flex-col gap-y-3">
 	      <div className="text-2xl font-rockwell font-bold">Juridiskt</div>
 	      {legalities.map((legal, index) => (
-		<Link key={index} href={legal.href} className="font-rockwell text-xl hover:text-primary">
+		<Link key={index} href={legal.href} className="font-rockwell hover:underline text-xl hover:text-primary">
 		  {legal.label}
 		</Link>
 	      ))}

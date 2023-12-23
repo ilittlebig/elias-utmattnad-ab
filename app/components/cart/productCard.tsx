@@ -32,7 +32,7 @@ const ProductCard = ({ id, name, price, quantity }: ProductCardProps) => {
 
 	<div className="flex flex-col justify-between">
 	  <div className="flex flex-col">
-	    <Link href={`/products/all/${id}`} className="w-full text-lg font-bold">
+	    <Link href={`/products/all/${id}`} className="w-full text-lg font-bold hover:underline">
 	      {name}
 	    </Link>
 

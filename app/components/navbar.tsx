@@ -64,7 +64,7 @@ const Navbar: FC = () => {
 	{/* Links */}
 	<div className="lg:flex hidden gap-x-8">
 	  {links.map((link, index) => (
-	    <Link key={index} href={link.href} className="font-rockwell text-base hover:text-primary">
+	    <Link key={index} href={link.href} className="font-rockwell hover:underline text-base hover:text-primary">
 	      {link.label}
 	    </Link>
 	  ))}

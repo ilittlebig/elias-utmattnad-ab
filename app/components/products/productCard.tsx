@@ -32,7 +32,7 @@ const ProductCard = ({
       </div>
 
       <div className="flex flex-col">
-	<div className="font-rockwell text-lg">{productName}</div>
+	<div className="font-rockwell text-lg hover:underline">{productName}</div>
 	<div className="font-rockwell text-lg">{formattedPrice}</div>
 
 	<div className="flex gap-x-3">
