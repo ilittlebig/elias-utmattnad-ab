@@ -21,7 +21,7 @@ const EditProductPage = () => {
 
   useEffect(() => {
     if (!productId) return;
-    fetchProduct("all", productId, setLoading, setProduct);
+    fetchProduct("all", productId, setProduct, setLoading);
   }, [productId]);
 
   const formInitialState = useMemo(() => product || null, [product]);

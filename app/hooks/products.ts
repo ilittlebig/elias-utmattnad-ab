@@ -1,4 +1,5 @@
 import { ProductDetails } from '@/hooks/productForm'
+import { apiService } from '@/services/api'
 
 export interface Product {
   name: string;
@@ -12,37 +13,47 @@ export interface Product {
 };
 
 export const useProducts = () => {
-  const fetchProducts = async (category: string, setLoading: () => void, setProducts: () => void) => {
-    const response = await fetch(`
-      /products/api?collection=products&category=${encodeURIComponent(category)}
-    `);
-
-    const data = await response.json();
-    setLoading(false);
-    setProducts(data);
-  };
-
-  const fetchProduct = async (category: string, productId: string, setLoading?: () => void, setProduct: () => void) => {
+  const fetchProducts = async (
+    category: string,
+    setLoading: () => void,
+    setProducts: () => void
+  ): Promise<void> => {
+    setLoading(true);
     try {
-      const response = await fetch(`/products/${category}/${productId}/api`);
-      if (!response.ok) {
-	throw new Error("Failed to fetch product");
-      }
-
-      const data = await response.json();
-      if (setLoading) {
-	setLoading(false);
-      }
-      setProduct(data);
+      const endpoint = `/products/api?collection=products&category=${encodeURIComponent(category)}`
+      const data: Product[] = await apiService.fetch(endpoint);
+      setProducts(data);
     } catch (error) {
-      console.error("Error fetching product:", error);
+      console.error("Error fetching products:", error);
+    } finally {
+      setLoading(false);
     }
   };
 
-  const fetchProductCount = async (setProductCount: () => void) => {
+  const fetchProduct = async (
+    category: string,
+    productId: string,
+    setProduct: () => void,
+    setLoading?: () => void,
+  ): Promise<void> => {
+    if (setLoading) setLoading(true);
     try {
-      const response = await fetch("/dashboard/products/api");
-      const data = await response.json();
+      const endpoint = `/products/${category}/${productId}/api`;
+      const data: Product = await apiService.fetch(endpoint);
+      setProduct(data);
+    } catch (error) {
+      console.error("Error fetching product:", error);
+    } finally {
+      if (setLoading) setLoading(false);
+    }
+  };
+
+  const fetchProductCount = async (
+    setProductCount: () => void
+  ): Promise<void> => {
+    try {
+      const endpoint = "/dashboard/products/api";
+      const data: { count: number } = await apiService.fetch(endpoint);
       setProductCount(data.count);
     } catch (error: any) {
       console.log("Error fetching product count:", error);
@@ -51,38 +62,26 @@ export const useProducts = () => {
 
   const newProduct = async (
     productDetails: ProductDetails
-  ) => {
-    const response = await fetch("/dashboard/products/new/api", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(productDetails)
-    });
-
-    if (!response.ok) {
-      throw new Error(response.statusText);
+  ): Promise<void> => {
+    try {
+      const endpoint = "/dashboard/products/new/api";
+      await apiService.post(endpoint, productDetails);
+    } catch (error: any) {
+      console.log("Error creating new product:", error);
     }
   };
 
   const updateProduct = async (
     productId: string,
     productDetails: ProductDetails
-  ) => {
-    const response = await fetch(`/dashboard/products/edit/api?id=${productId}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(productDetails)
-    });
-
-    if (!response.ok) {
-      throw new Error(response.statusText);
+  ): Promise<Product> => {
+    try {
+      const endpoint = `/dashboard/products/edit/api?id=${productId}`;
+      const updatedProduct = await apiService.put(endpoint, productDetails)
+      return updatedProduct;
+    } catch (error: any) {
+      console.log("Error updating product:", error);
     }
-
-    const updatedProduct = await response.json();
-    return updatedProduct;
   };
 
   return { fetchProducts, fetchProduct, fetchProductCount, newProduct, updateProduct };

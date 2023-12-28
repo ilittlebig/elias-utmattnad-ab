@@ -12,7 +12,7 @@ export async function GET(request: NextRequest) {
 
     if (!category) {
       return new Response(JSON.stringify({
-	message: "Category not found"
+	error: "Category not found"
       }), {
         status: 404,
         headers: {
