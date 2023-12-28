@@ -27,7 +27,7 @@ const ProductEntry = ({
 	  type="checkbox"
 	  className="flex-shrink-0 w-5 h-5 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500"
 	/>
-	<div className="flex flex-col gap-y-1 truncate">
+	<div className="flex flex-col gap-y-1 truncate max-w-[300px]">
 	  <div className="truncate text-md text-gray-600">
 	    {name}
 	  </div>
@@ -60,7 +60,7 @@ const ProductEntry = ({
       </div>
 
       <div className="flex gap-x-3 justify-end items-center">
-        <Link href={`/dashboard/edit-product?id=${encodeURIComponent(id)}`}>
+        <Link href={`/dashboard/products/edit?id=${encodeURIComponent(id)}`}>
 	  <FiEdit className="w-5 h-5 text-gray-600 hover:text-gray-800 cursor-pointer" />
 	</Link>
 	<FaRegTrashAlt className="w-5 h-5 text-gray-600 hover:text-gray-800 cursor-pointer" />

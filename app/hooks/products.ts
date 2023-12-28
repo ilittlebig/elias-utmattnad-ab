@@ -9,7 +9,7 @@ export interface Product {
   price: number;
   inventory: number;
   rating: number;
-}
+};
 
 export const useProducts = () => {
   const fetchProducts = async (category: string, setLoading: () => void, setProducts: () => void) => {
@@ -52,7 +52,7 @@ export const useProducts = () => {
   const newProduct = async (
     productDetails: ProductDetails
   ) => {
-    const response = await fetch("/dashboard/new-product/api", {
+    const response = await fetch("/dashboard/products/new/api", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -69,7 +69,7 @@ export const useProducts = () => {
     productId: string,
     productDetails: ProductDetails
   ) => {
-    const response = await fetch(`/dashboard/edit-product/api?id=${productId}`, {
+    const response = await fetch(`/dashboard/products/edit/api?id=${productId}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

@@ -1,8 +1,8 @@
 import Button from '@/components/button'
 import StatisticWidget from '@/dashboard/components/statisticWidget'
-import ProductsList from '@/dashboard/components/productsList'
+import CategoriesList from '@/dashboard/components/categories/categoriesList'
 
-const DashboardPage = () => {
+const DashboardCategoriesPage = () => {
   return (
     <div className="flex flex-col w-full p-12 gap-y-6">
       <div className="flex items-center w-full justify-between">
@@ -13,29 +13,13 @@ const DashboardPage = () => {
 	<Button
 	  actionText="Lägg Till"
 	  className="text-lg px-6 py-3"
-	  href="/dashboard/new-product"
+	  href="/dashboard/categories/new"
 	/>
       </div>
 
-      <div className="flex justify-between">
-        <StatisticWidget
-	  title="Antal Kategorier"
-	  value={0}
-	/>
-      </div>
-
-      <div className="flex flex-col pt-3">
-        <label className="font-bold text-2xl">
-	  Alla Kategorier
-	</label>
-        <label className="text-xl font-medium text-gray-600">
-	  Du tittar på alla kategorier
-	</label>
-      </div>
-
-      <ProductsList />
+      <CategoriesList />
     </div>
   )
 }
 
-export default DashboardPage;
+export default DashboardCategoriesPage;

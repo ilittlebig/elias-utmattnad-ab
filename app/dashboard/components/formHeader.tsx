@@ -5,11 +5,12 @@ type HeaderProps = {
   title: string,
   buttonText: string,
   buttonDisabled?: boolean,
+  href: string,
   isLoading?: boolean,
   onClick: () => void
 };
 
-const FormHeader = ({ title, buttonText, buttonDisabled, isLoading, onClick }: HeaderProps) => {
+const FormHeader = ({ title, buttonText, buttonDisabled, href, isLoading, onClick }: HeaderProps) => {
   return (
     <div className="flex w-full justify-between">
       <div className="flex items-center gap-x-5">
@@ -24,7 +25,7 @@ const FormHeader = ({ title, buttonText, buttonDisabled, isLoading, onClick }: H
 	<Button
 	  actionText="Avbryt"
 	  className="text-lg px-6 py-3"
-	  href="/dashboard/products"
+	  href={href}
 	  noBackground
 	/>
 

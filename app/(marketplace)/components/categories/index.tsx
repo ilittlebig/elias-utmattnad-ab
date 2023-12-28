@@ -6,7 +6,7 @@ import CategoryLabel from './categoryLabel'
 
 const Categories = () => {
   const [categories, setCategories] = useState([]);
-  const [isLoading, setLoading] = useState(true);
+  const [isLoading, setLoading] = useState<boolean>(true);
   const { fetchCategories } = useCategories();
 
   useEffect(() => {
@@ -27,7 +27,7 @@ const Categories = () => {
 
 	    {categories.map((category, index) => (
 	      <Link key={index} href={`/products/${encodeURIComponent(category.href)}`}>
-	      <CategoryLabel label={category.name} href={category.href} />
+		<CategoryLabel label={category.name} href={category.href} />
 	      </Link>
 	    ))}
 	  </div>

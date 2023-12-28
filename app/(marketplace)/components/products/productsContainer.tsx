@@ -10,7 +10,7 @@ import ProductCard from './productCard'
 const ProductsContainer = () => {
   const [products, setProducts] = useState([]);
   const [isLoading, setLoading] = useState<boolean>(true);
-  const [categoryLabel, setCategoryLabel] = useState<string>(null);
+  const [categoryData, setCategoryData] = useState<string>(null);
 
   const { category } = useParams();
   const { fetchCategory } = useCategories();
@@ -18,12 +18,14 @@ const ProductsContainer = () => {
 
   useEffect(() => {
     fetchProducts(category, setLoading, setProducts);
-    fetchCategory(category, setCategoryLabel);
+    fetchCategory(category, setCategoryData);
   }, [category]);
 
   return (
     <div className="flex flex-col gap-y-3">
-      <h1 className="text-4xl font-bold font-rockwell px-6 lg:px-0">{categoryLabel}</h1>
+      <h1 className="text-4xl font-bold font-rockwell px-6 lg:px-0">
+        {categoryData ? categoryData.name : ""}
+      </h1>
       <div className="flex flex-wrap lg:gap-2 justify-between lg:justify-start w-full h-full">
       	{isLoading ? (
 	  <div></div>

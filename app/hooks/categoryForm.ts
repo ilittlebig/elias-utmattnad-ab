@@ -1,28 +1,16 @@
 import { useState, useCallback, useEffect, useRef } from 'react'
 import deepEqual from '@/utils/deepEqual'
 
-export type ProductDetails = {
+export type CategoryDetails = {
   name: string,
-  description: string,
-  dimensions: string,
-  material: string,
-  category: string,
-  price: string | number,
-  inventory: string | number,
-  rating: string | number
+  href: string
 };
 
-const useProductForm = (initialState: ProductDetails = {
+const useCategoryForm = (initialState: CategoryDetails = {
   name: "",
-  description: "",
-  dimensions: "",
-  material: "",
-  category: "",
-  price: "",
-  inventory: "",
-  rating: ""
+  href: ""
 }) => {
-  const [productDetails, setProductDetails] = useState<ProductDetails>(initialState);
+  const [categoryDetails, setCategoryDetails] = useState<CategoryDetails>(initialState);
 
   const [isFormValid, setFormValid] = useState<boolean>(false);
   const [isChanged, setIsChanged] = useState<boolean>(false);
@@ -39,29 +27,29 @@ const useProductForm = (initialState: ProductDetails = {
   };
 
   const resetForm = () => {
-    setProductDetails(initialState);
+    setCategoryDetails(initialState);
   };
 
   const resetIsChanged = () => {
     setIsChanged(false);
   };
 
-  const checkIfChanged = (newDetails: ProductDetails) => {
+  const checkIfChanged = (newDetails: CategoryDetails) => {
     if (!initialState)
       return;
 
     return Object.keys(newDetails).some(key => {
-      const initialValue = initialState[key as keyof ProductDetails];
-      const currentValue = newDetails[key as keyof ProductDetails];
+      const initialValue = initialState[key as keyof CategoryDetails];
+      const currentValue = newDetails[key as keyof CategoryDetails];
       return !isValueEqual(initialValue, currentValue);
     });
   };
 
-  const handleFormChange = useCallback((fieldId: keyof ProductDetails, newValue: string | number) => {
+  const handleFormChange = useCallback((fieldId: keyof CategoryDetails, newValue: string | number) => {
     const numberFields = ["rating", "inventory", "price"];
     const value = numberFields.includes(fieldId) ? Number(newValue) : newValue;
 
-    setProductDetails(prevDetails => {
+    setCategoryDetails(prevDetails => {
       const newDetails = {
 	...prevDetails,
 	[fieldId]: value
@@ -74,7 +62,7 @@ const useProductForm = (initialState: ProductDetails = {
   }, [initialState]);
 
   const handleDropdownChange = useCallback((selection: string) => {
-    setProductDetails(prevDetails => {
+    setCategoryDetails(prevDetails => {
       const newDetails = {
 	...prevDetails,
 	category: selection
@@ -87,22 +75,22 @@ const useProductForm = (initialState: ProductDetails = {
   }, [initialState]);
 
   useEffect(() => {
-    if (productDetails && typeof productDetails === "object") {
-      const isValid = Object.values(productDetails).every(value => value !== "");
+    if (categoryDetails && typeof categoryDetails === "object") {
+      const isValid = Object.values(categoryDetails).every(value => value !== "");
       setFormValid(isValid);
     } else {
       setFormValid(false);
     }
-  }, [productDetails]);
+  }, [categoryDetails]);
 
   useEffect(() => {
     if (!isInitialized.current && initialState) {
-      setProductDetails(initialState);
+      setCategoryDetails(initialState);
       isInitialized.current = true;
     }
   }, [initialState]);
 
-  return { productDetails, resetForm, resetIsChanged, handleFormChange, handleDropdownChange, isFormValid, isChanged };
+  return { categoryDetails, resetForm, resetIsChanged, handleFormChange, handleDropdownChange, isFormValid, isChanged };
 }
 
-export default useProductForm;
+export default useCategoryForm;

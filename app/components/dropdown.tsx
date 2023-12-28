@@ -78,7 +78,7 @@ const Dropdown = ({ label, children, text, required, onChange }: DropdownProps) 
       />
 
       {isDropdownOpen && (
-        <div className="absolute p-4 left-0 top-0 mt-[70px] w-full bg-white border rounded-xl z-10">
+        <div className="absolute p-4 left-0 top-0 mt-[70px] max-h-[200px] overflow-auto w-full bg-white border drop-shadow-card rounded-xl z-10">
           {React.Children.map(children, (child, index) => (
             <div
               key={index}

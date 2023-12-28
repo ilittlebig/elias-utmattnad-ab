@@ -13,7 +13,7 @@ import ProductImages from '@/(marketplace)/components/product/productImages'
 
 const ProductPage = () => {
   const [product, setProduct] = useState(null);
-  const [categoryLabel, setCategoryLabel] = useState(null);
+  const [categoryData, setCategoryData] = useState(null);
   const { productId, category } = useParams();
   const { fetchCategory } = useCategories();
   const { fetchProduct } = useProducts();
@@ -22,7 +22,7 @@ const ProductPage = () => {
 
   useEffect(() => {
     if (!currentCategory) return;
-    fetchCategory(currentCategory, setCategoryLabel);
+    fetchCategory(currentCategory, setCategoryData);
   }, [currentCategory]);
 
   useEffect(() => {
@@ -38,7 +38,7 @@ const ProductPage = () => {
 	  </Link>
 	  <div className="text-lg">/</div>
 	  <Link href={`/products/${currentCategory}`} className="text-lg hover:underline">
-	    {categoryLabel}
+	    {categoryData ? categoryData.name : ""}
 	  </Link>
 	  <div className="text-lg">/</div>
 	  <Link href={`/products/${currentCategory}/${productId}`} className="text-lg text-primary hover:underline">

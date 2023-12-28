@@ -16,7 +16,7 @@ const ProductsHeader = () => {
       </div>
 
       <div className="flex justify-end items-center">
-	<div className="text-md text-gray-600">Actions</div>
+	<div className="text-md text-gray-600">Handlingar</div>
       </div>
     </div>
   )

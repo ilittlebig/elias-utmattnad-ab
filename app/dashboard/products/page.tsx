@@ -5,9 +5,9 @@ import currencyFormatter from '@/utils/currencyFormatter'
 
 import Button from '@/components/button'
 import StatisticWidget from '@/dashboard/components/statisticWidget'
-import ProductsList from '@/dashboard/components/productsList'
+import ProductsList from '@/dashboard/components/products/productsList'
 
-const DashboardPage = () => {
+const DashboardProductsPage = () => {
   const [productCount, setProductCount] = useState<number>(0);
   const { fetchProductCount } = useProducts();
 
@@ -28,7 +28,7 @@ const DashboardPage = () => {
 	<Button
 	  actionText="Lägg Till"
 	  className="text-lg px-6 py-3"
-	  href="/dashboard/new-product"
+	  href="/dashboard/products/new"
 	/>
       </div>
 
@@ -64,4 +64,4 @@ const DashboardPage = () => {
   )
 }
 
-export default DashboardPage;
+export default DashboardProductsPage;

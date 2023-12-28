@@ -6,7 +6,7 @@ import { useNotification } from '@/contexts/notificationContext'
 import useProductForm from '@/hooks/productForm'
 
 import Button from '@/components/button'
-import ProductForm from '@/dashboard/components/productForm'
+import ProductForm from '@/dashboard/components/products/productForm'
 import FormHeader from '@/dashboard/components/formHeader'
 
 const EditProductPage = () => {
@@ -65,6 +65,7 @@ const EditProductPage = () => {
 	  title="Redigera Produkt"
 	  buttonText="Spara Ändringar"
 	  buttonDisabled={!isFormValid || !isChanged}
+	  href="/dashboard/products"
 	  isLoading={isSaving}
 	  onClick={handleUpdateProduct}
 	/>

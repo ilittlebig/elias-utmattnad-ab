@@ -1,7 +1,7 @@
 "use client"
 import { useState, useEffect } from 'react'
 import { useProducts } from '@/hooks/products'
-import ProductsHeader from '@/dashboard/components/products/header'
+import ProductsHeader from '@/dashboard/components/products/productsHeader'
 import ProductEntry from '@/dashboard/components/products/productEntry'
 
 const ProductsList = () => {

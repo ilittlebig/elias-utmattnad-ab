@@ -1,27 +1,27 @@
 "use client"
 import { useState } from 'react'
-import { useProducts } from '@/hooks/products'
+import { useCategories } from '@/hooks/categories'
 import { useNotification } from '@/contexts/notificationContext'
-import useProductForm from '@/hooks/productForm'
+import useCategoryForm from '@/hooks/categoryForm'
 
 import Button from '@/components/button'
-import ProductForm from '@/dashboard/components/productForm'
+import CategoryForm from '@/dashboard/components/categories/categoryForm'
 import FormHeader from '@/dashboard/components/formHeader'
 
-const NewProductPage = () => {
+const NewCategoryPage = () => {
   const [isLoading, setLoading] = useState<boolean>(false);
-  const { newProduct } = useProducts();
-  const { productDetails, resetForm, handleFormChange, handleDropdownChange, isFormValid } = useProductForm();
+  const { newCategory } = useCategories();
+  const { categoryDetails, resetForm, handleFormChange, handleDropdownChange, isFormValid } = useCategoryForm();
   const { showNotification } = useNotification();
 
-  const handleNewProduct = async () => {
+  const handleNewCategory = async () => {
     setLoading(true);
     try {
-      await newProduct(productDetails);
+      await newCategory(categoryDetails);
       resetForm();
 
       showNotification({
-	message: "Successfully created product",
+	message: "Successfully created category",
 	type: "success"
       });
     } catch (error: any) {
@@ -41,20 +41,21 @@ const NewProductPage = () => {
     <div className="flex flex-col w-full">
       <div className="flex p-12 bg-white border h-32 w-full">
         <FormHeader
-	  title="Lägg Till Produkt"
+	  title="Lägg Till Kategori"
 	  buttonText="Lägg Till"
 	  buttonDisabled={!isFormValid}
+	  href="/dashboard/categories"
 	  isLoading={isLoading}
-	  onClick={handleNewProduct}
+	  onClick={handleNewCategory}
 	/>
       </div>
 
       <div className="flex flex-col gap-y-4 p-12">
 	<div>
-	  <ProductForm
+	  <CategoryForm
 	    onFormChange={handleFormChange}
 	    onDropdownChange={handleDropdownChange}
-	    productDetails={productDetails}
+	    categoryDetails={categoryDetails}
 	  />
 	</div>
 
@@ -72,7 +73,7 @@ const NewProductPage = () => {
 	      className="text-lg px-6 py-3"
 	      disabled={!isFormValid}
 	      isLoading={isLoading}
-	      onClick={handleNewProduct}
+	      onClick={handleNewCategory}
 	    />
 	  </div>
 	</div>
@@ -81,4 +82,4 @@ const NewProductPage = () => {
   )
 }
 
-export default NewProductPage;
+export default NewCategoryPage;
