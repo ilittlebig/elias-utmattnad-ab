@@ -1,24 +1,27 @@
-import { MongoClient } from 'mongodb';
+import mongoose from 'mongoose'
 
-const uri = process.env.MONGODB_URI;
+const MONGODB_URI = process.env.MONGODB_URI as string;
 
-let cachedClient = null;
-let cachedDb = null;
+let cached = global.mongoose;
+if (!cached) {
+    cached = global.mongoose = { conn: null, promise: null };
+}
 
-export async function connectToDatabase() {
-  if (cachedClient && cachedDb) {
-    return { client: cachedClient, db: cachedDb };
-  }
+export async function dbConnect() {
+    if (cached.conn) {
+        return cached.conn;
+    }
 
-  const client = new MongoClient(uri, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  });
+    if (!cached.promise) {
+        const opts: mongoose.ConnectOptions = {
+            bufferCommands: false,
+        };
 
-  await client.connect();
-  const db = client.db("Cluster0");
+        cached.promise = mongoose.connect(MONGODB_URI, opts).then((mongoose) => {
+            return mongoose;
+        });
+    }
 
-  cachedClient = client;
-  cachedDb = db;
-  return { client, db };
+    cached.conn = await cached.promise;
+    return cached.conn;
 }

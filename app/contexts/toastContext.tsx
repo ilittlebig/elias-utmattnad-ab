@@ -1,6 +1,6 @@
 "use client"
 import React, { createContext, useContext, useState, ReactNode, useCallback, useEffect } from 'react';
-import CartNotificationToast from '@/components/cart/cartNotificationToast'
+import CartNotificationToast from '@/(marketplace)/components/cart/cartNotificationToast'
 
 export interface Toast {
   name: string,

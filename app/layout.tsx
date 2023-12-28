@@ -1,10 +1,8 @@
 import type { Metadata } from 'next'
 import './globals.css'
 
-import Navbar from './components/navbar'
-import Footer from './components/footer'
-
 import { ToastProvider } from '@/contexts/toastContext'
+import { NotificationProvider } from '@/contexts/notificationContext'
 
 export const metadata: Metadata = {
   title: 'Elias Utmattad AB',
@@ -17,14 +15,12 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className="lg:max-w-6xl mx-auto lg:px-16 xl:px-0">
-        <ToastProvider>
-	  <Navbar />
+    <body>
+      <NotificationProvider>
+	<ToastProvider>
 	  <main>{children}</main>
-	  <Footer />
 	</ToastProvider>
-      </body>
-    </html>
+      </NotificationProvider>
+    </body>
   )
 }

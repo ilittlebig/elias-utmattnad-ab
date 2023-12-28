@@ -14,9 +14,9 @@ const config: Config = {
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
       colors: {
-        'primary': '#6B8E23',
-        'primary-hover': '#55711C',
-        'primary-click': '#55711C',
+        'primary': '#32CD32', /* '#6B8E23', */
+        'primary-hover': '#2db82d',
+        'primary-click': '#2db82d'  /* '#55711C', */
       },
       fontFamily: {
         rockwell: ['Rockwell', 'sans-serif'],
