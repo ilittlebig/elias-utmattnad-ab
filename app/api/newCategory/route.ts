@@ -1,6 +1,6 @@
-import type { NextApiRequest } from 'next';
-import { dbConnect } from '@/lib/mongodb';
-import Category from '@/models/category';
+import type { NextApiRequest } from 'next'
+import { dbConnect } from '@/lib/mongodb'
+import Category from '@/models/category'
 
 export async function POST(request: NextApiRequest) {
   try {

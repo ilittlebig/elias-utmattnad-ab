@@ -4,8 +4,8 @@ import { dbConnect } from '@/lib/mongodb'
 import Product from '@/models/product'
 
 export async function GET(request: NextApiRequest) {
-  const pathSegments = request.nextUrl.pathname.split('/');
-  const productId = pathSegments[pathSegments.length - 2];
+  const url = request.nextUrl.searchParams;
+  const productId = url.get("id");
 
   try {
     await dbConnect();

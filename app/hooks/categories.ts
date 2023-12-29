@@ -13,7 +13,7 @@ export const useCategories = () => {
   ): Promise<void> => {
     if (setLoading) setLoading(true);
     try {
-      const endpoint = "/products/api?collection=categories";
+      const endpoint = "/api/getCollection?collection=categories";
       const data: Category[] = await apiService.fetch(endpoint);
       setCategories(data);
     } catch (error: any) {
@@ -31,7 +31,7 @@ export const useCategories = () => {
       if (category == "all") {
 	setCategory({ name: "Alla Produkter", href: "all" });
       } else {
-	const endpoint = `/products/${encodeURIComponent(category)}/api?category=${encodeURIComponent(category)}`
+	const endpoint = `/api/getCategory?category=${encodeURIComponent(category)}`
 	const data: Category = await apiService.fetch(endpoint);
 	setCategory(data[0]);
       }
@@ -47,7 +47,7 @@ export const useCategories = () => {
   ): Promise<void> => {
     if (setLoading) setLoading(true);
     try {
-      const endpoint = `/dashboard/categories/api?id=${encodeURIComponent(categoryId)}`
+      const endpoint = `/api/getCategoryFromId?id=${encodeURIComponent(categoryId)}`
       const data: Category = await apiService.fetch(endpoint);
       setCategory(data);
     } catch (error: any) {
@@ -61,7 +61,7 @@ export const useCategories = () => {
     categoryDetails: CategoryDetails
   ): Promise<void> => {
     try {
-      const endpoint = "/dashboard/categories/new/api";
+      const endpoint = "/api/newCategory";
       await apiService.post(endpoint, categoryDetails)
     } catch (error: any) {
       console.log("Error creating new category:", error);
@@ -73,8 +73,8 @@ export const useCategories = () => {
     categoryDetails: CategoryDetails
   ): Promise<Category> => {
     try {
-      const endpoint = `/dashboard/categories/edit/api?id=${categoryId}`;
-      const updatedCategory = await apiService.put(endpoint, categoryDetails)
+      const endpoint = `/api/updateCategory?id=${categoryId}`;
+      const updatedCategory: Category = await apiService.put(endpoint, categoryDetails)
       return updatedCategory;
     } catch (error: any) {
       console.log("Error updating category:", error);

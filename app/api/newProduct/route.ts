@@ -1,6 +1,6 @@
-import type { NextApiRequest } from 'next';
-import { dbConnect } from '@/lib/mongodb';
-import Product from '@/models/product';
+import type { NextApiRequest } from 'next'
+import { dbConnect } from '@/lib/mongodb'
+import Product from '@/models/product'
 
 export async function POST(request: NextApiRequest) {
   try {

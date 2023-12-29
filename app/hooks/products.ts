@@ -20,7 +20,7 @@ export const useProducts = () => {
   ): Promise<void> => {
     setLoading(true);
     try {
-      const endpoint = `/products/api?collection=products&category=${encodeURIComponent(category)}`
+      const endpoint = `/api/getCollection?collection=products&category=${encodeURIComponent(category)}`
       const data: Product[] = await apiService.fetch(endpoint);
       setProducts(data);
     } catch (error) {
@@ -38,7 +38,7 @@ export const useProducts = () => {
   ): Promise<void> => {
     if (setLoading) setLoading(true);
     try {
-      const endpoint = `/products/${category}/${productId}/api`;
+      const endpoint = `/api/getProductFromId?id=${productId}`;
       const data: Product = await apiService.fetch(endpoint);
       setProduct(data);
     } catch (error) {
@@ -52,7 +52,7 @@ export const useProducts = () => {
     setProductCount: () => void
   ): Promise<void> => {
     try {
-      const endpoint = "/dashboard/products/api";
+      const endpoint = "/api/getProductsCount";
       const data: { count: number } = await apiService.fetch(endpoint);
       setProductCount(data.count);
     } catch (error: any) {
@@ -64,7 +64,7 @@ export const useProducts = () => {
     productDetails: ProductDetails
   ): Promise<void> => {
     try {
-      const endpoint = "/dashboard/products/new/api";
+      const endpoint = "/api/newProduct";
       await apiService.post(endpoint, productDetails);
     } catch (error: any) {
       console.log("Error creating new product:", error);
@@ -76,8 +76,8 @@ export const useProducts = () => {
     productDetails: ProductDetails
   ): Promise<Product> => {
     try {
-      const endpoint = `/dashboard/products/edit/api?id=${productId}`;
-      const updatedProduct = await apiService.put(endpoint, productDetails)
+      const endpoint = `/api/updateProduct?id=${productId}`;
+      const updatedProduct: Product = await apiService.put(endpoint, productDetails)
       return updatedProduct;
     } catch (error: any) {
       console.log("Error updating product:", error);
