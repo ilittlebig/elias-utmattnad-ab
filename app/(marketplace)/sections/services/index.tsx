@@ -68,8 +68,8 @@ const ServicesSection = () => {
 	<div className="absolute left-0 w-screen h-[457px]">
 	  <Image
 	    src="/services.png"
-	    layout="fill"
-	    objectFit="cover"
+	    fill
+	    style={{ objectFit: "cover" }}
 	    alt="Hero"
 	  />
 	</div>

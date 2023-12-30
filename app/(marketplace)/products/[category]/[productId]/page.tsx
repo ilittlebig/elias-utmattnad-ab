@@ -26,7 +26,7 @@ const ProductPage = () => {
   }, [currentCategory]);
 
   useEffect(() => {
-    fetchProduct(category, productId, null, setProduct);
+    fetchProduct(category, productId, setProduct);
   }, [productId]);
 
   return (

@@ -73,8 +73,8 @@ const HamburgerMenu = ({ toggled, children, onToggle }: MenuProps) => {
 	  <div className="flex mx-auto relative w-[110px] h-[90px]">
 	    <Image
 	      src="/logo.svg"
-	      layout="fill"
-	      objectfit="contain"
+	      fill
+	      style={{ objectFit: "contain" }}
 	      alt="Logo"
 	    />
 	  </div>

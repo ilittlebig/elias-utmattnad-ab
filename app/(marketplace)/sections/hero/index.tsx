@@ -24,8 +24,9 @@ const HeroSection = () => {
 	<div className="absolute left-0 w-screen h-[250px] lg:h-[384px]">
 	  <Image
 	    src="/hero.png"
-	    layout="fill"
-	    objectFit="cover"
+	    priority
+	    fill
+	    style={{ objectFit: "cover" }}
 	    alt="Hero"
 	  />
 	</div>

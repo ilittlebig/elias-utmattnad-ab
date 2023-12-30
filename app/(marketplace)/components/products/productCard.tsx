@@ -24,8 +24,8 @@ const ProductCard = ({
       <div className="flex relative w-full h-full">
 	<Image
 	  src={imagePath}
-	  layout="fill"
-	  objectFit="contain"
+	  fill
+	  style={{ objectFit: "contain" }}
 	  className="transition-transform duration-300 hover:scale-105"
 	  alt="Product Image"
 	/>

@@ -31,13 +31,13 @@ const VisionSection = () => {
       <div className="absolute left-0 w-screen h-[1011px]">
 	<Image
 	  src="/vision.png"
-	  layout="fill"
-	  objectFit="cover"
+	  fill
+	  style={{ objectFit: "cover" }}
 	  alt="Vision"
 	/>
       </div>
 
-      <div className="relative flex pt-64 pb-48 z-10">
+      <div className="relative flex pt-[300px] pb-[160px] z-10">
 	<div className="flex flex-col mx-auto text-white text-center px-8 lg:px-0 gap-y-4 font-rockwell">
 	  <h1 className="lg:text-5xl text-4xl font-bold">
 	    Vår Vision:

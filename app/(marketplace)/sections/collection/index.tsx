@@ -7,8 +7,9 @@ const CollectionSection = () => {
       <div className="absolute left-0 w-screen h-[988px]">
 	<Image
 	  src="/collection.png"
-	  layout="fill"
-	  objectFit="cover"
+	  priority
+	  fill
+	  style={{ objectFit: "cover" }}
 	  alt="Vision"
 	/>
       </div>

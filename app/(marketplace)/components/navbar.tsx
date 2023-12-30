@@ -54,8 +54,8 @@ const Navbar: FC = () => {
 	<Link key="Logo" href="/" className="relative w-[110px] h-[40px] lg:w-[91px] lg:w-[90px]">
 	  <Image
 	    src="/logo.svg"
-	    layout="fill"
-	    objectfit="contain"
+	    fill
+	    style={{ objectFit: "contain" }}
 	    alt="Logo"
 	  />
 	</Link>
@@ -87,8 +87,8 @@ const Navbar: FC = () => {
 	  >
 	    <Image
 	      src="/shoppingBag.png"
-	      layout="fill"
-	      objectFit="contain"
+	      fill
+	      style={{ objectFit: "contain" }}
 	      alt="Shopping Bag"
 	    />
 	    <div className="absolute -bottom-2 lg:-right-2 bg-red-500 rounded-full h-6 w-6 flex items-center justify-center text-white">
@@ -101,8 +101,8 @@ const Navbar: FC = () => {
 	  <Link href="/login/identifier" className="relative lg:w-6 lg:h-6 w-8 h-8 lg:px-0 pr-16">
 	    <Image
 	      src="/User.png"
-	      layout="fill"
-	      objectFit="contain"
+	      fill
+	      style={{ objectFit: "contain" }}
 	      alt="Shopping Bag"
 	    />
 	  </Link>

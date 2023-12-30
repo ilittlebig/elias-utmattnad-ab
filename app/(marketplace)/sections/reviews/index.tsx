@@ -131,7 +131,7 @@ const ReviewsSection = () => {
             initial="enter"
             animate="center"
             exit="exit"
-            className="absolute inset-0 flex lg:flex-row flex-col gap-y-6 px-4 lg:px-4 justify-between"
+            className="absolute inset-0 flex lg:flex-row flex-col gap-y-6 px-4 lg:px-4 items-center lg:justify-between"
           >
             {cardSets[currentIndex].map((review, index) => (
               <Card

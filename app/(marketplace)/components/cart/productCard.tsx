@@ -24,8 +24,8 @@ const ProductCard = ({ id, name, price, quantity }: ProductCardProps) => {
 	<div className="relative w-24 h-24">
 	  <Image
 	    src="/rug1.png"
-	    layout="fill"
-	    objectFit="contain"
+	    fill
+	    style={{ objectFit: "contain" }}
 	    alt="Product Image"
 	  />
 	</div>

@@ -1,6 +1,7 @@
 import HeroSection from '@/(marketplace)/sections/hero/index'
 import ReviewsSection from '@/(marketplace)/sections/reviews/index'
 import ServicesSection from '@/(marketplace)/sections/services/index'
+import TrustedBySection from '@/(marketplace)/sections/trustedBy/index'
 import VisionSection from '@/(marketplace)/sections/vision/index'
 import CollectionSection from '@/(marketplace)/sections/collection/index'
 import FAQSection from '@/(marketplace)/sections/FAQ/index'
@@ -12,6 +13,7 @@ export default function Home() {
     <main className="">
       <HeroSection />
       <VisionSection />
+      <TrustedBySection />
       <ServicesSection />
 
       {/* Content Showcase Section */}
