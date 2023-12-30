@@ -1,67 +1,26 @@
-export const apiService = {
-  async fetch (endpoint: string): Promise<any> {
-    try {
-      const response = await fetch(endpoint);
-      if (!response.ok) {
-	throw new Error(`HTTP Error! Status: ${response.status}`);
-      }
-      return response.json();
-    } catch (error: any) {
-      console.log("Error fetching data: ", error);
-      throw error;
+export const apiCall = async <T>(
+  method: "GET" | "POST" | "PUT" | "DELETE",
+  endpoint: string,
+  data?: any,
+  headers?: HeadersInit
+): Promise<T> => {
+  try {
+    const requestOptions: RequestInit = {
+      method,
+      headers: { ...headers }
     }
-  },
 
-  async post (endpoint: string, data: any): Promise<any> {
-    try {
-      const response = await fetch(endpoint, {
-	method: "POST",
-	headers: { "Content-Type": "application/json" },
-	body: JSON.stringify(data)
-      });
-
-      if (!response.ok) {
-	throw new Error(`HTTP Error! Status: ${response.status}`);
-      }
-      return response.json();
-    } catch (error: any) {
-      console.log("Error posting data: ", error);
-      throw error;
+    if (data) {
+      requestOptions.headers["Content-Type"] = "application/json";
+      requestOptions.body = JSON.stringify(data);
     }
-  },
 
-  async put (endpoint: string, data: any): Promise<any> {
-    try {
-      const response = await fetch(endpoint, {
-	method: "PUT",
-	headers: { "Content-Type": "application/json" },
-	body: JSON.stringify(data)
-      });
-
-      if (!response.ok) {
-	throw new Error(`HTTP Error! Status: ${response.status}`);
-      }
-      return response.json();
-    } catch (error: any) {
-      console.log("Error updating data: ", error);
-      throw error;
-    }
-  },
-
-  async delete (endpoint: string): Promise<any> {
-    try {
-      const response = await fetch(endpoint, {
-	method: "DELETE",
-	headers: { "Content-Type": "application/json" },
-      });
-
-      if (!response.ok) {
-	throw new Error(`HTTP Error! Status: ${response.status}`);
-      }
-      return response.json();
-    } catch (error: any) {
-      console.log("Error deleting data: ", error);
-      throw error;
-    }
+    const response = await fetch(endpoint, requestOptions);
+    return response.headers.get("Content-Type")?.includes("application/json")
+      ? (await response.json()) as T
+      : (await response.text()) as unknown as T;
+  } catch (error: any) {
+    console.log(`Error during ${method} request to ${endpoint}:`, error);
+    throw error;
   }
 }

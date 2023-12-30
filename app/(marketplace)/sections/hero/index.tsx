@@ -14,7 +14,7 @@ const HeroSection = () => {
     visible: (custom) => ({
       opacity: 1,
       y: 0,
-      transition: { delay: custom * 0.35 }
+      transition: { delay: custom * 0.25 }
     })
   };
 
@@ -82,8 +82,8 @@ const HeroSection = () => {
             Upptäck en värld där varje matta är ett mästerverk - Handgjorda, unika, och med en personlig prägel. Välkommen till en plats där design möter passion.
           </motion.p>
 
-	  <div className="pt-2">
-	    <motion.div variants={itemVariants} custom={5} className="pt-2">
+	  <div className="flex justify-center w-full">
+	    <motion.div variants={itemVariants} custom={5}>
 	      <Button
 		actionText="Gör Din Egen Design"
 		href="/"

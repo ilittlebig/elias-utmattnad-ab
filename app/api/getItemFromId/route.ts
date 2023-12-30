@@ -1,18 +1,22 @@
 import type { NextRequest } from 'next/server'
 import { dbConnect } from '@/lib/mongodb'
-import Category from '@/models/category'
+import getModelByType from '@/utils/modelSelector'
 
 export async function GET(request: NextRequest) {
   const url = request.nextUrl.searchParams;
-  const categoryId = url.get("id");
+  const itemId = url.get("id");
+  const type = url.get("type");
 
   try {
     await dbConnect();
-    const category = await Category.findById(categoryId).exec();
 
-    if (!category) {
+    const model = getModelByType(type);
+    const item = await model.findById(itemId).exec();
+
+    if (!item) {
       return new Response(JSON.stringify({
-	error: "Category not found"
+	message: "Category not found",
+	success: true
       }), {
         status: 404,
         headers: {
@@ -21,14 +25,14 @@ export async function GET(request: NextRequest) {
       });
     }
 
-    return new Response(JSON.stringify(category), {
+    return new Response(JSON.stringify(item), {
       headers: {
         "Content-Type": "application/json"
       }
     });
   } catch (error) {
     return new Response(JSON.stringify({
-      error: "Internal Server Error"
+      message: "Internal Server Error"
     }), {
       status: 500,
       headers: {

@@ -23,24 +23,15 @@ const CategoryEntry = ({
   const { deleteCategory } = useCategories();
 
   const onAction = async () => {
-    try {
-      await deleteCategory(id)
+    const response = await deleteCategory(id)
+    if (response.success) {
       removeCategoryFromList(id)
-
-      showNotification({
-	message: "Successfully deleted category",
-	type: "success"
-      });
-    } catch (error: any) {
-      const errorMessage = error instanceof Error ?
-        error.message :
-	"Unknown error";
-
-      showNotification({
-	message: errorMessage,
-	type: "error"
-      });
     }
+
+    showNotification({
+      message: response.message,
+      type: response.success ? "success" : "error"
+    });
   };
 
   const handleDeletion = () => {

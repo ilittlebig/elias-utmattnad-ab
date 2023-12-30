@@ -55,9 +55,10 @@ const Sidebar = () => {
 	/>
       </div>
 
-      <div className="flex flex-col gap-y-3 py-6">
-        {labels.map((label) => (
+      <div className="flex flex-col py-6 px-2 w-full items-center">
+        {labels.map((label, index) => (
 	  <SidebarLabel
+	    key={index}
 	    label={label.label}
 	    icon={label.icon}
 	    href={label.href}

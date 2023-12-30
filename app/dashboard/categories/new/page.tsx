@@ -12,31 +12,30 @@ import FormHeader from '@/dashboard/components/formHeader'
 const NewCategoryPage = () => {
   const [isLoading, setLoading] = useState<boolean>(false);
   const { newCategory } = useCategories();
-  const { categoryDetails, resetForm, handleFormChange, handleDropdownChange, isFormValid } = useCategoryForm();
   const { showNotification } = useNotification();
   const { addCategoryToList } = useCategoriesContext();
 
+  const {
+    formDetails,
+    resetForm,
+    handleFormChange,
+    handleDropdownChange,
+    isFormValid
+  } = useCategoryForm();
+
   const handleNewCategory = async () => {
     setLoading(true);
-    try {
-      const response = await newCategory(categoryDetails);
-      addCategoryToList(response.category)
+
+    const response = await newCategory(formDetails);
+    if (response.success) {
+      addCategoryToList(response.item)
       resetForm();
-
-      showNotification({
-	message: "Successfully created category",
-	type: "success"
-      });
-    } catch (error: any) {
-      const errorMessage = error instanceof Error ?
-        error.message :
-	"Unknown error";
-
-      showNotification({
-	message: errorMessage,
-	type: "error"
-      });
     }
+
+    showNotification({
+      message: response.message,
+      type: response.success ? "success" : "error"
+    });
     setLoading(false);
   }
 
@@ -58,7 +57,7 @@ const NewCategoryPage = () => {
 	  <CategoryForm
 	    onFormChange={handleFormChange}
 	    onDropdownChange={handleDropdownChange}
-	    categoryDetails={categoryDetails}
+	    categoryDetails={formDetails}
 	  />
 	</div>
 

@@ -28,7 +28,7 @@ const EditProductPage = () => {
 
   const formInitialState = useMemo(() => product || null, [product]);
   const {
-    productDetails,
+    formDetails,
     resetIsChanged,
     handleFormChange,
     handleDropdownChange,
@@ -38,25 +38,17 @@ const EditProductPage = () => {
 
   const handleUpdateProduct = async () => {
     setSaving(true);
-    try {
-      const response = await updateProduct(productId, productDetails);
-      updateProductInList(response.updatedProduct);
+
+    const response = await updateProduct(productId, formDetails);
+    if (response.success) {
+      updateProductInList(response.item);
       resetIsChanged();
-
-      showNotification({
-	message: response.message,
-	type: "success"
-      });
-    } catch (error) {
-      const errorMessage = error instanceof Error ?
-        error.message :
-	"Unknown error";
-
-      showNotification({
-	message: errorMessage,
-	type: "error"
-      });
     }
+
+    showNotification({
+      message: response.message,
+      type: response.success ? "success" : "error"
+    });
     setSaving(false);
   }
 
@@ -81,7 +73,7 @@ const EditProductPage = () => {
 	    <ProductForm
 	      onFormChange={handleFormChange}
 	      onDropdownChange={handleDropdownChange}
-	      productDetails={productDetails || {}}
+	      productDetails={formDetails || {}}
 	    />
 	  )}
 	</div>

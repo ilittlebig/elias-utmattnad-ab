@@ -1,21 +1,27 @@
 import type { NextApiRequest } from 'next'
 import { dbConnect } from '@/lib/mongodb'
-import Product from '@/models/product'
+import getModelByType from '@/utils/modelSelector'
 
 export async function POST(request: NextApiRequest) {
+  const url = request.nextUrl.searchParams;
+  const type = url.get("type");
+
   try {
     await dbConnect();
 
     const body = request.body;
     const passedValue = await new Response(body).text();
-    const productDetails = JSON.parse(passedValue);
+    const itemDetails = JSON.parse(passedValue);
 
-    const product = new Product(productDetails);
-    await product.save();
+    const model = getModelByType(type);
+    const item = new model(itemDetails);
+    await item.save();
 
+    // TODO: this should adapt to which model is being used
     return new Response(JSON.stringify({
       message: "Product created successfully",
-      product
+      success: true,
+      item
     }), {
       status: 201,
       headers: {

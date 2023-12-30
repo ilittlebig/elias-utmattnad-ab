@@ -18,7 +18,7 @@ const ProductsPage = () => {
 	  />
 	</div>
 
-	<div className="flex flex-col gap-y-6 font-rockwell justify-center mx-auto z-10">
+	<div className="flex flex-col items-center gap-y-6 font-rockwell justify-center mx-auto z-10">
 	  <h1 className="text-4xl text-white text-center">
 	    Utforska Vår Vinterkollektion
 	  </h1>

@@ -27,27 +27,18 @@ const ProductEntry = ({
   const { deleteProduct } = useProducts();
 
   const status = inventory > 0 ? "I Lager" : "Slut i Lager";
-  const statusColor = inventory > 0 ? "text-green-500" : "text-red-500";
+  const statusColor = inventory > 0 ? "text-primary" : "text-red-500";
 
   const onAction = async () => {
-    try {
-      const response = await deleteProduct(id)
+    const response = await deleteProduct(id)
+    if (response.success) {
       removeProductFromList(id)
-
-      showNotification({
-	message: response.message,
-	type: "success"
-      });
-    } catch (error: any) {
-      const errorMessage = error instanceof Error ?
-        error.message :
-	"Unknown error";
-
-      showNotification({
-	message: errorMessage,
-	type: "error"
-      });
     }
+
+    showNotification({
+      message: response.message,
+      type: response.success ? "success" : "error"
+    });
   };
 
   const handleDeletion = () => {

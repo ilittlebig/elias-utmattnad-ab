@@ -16,7 +16,7 @@ const NewProductPage = () => {
   const { addProductToList } = useProductsContext();
 
   const {
-    productDetails,
+    formDetails,
     resetForm,
     handleFormChange,
     handleDropdownChange,
@@ -25,25 +25,17 @@ const NewProductPage = () => {
 
   const handleNewProduct = async () => {
     setLoading(true);
-    try {
-      const response = await newProduct(productDetails);
-      addProductToList(response.product);
+
+    const response = await newProduct(formDetails);
+    if (response.success) {
+      addProductToList(response.item);
       resetForm();
-
-      showNotification({
-	message: response.message,
-	type: "success"
-      });
-    } catch (error: any) {
-      const errorMessage = error instanceof Error ?
-        error.message :
-	"Unknown error";
-
-      showNotification({
-	message: errorMessage,
-	type: "error"
-      });
     }
+
+    showNotification({
+      message: response.message,
+      type: response.success ? "success" : "error"
+    });
     setLoading(false);
   }
 
@@ -65,7 +57,7 @@ const NewProductPage = () => {
 	  <ProductForm
 	    onFormChange={handleFormChange}
 	    onDropdownChange={handleDropdownChange}
-	    productDetails={productDetails}
+	    productDetails={formDetails}
 	  />
 	</div>
 

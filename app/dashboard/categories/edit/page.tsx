@@ -28,7 +28,7 @@ const EditCategoryPage = () => {
 
   const formInitialState = useMemo(() => category || null, [category]);
   const {
-    categoryDetails,
+    formDetails,
     resetIsChanged,
     handleFormChange,
     isFormValid,
@@ -37,25 +37,17 @@ const EditCategoryPage = () => {
 
   const handleUpdateCategory = async () => {
     setSaving(true);
-    try {
-      const response = await updateCategory(categoryId, categoryDetails);
-      updateCategoryInList(response.updatedCategory);
+
+    const response = await updateCategory(categoryId, formDetails);
+    if (response.success) {
+      updateCategoryInList(response.item);
       resetIsChanged();
-
-      showNotification({
-	message: response.message,
-	type: "success"
-      });
-    } catch (error) {
-      const errorMessage = error instanceof Error ?
-        error.message :
-	"Unknown error";
-
-      showNotification({
-	message: errorMessage,
-	type: "error"
-      });
     }
+
+    showNotification({
+      message: response.message,
+      type: response.success ? "success" : "error"
+    });
     setSaving(false);
   }
 
@@ -79,7 +71,7 @@ const EditCategoryPage = () => {
 	  ) : (
 	    <CategoryForm
 	      onFormChange={handleFormChange}
-	      categoryDetails={categoryDetails || {}}
+	      categoryDetails={formDetails || {}}
 	    />
 	  )}
 	</div>

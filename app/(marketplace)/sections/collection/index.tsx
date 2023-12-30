@@ -14,7 +14,7 @@ const CollectionSection = () => {
       </div>
 
       <div className="relative flex items-center h-[988px] z-10">
-	<div className="flex flex-col mx-auto text-white text-center gap-y-6 font-rockwell">
+	<div className="flex items-center flex-col mx-auto text-white text-center gap-y-6 font-rockwell">
 	  <h1 className="lg:text-5xl text-4xl font-bold">
 	    Upptäck Vår Mattkollektion
 	  </h1>

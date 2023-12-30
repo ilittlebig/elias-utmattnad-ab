@@ -1,23 +1,30 @@
 import type { NextApiRequest } from 'next'
 import { dbConnect } from '@/lib/mongodb'
-import Category from '@/models/category'
+import getModelByType from '@/utils/modelSelector'
 
 export async function DELETE(request: NextApiRequest) {
+  const url = request.nextUrl.searchParams;
+  const itemId = url.get("id");
+  const type = url.get("type");
+
   try {
     await dbConnect();
 
-    const url = request.nextUrl.searchParams;
-    const categoryId = url.get("id");
-    await Category.findByIdAndDelete(categoryId);
+    const model = getModelByType(type);
+    await model.findByIdAndDelete(itemId);
 
     return new Response(JSON.stringify({
-      message: "Category deleted successfully"
+      message: "Product deleted successfully",
+      success: true
     }), {
       status: 201,
+      headers: {
+        "Content-Type": "application/json",
+      },
     });
   } catch (error: any) {
     return new Response(JSON.stringify({
-      error: error.message
+      message: error.message
     }), {
       status: 500,
       headers: {

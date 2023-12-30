@@ -7,7 +7,7 @@ type StatisticProps = {
 
 const StatisticWidget = ({ title, value }: StatisticProps) => {
   return (
-    <div className="relative bg-white drop-shadow-card justify-between rounded-lg p-4 w-[300px] h-[150px]">
+    <div className="relative bg-white drop-shadow-card border justify-between rounded-lg p-4 w-[300px] h-[150px]">
       <div className="flex flex-col gap-y-4">
 	<div className="text-md text-gray-600 font-medium">{title}</div>
 	<div className="text-4xl font-bold">

@@ -54,7 +54,7 @@ const Button = ({
       'text-gray-500 hover:text-gray-700': noBackground,
       'font-rockwell text-center': true,
       'w-full': fill,
-      'inline-block': !fill,
+      'w-fit': !fill,
       'rounded-md': true,
       'transition-all duration-150': !disabled && !noBackground,
     },
