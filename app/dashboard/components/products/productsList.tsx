@@ -1,17 +1,11 @@
 "use client"
 import { useState, useEffect } from 'react'
-import { useProducts } from '@/hooks/products'
+import { useProductsContext } from '@/contexts/productsContext'
 import ProductsHeader from '@/dashboard/components/products/productsHeader'
 import ProductEntry from '@/dashboard/components/products/productEntry'
 
 const ProductsList = () => {
-  const [isLoading, setLoading] = useState(true);
-  const [products, setProducts] = useState([]);
-  const { fetchProducts } = useProducts();
-
-  useEffect(() => {
-    fetchProducts("all", setLoading, setProducts);
-  }, []);
+  const { products, isLoading } = useProductsContext();
 
   return (
     <div className="flex flex-col w-full overflow-auto">

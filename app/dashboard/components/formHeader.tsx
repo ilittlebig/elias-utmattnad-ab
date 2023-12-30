@@ -1,4 +1,4 @@
-import Button from '@/components/button'
+import FormActionButtons from '@/dashboard/components/formActionButtons'
 import BackArrow from '@/dashboard/components/backArrow'
 
 type HeaderProps = {
@@ -10,9 +10,12 @@ type HeaderProps = {
   onClick: () => void
 };
 
-const FormHeader = ({ title, buttonText, buttonDisabled, href, isLoading, onClick }: HeaderProps) => {
+const FormHeader = ({
+  title, buttonText, buttonDisabled,
+  href, isLoading, onClick
+}: HeaderProps) => {
   return (
-    <div className="flex w-full justify-between">
+    <div className="flex w-full justify-between justify-center items-center">
       <div className="flex items-center gap-x-5">
 	<BackArrow />
 
@@ -21,22 +24,13 @@ const FormHeader = ({ title, buttonText, buttonDisabled, href, isLoading, onClic
 	</div>
       </div>
 
-      <div className="flex gap-x-2">
-	<Button
-	  actionText="Avbryt"
-	  className="text-lg px-6 py-3"
-	  href={href}
-	  noBackground
-	/>
-
-	<Button
-	  actionText={buttonText}
-	  className="text-lg px-6 py-3"
-	  disabled={buttonDisabled}
-	  isLoading={isLoading}
-	  onClick={onClick}
-	/>
-      </div>
+      <FormActionButtons
+	buttonText={buttonText}
+	href={href}
+	disabled={buttonDisabled}
+	isLoading={isLoading}
+	onClick={onClick}
+      />
     </div>
   )
 }

@@ -2,10 +2,11 @@
 import { useState, useEffect, useMemo } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { Category, useCategories } from '@/hooks/categories'
+import { useCategoriesContext } from '@/contexts/categoriesContext'
 import { useNotification } from '@/contexts/notificationContext'
 import useCategoryForm from '@/hooks/categoryForm'
 
-import Button from '@/components/button'
+import FormActionButtons from '@/dashboard/components/formActionButtons'
 import CategoryForm from '@/dashboard/components/categories/categoryForm'
 import FormHeader from '@/dashboard/components/formHeader'
 
@@ -14,6 +15,7 @@ const EditCategoryPage = () => {
   const [isSaving, setSaving] = useState<boolean>(false);
   const [category, setCategory] = useState<Category | null>(null);
   const { fetchCategoryFromId, updateCategory } = useCategories();
+  const { updateCategoryInList } = useCategoriesContext();
   const { showNotification } = useNotification();
 
   const searchParams = useSearchParams();
@@ -36,12 +38,12 @@ const EditCategoryPage = () => {
   const handleUpdateCategory = async () => {
     setSaving(true);
     try {
-      const updatedCategory = await updateCategory(categoryId, categoryDetails);
-      setCategory(updatedCategory);
+      const response = await updateCategory(categoryId, categoryDetails);
+      updateCategoryInList(response.updatedCategory);
       resetIsChanged();
 
       showNotification({
-	message: "Successfully updated category",
+	message: response.message,
 	type: "success"
       });
     } catch (error) {
@@ -83,22 +85,13 @@ const EditCategoryPage = () => {
 	</div>
 
 	<div className="flex w-full justify-end">
-	  <div className="flex gap-x-2">
-	    <Button
-	      actionText="Avbryt"
-	      className="text-lg px-6 py-3"
-	      href="/dashboard/categories"
-	      noBackground
-	    />
-
-	    <Button
-	      actionText="Spara Ändringar"
-	      className="text-lg px-6 py-3"
-	      disabled={!isFormValid || !isChanged}
-	      isLoading={isSaving}
-	      onClick={handleUpdateCategory}
-	    />
-	  </div>
+	  <FormActionButtons
+	    buttonText="Spara Ändringar"
+	    href="/dashboard/categories"
+	    disabled={!isFormValid || !isChanged}
+	    isLoading={isSaving}
+	    onClick={handleUpdateCategory}
+	  />
 	</div>
       </div>
     </div>

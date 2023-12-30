@@ -2,26 +2,36 @@
 import { useState } from 'react'
 import { useProducts } from '@/hooks/products'
 import { useNotification } from '@/contexts/notificationContext'
+import { useProductsContext } from '@/contexts/productsContext'
 import useProductForm from '@/hooks/productForm'
 
-import Button from '@/components/button'
+import FormActionButtons from '@/dashboard/components/formActionButtons'
 import ProductForm from '@/dashboard/components/products/productForm'
 import FormHeader from '@/dashboard/components/formHeader'
 
 const NewProductPage = () => {
   const [isLoading, setLoading] = useState<boolean>(false);
   const { newProduct } = useProducts();
-  const { productDetails, resetForm, handleFormChange, handleDropdownChange, isFormValid } = useProductForm();
   const { showNotification } = useNotification();
+  const { addProductToList } = useProductsContext();
+
+  const {
+    productDetails,
+    resetForm,
+    handleFormChange,
+    handleDropdownChange,
+    isFormValid
+  } = useProductForm();
 
   const handleNewProduct = async () => {
     setLoading(true);
     try {
-      await newProduct(productDetails);
+      const response = await newProduct(productDetails);
+      addProductToList(response.product);
       resetForm();
 
       showNotification({
-	message: "Successfully created product",
+	message: response.message,
 	type: "success"
       });
     } catch (error: any) {
@@ -60,22 +70,13 @@ const NewProductPage = () => {
 	</div>
 
 	<div className="flex w-full justify-end">
-	  <div className="flex gap-x-2">
-	    <Button
-	      actionText="Avbryt"
-	      className="text-lg px-6 py-3"
-	      href="/dashboard/products"
-	      noBackground
-	    />
-
-	    <Button
-	      actionText="Lägg Till"
-	      className="text-lg px-6 py-3"
-	      disabled={!isFormValid}
-	      isLoading={isLoading}
-	      onClick={handleNewProduct}
-	    />
-	  </div>
+	  <FormActionButtons
+	    buttonText="Lägg Till"
+	    href="/dashboard/products"
+	    disabled={!isFormValid}
+	    isLoading={isLoading}
+	    onClick={handleNewProduct}
+	  />
 	</div>
       </div>
     </div>

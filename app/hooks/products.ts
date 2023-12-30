@@ -12,6 +12,11 @@ export interface Product {
   rating: number;
 };
 
+interface ResponseMessage {
+  message: string,
+  product?: Product
+};
+
 export const useProducts = () => {
   const fetchProducts = async (
     category: string,
@@ -48,24 +53,13 @@ export const useProducts = () => {
     }
   };
 
-  const fetchProductCount = async (
-    setProductCount: () => void
-  ): Promise<void> => {
-    try {
-      const endpoint = "/api/getProductsCount";
-      const data: { count: number } = await apiService.fetch(endpoint);
-      setProductCount(data.count);
-    } catch (error: any) {
-      console.log("Error fetching product count:", error);
-    }
-  };
-
   const newProduct = async (
     productDetails: ProductDetails
   ): Promise<void> => {
     try {
       const endpoint = "/api/newProduct";
-      await apiService.post(endpoint, productDetails);
+      const response: ResponseMessage = await apiService.post(endpoint, productDetails);
+      return response;
     } catch (error: any) {
       console.log("Error creating new product:", error);
     }
@@ -74,15 +68,27 @@ export const useProducts = () => {
   const updateProduct = async (
     productId: string,
     productDetails: ProductDetails
-  ): Promise<Product> => {
+  ): Promise<ResponseMessage> => {
     try {
       const endpoint = `/api/updateProduct?id=${productId}`;
-      const updatedProduct: Product = await apiService.put(endpoint, productDetails)
-      return updatedProduct;
+      const response: ResponseMessage = await apiService.put(endpoint, productDetails)
+      return response;
     } catch (error: any) {
       console.log("Error updating product:", error);
     }
   };
 
-  return { fetchProducts, fetchProduct, fetchProductCount, newProduct, updateProduct };
+  const deleteProduct = async (
+    productId: string
+  ): Promise<ResponseMessage> => {
+    try {
+      const endpoint = `/api/deleteProduct?id=${productId}`;
+      const response: ResponseMessage = await apiService.delete(endpoint)
+      return response;
+    } catch (error: any) {
+      console.log("Error deleting product:", error);
+    }
+  };
+
+  return { fetchProducts, fetchProduct, newProduct, updateProduct, deleteProduct };
 }

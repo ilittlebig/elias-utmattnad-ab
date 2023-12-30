@@ -2,9 +2,10 @@
 import { useState } from 'react'
 import { useCategories } from '@/hooks/categories'
 import { useNotification } from '@/contexts/notificationContext'
+import { useCategoriesContext } from '@/contexts/categoriesContext'
 import useCategoryForm from '@/hooks/categoryForm'
 
-import Button from '@/components/button'
+import FormActionButtons from '@/dashboard/components/formActionButtons'
 import CategoryForm from '@/dashboard/components/categories/categoryForm'
 import FormHeader from '@/dashboard/components/formHeader'
 
@@ -13,11 +14,13 @@ const NewCategoryPage = () => {
   const { newCategory } = useCategories();
   const { categoryDetails, resetForm, handleFormChange, handleDropdownChange, isFormValid } = useCategoryForm();
   const { showNotification } = useNotification();
+  const { addCategoryToList } = useCategoriesContext();
 
   const handleNewCategory = async () => {
     setLoading(true);
     try {
-      await newCategory(categoryDetails);
+      const response = await newCategory(categoryDetails);
+      addCategoryToList(response.category)
       resetForm();
 
       showNotification({
@@ -60,22 +63,13 @@ const NewCategoryPage = () => {
 	</div>
 
 	<div className="flex w-full justify-end">
-	  <div className="flex gap-x-2">
-	    <Button
-	      actionText="Avbryt"
-	      className="text-lg px-6 py-3"
-	      href="/dashboard/products"
-	      noBackground
-	    />
-
-	    <Button
-	      actionText="Lägg Till"
-	      className="text-lg px-6 py-3"
-	      disabled={!isFormValid}
-	      isLoading={isLoading}
-	      onClick={handleNewCategory}
-	    />
-	  </div>
+	  <FormActionButtons
+	    buttonText="Lägg Till"
+	    href="/dashboard/categories"
+	    disabled={!isFormValid}
+	    isLoading={isLoading}
+	    onClick={handleNewCategory}
+	  />
 	</div>
       </div>
     </div>

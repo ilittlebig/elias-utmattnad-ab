@@ -1,11 +1,12 @@
 "use client"
 import { useState, useEffect, useMemo } from 'react'
 import { useSearchParams } from 'next/navigation'
+import { useProductsContext } from '@/contexts/productsContext'
 import { Product, useProducts } from '@/hooks/products'
 import { useNotification } from '@/contexts/notificationContext'
 import useProductForm from '@/hooks/productForm'
 
-import Button from '@/components/button'
+import FormActionButtons from '@/dashboard/components/formActionButtons'
 import ProductForm from '@/dashboard/components/products/productForm'
 import FormHeader from '@/dashboard/components/formHeader'
 
@@ -14,6 +15,7 @@ const EditProductPage = () => {
   const [isSaving, setSaving] = useState<boolean>(false);
   const [product, setProduct] = useState<Product | null>(null);
   const { fetchProduct, updateProduct } = useProducts();
+  const { updateProductInList } = useProductsContext();
   const { showNotification } = useNotification();
 
   const searchParams = useSearchParams();
@@ -37,12 +39,12 @@ const EditProductPage = () => {
   const handleUpdateProduct = async () => {
     setSaving(true);
     try {
-      const updatedProduct = await updateProduct(productId, productDetails);
-      setProduct(updatedProduct);
+      const response = await updateProduct(productId, productDetails);
+      updateProductInList(response.updatedProduct);
       resetIsChanged();
 
       showNotification({
-	message: "Successfully updated product",
+	message: response.message,
 	type: "success"
       });
     } catch (error) {
@@ -85,22 +87,13 @@ const EditProductPage = () => {
 	</div>
 
 	<div className="flex w-full justify-end">
-	  <div className="flex gap-x-2">
-	    <Button
-	      actionText="Avbryt"
-	      className="text-lg px-6 py-3"
-	      href="/dashboard/products"
-	      noBackground
-	    />
-
-	    <Button
-	      actionText="Spara Ändringar"
-	      className="text-lg px-6 py-3"
-	      disabled={!isFormValid || !isChanged}
-	      isLoading={isSaving}
-	      onClick={handleUpdateProduct}
-	    />
-	  </div>
+	  <FormActionButtons
+	    buttonText="Spara Ändringar"
+	    href="/dashboard/products"
+	    disabled={!isFormValid || !isChanged}
+	    isLoading={isSaving}
+	    onClick={handleUpdateProduct}
+	  />
 	</div>
       </div>
     </div>

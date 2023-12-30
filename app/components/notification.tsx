@@ -46,7 +46,7 @@ const Notification = () => {
 	      <IoMdCloseCircle className="w-7 h-7 text-red-500" />
 	    )}
 
-            <div className="text-lg font-medium">
+            <div className={`text-lg font-medium ${isSuccess ? "text-green-500" : "text-red-500"}`}>
               {notification.message}
             </div>
           </div>

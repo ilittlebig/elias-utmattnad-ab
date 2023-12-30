@@ -6,6 +6,11 @@ export interface Category {
   href: string;
 };
 
+interface ResponseMessage {
+  message: string,
+  category?: Category
+};
+
 export const useCategories = () => {
   const fetchCategories = async (
     setLoading?: () => void,
@@ -59,10 +64,11 @@ export const useCategories = () => {
 
   const newCategory = async (
     categoryDetails: CategoryDetails
-  ): Promise<void> => {
+  ): Promise<ResponseMessage> => {
     try {
       const endpoint = "/api/newCategory";
-      await apiService.post(endpoint, categoryDetails)
+      const response: ResponseMessage = await apiService.post(endpoint, categoryDetails)
+      return response;
     } catch (error: any) {
       console.log("Error creating new category:", error);
     }
@@ -71,15 +77,27 @@ export const useCategories = () => {
   const updateCategory = async (
     categoryId: string,
     categoryDetails: CategoryDetails
-  ): Promise<Category> => {
+  ): Promise<ResponseMessage> => {
     try {
       const endpoint = `/api/updateCategory?id=${categoryId}`;
-      const updatedCategory: Category = await apiService.put(endpoint, categoryDetails)
-      return updatedCategory;
+      const response: ResponseMessage = await apiService.put(endpoint, categoryDetails)
+      return response;
     } catch (error: any) {
       console.log("Error updating category:", error);
     }
   };
 
-  return { fetchCategories, fetchCategory, fetchCategoryFromId, newCategory, updateCategory };
+  const deleteCategory = async (
+    categoryId: string
+  ): Promise<ResponseMessage> => {
+    try {
+      const endpoint = `/api/deleteCategory?id=${categoryId}`;
+      const response: ResponseMessage = await apiService.delete(endpoint)
+      return response;
+    } catch (error: any) {
+      console.log("Error deleting category:", error);
+    }
+  };
+
+  return { fetchCategories, fetchCategory, fetchCategoryFromId, newCategory, updateCategory, deleteCategory };
 }

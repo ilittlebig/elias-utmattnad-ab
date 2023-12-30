@@ -1,5 +1,9 @@
 import { FaRegTrashAlt } from 'react-icons/fa'
 import { FiEdit } from 'react-icons/fi'
+import { useProductsContext } from '@/contexts/productsContext'
+import { useDeletionDialog } from '@/contexts/deletionContext'
+import { useNotification } from '@/contexts/notificationContext'
+import { useProducts } from '@/hooks/products'
 import Link from 'next/link'
 
 type EntryProps = {
@@ -17,8 +21,38 @@ const ProductEntry = ({
   category,
   inventory
 }: EntryProps) => {
+  const { showDeletionDialog } = useDeletionDialog();
+  const { showNotification } = useNotification();
+  const { removeProductFromList } = useProductsContext();
+  const { deleteProduct } = useProducts();
+
   const status = inventory > 0 ? "I Lager" : "Slut i Lager";
   const statusColor = inventory > 0 ? "text-green-500" : "text-red-500";
+
+  const onAction = async () => {
+    try {
+      const response = await deleteProduct(id)
+      removeProductFromList(id)
+
+      showNotification({
+	message: response.message,
+	type: "success"
+      });
+    } catch (error: any) {
+      const errorMessage = error instanceof Error ?
+        error.message :
+	"Unknown error";
+
+      showNotification({
+	message: errorMessage,
+	type: "error"
+      });
+    }
+  };
+
+  const handleDeletion = () => {
+    showDeletionDialog(onAction);
+  };
 
   return (
     <div className="grid grid-cols-3 font-medium gap-4 px-6 py-4 bg-white border rounded-lg items-center">
@@ -63,7 +97,9 @@ const ProductEntry = ({
         <Link href={`/dashboard/products/edit?id=${encodeURIComponent(id)}`}>
 	  <FiEdit className="w-5 h-5 text-gray-600 hover:text-gray-800 cursor-pointer" />
 	</Link>
-	<FaRegTrashAlt className="w-5 h-5 text-gray-600 hover:text-gray-800 cursor-pointer" />
+	<div onClick={handleDeletion}>
+	  <FaRegTrashAlt className="w-5 h-5 text-gray-600 hover:text-gray-800 cursor-pointer" />
+	</div>
       </div>
     </div>
   )

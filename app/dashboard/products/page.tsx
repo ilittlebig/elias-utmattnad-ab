@@ -1,6 +1,6 @@
 "use client"
 import { useEffect, useState } from 'react'
-import { useProducts } from '@/hooks/products'
+import { useProductsContext } from '@/contexts/productsContext'
 import currencyFormatter from '@/utils/currencyFormatter'
 
 import Button from '@/components/button'
@@ -9,14 +9,11 @@ import ProductsList from '@/dashboard/components/products/productsList'
 
 const DashboardProductsPage = () => {
   const [productCount, setProductCount] = useState<number>(0);
-  const { fetchProductCount } = useProducts();
+  const { products } = useProductsContext();
 
   useEffect(() => {
-    const loadProductCount = async () => {
-      await fetchProductCount(setProductCount);
-    };
-    loadProductCount();
-  }, [fetchProductCount]);
+    setProductCount(products.length);
+  }, [products]);
 
   return (
     <div className="flex flex-col w-full p-12 gap-y-6">

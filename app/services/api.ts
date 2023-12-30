@@ -46,5 +46,22 @@ export const apiService = {
       console.log("Error updating data: ", error);
       throw error;
     }
+  },
+
+  async delete (endpoint: string): Promise<any> {
+    try {
+      const response = await fetch(endpoint, {
+	method: "DELETE",
+	headers: { "Content-Type": "application/json" },
+      });
+
+      if (!response.ok) {
+	throw new Error(`HTTP Error! Status: ${response.status}`);
+      }
+      return response.json();
+    } catch (error: any) {
+      console.log("Error deleting data: ", error);
+      throw error;
+    }
   }
 }
