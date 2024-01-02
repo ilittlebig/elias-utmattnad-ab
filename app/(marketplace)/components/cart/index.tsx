@@ -1,12 +1,10 @@
 import { IoCloseOutline } from 'react-icons/io5'
-import CartPropss from '@/(marketplace)/components/product/productInformation/index'
 import { useCart } from '@/hooks/cart'
 import currencyFormatter from '@/utils/currencyFormatter'
 
+import CartPropss from '@/(marketplace)/components/product/productInformation/index'
 import Button from '@/components/button'
 import ProductCard from '@/(marketplace)/components/cart/productCard'
-
-const FREE_DELIVERY = 499
 
 type CartProps = {
   toggled: boolean,
@@ -20,6 +18,7 @@ function clamp(value: number, min: number, max: number): number {
 const Cart = ({ toggled, onToggle }: CartProps) => {
   const { getProducts, getOrderValue, getTotalItemCount } = useCart();
   const isCartEmpty = getTotalItemCount() === 0;
+  const FREE_DELIVERY = 499
 
   const orderValue = getOrderValue();
   const formattedOrderValue = currencyFormatter(orderValue, "SEK");

@@ -1,12 +1,11 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import currencyFormatter from '@/utils/currencyFormatter'
 
 import { FaRegTrashCan } from 'react-icons/fa6'
 import { FaPlus } from 'react-icons/fa6'
 import { FaMinus } from 'react-icons/fa'
 import { useCart } from '@/hooks/cart'
-
-import currencyFormatter from '@/utils/currencyFormatter'
 
 type ProductCardProps = {
   id: string,

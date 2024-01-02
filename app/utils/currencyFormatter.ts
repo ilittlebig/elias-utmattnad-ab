@@ -1,8 +1,7 @@
-"use client"
 const currencyFormatter = (
   amount: number,
   currency: string,
-  locale: string = navigator.language
+  locale: string = typeof navigator === 'undefined' ? 'en-US' : navigator.language
 ): string => {
   if (typeof window === "undefined") return "";
   return new Intl.NumberFormat(locale, {
