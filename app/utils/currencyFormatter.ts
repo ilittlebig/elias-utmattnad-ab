@@ -3,6 +3,7 @@ const currencyFormatter = (
   currency: string,
   locale: string = navigator.language
 ): string => {
+  if (typeof window === "undefined") return "";
   return new Intl.NumberFormat(locale, {
     style: "currency",
     currency: currency
