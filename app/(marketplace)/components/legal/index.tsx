@@ -1,6 +1,11 @@
 import Image from 'next/image'
 import Term from './term'
 
+export interface Legality {
+  title: string,
+  description: string
+}
+
 type LegalProps = {
   title: string,
   legalities: Legality[],

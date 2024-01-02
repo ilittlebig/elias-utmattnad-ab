@@ -9,7 +9,7 @@ type DropdownProps = {
   text?: string,
   required?: boolean,
 
-  onChange?: () => void
+  onChange?: (value: string) => void
 };
 
 const Dropdown = ({ label, children, text, required, onChange }: DropdownProps) => {
@@ -40,15 +40,18 @@ const Dropdown = ({ label, children, text, required, onChange }: DropdownProps) 
   };
 
   useEffect(() => {
-    const handleOutsideClick = (event) => {
-      if (!event.target.closest('.dropdown-container')) {
+    const handleOutsideClick = (event: MouseEvent) => {
+      const target = event.target as HTMLElement;
+      if (!target) return;
+
+      if (!target.closest('.dropdown-container')) {
         handleBlur();
       }
     };
 
-    document.addEventListener('mousedown', handleOutsideClick);
+//    document.addEventListener('mousedown', handleOutsideClick);
     return () => {
-      document.removeEventListener('mousedown', handleOutsideClick);
+//      document.removeEventListener('mousedown', handleOutsideClick);
     };
   }, []);
 

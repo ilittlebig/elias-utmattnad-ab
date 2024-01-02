@@ -1,8 +1,8 @@
-import type { NextApiRequest } from 'next'
+import type { NextRequest } from 'next/server'
 import { dbConnect } from '@/lib/mongodb'
 import getModelByType from '@/utils/modelSelector'
 
-export async function POST(request: NextApiRequest) {
+export async function POST(request: NextRequest) {
   const url = request.nextUrl.searchParams;
   const type = url.get("type");
 
@@ -30,7 +30,7 @@ export async function POST(request: NextApiRequest) {
     });
   } catch (error: any) {
     return new Response(JSON.stringify({
-      error: error.message
+      message: error.message
     }), {
       status: 500,
       headers: {

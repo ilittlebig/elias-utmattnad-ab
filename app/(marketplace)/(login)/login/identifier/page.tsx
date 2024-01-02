@@ -16,7 +16,6 @@ const LoginIdentifierPage = () => {
 	    htmlFor="email"
 	    label="E-postaddress"
 	    type="text"
-	    invalid
 	  />
 
 	  <Button

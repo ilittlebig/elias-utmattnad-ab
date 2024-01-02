@@ -19,7 +19,7 @@ interface Link {
 const Navbar: FC = () => {
   const [isMenuOpen, setMenuOpen] = useState<boolean>(false);
   const [isCartOpen, setCartOpen] = useState<boolean>(false);
-  const { toggleScrolling } = useScrolling<boolean>(true);
+  const { toggleScrolling } = useScrolling();
   const { getTotalItemCount } = useCart();
 
   const links: Link[] = [
@@ -32,7 +32,7 @@ const Navbar: FC = () => {
     setMenuOpen(!isMenuOpen);
   };
 
-  const toggleCart = (onlyScroll) => {
+  const toggleCart = (onlyScroll: boolean) => {
     if (!onlyScroll) {
       setCartOpen(!isCartOpen);
     }

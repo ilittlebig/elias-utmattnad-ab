@@ -1,11 +1,11 @@
 "use client"
 import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { useNotification } from '@/contexts/notificationContext'
+import { useNotification, NotificationType } from '@/contexts/notificationContext'
 import { IoIosCheckmarkCircle } from 'react-icons/io'
 import { IoMdCloseCircle } from 'react-icons/io'
 
-const Notification = () => {
+const Notification: React.FC<NotificationType> = () => {
   const { notification, resetNotification } = useNotification();
   const [isVisible, setIsVisible] = useState<boolean>(false);
   const isSuccess = notification.type === "success";

@@ -1,9 +1,4 @@
-import Legal from '@/(marketplace)/components/legal/index'
-
-interface Legality {
-  title: string,
-  description: string
-}
+import Legal, { Legality } from '@/(marketplace)/components/legal/index'
 
 const TermsOfServicePage = () => {
   const terms: Legality[] = [

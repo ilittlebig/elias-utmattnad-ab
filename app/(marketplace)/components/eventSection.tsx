@@ -2,7 +2,7 @@
 import { Fragment, useState } from 'react'
 import TimelineEvent from '@/(marketplace)/components/timelineEvent'
 
-type EventProps = {
+export type EventProps = {
   text: string,
   side: "left" | "right"
 };

@@ -4,12 +4,12 @@ import Link from 'next/link'
 
 type FormProps = {
   htmlFor: string,
-  label: string,
+  label?: string,
   id: string,
   type: string,
-  text: string,
-  linkText: string,
-  linkHref: string,
+  text?: string | number,
+  linkText?: string,
+  linkHref?: string,
   disabled?: boolean,
   required?: boolean,
 
@@ -44,7 +44,7 @@ const InputForm = ({
     setIsFocused(inputValue !== "");
   };
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = e.target.value;
     setInputValue(newValue);
 

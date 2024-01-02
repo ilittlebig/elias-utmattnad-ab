@@ -12,7 +12,6 @@
     "@fortawesome/fontawesome-svg-core": "^6.5.1",
     "@fortawesome/free-solid-svg-icons": "^6.5.1",
     "@fortawesome/react-fontawesome": "^0.2.0",
-    "@next/font": "^14.0.4",
     "clsx": "^2.0.0",
     "framer-motion": "^10.16.16",
     "hamburger-react": "^2.5.0",

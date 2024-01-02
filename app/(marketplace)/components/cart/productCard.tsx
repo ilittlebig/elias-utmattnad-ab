@@ -12,7 +12,7 @@ type ProductCardProps = {
   id: string,
   name: string,
   price: number,
-  quantity: quantity,
+  quantity: number,
 }
 
 const ProductCard = ({ id, name, price, quantity }: ProductCardProps) => {

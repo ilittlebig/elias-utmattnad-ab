@@ -1,54 +1,56 @@
 "use client"
-import React, { createContext, useContext, useState } from 'react'
-import DeletionDialog from '@/dashboard/components/deletionDialog'
+import React, { createContext, useContext, useState, ReactNode, Dispatch, SetStateAction } from 'react';
+import DeletionDialog from '@/dashboard/components/deletionDialog';
 
-const DeletionDialogContext = createContext<{
-  showDeletionDialog: (
-    onAction: (id: string) => void,
-    id: string
-  ) => void;
+interface DeletionDialogContextType {
+  showDeletionDialog: (onAction: (id: string) => void, id: string) => void;
   hideDeletionDialog: () => void;
-}>({
-  showDeletionDialog: (
-    onAction: (id: string) => void,
-    id: string
-  ) => {},
+}
+
+const DeletionDialogContext = createContext<DeletionDialogContextType>({
+  showDeletionDialog: () => {},
   hideDeletionDialog: () => {}
 });
 
-export const DeletionDialogProvider = ({ children }) => {
-  const [isDeletionDialogVisible, setIsDeletionDialogVisible] = useState(false);
-  const [deletionDetails, setDeletionDetails] = useState({ onAction: null, id: null });
+interface DeletionDetails {
+  onAction: ((id: string) => void) | null;
+  id: string | null;
+}
 
-  const showDeletionDialog = (onAction, id) => {
-    setDeletionDetails({
-      onAction: onAction,
-      id: id
-    });
+interface DeletionDialogProviderProps {
+  children: React.ReactNode;
+}
+
+export const DeletionDialogProvider = ({ children }: DeletionDialogProviderProps) => {
+  const [isDeletionDialogVisible, setIsDeletionDialogVisible] = useState(false);
+  const [deletionDetails, setDeletionDetails] = useState<DeletionDetails>({ onAction: null, id: null });
+
+  const showDeletionDialog = (
+    onAction: (id: string) => void,
+    id: string
+  ) => {
+    setDeletionDetails({ onAction, id });
     setIsDeletionDialogVisible(true);
-  }
+  };
 
   const hideDeletionDialog = () => {
-    setDeletionDetails({
-      onAction: null,
-      id: null
-    });
+    setDeletionDetails({ onAction: null, id: null });
     setIsDeletionDialogVisible(false);
-  }
+  };
 
   return (
     <DeletionDialogContext.Provider value={{ showDeletionDialog, hideDeletionDialog }}>
       {isDeletionDialogVisible && (
         <DeletionDialog
-	  onClose={hideDeletionDialog}
-	  onAction={deletionDetails.onAction}
-	  itemId={deletionDetails.id}
-	/>
+          onClose={hideDeletionDialog}
+	  onAction={deletionDetails.onAction ?? (() => {})}
+          itemId={deletionDetails.id ?? ""}
+        />
       )}
       {children}
     </DeletionDialogContext.Provider>
   );
-}
+};
 
 export const useDeletionDialog = () => {
   const context = useContext(DeletionDialogContext);

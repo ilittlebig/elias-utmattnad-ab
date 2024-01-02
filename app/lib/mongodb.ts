@@ -1,27 +1,19 @@
-import mongoose from 'mongoose'
+import mongoose, { Connection } from 'mongoose'
 
 const MONGODB_URI = process.env.MONGODB_URI as string;
 
-let cached = global.mongoose;
-if (!cached) {
-    cached = global.mongoose = { conn: null, promise: null };
-}
+let cachedConnection: Connection | null = null;
 
 export async function dbConnect() {
-    if (cached.conn) {
-        return cached.conn;
+    if (cachedConnection) {
+        return cachedConnection;
     }
 
-    if (!cached.promise) {
-        const opts: mongoose.ConnectOptions = {
-            bufferCommands: false,
-        };
+    const opts: mongoose.ConnectOptions = {
+        bufferCommands: false,
+    };
 
-        cached.promise = mongoose.connect(MONGODB_URI, opts).then((mongoose) => {
-            return mongoose;
-        });
-    }
-
-    cached.conn = await cached.promise;
-    return cached.conn;
+    const connection = await mongoose.connect(MONGODB_URI, opts);
+    cachedConnection = connection.connection; // Store the connection
+    return cachedConnection;
 }

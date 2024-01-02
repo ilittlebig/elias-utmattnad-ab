@@ -18,10 +18,10 @@ export async function GET(request: NextRequest) {
         "Content-Type": "application/json",
       },
     });
-  } catch (error) {
+  } catch (error: any) {
     console.error("Error fetching collection:", error);
     return new Response(JSON.stringify({
-      error: error.message
+      message: error.message
     }), {
       status: 500,
       headers: {

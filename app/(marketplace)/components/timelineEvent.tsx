@@ -27,7 +27,7 @@ const TimelineEvent = forwardRef<HTMLDivElement, EventProps>(({
     }
   }, [inView, onInView, index]);
 
-  const setRefs = useCallback((node) => {
+  const setRefs = useCallback((node: HTMLDivElement | null) => {
     if (typeof ref === 'function') {
       ref(node);
     } else if (ref) {

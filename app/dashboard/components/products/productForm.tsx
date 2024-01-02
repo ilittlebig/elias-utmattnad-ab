@@ -1,6 +1,6 @@
 "use client"
 import { useState, useEffect } from 'react'
-import { useCategories } from '@/hooks/categories'
+import { useCategories, Category } from '@/hooks/categories'
 import { ProductDetails } from '@/hooks/productForm'
 
 import Dropdown from '@/components/dropdown'
@@ -18,11 +18,11 @@ const ProductForm = ({
   onDropdownChange,
   productDetails
 }: FormProps) => {
-  const [categories, setCategories] = useState([]);
+  const [categories, setCategories] = useState<Category[]>([]);
   const { fetchCategories } = useCategories();
 
   useEffect(() => {
-    fetchCategories(null, setCategories);
+    fetchCategories(setCategories);
   }, []);
 
   return (

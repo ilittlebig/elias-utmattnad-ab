@@ -6,7 +6,7 @@ export interface Toast {
   name: string,
   price: number,
   image: string,
-  className: string
+  className?: string
 }
 
 interface ToastContextValue {
@@ -46,7 +46,7 @@ export const ToastProvider: React.FC<ToastProviderProps> = ({ children }) => {
     }
   }, [toast.isVisible]);
 
-  const showToast = useCallback(({ name, price, image, className }: Toast) => {
+  const showToast = useCallback(({ name, price, image, className = "" }: Toast) => {
     if (timeoutId) {
       clearTimeout(timeoutId);
     }

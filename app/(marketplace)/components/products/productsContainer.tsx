@@ -1,24 +1,27 @@
 "use client"
 import { useState, useEffect } from 'react'
 import { useParams } from 'next/navigation'
-import { useCategories } from '@/hooks/categories'
-import { useProducts } from '@/hooks/products'
+import { useCategories, Category } from '@/hooks/categories'
+import { useProducts, Product } from '@/hooks/products'
 
 import Link from 'next/link'
 import ProductCard from './productCard'
 
 const ProductsContainer = () => {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState<Product[]>([]);
   const [isLoading, setLoading] = useState<boolean>(true);
-  const [categoryData, setCategoryData] = useState<string>(null);
+  const [categoryData, setCategoryData] = useState<Category | null>(null);
 
   const { category } = useParams();
   const { fetchCategory } = useCategories();
   const { fetchProducts } = useProducts();
 
   useEffect(() => {
-    fetchProducts(category, setLoading, setProducts);
-    fetchCategory(category, setCategoryData);
+    const categoryValue = Array.isArray(category) ? category[0] : category;
+    if (categoryValue) {
+      fetchProducts(categoryValue, setLoading, setProducts);
+      fetchCategory(categoryValue, setCategoryData);
+    }
   }, [category]);
 
   return (
@@ -36,7 +39,7 @@ const ProductsContainer = () => {
 	      href={`/products/${category}/${encodeURIComponent(product._id)}`}
 	    >
 	      <ProductCard
-		productName={product.name}
+		name={product.name}
 		price={product.price}
 		rating={product.rating}
 		imagePath="/rug1.png"

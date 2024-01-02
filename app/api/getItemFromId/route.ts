@@ -30,7 +30,7 @@ export async function GET(request: NextRequest) {
         "Content-Type": "application/json"
       }
     });
-  } catch (error) {
+  } catch (error: any) {
     return new Response(JSON.stringify({
       message: "Internal Server Error"
     }), {

@@ -18,7 +18,7 @@ const useGenericForm = <T extends Record<string, any>>(initialState: T) => {
   };
 
   const checkIfChanged = (newDetails: T): boolean => {
-    if (!initialState) return;
+    if (!initialState) return false;
     return Object.keys(newDetails).some(key => {
       const initialValue = initialState[key as keyof T];
       const currentValue = newDetails[key as keyof T];
@@ -28,7 +28,8 @@ const useGenericForm = <T extends Record<string, any>>(initialState: T) => {
 
   const handleFormChange = useCallback((fieldId: keyof T, newValue: string | number) => {
     const numberFields = ["rating", "inventory", "price"];
-    const value = numberFields.includes(fieldId) ? Number(newValue) : newValue;
+    const fieldIdString = fieldId as string; // Assert fieldId as string
+    const value = numberFields.includes(fieldIdString) ? Number(newValue) : newValue;
 
     setFormDetails(prevDetails => {
       const newDetails = {

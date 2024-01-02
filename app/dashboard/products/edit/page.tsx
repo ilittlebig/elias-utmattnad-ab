@@ -4,7 +4,7 @@ import { useSearchParams } from 'next/navigation'
 import { useProductsContext } from '@/contexts/productsContext'
 import { Product, useProducts } from '@/hooks/products'
 import { useNotification } from '@/contexts/notificationContext'
-import useProductForm from '@/hooks/productForm'
+import useProductForm, { ProductDetails } from '@/hooks/productForm'
 
 import FormActionButtons from '@/dashboard/components/formActionButtons'
 import ProductForm from '@/dashboard/components/products/productForm'
@@ -26,7 +26,18 @@ const EditProductPage = () => {
     fetchProduct("all", productId, setProduct, setLoading);
   }, [productId]);
 
-  const formInitialState = useMemo(() => product || null, [product]);
+  const defaultProductDetails: ProductDetails = {
+    name: "",
+    description: "",
+    dimensions: "",
+    material: "",
+    category: "",
+    price: "",
+    inventory: "",
+    rating: ""
+  };
+  const formInitialState = useMemo(() => product || defaultProductDetails, [product]);
+
   const {
     formDetails,
     resetIsChanged,
@@ -38,9 +49,10 @@ const EditProductPage = () => {
 
   const handleUpdateProduct = async () => {
     setSaving(true);
+    if (!productId) return;
 
     const response = await updateProduct(productId, formDetails);
-    if (response.success) {
+    if (response.success && response.item) {
       updateProductInList(response.item);
       resetIsChanged();
     }
@@ -71,8 +83,8 @@ const EditProductPage = () => {
 	    <div></div>
 	  ) : (
 	    <ProductForm
-	      onFormChange={handleFormChange}
-	      onDropdownChange={handleDropdownChange}
+//	      onFormChange={handleFormChange}
+//	      onDropdownChange={handleDropdownChange}
 	      productDetails={formDetails || {}}
 	    />
 	  )}

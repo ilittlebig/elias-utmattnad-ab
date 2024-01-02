@@ -1,5 +1,5 @@
 import { IoCloseOutline } from 'react-icons/io5'
-import { CartPropss } from '@/(marketplace)/components/product/productInformation/index'
+import CartPropss from '@/(marketplace)/components/product/productInformation/index'
 import { useCart } from '@/hooks/cart'
 import currencyFormatter from '@/utils/currencyFormatter'
 
@@ -10,10 +10,10 @@ const FREE_DELIVERY = 499
 
 type CartProps = {
   toggled: boolean,
-  onToggle: () => void
+  onToggle: (value: boolean) => void
 }
 
-function clamp(value, min, max): number {
+function clamp(value: number, min: number, max: number): number {
   return Math.min(Math.max(value, min), max);
 }
 

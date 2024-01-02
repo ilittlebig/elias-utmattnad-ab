@@ -1,3 +1,8 @@
+type TermProps = {
+  title: string,
+  description: string
+};
+
 const Term = ({ title, description }: TermProps) => {
   return (
     <div className="flex flex-col gap-y-4">

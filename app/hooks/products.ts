@@ -2,6 +2,7 @@ import { ProductDetails } from '@/hooks/productForm'
 import { apiCall } from '@/services/api'
 
 export interface Product {
+  _id: string;
   name: string;
   description: string;
   dimensions: string;
@@ -21,8 +22,8 @@ interface ResponseMessage {
 export const useProducts = () => {
   const fetchProducts = async (
     category: string,
-    setLoading: () => void,
-    setProducts: () => void
+    setLoading: (value: boolean) => void,
+    setProducts: (products: Product[]) => void
   ): Promise<void> => {
     setLoading(true);
 
@@ -36,8 +37,8 @@ export const useProducts = () => {
   const fetchProduct = async (
     category: string,
     productId: string,
-    setProduct: () => void,
-    setLoading?: () => void,
+    setProduct: (product: Product) => void,
+    setLoading?: (value: boolean) => void,
   ): Promise<void> => {
     if (setLoading) setLoading(true);
 
@@ -50,7 +51,7 @@ export const useProducts = () => {
 
   const newProduct = async (
     productDetails: ProductDetails
-  ): Promise<void> => {
+  ): Promise<ResponseMessage> => {
     const endpoint = "/api/new?type=product";
     const response: ResponseMessage = await apiCall<ResponseMessage>("POST", endpoint, productDetails);
     return response;

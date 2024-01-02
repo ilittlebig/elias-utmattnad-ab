@@ -1,9 +1,9 @@
 import Image from 'next/image'
 import ShowcaseCard from '@/(marketplace)/sections/showcase/card'
-import EventSection from '@/(marketplace)/components/eventSection'
+import EventSection, { EventProps } from '@/(marketplace)/components/eventSection'
 
 const AboutPage = () => {
-  const currentEvents = [
+  const currentEvents: EventProps[] = [
     {
       text: "Välkommen till Elias Utmattad AB, vårt nystartade företag i mattuftning. Även om vi precis har börjat, är vår verkstad redan en kreativ källa där traditionella tekniker möter modern design.",
       side: "right"
@@ -26,7 +26,7 @@ const AboutPage = () => {
     },
   ];
 
-  const futureEvents = [
+  const futureEvents: EventProps[] = [
     {
       text: "I framtiden siktar Elias Utmattad AB på att bli en ledande kraft inom mattuftningsindustrin, där vi kombinerar traditionellt hantverk med modern innovation.",
       side: "right"

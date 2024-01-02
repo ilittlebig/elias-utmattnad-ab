@@ -1,8 +1,8 @@
 "use client"
 import { useState, useEffect } from 'react'
 import { useParams } from 'next/navigation'
-import { useCategories } from '@/hooks/categories'
-import { useProducts } from '@/hooks/products'
+import { useCategories, Category } from '@/hooks/categories'
+import { useProducts, Product } from '@/hooks/products'
 
 import Image from 'next/image'
 import Link from 'next/link'
@@ -12,8 +12,8 @@ import ProductInformation from '@/(marketplace)/components/product/productInform
 import ProductImages from '@/(marketplace)/components/product/productImages'
 
 const ProductPage = () => {
-  const [product, setProduct] = useState(null);
-  const [categoryData, setCategoryData] = useState(null);
+  const [product, setProduct] = useState<Product | null>(null);
+  const [categoryData, setCategoryData] = useState<Category | null>(null);
   const { productId, category } = useParams();
   const { fetchCategory } = useCategories();
   const { fetchProduct } = useProducts();
@@ -26,7 +26,12 @@ const ProductPage = () => {
   }, [currentCategory]);
 
   useEffect(() => {
-    fetchProduct(category, productId, setProduct);
+    const categoryValue = Array.isArray(category) ? category[0] : category;
+    const productIdValue = Array.isArray(productId) ? productId[0] : productId;
+
+    if (categoryValue && productIdValue) {
+      fetchProduct(categoryValue, productIdValue, setProduct);
+    }
   }, [productId]);
 
   return (

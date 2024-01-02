@@ -2,16 +2,15 @@ export const apiCall = async <T>(
   method: "GET" | "POST" | "PUT" | "DELETE",
   endpoint: string,
   data?: any,
-  headers?: HeadersInit
 ): Promise<T> => {
   try {
     const requestOptions: RequestInit = {
       method,
-      headers: { ...headers }
+//      headers: { ...headers }
     }
 
     if (data) {
-      requestOptions.headers["Content-Type"] = "application/json";
+ //     requestOptions.headers["Content-Type"] = "application/json";
       requestOptions.body = JSON.stringify(data);
     }
 

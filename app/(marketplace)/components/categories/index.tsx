@@ -1,16 +1,16 @@
 "use client"
 import { useState, useEffect } from 'react'
-import { useCategories } from '@/hooks/categories'
+import { Category, useCategories } from '@/hooks/categories'
 import Link from 'next/link'
 import CategoryLabel from './categoryLabel'
 
 const Categories = () => {
-  const [categories, setCategories] = useState([]);
+  const [categories, setCategories] = useState<Category[]>([]);
   const [isLoading, setLoading] = useState<boolean>(true);
   const { fetchCategories } = useCategories();
 
   useEffect(() => {
-    fetchCategories(setLoading, setCategories);
+    fetchCategories(setCategories, setLoading);
   }, []);
 
   return (

@@ -27,7 +27,7 @@ const NewCategoryPage = () => {
     setLoading(true);
 
     const response = await newCategory(formDetails);
-    if (response.success) {
+    if (response.success && response.item) {
       addCategoryToList(response.item)
       resetForm();
     }
@@ -55,8 +55,8 @@ const NewCategoryPage = () => {
       <div className="flex flex-col gap-y-4 p-12">
 	<div>
 	  <CategoryForm
-	    onFormChange={handleFormChange}
-	    onDropdownChange={handleDropdownChange}
+//	    onFormChange={handleFormChange}
+//	    onDropdownChange={handleDropdownChange}
 	    categoryDetails={formDetails}
 	  />
 	</div>

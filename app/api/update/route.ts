@@ -1,8 +1,8 @@
-import type { NextApiRequest } from 'next'
+import type { NextRequest } from 'next/server'
 import { dbConnect } from '@/lib/mongodb'
 import getModelByType from '@/utils/modelSelector'
 
-export async function PUT(request: NextApiRequest) {
+export async function PUT(request: NextRequest) {
   const url = request.nextUrl.searchParams;
   const itemId = url.get("id");
   const type = url.get("type");

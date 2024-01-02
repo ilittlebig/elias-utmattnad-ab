@@ -27,8 +27,8 @@ const FormHeader = ({
       <FormActionButtons
 	buttonText={buttonText}
 	href={href}
-	disabled={buttonDisabled}
-	isLoading={isLoading}
+	disabled={buttonDisabled ?? false}
+	isLoading={isLoading ?? false}
 	onClick={onClick}
       />
     </div>

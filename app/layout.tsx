@@ -15,12 +15,14 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <body>
-      <NotificationProvider>
-	<ToastProvider>
-	  <main>{children}</main>
-	</ToastProvider>
-      </NotificationProvider>
-    </body>
+    <html lang="en">
+      <body>
+	<NotificationProvider>
+	  <ToastProvider>
+	    <main>{children}</main>
+	  </ToastProvider>
+	</NotificationProvider>
+      </body>
+    </html>
   )
 }

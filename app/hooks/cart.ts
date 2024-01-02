@@ -3,7 +3,7 @@ import useLocalStorageState from 'use-local-storage-state'
 const STORAGE_ID = "shoppingCart"
 
 export interface Product {
-  productName: string,
+  name: string,
   dimensions: string,
   material: string,
   description: string,
@@ -24,7 +24,7 @@ export const useCart = () => {
   const [cart, setCart] = useLocalStorageState<CartProps>(STORAGE_ID, {});
 
   const addToCart = (product: Product) => {
-    setCart((prevCart) => {
+    setCart((prevCart = {}) => {
       const currentQuantity = prevCart[product._id]?.quantity || 0;
 
       return {
@@ -34,8 +34,8 @@ export const useCart = () => {
     });
   };
 
-  const removeProduct = (productId: number) => {
-    setCart((prevCart) => {
+  const removeProduct = (productId: string) => {
+    setCart((prevCart = {}) => {
       const updatedCart = { ...prevCart }
       delete updatedCart[productId]
       return updatedCart
@@ -43,14 +43,14 @@ export const useCart = () => {
   };
 
   const incrementQuantity = (productId: string) => {
-    setCart((prevCart) => ({
+    setCart((prevCart = {}) => ({
       ...prevCart,
       [productId]: { ...prevCart[productId], quantity: prevCart[productId].quantity + 1 },
     }));
   };
 
   const decrementQuantity = (productId: string) => {
-    setCart((prevCart) => {
+    setCart((prevCart = {}) => {
       if (prevCart[productId].quantity === 1) {
 	return prevCart
       }
@@ -63,13 +63,13 @@ export const useCart = () => {
   };
 
   const getOrderValue = () => {
-    return Object.values(cart).reduce((total, cartItem) => {
+    return Object.values(cart || {}).reduce((total, cartItem) => {
       return total + (cartItem.product.price * cartItem.quantity);
     }, 0);
   };
 
   const getTotalItemCount = () => {
-    return Object.values(cart).reduce((total, cartItem) => {
+    return Object.values(cart || {}).reduce((total, cartItem) => {
       return total + cartItem.quantity;
     }, 0);
   };

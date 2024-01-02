@@ -4,7 +4,7 @@ import { useSearchParams } from 'next/navigation'
 import { Category, useCategories } from '@/hooks/categories'
 import { useCategoriesContext } from '@/contexts/categoriesContext'
 import { useNotification } from '@/contexts/notificationContext'
-import useCategoryForm from '@/hooks/categoryForm'
+import useCategoryForm, { CategoryDetails } from '@/hooks/categoryForm'
 
 import FormActionButtons from '@/dashboard/components/formActionButtons'
 import CategoryForm from '@/dashboard/components/categories/categoryForm'
@@ -26,7 +26,9 @@ const EditCategoryPage = () => {
     fetchCategoryFromId(categoryId, setCategory, setLoading);
   }, [categoryId]);
 
-  const formInitialState = useMemo(() => category || null, [category]);
+  const defaultCategoryDetails: CategoryDetails = { name: "", href: "" };
+  const formInitialState = useMemo(() => category || defaultCategoryDetails, [category]);
+
   const {
     formDetails,
     resetIsChanged,
@@ -37,9 +39,10 @@ const EditCategoryPage = () => {
 
   const handleUpdateCategory = async () => {
     setSaving(true);
+    if (!categoryId) return;
 
     const response = await updateCategory(categoryId, formDetails);
-    if (response.success) {
+    if (response.success && response.item) {
       updateCategoryInList(response.item);
       resetIsChanged();
     }
@@ -70,7 +73,7 @@ const EditCategoryPage = () => {
 	    <div></div>
 	  ) : (
 	    <CategoryForm
-	      onFormChange={handleFormChange}
+//	      onFormChange={handleFormChange}
 	      categoryDetails={formDetails || {}}
 	    />
 	  )}

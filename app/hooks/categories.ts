@@ -2,19 +2,21 @@ import { CategoryDetails } from '@/hooks/categoryForm'
 import { apiCall } from '@/services/api'
 
 export interface Category {
+  _id: string;
   name: string;
   href: string;
 };
 
 interface ResponseMessage {
   message: string;
-  category?: Category;
+  item?: Category;
+  success: boolean;
 };
 
 export const useCategories = () => {
   const fetchCategories = async (
-    setLoading?: () => void,
-    setCategories: () => void
+    setCategories: (categories: Category[]) => void,
+    setLoading?: (value: boolean) => void
   ): Promise<void> => {
     if (setLoading) setLoading(true);
 
@@ -27,21 +29,25 @@ export const useCategories = () => {
 
   const fetchCategory = async (
     category: string,
-    setCategory: () => void
+    setCategory: (category: Category) => void
   ): Promise<void> => {
     if (category == "all") {
-      setCategory({ name: "Alla Produkter", href: "all" });
+      setCategory({
+	_id: "",
+	name: "Alla Produkter",
+	href: "all"
+      });
     } else {
       const endpoint = `/api/getCategory?category=${encodeURIComponent(category)}`
       const data: Category = await apiCall<Category>("GET", endpoint);
-      setCategory(data[0]);
+      //setCategory(data[0]);
     }
   };
 
   const fetchCategoryFromId = async (
     categoryId: string,
-    setCategory: () => void,
-    setLoading?: () => void
+    setCategory: (category: Category) => void,
+    setLoading?: (value: boolean) => void
   ): Promise<void> => {
     if (setLoading) setLoading(true);
 

@@ -42,7 +42,7 @@ const ProductEntry = ({
   };
 
   const handleDeletion = () => {
-    showDeletionDialog(onAction);
+    showDeletionDialog(onAction, id);
   };
 
   return (

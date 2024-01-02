@@ -11,7 +11,7 @@ import SidebarLabel from '@/dashboard/components/sidebar/sidebarLabel'
 
 export type LabelProps = {
   label: string,
-  icon: ReactElement,
+  icon: React.ReactElement,
   href: string
 };
 
@@ -49,8 +49,8 @@ const Sidebar = () => {
       <div key="Logo" className="relative w-[90px] h-[90px]">
 	<Image
 	  src="/logo.svg"
-	  layout="fill"
-	  objectfit="contain"
+	  fill
+	  style={{ objectFit: "contain" }}
 	  alt="Logo"
 	/>
       </div>

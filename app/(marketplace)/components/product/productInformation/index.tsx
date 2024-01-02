@@ -5,15 +5,15 @@ import Button from '@/components/button'
 import currencyFormatter from '@/utils/currencyFormatter'
 
 type ProductInformationProps = {
-  product: Product
+  product: Product | null
 }
 
 const ProductInformation = ({ product }: ProductInformationProps) => {
-  const { cart, addToCart, getItemCount } = useCart();
+  const { cart, addToCart } = useCart();
   const { showToast } = useToast();
   const formattedPrice = currencyFormatter(product ? product.price : 0, "SEK");
 
-  const handleAddToCart = (product) => {
+  const handleAddToCart = (product: Product) => {
     addToCart(product);
     showToast({
       name: product.name,

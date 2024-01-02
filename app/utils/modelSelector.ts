@@ -1,7 +1,7 @@
 import Product from '@/models/product'
 import Category from '@/models/category'
 
-type ModelType = "product" | "category";
+type ModelType = string | null;
 
 const getModelByType = (type: ModelType): typeof Product | typeof Category => {
   switch (type) {

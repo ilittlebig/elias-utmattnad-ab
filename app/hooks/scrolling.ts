@@ -1,6 +1,6 @@
 export const useScrolling = () => {
-  const toggleScrolling = (disable) => {
-    document.body.style.overflow = disable ? 'hidden' : '';
+  const toggleScrolling = (disable: boolean) => {
+//    document.body.style.overflow = disable ? 'hidden' : '';
   };
 
   return { toggleScrolling };

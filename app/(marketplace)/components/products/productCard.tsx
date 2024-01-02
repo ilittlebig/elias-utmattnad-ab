@@ -3,17 +3,15 @@ import Link from 'next/link'
 import currencyFormatter from '@/utils/currencyFormatter'
 
 type ProductProps = {
-  id: string,
-  price: string,
-  productName: string,
+  price: number,
+  name: string,
   rating: number,
   imagePath: string,
 }
 
 const ProductCard = ({
-  id,
   price,
-  productName,
+  name,
   rating,
   imagePath
 }: ProductProps) => {
@@ -33,7 +31,7 @@ const ProductCard = ({
 
       <div className="flex flex-col">
 	<div className="text-lg hover:underline font-medium truncate">
-	  {productName}
+	  {name}
 	</div>
 	<div className="text-lg">
 	  {formattedPrice}
