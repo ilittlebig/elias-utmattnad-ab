@@ -1,3 +1,4 @@
+"use client"
 import Image from 'next/image'
 import currencyFormatter from '@/utils/currencyFormatter'
 import { Toast } from '@/contexts/toastContext'

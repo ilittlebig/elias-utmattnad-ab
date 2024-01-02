@@ -17,6 +17,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+	<NotificationProvider>
+	  <ToastProvider>
+	    Hello
+	  </ToastProvider>
+	</NotificationProvider>
       </body>
     </html>
   )
