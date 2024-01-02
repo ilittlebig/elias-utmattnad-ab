@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Lager_2" data-name="Lager 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 156.59 82.63">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #1d1d1b;
+        font-family: Rockwell-Bold, Rockwell;
+        font-weight: 700;
+      }
+
+      .cls-2 {
+        font-size: 60px;
+      }
+
+      .cls-3 {
+        letter-spacing: -.02em;
+      }
+
+      .cls-4 {
+        font-size: 21px;
+      }
+
+      .cls-5 {
+        letter-spacing: -.03em;
+      }
+    </style>
+  </defs>
+  <g id="Lager_1-2" data-name="Lager 1">
+    <text class="cls-1" transform="translate(0 52.08)"><tspan class="cls-2"><tspan x="0" y="0">Elias</tspan></tspan><tspan class="cls-4"><tspan x="8.71" y="25.2">Ut</tspan><tspan class="cls-3" x="32.28" y="25.2">m</tspan><tspan x="54.41" y="25.2">att</tspan><tspan class="cls-5" x="83.86" y="25.2">a</tspan><tspan x="96.31" y="25.2">d AB</tspan></tspan></text>
+  </g>
+</svg>
