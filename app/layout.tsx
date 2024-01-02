@@ -18,9 +18,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
 	<NotificationProvider>
-	  <ToastProvider>
-	    Hello
-	  </ToastProvider>
+	  Hello
 	</NotificationProvider>
       </body>
     </html>
