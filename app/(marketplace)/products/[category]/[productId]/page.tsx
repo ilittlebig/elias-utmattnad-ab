@@ -30,9 +30,9 @@ const ProductPage = () => {
   }, [productId]);
 
   return (
-    <div className="flex flex-col justify-between lg:pt-12 h-full">
+    <div className="flex flex-col justify-between lg:pt-6 h-full">
       <div className="flex flex-col lg:gap-y-12">
-	<div className="justify-center gap-x-2 px-4 py-2 hidden lg:flex font-rockwell">
+	<div className="justify-center gap-x-2 px-4 py-2 font-medium hidden lg:flex">
 	  <Link href="/products/all" className="text-lg hover:underline">
 	    Produkter
 	  </Link>
@@ -54,7 +54,7 @@ const ProductPage = () => {
 	</div>
       </div>
 
-      <div className="font-rockwell lg:text-left text-center text-3xl font-bold pt-12">
+      <div className="lg:text-left text-center text-3xl font-bold pt-12">
       	Fler Produktbilder
       </div>
       <ProductImages />

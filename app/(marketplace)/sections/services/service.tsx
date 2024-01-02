@@ -3,26 +3,27 @@ import Image from 'next/image'
 type ServiceProps = {
   title: string,
   description: string,
-  path: string
+  path: string,
+  bgColor: string
 }
 
-const Service = ({ title, description, path }: ServiceProps) => {
+const Service = ({ title, description, path, bgColor }: ServiceProps) => {
   return (
-    <div className="flex flex-col px-3 text-center gap-y-6 items-center -mt-20 ">
-      <div className="flex bg-white h-32 w-32 rounded-full border-2 border-black">
-        <div className="flex flex-col mx-auto my-auto relative h-[80px] w-[80px]">
-	  <Image
-	    src={path}
-	    fill
-	    style={{ objectFit: "contain" }}
-	    className="object-contain mx-auto"
-	    alt="Service"
-	  />
-	</div>
+    <div className={`flex flex-col text-center gap-y-6`}>
+      <div className="relative flex flex-col mx-auto w-full h-[150px]">
+	<Image
+	  src={path}
+	  fill
+	  style={{ objectFit: "contain" }}
+	  className="object-contain mx-auto"
+	  alt="Service"
+	/>
       </div>
 
-      <h1 className="text-2xl font-bold">{title}</h1>
-      <h2 className="text-lg">{description}</h2>
+      <div className="flex flex-col text-black gap-y-4 justify-center">
+	<h1 className="text-2xl font-bold">{title}</h1>
+	<h2 className="text-lg font-medium text-zinc-600">{description}</h2>
+      </div>
     </div>
   )
 }

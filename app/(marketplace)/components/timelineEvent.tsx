@@ -40,18 +40,18 @@ const TimelineEvent = forwardRef<HTMLDivElement, EventProps>(({
 
   return (
     <div ref={setRefs} className="relative flex gap-y-8 gap-x-4 lg:gap-x-0 items-center">
-      <div className={`flex items-center justify-center rounded-full ${selected ? 'lg:w-16 lg:h-16 w-12 h-12 bg-gray-900' : 'lg:w-12 lg:h-12 w-8 h-8 bg-gray-400'}`}>
-	<div className={`text-white pt-2 ${selected ? 'lg:text-3xl text-2xl' : 'lg:text-xl text-lg'}`}>
+      <div className={`flex items-center justify-center rounded-full ${selected ? 'lg:w-16 lg:h-16 w-12 h-12 bg-black' : 'lg:w-12 lg:h-12 w-8 h-8 bg-gray-400'}`}>
+	<div className={`text-white font-semibold ${selected ? 'lg:text-3xl text-2xl' : 'lg:text-xl text-lg'}`}>
 	  {index}
 	</div>
       </div>
 
       <div className={`absolute ${isRightSide ? 'left-full' : 'right-full'} h-full lg:flex hidden items-center`}>
-	<div className={`w-7 h-2 ${selected ? 'bg-gray-900' : 'bg-gray-400'}`}></div>
+	<div className={`w-7 h-2 ${selected ? 'bg-black' : 'bg-gray-400'}`}></div>
       </div>
 
-      <div className={`lg:absolute text-left ${isRightSide ? 'lg:left-full lg:ml-16' : 'lg:right-full lg:mr-16'} ${selected ? '' : 'text-gray-400'} flex items-center`}>
-	<div className="text-lg font-rockwell px-2 lg:w-[400px] w-[350px] max-h-32 lg:max-w-lg max-w-sm">
+      <div className={`lg:absolute text-left ${isRightSide ? 'lg:left-full lg:ml-16' : 'lg:right-full lg:mr-16'} ${selected ? 'text-black' : 'text-zinc-300'} flex items-center`}>
+	<div className="font-medium text-lg px-2 lg:w-[400px] w-[350px] max-h-32 lg:max-w-lg max-w-sm">
 	  {text}
 	</div>
       </div>

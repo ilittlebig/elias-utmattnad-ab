@@ -65,7 +65,7 @@ const Navbar: FC = () => {
 	{/* Links */}
 	<div className="lg:flex hidden gap-x-8">
 	  {links.map((link, index) => (
-	    <Link key={index} href={link.href} className="font-rockwell hover:underline text-base hover:text-primary">
+	    <Link key={index} href={link.href} className="hover:underline text-base text-black font-medium hover:text-primary">
 	      {link.label}
 	    </Link>
 	  ))}
@@ -74,7 +74,7 @@ const Navbar: FC = () => {
 	<Button
 	  actionText="Designa Din Matta"
 	  href="/"
-	  className="lg:block hidden text-lg px-4 py-3"
+	  className="lg:hidden hidden text-md px-4 py-2"
 	/>
 
 	<div className="w-full lg:hidden" />
@@ -92,7 +92,7 @@ const Navbar: FC = () => {
 	      alt="Shopping Bag"
 	    />
 	    <div className="absolute -bottom-2 lg:-right-2 bg-red-500 rounded-full h-6 w-6 flex items-center justify-center text-white">
-	      <span className="text-xs font-rockwell pt-1">
+	      <span className="text-xs pt-1">
 		{getTotalItemCount()}
 	      </span>
 	    </div>

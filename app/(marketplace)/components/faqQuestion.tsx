@@ -12,19 +12,19 @@ const Question = ({ question, answer }: QuestionProps) => {
 
   return (
     <div
-      className="flex justify-between items-center select-none w-full bg-white drop-shadow-card lg:py-6 py-4 w-full rounded-md border-primary border-2 px-6"
+      className="flex justify-between items-center select-none w-full bg-white lg:py-6 py-4 w-full rounded-md border-primary border-2 px-6"
       onClick={() => setToggled(!isToggled)}
     >
       <div className="flex flex-col w-full">
-	<div className="flex justify-between">
-	  <div className="lg:text-2xl text-xl">
+	<div className="flex justify-between items-center">
+	  <div className="font-semibold lg:text-xl text-md">
 	    {question}
 	  </div>
 
-	  <FaAngleDown className={`w-8 h-8 transition duration-300 ${isToggled ? "rotate-180" : ""}`} />
+	  <FaAngleDown className={`w-6 h-6 transition duration-300 ${isToggled ? "rotate-180" : ""}`} />
 	</div>
 
-	<div className={`lg:text-xl text-xl overflow-hidden transition-max-height duration-300 ${isToggled ? "max-h-[500px] pt-4" : "max-h-0 py-0"}`}>
+	<div className={`lg:text-md text-md overflow-hidden transition-max-height duration-300 ${isToggled ? "max-h-[500px] pt-4" : "max-h-0 py-0"}`}>
 	  {answer}
 	</div>
       </div>

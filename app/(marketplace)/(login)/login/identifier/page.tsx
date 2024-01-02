@@ -7,7 +7,7 @@ const LoginIdentifierPage = () => {
     <div className="flex flex-col h-screen max-w-sm mx-auto lg:min-w-[320px] w-full -mt-[64px] py-6 items-center pointer-events-none">
       <div className="flex flex-col w-full h-full justify-center">
         <div className="flex flex-col pointer-events-auto gap-y-8">
-	  <h1 className="font-rockwell lg:text-3xl text-2xl text-center font-bold">
+	  <h1 className="lg:text-3xl text-2xl text-center font-bold">
 	    Välkommen Tillbaka
 	  </h1>
 
@@ -25,10 +25,10 @@ const LoginIdentifierPage = () => {
 	  />
 
 	  <div className="flex gap-x-2 justify-center">
-	    <p className="font-rockwell text-lg text-center">
+	    <p className="text-lg text-center">
 	      Ingen Användare?
 	    </p>
-	    <Link href="/sign-up" className="font-rockwell text-lg text-center text-primary hover:underline">
+	    <Link href="/sign-up" className="text-lg font-medium text-center text-primary hover:underline">
 	      Klicka här
 	    </Link>
 	  </div>

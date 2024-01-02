@@ -29,18 +29,19 @@ const FAQSection = () => {
   return (
     <div className="flex flex-col py-48 gap-y-12">
       <div className="flex px-4 lg:px-0">
-	<div className="flex flex-col text-center mx-auto font-rockwell gap-y-6">
-	  <h1 className="lg:text-5xl text-4xl font-bold">
+	<div className="flex flex-col text-black text-center mx-auto items-center gap-y-6">
+	  <h1 className="relative lg:text-5xl text-4xl font-bold w-fit">
+	    <div className="absolute left-[-15px] w-12 h-12 -mt-3 -z-10 bg-green-200 rounded-full" />
 	    FAQ
 	  </h1>
 
-	  <h2 className="max-w-4xl lg:text-2xl text-xl">
+	  <h2 className="max-w-2xl lg:text-lg text-lg font-medium">
 	    Få svar på vanliga frågor om våra produkter och tjänster i vår FAQ-sektion, där vi ger tydliga och kortfattade förklaringar.
 	  </h2>
 	</div>
       </div>
 
-      <div className="flex flex-col gap-y-6 font-rockwell lg:w-[70%] mx-auto items-center lg:max-w-3xl px-4 lg:px-0">
+      <div className="flex flex-col gap-y-6 lg:w-[70%] mx-auto items-center lg:max-w-3xl px-4 lg:px-0">
         {questions.map((question) => (
 	  <FAQQuestion
 	    question={question.question}

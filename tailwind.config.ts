@@ -16,7 +16,8 @@ const config: Config = {
       colors: {
         'primary': '#32CD32', /* '#6B8E23', */
         'primary-hover': '#2db82d',
-        'primary-click': '#2db82d'  /* '#55711C', */
+        'primary-click': '#2db82d',  /* '#55711C', */
+	'black': '#47250E',
       },
       fontFamily: {
         rockwell: ['Rockwell', 'sans-serif'],
@@ -26,7 +27,12 @@ const config: Config = {
       },
       transitionProperty: {
 	'max-height': 'max-height'
-      }
+      },
+      fontSize: {
+	'h1': ['45px', {
+	  lineHeight: '55px'
+	}]
+      },
     },
   },
   plugins: [],

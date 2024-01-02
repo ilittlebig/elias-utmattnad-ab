@@ -31,54 +31,50 @@ const ServicesSection = () => {
     {
       title: "Skapa Din Design",
       description: "Anpassa din matta efter din stil och dina önskemål.",
-      image: "/rugService.png"
+      image: "/designIllustration.svg",
+      bgColor: "bg-green-200"
     },
     {
       title: "Hantverk av Kvalitet",
       description: "Varje matta är ett mästerverk, skapat med precision och omsorg.",
-      image: "/qualityService.png"
+      image: "/Illustration3.svg",
+      bgColor: "bg-purple-200"
     },
     {
       title: "Personlig Service",
       description: "Individuell kundservice för att uppfylla dina specifika behov.",
-      image: "/supportService.png"
+      image: "/supportIllustration.svg",
+      bgColor: "bg-blue-200"
     },
     {
       title: "Snabb Leverans",
       description: "Effektiv och pålitlig leverans av din anpassade matta.",
-      image: "/deliveryService.png"
+      image: "/Illustration2.svg",
+      bgColor: "bg-red-200"
     }
   ]
 
   return (
     <>
-      <div className="flex py-32">
-	<div className="flex flex-col text-center mx-auto font-rockwell px-4 lg-px0 gap-y-6">
-	  <h1 className="lg:text-5xl text-4xl font-bold">
-	    Våra Tjänster
+      <div className="flex pb-0 lg:pt-32 pt-44">
+	<div className="flex flex-col text-black items-center text-center mx-auto px-4 lg-px:0 gap-y-6">
+	  <h1 className="relative lg:text-h1 font-rockwell text-3xl font-bold w-fit">
+	    <div className="absolute left-[-14px] w-12 h-12 -mt-3 -z-10 bg-blue-200 rounded-full" />
+	    Utforska Våra Tjänster
 	  </h1>
 
-	  <h2 className="max-w-4xl lg:text-2xl text-xl">
-	    Elias Omattnad AB specialiserar sig på premiumtjänster för skräddarsydda mattor, med fokus på kvalitet och kundanpassning.
+	  <h2 className="max-w-3xl lg:text-lg text-lg font-medium">
+	    Utforska våra tjänster och upptäck en värld av skräddarsydda mattlösningar. Varje design är unik, skapad med hantverksskicklighet för att förhöja och personifiera ditt hem eller arbetsplats.
 	  </h2>
 	</div>
       </div>
 
-      <div className="h-[650px]">
-	<div className="absolute left-0 w-screen h-[457px]">
-	  <Image
-	    src="/services.png"
-	    fill
-	    style={{ objectFit: "cover" }}
-	    alt="Hero"
-	  />
-	</div>
-
+      <div>
 	<motion.div
           ref={ref}
           initial="hidden"
           animate={controls}
-          className="flex flex-col lg:flex-row relative top-[60%] left-0 right-0 rounded-xl bg-white w-full pt-6 font-rockwell gap-y-32 lg:justify-between px-4 z-10"
+          className="flex lg:flex-row flex-col justify-center pt-24 relative left-0 right-0 rounded-xl bg-white w-full pt-6 gap-y-16 gap-x-8 px-4 z-10"
         >
           {services.map((service, index) => (
             <motion.div key={service.title} custom={index} variants={serviceVariants}>
@@ -86,6 +82,7 @@ const ServicesSection = () => {
                 title={service.title}
                 description={service.description}
                 path={service.image}
+                bgColor={service.bgColor}
               />
             </motion.div>
           ))}

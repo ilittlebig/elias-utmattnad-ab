@@ -13,22 +13,12 @@ export default function Home() {
     <main className="">
       <HeroSection />
       <VisionSection />
-      <TrustedBySection />
       <ServicesSection />
+      <TrustedBySection />
 
       {/* Content Showcase Section */}
 
-      <div className="flex flex-col pt-[1000px] gap-y-32 lg:pt-32 lg:pb-12 font-rockwell">
-        <div className="flex flex-col gap-y-6 text-center items-center px-4">
-	  <h1 className="lg:text-5xl text-4xl font-bold">
-	    Vår Process
-	  </h1>
-
-	  <h2 className="max-w-4xl lg:text-2xl text-xl">
-	    Här beskriver vi stegen från beställning till leverans av din unika matta. Vi tar hand om allt från design till tillverkning, för att skapa en matta som speglar just din stil.
-	  </h2>
-	</div>
-
+      <div className="flex flex-col pt-[928px] gap-y-32 lg:pt-[280px] lg:pb-12">
       	<ShowcaseCard
 	  title="Innovativ Tufting"
 	  description="Med precision och omsorg använder vi modern tuftingteknik för att förvandla dina idéer till verklighet. Vår tuftingpistol gör det möjligt att skapa detaljerade och varaktiga mönster som speglar din personliga stil."
@@ -40,6 +30,12 @@ export default function Home() {
 	  description="Dina visioner är vår canvas. Från abstrakta konstverk till naturtrogna avbildningar – vi tuftar ditt önskemotiv med liv och känsla. Upptäck en värld av möjligheter där endast fantasin sätter gränserna."
 	  imagePath="/tufting2.jpg"
 	  way="left"
+	/>
+
+      	<ShowcaseCard
+	  title="Innovativ Tufting"
+	  description="Med precision och omsorg använder vi modern tuftingteknik för att förvandla dina idéer till verklighet. Vår tuftingpistol gör det möjligt att skapa detaljerade och varaktiga mönster som speglar din personliga stil."
+	  imagePath="/tufting.jpg"
 	/>
       </div>
 

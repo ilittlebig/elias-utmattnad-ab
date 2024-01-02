@@ -15,7 +15,7 @@ const Categories = () => {
 
   return (
     <div className={`flex min-w-[200px] flex-col gap-y-8 pb-12 lg:py-12 w-full lg:w-auto`}>
-      <div className="flex flex-col font-rockwell gap-y-2 px-6 lg:px-0">
+      <div className="flex flex-col gap-y-2 px-6 lg:px-0">
 	<h1 className="text-xl font-bold">Kategorier</h1>
 	{isLoading ? (
 	  <div></div>

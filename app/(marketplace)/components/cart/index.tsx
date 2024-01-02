@@ -70,14 +70,16 @@ const Cart = ({ toggled, onToggle }: CartProps) => {
       }>
 	<div className="flex flex-col py-6 h-full justify-between">
 	    <div
-	      className="flex w-full px-6 font-rockwell text-3xl justify-between"
+	      className="flex w-full px-6 text-3xl justify-between"
 	      onClick={() => onToggle(!toggled)}
 	    >
-	      <h1 className="font-rockwell font-bold lg:text-3xl text-2xl pt-3">Kundvagn</h1>
-	      <IoCloseOutline className="w-12 h-12" />
+	      <h1 className="font-bold lg:text-3xl text-2xl pt-3">
+	        Kundvagn
+	      </h1>
+	      <IoCloseOutline className="cursor-pointer w-12 h-12" />
 	    </div>
 
-	  <div className="flex flex-col px-2 h-full py-6 gap-y-3 font-rockwell overflow-scroll">
+	  <div className="flex flex-col px-2 h-full py-6 gap-y-3 overflow-scroll">
 	    {getProducts().map((cartItem, index) => (
 	      <ProductCard
 	        key={index}
@@ -89,20 +91,20 @@ const Cart = ({ toggled, onToggle }: CartProps) => {
 	    ))}
 	  </div>
 
-	  <div className="flex flex-col gap-y-3 px-6">
+	  <div className="flex flex-col gap-y-3 px-6 font-medium">
 	    <div className="w-full h-0.5 bg-gray-200" />
 	    <div className="flex justify-between">
-	      <h2 className="font-rockwell text-lg pt-3">Beställningsvärde:</h2>
-	      <h2 className="font-rockwell text-lg pt-3">{formattedOrderValue}</h2>
+	      <h2 className="text-lg pt-3">Beställningsvärde:</h2>
+	      <h2 className="text-lg pt-3">{formattedOrderValue}</h2>
 	    </div>
 	    <div className="flex justify-between">
-	      <h2 className="font-rockwell text-lg pt-3">Leverans:</h2>
-	      <h2 className="font-rockwell text-lg pt-3">{formattedDeliveryFee}</h2>
+	      <h2 className="text-lg pt-3">Leverans:</h2>
+	      <h2 className="text-lg pt-3">{formattedDeliveryFee}</h2>
 	    </div>
 	    <div className="w-full h-0.5 bg-gray-200" />
 	    <div className="flex justify-between">
-	      <h2 className="font-rockwell text-xl pt-3 font-bold">Summa:</h2>
-	      <h2 className="font-rockwell text-xl pt-3 font-bold">{formattedTotalPrice}</h2>
+	      <h2 className="text-xl pt-3 font-bold">Summa:</h2>
+	      <h2 className="text-xl pt-3 font-bold">{formattedTotalPrice}</h2>
 	    </div>
 
 	    <Button
@@ -112,7 +114,9 @@ const Cart = ({ toggled, onToggle }: CartProps) => {
 	      fill
 	    />
 
-	    <h2 className="font-rockwell text-center text-lg py-6">{formattedUntilFreeDelivery} kvar till fri leverans</h2>
+	    <h2 className="text-center text-lg py-6 font-medium">
+	      {formattedUntilFreeDelivery} kvar till fri leverans
+	    </h2>
 	  </div>
 	</div>
       </div>

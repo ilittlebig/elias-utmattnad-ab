@@ -8,10 +8,10 @@ const LoginForgetPasswordPage = () => {
       <div className="flex flex-col w-full h-full justify-center">
         <div className="flex flex-col pointer-events-auto gap-y-8">
 	  <div className="flex flex-col gap-y-2">
-	    <h1 className="font-rockwell lg:text-3xl text-2xl text-center font-bold">
+	    <h1 className="lg:text-3xl text-2xl text-center font-bold">
 	      Återställ Lösenordet
 	    </h1>
-	    <p className="font-rockwell lg:text-lg text-md text-center">
+	    <p className="lg:text-lg text-md text-center">
 	      Skriv din e-postaddress, sen skickar vi instruktioner för att återställa ditt lösenord.
 	    </p>
 	  </div>
@@ -31,7 +31,7 @@ const LoginForgetPasswordPage = () => {
 	  />
 
 	  <div className="flex gap-x-2 justify-center ">
-	    <Link href="/login/password" className="font-rockwell text-lg text-center text-primary hover:underline">
+	    <Link href="/login/password" className="text-lg text-center text-primary hover:underline">
 	      Tillbaka Till Inloggning
 	    </Link>
 	  </div>

@@ -38,7 +38,7 @@ const VisionSection = () => {
       </div>
 
       <div className="relative flex pt-[300px] pb-[160px] z-10">
-	<div className="flex flex-col mx-auto text-white text-center px-8 lg:px-0 gap-y-4 font-rockwell">
+	<div className="flex flex-col mx-auto text-white text-center px-8 lg:px-0 gap-y-4">
 	  <h1 className="lg:text-5xl text-4xl font-bold">
 	    Vår Vision:
 	  </h1>

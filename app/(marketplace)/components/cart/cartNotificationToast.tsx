@@ -11,7 +11,7 @@ const CartNotificationToast = ({name, price, image, className }: Toast) => {
 
   return (
     <div className="fixed w-full top-0 left-0 z-40 pointer-events-none">
-      <div className="flex justify-center w-full font-rockwell">
+      <div className="flex justify-center w-full">
         <div className="flex justify-end w-full max-w-6xl mr-5 lg:mr-0">
 	  <div className={`bg-white drop-shadow-card p-4 rounded-md mt-2 z-20 ease-in-out transition-opacity duration-300 ${className}`}>
 	    <div className="flex flex-col gap-y-4 pt-2 mr-12">
@@ -28,7 +28,7 @@ const CartNotificationToast = ({name, price, image, className }: Toast) => {
 		  />
 		</div>
 
-		<div className="flex flex-col justify-between font-rockwell">
+		<div className="flex flex-col justify-between">
 		  <div className="flex flex-col">
 		    <div className="w-full text-lg font-bold">
 		      {name}

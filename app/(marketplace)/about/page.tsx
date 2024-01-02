@@ -50,10 +50,10 @@ const AboutPage = () => {
   ];
 
   return (
-    <div className="font-rockwell">
+    <div>
       {/* Hero Image */}
-      <div className="h-[250px] lg:h-[384px]">
-	<div className="absolute left-0 w-screen h-[250px] lg:h-[384px]">
+      <div className="h-[250px] lg:h-[300px]">
+	<div className="absolute left-0 w-screen h-[250px] lg:h-[300px]">
 	  <Image
 	    src="/hero.png"
 	    layout="fill"
@@ -63,16 +63,21 @@ const AboutPage = () => {
 	</div>
       </div>
 
-      <div className="flex flex-col max-w-2xl pt-32 mx-auto px-4 lg:px-0 items-center text-center gap-y-5">
-	<h1 className="lg:text-5xl text-4xl font-bold">Om Oss</h1>
-	<h2 className="lg:text-2xl text-xl">
-	  Välkommen till Elias Utmattad AB – där traditionell hantverkskonst möter modern design.
+      <div className="flex flex-col max-w-2xl pt-32 font-black mx-auto px-4 lg:px-0 items-center text-center gap-y-5">
+	<h1 className="lg:text-h1 text-3xl font-rockwell font-bold w-fit">
+	  Om Oss
+	</h1>
+	<h2 className="font-medium lg:text-lg text-lg">
+	  Elias Utmattad AB, etablerat år 2023, speglar en historia av passion och expertis inom tufting. Vårt engagemang för innovation, hantverksskicklighet, och kundservice driver vår strävan efter excellens i varje projekt vi tar oss an.
 	</h2>
       </div>
 
-      <h2 className="flex lg:text-5xl text-4xl text-center justify-center font-bold pt-40">
-	Vår Nuvarande Position
-      </h2>
+      <div className="flex justify-center w-full">
+	<h2 className="relative flex lg:text-h1 text-3xl font-rockwell font-black text-center justify-center font-bold pt-40 w-fit">
+	  <div className="absolute left-[-15px] w-12 h-12 -mt-3 -z-10 bg-red-200 rounded-full" />
+	  Vår Nuvarande Position
+	</h2>
+      </div>
 
       <EventSection
         events={currentEvents}
@@ -93,9 +98,12 @@ const AboutPage = () => {
 	/>
       </div>
 
-      <h2 className="flex lg:text-5xl text-4xl text-center justify-center font-rockwell font-bold pt-40">
-      	Framtida Planer
-      </h2>
+      <div className="flex justify-center w-full">
+	<h2 className="relative flex lg:text-5xl text-4xl text-center justify-center font-bold pt-40 w-fit">
+	  <div className="absolute left-[-15px] w-12 h-12 -mt-3 -z-10 bg-red-200 rounded-full" />
+	  Framtida Planer
+	</h2>
+      </div>
 
       <EventSection
         events={futureEvents}

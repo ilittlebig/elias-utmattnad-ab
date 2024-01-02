@@ -42,13 +42,13 @@ const ProductCard = ({ id, name, price, quantity }: ProductCardProps) => {
 	  </div>
 
 	  <div className="flex gap-x-3 select-none">
-	    <div onClick={() => decrementQuantity(id)} className="bg-gray-200 hover:bg-gray-400 rounded-md px-2 py-2 text-xl">
+	    <div onClick={() => decrementQuantity(id)} className="bg-gray-200 hover:bg-gray-400 rounded-md cursor-pointer px-2 py-2 text-xl">
 	      <FaMinus className="w-4 h-4" />
 	    </div>
 	    <div className="flex px-3 text-lg pt-1">
 	      {quantity}
 	    </div>
-	    <div onClick={() => incrementQuantity(id)} className="bg-gray-200 hover:bg-gray-400 rounded-md px-2 py-2 text-xl">
+	    <div onClick={() => incrementQuantity(id)} className="bg-gray-200 hover:bg-gray-400 cursor-pointer rounded-md px-2 py-2 text-xl">
 	      <FaPlus className="w-4 h-4" />
 	    </div>
 	  </div>
@@ -57,7 +57,7 @@ const ProductCard = ({ id, name, price, quantity }: ProductCardProps) => {
 
       <FaRegTrashCan
         onClick={() => removeProduct(id)}
-	className="w-5 h-5 hover:text-red-500"
+	className="w-5 h-5 cursor-pointer hover:text-red-500"
       />
     </div>
   )

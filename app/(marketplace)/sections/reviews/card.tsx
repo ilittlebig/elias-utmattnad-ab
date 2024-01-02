@@ -8,11 +8,11 @@ type CardProps = {
 
 const Card = ({ author, paragraph, rating }: CardProps) => {
   return (
-    <div className="flex flex-col justify-between bg-white text-lg font-rockwell drop-shadow-card h-40 py-3 px-4 max-w-sm">
-      <p>{paragraph}</p>
+    <div className="flex flex-col rounded-lg lg:w-1/3 justify-between bg-white text-lg shadow-lg h-40 py-3 px-4 max-w-sm">
+      <p className="font-medium">{paragraph}</p>
 
       <div className="flex justify-between">
-	<p>{author}</p>
+	<p className="text-zinc-400">{author}</p>
 
 	<div className="flex gap-x-3">
 	  {[...Array(5)].map((_, index) => (

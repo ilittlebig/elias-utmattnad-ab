@@ -111,19 +111,18 @@ const ReviewsSection = () => {
 
   return (
     <div className="flex flex-col py-32 gap-y-8">
-      <div className="flex flex-col text-center mx-auto font-rockwell gap-y-6">
-	<div className="flex items-center gap-x-3">
-	  <div className="w-32 bg-black hidden lg:block rounded-full h-1"></div>
+      <div className="flex flex-col text-black items-center text-center mx-auto px-4 lg-px:0 gap-y-6">
+	<h1 className="relative font-rockwell lg:text-5xl text-4xl font-bold w-fit">
+	  <div className="absolute left-[-14px] w-12 h-12 -mt-3 -z-10 bg-orange-200 rounded-full" />
+	  Kundomdömen
+	</h1>
 
-	  <h1 className="lg:text-5xl text-4xl font-bold">
-	    Kundomdömen
-	  </h1>
-
-	  <div className="w-32 bg-black hidden lg:block rounded-full h-1"></div>
-	</div>
+	<h2 className="max-w-4xl lg:text-lg text-lg font-medium">
+	  Ta del av våra kunders erfarenheter och omdömen.
+	</h2>
       </div>
 
-      <div className="relative lg:min-h-[200px] min-h-[500px] overflow-hidden py-8">
+      <div className="relative lg:min-h-[200px] min-h-[500px] overflow-x-hidden py-8">
         <AnimatePresence>
           <motion.div
             key={currentIndex}
@@ -131,7 +130,7 @@ const ReviewsSection = () => {
             initial="enter"
             animate="center"
             exit="exit"
-            className="absolute inset-0 flex lg:flex-row flex-col gap-y-6 px-4 lg:px-4 items-center lg:justify-between"
+            className="absolute inset-0 flex lg:flex-row gap-x-4 flex-col gap-y-6 px-4 lg:px-4 items-center lg:justify-between"
           >
             {cardSets[currentIndex].map((review, index) => (
               <Card

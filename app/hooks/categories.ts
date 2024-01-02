@@ -55,7 +55,7 @@ export const useCategories = () => {
   const newCategory = async (
     categoryDetails: CategoryDetails
   ): Promise<ResponseMessage> => {
-    const endpoint = "/api/new?type=product";
+    const endpoint = "/api/new?type=category";
     const response: ResponseMessage = await apiCall<ResponseMessage>("POST", endpoint, categoryDetails)
     return response;
   };

@@ -22,7 +22,7 @@ const Legal = ({ title, legalities, imagePath}: LegalProps) => {
       </div>
 
       <div className="flex lg:py-32 py-16 px-4 lg:px-0 max-w-3xl mx-auto">
-	<div className="flex flex-col text-center lg:text-left mx-auto font-rockwell gap-y-12">
+	<div className="flex flex-col text-center lg:text-left mx-auto gap-y-12">
 	  <h1 className="lg:text-5xl text-4xl font-bold text-center">
 	    {title}
 	  </h1>

@@ -23,7 +23,7 @@ const ProductsContainer = () => {
 
   return (
     <div className="flex flex-col gap-y-3">
-      <h1 className="text-4xl font-bold font-rockwell px-6 lg:px-0">
+      <h1 className="text-4xl font-bold px-6 lg:px-0">
         {categoryData ? categoryData.name : ""}
       </h1>
       <div className="flex flex-wrap lg:gap-2 justify-between lg:justify-start w-full h-full">

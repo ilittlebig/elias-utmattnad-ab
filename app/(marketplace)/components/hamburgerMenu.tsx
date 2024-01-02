@@ -47,7 +47,7 @@ const HamburgerMenu = ({ toggled, children, onToggle }: MenuProps) => {
 	h-screen
 	z-20`
       }>
-	<div className="flex flex-col font-rockwell px-8 justify-between h-full pt-5 pb-8">
+	<div className="flex flex-col px-8 justify-between h-full pt-5 pb-8">
 	  <div className="flex flex-col gap-y-8">
 	    <div className="text-2xl font-bold px-12">
 	      Sidor
@@ -55,7 +55,7 @@ const HamburgerMenu = ({ toggled, children, onToggle }: MenuProps) => {
 
 	    <div className="flex flex-col gap-y-8">
 	      <div className="flex flex-col gap-y-3">
-		<div onClick={handleMenuItemClick} className="flex flex-col font-rockwell gap-y-2">
+		<div onClick={handleMenuItemClick} className="flex flex-col gap-y-2">
 		  {children.map((link, index) => (
 		    <Link key={index} href={link.href} className="text-xl">
 		      {link.label}
@@ -64,7 +64,7 @@ const HamburgerMenu = ({ toggled, children, onToggle }: MenuProps) => {
 		</div>
 	      </div>
 
-	      <Link key="CTA5" href="/" className="font-rockwell text-xl text-center text-white bg-primary rounded-md px-4 py-3">
+	      <Link key="CTA5" href="/" className="text-xl text-center text-white bg-primary rounded-md px-4 py-3">
 		Designa Din Matta
 	      </Link>
 	    </div>
