@@ -1,3 +1,4 @@
+"use client"
 const currencyFormatter = (
   amount: number,
   currency: string,
