@@ -19,7 +19,6 @@ export default function RootLayout({
       <body>
 	<NotificationProvider>
 	  <ToastProvider>
-	    <main>{children}</main>
 	  </ToastProvider>
 	</NotificationProvider>
       </body>
