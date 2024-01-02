@@ -56,7 +56,7 @@ const ServicesSection = () => {
 
   return (
     <>
-      <div className="flex pb-0 lg:pt-32 pt-44">
+      <div className="flex pb-0 lg:pt-44 pt-44">
 	<div className="flex flex-col text-black items-center text-center mx-auto px-4 lg-px:0 gap-y-6">
 	  <h1 className="relative lg:text-h1 font-rockwell text-3xl font-bold w-fit">
 	    <div className="absolute left-[-14px] w-12 h-12 -mt-3 -z-10 bg-blue-200 rounded-full" />
@@ -74,7 +74,7 @@ const ServicesSection = () => {
           ref={ref}
           initial="hidden"
           animate={controls}
-          className="flex lg:flex-row flex-col justify-center pt-24 relative left-0 right-0 rounded-xl bg-white w-full pt-6 gap-y-16 gap-x-8 px-4 z-10"
+          className="flex lg:flex-row flex-col justify-center pt-[140px] relative left-0 right-0 rounded-xl bg-white w-full pt-6 gap-y-16 gap-x-8 px-4 z-10"
         >
           {services.map((service, index) => (
             <motion.div key={service.title} custom={index} variants={serviceVariants}>

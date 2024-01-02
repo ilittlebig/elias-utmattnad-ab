@@ -1,8 +1,10 @@
 import { Product, useCart } from '@/hooks/cart'
 import { useToast } from '@/contexts/toastContext'
+import useLocale from '@/hooks/locale'
+
+import currencyFormatter from '@/utils/currencyFormatter'
 import LoadingInformation from './loading'
 import Button from '@/components/button'
-import currencyFormatter from '@/utils/currencyFormatter'
 
 type ProductInformationProps = {
   product: Product | null
@@ -11,7 +13,8 @@ type ProductInformationProps = {
 const ProductInformation = ({ product }: ProductInformationProps) => {
   const { cart, addToCart } = useCart();
   const { showToast } = useToast();
-  const formattedPrice = currencyFormatter(product ? product.price : 0, "SEK");
+  const locale = useLocale();
+  const formattedPrice = currencyFormatter(product ? product.price : 0, "SEK", locale);
 
   const handleAddToCart = (product: Product) => {
     addToCart(product);

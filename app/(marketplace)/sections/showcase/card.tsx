@@ -2,12 +2,14 @@
 import { useEffect } from 'react'
 import { motion, useAnimation } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
+import { IoIosCheckmarkCircle } from 'react-icons/io'
 import Image from 'next/image'
 
 type CardProps = {
   title: string,
   description: string,
   imagePath: string,
+  subTexts?: string[],
   way?: string
 }
 
@@ -15,6 +17,7 @@ const Card = ({
   title,
   description,
   imagePath,
+  subTexts,
   way = "right"
 }: CardProps) => {
   const controls = useAnimation();
@@ -57,6 +60,17 @@ const Card = ({
 	<h2 className="max-w-4xl lg:text-lg text-lg font-medium">
 	  {description}
 	</h2>
+
+	<div className="flex flex-col gap-y-4">
+	  {subTexts?.map((text, index) => (
+	    <div key={index} className="flex gap-x-4 items-center">
+	      <IoIosCheckmarkCircle className="text-primary w-8 h-8" />
+	      <label className="font-medium text-black text-lg">
+	        {text}
+	      </label>
+	    </div>
+	  ))}
+	</div>
       </div>
 
       <motion.div

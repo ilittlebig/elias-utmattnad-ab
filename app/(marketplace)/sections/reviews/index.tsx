@@ -118,11 +118,11 @@ const ReviewsSection = () => {
 	</h1>
 
 	<h2 className="max-w-4xl lg:text-lg text-lg font-medium">
-	  Ta del av våra kunders erfarenheter och omdömen.
+	  Ta del av våra kunders erfarenheter och omdömen för att få en inblick i kvaliteten på våra tjänster. Deras värdefulla feedback hjälper oss att ständigt förbättra och utveckla vår verksamhet.
 	</h2>
       </div>
 
-      <div className="relative lg:min-h-[200px] min-h-[500px] overflow-x-hidden py-8">
+      <div className="relative lg:min-h-[250px] min-h-[650px] overflow-hidden py-8">
         <AnimatePresence>
           <motion.div
             key={currentIndex}

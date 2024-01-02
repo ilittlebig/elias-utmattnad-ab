@@ -1,5 +1,6 @@
 import { IoCloseOutline } from 'react-icons/io5'
 import { useCart } from '@/hooks/cart'
+import useLocale from '@/hooks/locale'
 import currencyFormatter from '@/utils/currencyFormatter'
 
 import CartPropss from '@/(marketplace)/components/product/productInformation/index'
@@ -20,17 +21,18 @@ const Cart = ({ toggled, onToggle }: CartProps) => {
   const isCartEmpty = getTotalItemCount() === 0;
   const FREE_DELIVERY = 499
 
+  const locale = useLocale();
   const orderValue = getOrderValue();
-  const formattedOrderValue = currencyFormatter(orderValue, "SEK");
+  const formattedOrderValue = currencyFormatter(orderValue, "SEK", locale);
 
   const untilFreeDelivery = clamp(FREE_DELIVERY - orderValue, 0, FREE_DELIVERY);
-  const formattedUntilFreeDelivery = currencyFormatter(untilFreeDelivery, "SEK");
+  const formattedUntilFreeDelivery = currencyFormatter(untilFreeDelivery, "SEK", locale);
 
   let deliveryFee = untilFreeDelivery <= 0 ? 0 : 79;
-  const formattedDeliveryFee = currencyFormatter(deliveryFee, "SEK");
+  const formattedDeliveryFee = currencyFormatter(deliveryFee, "SEK", locale);
 
   const totalPrice = orderValue + deliveryFee;
-  const formattedTotalPrice = currencyFormatter(totalPrice, "SEK");
+  const formattedTotalPrice = currencyFormatter(totalPrice, "SEK", locale);
 
   /* Disables scrolling */
   onToggle(true);
@@ -47,7 +49,7 @@ const Cart = ({ toggled, onToggle }: CartProps) => {
 	duration-300
 	ease-in-out
 	backdrop-blur-md
-	bg-black/50
+	bg-[#000000]/50
 	h-full
 	z-40`
       }/>

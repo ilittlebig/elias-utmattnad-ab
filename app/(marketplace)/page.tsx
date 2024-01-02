@@ -12,17 +12,23 @@ export default function Home() {
   return (
     <main className="">
       <HeroSection />
-      <VisionSection />
-      <ServicesSection />
       <TrustedBySection />
+      {/* <VisionSection /> */}
+      <ServicesSection />
 
       {/* Content Showcase Section */}
 
-      <div className="flex flex-col pt-[928px] gap-y-32 lg:pt-[280px] lg:pb-12">
+      <div className="flex flex-col pt-[928px] gap-y-32 lg:pt-[115px] lg:pb-12">
       	<ShowcaseCard
 	  title="Innovativ Tufting"
 	  description="Med precision och omsorg använder vi modern tuftingteknik för att förvandla dina idéer till verklighet. Vår tuftingpistol gör det möjligt att skapa detaljerade och varaktiga mönster som speglar din personliga stil."
 	  imagePath="/tufting.jpg"
+	  subTexts={[
+	    "This is something about the image",
+	    "Another thing about something",
+	    "Even another thing about a service",
+	    "Maybe, maybe not...",
+	  ]}
 	/>
 
       	<ShowcaseCard
@@ -30,12 +36,24 @@ export default function Home() {
 	  description="Dina visioner är vår canvas. Från abstrakta konstverk till naturtrogna avbildningar – vi tuftar ditt önskemotiv med liv och känsla. Upptäck en värld av möjligheter där endast fantasin sätter gränserna."
 	  imagePath="/tufting2.jpg"
 	  way="left"
+	  subTexts={[
+	    "This is something about the image",
+	    "Another thing about something",
+	    "Even another thing about a service",
+	    "Maybe, maybe not...",
+	  ]}
 	/>
 
       	<ShowcaseCard
 	  title="Innovativ Tufting"
 	  description="Med precision och omsorg använder vi modern tuftingteknik för att förvandla dina idéer till verklighet. Vår tuftingpistol gör det möjligt att skapa detaljerade och varaktiga mönster som speglar din personliga stil."
 	  imagePath="/tufting.jpg"
+	  subTexts={[
+	    "This is something about the image",
+	    "Another thing about something",
+	    "Even another thing about a service",
+	    "Maybe, maybe not...",
+	  ]}
 	/>
       </div>
 

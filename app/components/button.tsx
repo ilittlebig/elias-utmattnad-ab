@@ -48,7 +48,7 @@ const Button = ({
     !isClicked && 'scale-100 opacity-100',
     {
       'text-white': destructive,
-      'text-black': !destructive,
+      'text-[#000000]': !destructive,
       'cursor-pointer': !disabled,
       'px-8 py-4 text-lg': !className,
       'text-gray-500 hover:text-gray-700': noBackground,

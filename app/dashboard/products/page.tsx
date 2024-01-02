@@ -1,6 +1,7 @@
 "use client"
 import { useEffect, useState } from 'react'
 import { useProductsContext } from '@/contexts/productsContext'
+import useLocale from '@/hooks/locale'
 import currencyFormatter from '@/utils/currencyFormatter'
 
 import Button from '@/components/button'
@@ -10,6 +11,7 @@ import ProductsList from '@/dashboard/components/products/productsList'
 const DashboardProductsPage = () => {
   const [productCount, setProductCount] = useState<number>(0);
   const { products } = useProductsContext();
+  const locale = useLocale();
 
   useEffect(() => {
     setProductCount(products.length);
@@ -42,7 +44,7 @@ const DashboardProductsPage = () => {
 
         <StatisticWidget
 	  title="Total Försäljning"
-	  value={currencyFormatter(0, "SEK")}
+	  value={currencyFormatter(0, "SEK", locale)}
 	/>
 
         <StatisticWidget

@@ -2,6 +2,7 @@
 import { Toast } from '@/contexts/toastContext'
 import { useCart } from '@/hooks/cart'
 import { useState, useEffect } from 'react'
+import useLocale from '@/hooks/locale'
 import currencyFormatter from '@/utils/currencyFormatter'
 
 import dynamic from 'next/dynamic'
@@ -9,7 +10,9 @@ import Image from 'next/image'
 
 const CartNotificationToast = ({name, price, image, className }: Toast) => {
   const { getTotalItemCount } = useCart();
-  const formattedPrice = currencyFormatter(price, "SEK");
+
+  const locale = useLocale();
+  const formattedPrice = currencyFormatter(price, "SEK", locale);
   const totalItems = getTotalItemCount();
 
   return (

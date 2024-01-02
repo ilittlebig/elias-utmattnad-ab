@@ -1,11 +1,12 @@
-import Image from 'next/image'
-import Link from 'next/link'
-import currencyFormatter from '@/utils/currencyFormatter'
-
 import { FaRegTrashCan } from 'react-icons/fa6'
 import { FaPlus } from 'react-icons/fa6'
 import { FaMinus } from 'react-icons/fa'
 import { useCart } from '@/hooks/cart'
+import useLocale from '@/hooks/locale'
+
+import Image from 'next/image'
+import Link from 'next/link'
+import currencyFormatter from '@/utils/currencyFormatter'
 
 type ProductCardProps = {
   id: string,
@@ -16,6 +17,7 @@ type ProductCardProps = {
 
 const ProductCard = ({ id, name, price, quantity }: ProductCardProps) => {
   const { removeProduct, incrementQuantity, decrementQuantity } = useCart();
+  const locale = useLocale();
 
   return (
     <div className="flex drop-shadow-card bg-white p-4 justify-between rounded-md">
@@ -36,7 +38,7 @@ const ProductCard = ({ id, name, price, quantity }: ProductCardProps) => {
 	    </Link>
 
 	    <div className="w-full text-lg">
-	      {currencyFormatter(price, "SEK")}
+	      {currencyFormatter(price, "SEK", locale)}
 	    </div>
 	  </div>
 

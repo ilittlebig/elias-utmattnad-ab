@@ -1,9 +1,8 @@
 const currencyFormatter = (
   amount: number,
   currency: string,
-  locale: string = typeof navigator === 'undefined' ? 'en-US' : navigator.language
+  locale: string
 ): string => {
-  if (typeof window === "undefined") return "";
   return new Intl.NumberFormat(locale, {
     style: "currency",
     currency: currency

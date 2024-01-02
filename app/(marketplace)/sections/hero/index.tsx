@@ -21,7 +21,7 @@ const HeroSection = () => {
   return (
     <div className="h-[1030px]">
       <div className="w-full relative">
-	<div className="bg-[#F2796A] lg:flex hidden items-center justify-center absolute -right-[170px] rotate-[15deg] mt-[150px] w-[450px] h-[300px] rounded-[75px]">
+	<div className="bg-[#F2796A] lg:flex hidden items-center justify-center absolute -right-[120px] rotate-[15deg] mt-[150px] w-[450px] h-[300px] rounded-[75px]">
 	  <div className="relative w-[400px] h-[225px]">
 	    <Image
 	      src="/Illustration1.svg"
@@ -34,7 +34,7 @@ const HeroSection = () => {
       </div>
 
       <div className="w-full relative">
-	<div className="bg-[#7FB482] lg:flex hidden items-center justify-center absolute -left-[70px] -rotate-[15deg] mt-[190px] w-[350px] h-[220px] rounded-[50px]">
+	<div className="bg-[#7FB482] lg:flex hidden items-center justify-center absolute -left-[30px] -rotate-[15deg] mt-[190px] w-[350px] h-[220px] rounded-[50px]">
 	  <div className="relative w-[400px] h-[175px]">
 	    <Image
 	      src="/Illustration3.svg"
@@ -60,7 +60,7 @@ const HeroSection = () => {
       </div>
 
       <div className="w-full relative">
-	<div className="bg-[#5D2B0E] lg:flex hidden items-center justify-center absolute -right-[50px] -rotate-[15deg] top-[550px] w-[350px] h-[220px] rounded-[50px]">
+	<div className="bg-[#5D2B0E] lg:flex hidden items-center justify-center absolute -right-[-20px] -rotate-[15deg] top-[570px] w-[350px] h-[220px] rounded-[50px]">
 	  <div className="relative w-[400px] h-[175px]">
 	    <Image
 	      src="/Illustration2.svg"

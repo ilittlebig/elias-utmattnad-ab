@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import useLocale from '@/hooks/locale'
 import currencyFormatter from '@/utils/currencyFormatter'
 
 type ProductProps = {
@@ -15,7 +16,8 @@ const ProductCard = ({
   rating,
   imagePath
 }: ProductProps) => {
-  const formattedPrice = currencyFormatter(price, "SEK");
+  const locale = useLocale();
+  const formattedPrice = currencyFormatter(price, "SEK", locale);
 
   return (
     <div className="flex flex-col p-4 h-[350px] lg:w-[220px] w-[210px] rounded-lg gap-y-4">

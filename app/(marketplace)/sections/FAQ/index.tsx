@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import FAQQuestion from '@/(marketplace)/components/faqQuestion'
+import Button from '@/components/button'
 
 const FAQSection = () => {
   const questions = [
@@ -27,7 +28,7 @@ const FAQSection = () => {
   ];
 
   return (
-    <div className="flex flex-col py-48 gap-y-12">
+    <div className="flex flex-col pt-48 pb-12 gap-y-12">
       <div className="flex px-4 lg:px-0">
 	<div className="flex flex-col text-black text-center mx-auto items-center gap-y-6">
 	  <h1 className="relative lg:text-5xl text-4xl font-bold w-fit">
@@ -41,13 +42,27 @@ const FAQSection = () => {
 	</div>
       </div>
 
-      <div className="flex flex-col gap-y-6 lg:w-[70%] mx-auto items-center lg:max-w-3xl px-4 lg:px-0">
-        {questions.map((question) => (
+      <div className="flex flex-col gap-y-8 lg:w-[70%] mx-auto items-center lg:max-w-3xl px-4 lg:px-0">
+        {questions.map((question, index) => (
 	  <FAQQuestion
 	    question={question.question}
 	    answer={question.answer}
+	    index={index + 1}
 	  />
 	))}
+      </div>
+
+      <div className="bg-green-50 text-center items-center max-w-lg rounded-2xl flex flex-col gap-y-4 w-fit mx-auto text-black px-12 py-8">
+        <label className="font-semibold text-xl">
+	  Har du fortfarande frågor?
+	</label>
+        <label className="text-lg">
+	  Vi beklagar att vi inte kunde tillhandahålla de svar du sökte. Om du har ytterligare frågor eller behöver assistans, tveka inte att kontakta oss här.
+	</label>
+
+	<Button
+	  actionText="Kontakta Oss"
+	/>
       </div>
     </div>
   )
