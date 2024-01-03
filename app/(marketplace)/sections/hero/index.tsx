@@ -19,7 +19,7 @@ const HeroSection = () => {
   };
 
   return (
-    <div className="h-[1030px]">
+    <div className="h-[1030px] relative">
       <div className="w-full relative">
 	<div className="bg-[#F2796A] lg:flex hidden items-center justify-center absolute -right-[120px] rotate-[15deg] mt-[150px] w-[450px] h-[300px] rounded-[75px]">
 	  <div className="relative w-[400px] h-[225px]">
@@ -67,6 +67,24 @@ const HeroSection = () => {
 	      fill
 	      style={{ objectFit: "contain" }}
 	      alt="Vision"
+	    />
+	  </div>
+	</div>
+      </div>
+
+      <div className="absolute w-[150px] h-[38px] top-[84%] right-[-12%] -z-10">
+        <div className="flex flex-col gap-y-2 relative items-center">
+	  <label className="absolute text-black font-medium text-lg font-rockwell rotate-[10deg] right-[4%] bottom-0">
+	    Skrolla Ner
+	  </label>
+
+	  <div className="absolute top-0">
+	    <Image
+	      src="/SquigglyArrow.svg"
+	      width={38}
+	      height={38}
+	      style={{ objectFit: "contain" }}
+	      alt="Squiggly Arrow"
 	    />
 	  </div>
 	</div>

@@ -21,13 +21,13 @@ const CollectionSection = () => {
 
 	    <div className="flex items-center justify-center">
 	      Mattkollektion
-	      <div className="absolute w-[347px] h-[47px] -mt-[5px] -z-10">
+	      <div className="absolute right-[-3.5%] w-[38px] h-[38px] top-[-20%] -z-10">
 		<Image
-		  src="/TextBorder3.svg"
-		  width={347}
-		  height={47}
-		  style={{ objectFit: "fill" }}
-		  alt="Vision"
+		  src="/Spark.svg"
+		  width={38}
+		  height={38}
+		  style={{ objectFit: "contain" }}
+		  alt="Spark"
 		/>
 	      </div>
 	    </div>
