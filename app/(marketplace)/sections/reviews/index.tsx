@@ -110,7 +110,7 @@ const ReviewsSection = () => {
   }, [currentIndex]);
 
   return (
-    <div className="flex flex-col py-32 gap-y-8">
+    <div className="flex flex-col py-36 gap-y-8">
       <div className="flex flex-col text-black items-center text-center mx-auto px-4 lg-px:0 gap-y-6">
 	<h1 className="relative font-rockwell lg:text-5xl text-4xl font-bold w-fit">
 	  <div className="absolute left-[-14px] w-12 h-12 -mt-3 -z-10 bg-orange-200 rounded-full" />

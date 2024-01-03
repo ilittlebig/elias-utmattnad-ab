@@ -28,7 +28,7 @@ const FAQSection = () => {
   ];
 
   return (
-    <div className="flex flex-col pt-48 pb-12 gap-y-12">
+    <div className="flex flex-col pt-36 pb-36 gap-y-12">
       <div className="flex px-4 lg:px-0">
 	<div className="flex flex-col text-black text-center mx-auto items-center gap-y-6">
 	  <h1 className="relative lg:text-5xl text-4xl font-bold w-fit">

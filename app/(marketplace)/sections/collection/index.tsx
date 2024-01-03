@@ -3,7 +3,7 @@ import Button from '@/components/button'
 
 const CollectionSection = () => {
   return (
-    <div className="h-[988px] px-4 lg:pt-12">
+    <div className="h-[988px] px-4">
       <div className="absolute left-0 w-screen h-[988px]">
 	<Image
 	  src="/collection.png"

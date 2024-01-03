@@ -17,14 +17,21 @@ type ButtonProps = {
   isLoading?: boolean,
   destructive?: boolean,
   instantAction?: boolean,
+  icon?: boolean
 };
 
 const Button = ({
-  actionText, onClick,
-  href, disabled, fill,
-  className, noBackground,
-  isLoading, destructive,
-  instantAction
+  actionText,
+  onClick,
+  href,
+  disabled,
+  fill,
+  className,
+  noBackground,
+  isLoading,
+  destructive,
+  instantAction,
+  icon
 }: ButtonProps) => {
   const [isClicked, setIsClicked] = useState(false);
   const router = useRouter();
@@ -42,7 +49,7 @@ const Button = ({
 
   const buttonClasses = clsx(
     "flex items-center justify-center gap-x-2",
-    noBackground && "bg-transparent hover:bg-transparent",
+    noBackground && "bg-white hover:bg-white",
     disabled ? 'bg-gray-300' : destructive ? 'bg-red-500 hover:bg-red-600' : 'bg-primary hover:bg-primary-hover',
     isClicked && !disabled && 'scale-95 opacity-75',
     !isClicked && 'scale-100 opacity-100',
@@ -51,7 +58,7 @@ const Button = ({
       'text-[#000000]': !destructive,
       'cursor-pointer': !disabled,
       'px-8 py-4 text-lg': !className,
-      'text-gray-500 hover:text-gray-700': noBackground,
+      'text-black hover:text-[#000000]': noBackground,
       'font-medium text-center': true,
       'w-full': fill,
       'w-fit': !fill,
@@ -64,7 +71,8 @@ const Button = ({
   return (
     <div className={buttonClasses} onClick={handleClick} tabIndex={0}>
       {isLoading && <CgSpinner className="w-8 h-8 animate-spin" />}
-      {actionText}
+      <label className="y-fit cursor-pointer">{actionText}</label>
+      {icon && icon}
     </div>
   );
 }

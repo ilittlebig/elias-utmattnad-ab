@@ -28,8 +28,8 @@ const TrustedBySection = () => {
   };
 
   return (
-    <div className="lg:h-[390px] h-[440px]">
-      <div className="absolute left-0 overflow-hidden items-center flex flex-col gap-y-12 w-screen h-[440px]">
+    <div className="lg:h-[569px] h-[440px] pt-36">
+      <div className="absolute left-0 overflow-hidden items-center flex flex-col gap-y-12 w-screen">
         <div className="max-w-6xl text-center items-center flex justify-center flex-col gap-y-6">
 	  <label className="font-semibold lg:text-lg text-lg text-center text-primary">
 	    VARFÖR ELIAS MATTOR?
