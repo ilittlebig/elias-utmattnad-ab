@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import AcceptedPayments from '@/(marketplace)/components/acceptedPayments'
 
 interface Link {
   label: string,
@@ -21,7 +22,7 @@ const Footer = () => {
 
   return (
     <div className="absolute left-0 right-0 bg-gray-100">
-      <div className="flex flex-col gap-y-16 items-center text-black">
+      <div className="flex flex-col gap-y-8 items-center text-black">
 	<div className="flex max-w-6xl lg:flex-row flex-col lg:justify-between gap-y-12 lg:px-0 px-4 lg:items-center gap-x-64 pt-28">
 	  <div className="flex flex-col gap-y-6 items-center lg:items-start">
 	    {/* Logo */}
@@ -39,6 +40,8 @@ const Footer = () => {
 	    <div className="lg:text-xl text-center lg:text-left font-medium text-lg max-w-xs">
 	      Hantverk Möter Hem – Skapa Din Värld Med Oss
 	    </div>
+
+	    <AcceptedPayments />
 	  </div>
 
 	  <div className="flex lg:gap-x-28 lg:justify-between gap-x-20 justify-center lg:justify-start">
@@ -64,7 +67,9 @@ const Footer = () => {
 	  </div>
 	</div>
 
-	<div className="pb-12 font-medium text-lg text-center">
+	<div className="mt-8 w-full border" />
+
+	<div className="pb-8 font-medium text-lg text-center">
 	  © 2024 Elias Utmattad AB. Alla rättigheter förbehållna.
 	</div>
       </div>
