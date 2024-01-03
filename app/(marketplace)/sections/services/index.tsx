@@ -29,28 +29,24 @@ const ServicesSection = () => {
 
   const services = [
     {
-      title: "Skapa Din Design",
+      title: "Egen Design",
       description: "Anpassa din matta efter din stil och dina önskemål.",
       image: "/designIllustration.svg",
-      bgColor: "bg-green-200"
     },
     {
       title: "Hantverk av Kvalitet",
       description: "Varje matta är ett mästerverk, skapat med precision och omsorg.",
       image: "/Illustration3.svg",
-      bgColor: "bg-purple-200"
     },
     {
       title: "Personlig Service",
       description: "Individuell kundservice för att uppfylla dina specifika behov.",
       image: "/supportIllustration.svg",
-      bgColor: "bg-blue-200"
     },
     {
       title: "Snabb Leverans",
       description: "Effektiv och pålitlig leverans av din anpassade matta.",
       image: "/Illustration2.svg",
-      bgColor: "bg-red-200"
     }
   ]
 
@@ -58,9 +54,21 @@ const ServicesSection = () => {
     <>
       <div className="flex pb-0 lg:pt-36 pt-44">
 	<div className="flex flex-col text-black items-center text-center mx-auto px-4 lg-px:0 gap-y-6">
-	  <h1 className="relative lg:text-h1 font-rockwell text-3xl font-bold w-fit">
+	  <h1 className="flex gap-x-2.5 relative lg:text-h1 font-rockwell text-3xl font-bold w-fit">
 	    <div className="absolute left-[-14px] w-12 h-12 -mt-3 -z-10 bg-blue-200 rounded-full" />
-	    Utforska Våra Tjänster
+	    Utforska Våra
+
+	    <div className="flex relative justify-center">
+	      Tjänster
+	      <div className="absolute w-[207px] h-[50px] top-0 -mt-[6px] -z-10">
+		<Image
+		  src="/TextBorder2.svg"
+		  width={240}
+		  height={50}
+		  alt="Text Border"
+		/>
+	      </div>
+	    </div>
 	  </h1>
 
 	  <h2 className="max-w-3xl lg:text-lg text-lg font-medium">
@@ -82,7 +90,7 @@ const ServicesSection = () => {
                 title={service.title}
                 description={service.description}
                 path={service.image}
-                bgColor={service.bgColor}
+                index={index + 1}
               />
             </motion.div>
           ))}

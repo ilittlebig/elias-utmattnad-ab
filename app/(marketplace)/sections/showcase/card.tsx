@@ -54,7 +54,16 @@ const Card = ({
 
       <div className="flex-col max-w-xl text-black hidden lg:flex justify-center gap-y-6">
 	<h1 className="relative lg:text-h1 font-rockwell font-bold">
-	  <div className="absolute left-[-14px] w-12 h-12 -mt-3 -z-10 bg-purple-200 rounded-full" />
+	  <div className="absolute -scale-x-100 left-[-5%] top-[-26%] w-[50px] h-[50px] -mt-[11px] -z-10">
+	    <Image
+	      src="/Spark.svg"
+	      width={50}
+	      height={50}
+	      style={{ objectFit: "contain" }}
+	      alt="Spark"
+	    />
+	  </div>
+
 	  {title}
 	</h1>
 	<h2 className="max-w-4xl lg:text-lg text-lg font-medium">

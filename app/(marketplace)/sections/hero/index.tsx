@@ -91,7 +91,17 @@ const HeroSection = () => {
 	    <motion.h2
 	      variants={itemVariants}
 	      custom={2}
+	      className="relative"
 	    >
+	      <div className="absolute right-[-5%] w-[38px] h-[38px] -mt-[11px] -z-10">
+		<Image
+		  src="/Spark.svg"
+		  width={38}
+		  height={38}
+		  style={{ objectFit: "contain" }}
+		  alt="Spark"
+		/>
+	      </div>
 	      Mattor,
 	    </motion.h2>
 
@@ -105,7 +115,17 @@ const HeroSection = () => {
 	    <motion.h4
 	      variants={itemVariants}
 	      custom={4}
+	      className="flex relative justify-center"
 	    >
+	      <div className="absolute w-[295px] h-[50px] -mt-[11px] -z-10">
+		<Image
+		  src="/TextBorder.svg"
+		  width={295}
+		  height={50}
+		  style={{ objectFit: "fill" }}
+		  alt="Vision"
+		/>
+	      </div>
 	      Möjligheter
 	    </motion.h4>
 	  </div>

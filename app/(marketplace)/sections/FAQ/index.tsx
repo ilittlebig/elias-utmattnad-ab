@@ -32,7 +32,15 @@ const FAQSection = () => {
       <div className="flex px-4 lg:px-0">
 	<div className="flex flex-col text-black text-center mx-auto items-center gap-y-6">
 	  <h1 className="relative lg:text-5xl text-4xl font-bold w-fit">
-	    <div className="absolute left-[-15px] w-12 h-12 -mt-3 -z-10 bg-green-200 rounded-full" />
+	    <div className="absolute right-[-36%] w-[70px] h-[70px] -mt-[30px] -z-10">
+	      <Image
+		src="/Spark.svg"
+		width={70}
+		height={70}
+		style={{ objectFit: "contain" }}
+		alt="Spark"
+	      />
+	    </div>
 	    FAQ
 	  </h1>
 

@@ -16,8 +16,21 @@ const CollectionSection = () => {
 
       <div className="relative flex items-center h-[988px] z-10">
 	<div className="flex items-center flex-col mx-auto text-white text-center gap-y-6">
-	  <h1 className="lg:text-5xl text-4xl font-bold">
-	    Upptäck Vår Mattkollektion
+	  <h1 className="relative flex gap-x-2.5 lg:text-5xl text-4xl font-bold">
+	    Upptäck Vår
+
+	    <div className="flex items-center justify-center">
+	      Mattkollektion
+	      <div className="absolute w-[347px] h-[47px] -mt-[5px] -z-10">
+		<Image
+		  src="/TextBorder3.svg"
+		  width={347}
+		  height={47}
+		  style={{ objectFit: "fill" }}
+		  alt="Vision"
+		/>
+	      </div>
+	    </div>
 	  </h1>
 
 	  <h2 className="lg:text-4xl text-2xl max-w-4xl">
