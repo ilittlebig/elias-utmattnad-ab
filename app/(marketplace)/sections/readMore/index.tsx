@@ -30,7 +30,7 @@ const ReadMoreSection = () => {
 		actionText="Läs Mer"
 		noBackground
 		className="border-2 px-8 py-2 shadow-sm z-20"
-		icon={(<FaArrowRight className="text-primary" />)}
+		icon={<FaArrowRight className="text-primary" />}
 	      />
 	    </div>
 

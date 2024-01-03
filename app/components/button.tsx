@@ -17,7 +17,7 @@ type ButtonProps = {
   isLoading?: boolean,
   destructive?: boolean,
   instantAction?: boolean,
-  icon?: boolean
+  icon?: React.ReactNode
 };
 
 const Button = ({
