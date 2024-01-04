@@ -74,7 +74,7 @@ const HeroSection = () => {
 
       <div className="absolute w-[150px] h-[38px] top-[84%] right-[-12%] -z-10">
         <div className="flex flex-col gap-y-2 relative items-center">
-	  <label className="absolute text-black font-medium text-lg font-rockwell rotate-[10deg] right-[4%] bottom-0">
+	  <label className="absolute text-[#000000] font-semibold text-lg rotate-[10deg] right-[4%] bottom-0">
 	    Skrolla Ner
 	  </label>
 
