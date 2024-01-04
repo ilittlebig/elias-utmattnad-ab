@@ -43,7 +43,7 @@ const ProductCard = ({
 	  {[...Array(5)].map((_, index) => (
 	    <Image
 	      key={index}
-	      src="/star.png"
+	      src="/Star.svg"
 	      width={17}
 	      height={17}
 	      className={`object-contain ${index < rating ? 'opacity-100' : 'opacity-25'}`}

@@ -26,6 +26,7 @@ const Navbar: FC = () => {
     { label: "Hem", href: "/" },
     { label: "Produkter", href: "/products/all" },
     { label: "Om Oss", href: "/about" },
+    { label: "Kontakta", href: "/about" },
   ];
 
   const toggleMenu = () => {
