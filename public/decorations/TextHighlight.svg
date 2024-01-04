@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Lager_2" data-name="Lager 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 104.73 53.66">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #ffce6c;
+        opacity: .5;
+      }
+
+      .cls-1, .cls-2 {
+        stroke-width: 0px;
+      }
+
+      .cls-2 {
+        fill: #eab242;
+      }
+    </style>
+  </defs>
+  <g id="Lager_1-2" data-name="Lager 1">
+    <rect class="cls-1" x="2.58" y="2.58" width="99.58" height="48.51"/>
+    <circle class="cls-2" cx="2.58" cy="2.58" r="2.58"/>
+    <circle class="cls-2" cx="2.58" cy="50.55" r="2.58"/>
+    <rect class="cls-2" x="7.89" y="2.04" width="5.53" height="1.06"/>
+    <rect class="cls-2" x="16.46" y="2.04" width="5.53" height="1.06"/>
+    <rect class="cls-2" x="25.02" y="2.04" width="5.53" height="1.06"/>
+    <rect class="cls-2" x="33.59" y="2.04" width="5.53" height="1.06"/>
+    <rect class="cls-2" x="42.16" y="2.04" width="5.53" height="1.06"/>
+    <rect class="cls-2" x="50.73" y="2.04" width="5.53" height="1.06"/>
+    <rect class="cls-2" x="59.3" y="2.04" width="5.53" height="1.06"/>
+    <rect class="cls-2" x="67.87" y="2.04" width="5.53" height="1.06"/>
+    <rect class="cls-2" x="76.44" y="2.04" width="5.53" height="1.06"/>
+    <rect class="cls-2" x="85.01" y="2.04" width="5.53" height="1.06"/>
+    <rect class="cls-2" x="93.58" y="2.04" width="5.53" height="1.06"/>
+    <rect class="cls-2" x="-.63" y="11.49" width="6.42" height=".91" transform="translate(-9.38 14.53) rotate(-90)"/>
+    <rect class="cls-2" x="-.63" y="21.45" width="6.42" height=".91" transform="translate(-19.33 24.48) rotate(-90)"/>
+    <rect class="cls-2" x="-.63" y="31.4" width="6.42" height=".91" transform="translate(-29.28 34.43) rotate(-90)"/>
+    <rect class="cls-2" x="7.89" y="50.55" width="5.53" height="1.06"/>
+    <rect class="cls-2" x="16.46" y="50.55" width="5.53" height="1.06"/>
+    <rect class="cls-2" x="25.02" y="50.55" width="5.53" height="1.06"/>
+    <rect class="cls-2" x="33.59" y="50.55" width="5.53" height="1.06"/>
+    <rect class="cls-2" x="42.16" y="50.55" width="5.53" height="1.06"/>
+    <rect class="cls-2" x="50.73" y="50.55" width="5.53" height="1.06"/>
+    <rect class="cls-2" x="59.3" y="50.55" width="5.53" height="1.06"/>
+    <rect class="cls-2" x="67.87" y="50.55" width="5.53" height="1.06"/>
+    <rect class="cls-2" x="76.44" y="50.55" width="5.53" height="1.06"/>
+    <rect class="cls-2" x="85.01" y="50.55" width="5.53" height="1.06"/>
+    <rect class="cls-2" x="93.58" y="50.55" width="5.53" height="1.06"/>
+    <rect class="cls-2" x="-.63" y="41.35" width="6.42" height=".91" transform="translate(-39.23 44.38) rotate(-90)"/>
+    <circle class="cls-2" cx="102.15" cy="3.11" r="2.58"/>
+    <circle class="cls-2" cx="102.15" cy="51.08" r="2.58"/>
+    <rect class="cls-2" x="98.94" y="11.44" width="6.42" height=".91" transform="translate(90.25 114.05) rotate(-90)"/>
+    <rect class="cls-2" x="98.94" y="21.4" width="6.42" height=".91" transform="translate(80.3 124) rotate(-90)"/>
+    <rect class="cls-2" x="98.94" y="31.35" width="6.42" height=".91" transform="translate(70.35 133.96) rotate(-90)"/>
+    <rect class="cls-2" x="98.94" y="41.3" width="6.42" height=".91" transform="translate(60.4 143.91) rotate(-90)"/>
+  </g>
+</svg>

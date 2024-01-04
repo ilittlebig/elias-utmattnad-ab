@@ -10,6 +10,7 @@ import Link from 'next/link'
 import MainProductImage from '@/(marketplace)/components/product/productImage'
 import ProductInformation from '@/(marketplace)/components/product/productInformation/index'
 import ProductImages from '@/(marketplace)/components/product/productImages'
+import AcceptedPayments from '@/(marketplace)/components/acceptedPayments'
 
 const ProductPage = () => {
   const [product, setProduct] = useState<Product | null>(null);
@@ -53,9 +54,18 @@ const ProductPage = () => {
 
 	<div className="flex lg:flex-row flex-col">
 	  <MainProductImage />
-	  <ProductInformation
-	    product={product}
-	  />
+	  <div className="flex flex-col w-full">
+	    <ProductInformation
+	      product={product}
+	    />
+
+	    <div className="flex flex-col gap-y-4 w-full bg-gray-100 rounded-lg px-6 py-6">
+	      <label className="text-black text-lg font-medium">
+	        Godkända Betalningssätt
+    	      </label>
+	      <AcceptedPayments />
+	    </div>
+	  </div>
 	</div>
       </div>
 

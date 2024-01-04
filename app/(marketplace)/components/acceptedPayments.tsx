@@ -7,6 +7,7 @@ const AcceptedPayments = () => {
     "PayPal.svg",
     "Google_Pay.svg",
     "Apple_Pay.svg",
+    "Swish.svg",
   ];
 
   return (
