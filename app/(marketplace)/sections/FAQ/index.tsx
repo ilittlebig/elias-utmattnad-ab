@@ -29,6 +29,53 @@ const FAQSection = () => {
 
   return (
     <div className="flex flex-col pt-36 pb-36 gap-y-12">
+      <div className="relative">
+	<div className="absolute w-[70px] h-[70px] top-[150px] left-[10%]">
+	  <Image
+	    src="/decorations/BlueArrow.svg"
+	    fill
+	    style={{ objectFit: "contain" }}
+	    alt="Blue Arrow"
+	  />
+	</div>
+
+	<div className="absolute w-[20px] h-[20px] top-[0px] right-[28%]">
+	  <Image
+	    src="/decorations/RedPlus.svg"
+	    fill
+	    style={{ objectFit: "contain" }}
+	    alt="Red Plus"
+	  />
+	</div>
+
+	<div className="absolute w-[30px] h-[30px] top-[400px] right-[7%] rotate-[25deg]">
+	  <Image
+	    src="/decorations/GreenTriangle.svg"
+	    fill
+	    style={{ objectFit: "contain" }}
+	    alt="Green Triangle"
+	  />
+	</div>
+
+	<div className="absolute w-[20px] h-[20px] top-[950px] right-[20%]">
+	  <Image
+	    src="/decorations/RedPlus.svg"
+	    fill
+	    style={{ objectFit: "contain" }}
+	    alt="Red Plus"
+	  />
+	</div>
+
+	<div className="absolute w-[30px] h-[30px] top-[750px] right-[90%] rotate-[70deg]">
+	  <Image
+	    src="/decorations/OrangeSwirl.svg"
+	    fill
+	    style={{ objectFit: "contain" }}
+	    alt="Orange Swirl"
+	  />
+	</div>
+      </div>
+
       <div className="flex px-4 lg:px-0">
 	<div className="flex flex-col text-black text-center mx-auto items-center gap-y-6">
 	  <h1 className="relative lg:text-5xl text-4xl font-bold w-fit">

@@ -19,7 +19,7 @@ const HeroSection = () => {
   };
 
   return (
-    <div className="h-[1030px] relative">
+    <div className="h-[1030px] pointer-events-none relative">
       <div className="w-full relative">
 	<div className="bg-[#F2796A] lg:flex hidden items-center justify-center absolute -right-[120px] rotate-[15deg] mt-[150px] w-[450px] h-[300px] rounded-[75px]">
 	  <div className="relative w-[400px] h-[225px]">
@@ -90,6 +90,46 @@ const HeroSection = () => {
 	</div>
       </div>
 
+      <div className="absolute w-[38px] h-[38px] top-[70%] right-[35%] -z-10">
+	<Image
+	  src="/decorations/OrangeSwirl.svg"
+	  width={38}
+	  height={38}
+	  style={{ objectFit: "contain" }}
+	  alt="Squiggly Arrow"
+	/>
+      </div>
+
+      <div className="absolute w-[38px] h-[38px] top-[25%] right-[108%] -z-10 rotate-90">
+	<Image
+	  src="/decorations/PurpleCircle.svg"
+	  width={38}
+	  height={38}
+	  style={{ objectFit: "contain" }}
+	  alt="Squiggly Arrow"
+	/>
+      </div>
+
+      <div className="absolute w-[70px] h-[70px] top-[13%] right-[-10%] -z-10">
+	<Image
+	  src="/decorations/OrangeArrow.svg"
+	  width={70}
+	  height={70}
+	  style={{ objectFit: "contain" }}
+	  alt="Squiggly Arrow"
+	/>
+      </div>
+
+      <div className="absolute w-[20px] h-[20px] top-[26%] right-[40%] -z-10">
+	<Image
+	  src="/decorations/RedPlus.svg"
+	  width={20}
+	  height={20}
+	  style={{ objectFit: "contain" }}
+	  alt="Squiggly Arrow"
+	/>
+      </div>
+
       <motion.div
         className="flex px-4 -mt-[64px] h-full items-center lg:px-0"
         variants={containerVariants}
@@ -156,7 +196,7 @@ const HeroSection = () => {
             Upptäck en värld där varje matta är ett mästerverk - Handgjorda, unika, och med en personlig prägel. Välkommen till en plats där design möter passion.
           </motion.p>
 
-	  <div className="flex justify-center w-full">
+	  <div className="flex justify-center w-full pointer-events-auto">
 	    <motion.div variants={itemVariants} custom={6}>
 	      <Button
 		actionText="Gör Din Egen Design"

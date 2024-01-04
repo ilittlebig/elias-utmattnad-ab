@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Lager_2" data-name="Lager 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500.56 29.06">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #58afe3;
+        stroke-linecap: round;
+        stroke-miterlimit: 10;
+        stroke-width: 8px;
+      }
+    </style>
+  </defs>
+  <g id="Lager_2-2" data-name="Lager 2">
+    <path class="cls-1" d="m4,25.06C64.37,8.95,145.02,5.66,240.67,4.3c104.48-1.48,192.08,2.12,255.89,18.53"/>
+  </g>
+</svg>
