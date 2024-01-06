@@ -14,13 +14,14 @@ const config: Config = {
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
       colors: {
-        'primary': '#32CD32', /* '#6B8E23', */
+        'primary': '#32CD32',
         'primary-hover': '#2db82d',
-        'primary-click': '#2db82d',  /* '#55711C', */
+        'primary-click': '#2db82d',
 	'black': '#47250E',
       },
       fontFamily: {
         rockwell: ['Rockwell', 'sans-serif'],
+        awanZaman: ['AwanZaman', 'sans-serif'],
       },
       dropShadow: {
 	'card': '0px 24px 24px rgba(149, 157, 165, 0.20)'

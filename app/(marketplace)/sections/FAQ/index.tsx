@@ -30,7 +30,7 @@ const FAQSection = () => {
   return (
     <div className="flex flex-col pt-36 pb-36 gap-y-12">
       <div className="relative">
-	<div className="absolute w-[70px] h-[70px] top-[150px] left-[10%]">
+	<div className="absolute w-[70px] h-[70px] top-[150px] left-[-5%]">
 	  <Image
 	    src="/decorations/BlueArrow.svg"
 	    fill
@@ -48,7 +48,7 @@ const FAQSection = () => {
 	  />
 	</div>
 
-	<div className="absolute w-[30px] h-[30px] top-[400px] right-[7%] rotate-[25deg]">
+	<div className="absolute w-[30px] h-[30px] top-[400px] right-[-10%] rotate-[25deg]">
 	  <Image
 	    src="/decorations/GreenTriangle.svg"
 	    fill

@@ -1,6 +1,6 @@
 "use client"
 import React, { useState, useEffect } from 'react'
-import { AiFillCaretDown } from 'react-icons/ai'
+import { IoIosArrowDown } from 'react-icons/io'
 import Link from 'next/link'
 
 type DropdownProps = {
@@ -12,7 +12,13 @@ type DropdownProps = {
   onChange?: (value: string) => void
 };
 
-const Dropdown = ({ label, children, text, required, onChange }: DropdownProps) => {
+const Dropdown = ({
+  label,
+  children,
+  text,
+  required,
+  onChange
+}: DropdownProps) => {
   const [isFocused, setIsFocused] = useState(false);
   const [selectedLabel, setSelectedLabel] = useState(text || "");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -49,35 +55,33 @@ const Dropdown = ({ label, children, text, required, onChange }: DropdownProps) 
       }
     };
 
-//    document.addEventListener('mousedown', handleOutsideClick);
+    document.addEventListener('mousedown', handleOutsideClick);
     return () => {
-//      document.removeEventListener('mousedown', handleOutsideClick);
+      document.removeEventListener('mousedown', handleOutsideClick);
     };
   }, []);
 
   return (
     <form
-      className="flex max-w-sm select-none items-center hover:bg-gray-100 cursor-pointer border rounded-xl w-full relative px-4 dropdown-container"
+      className="flex max-w-sm select-none items-center hover:bg-gray-100 cursor-pointer border rounded-md w-full relative px-4 dropdown-container"
       onClick={toggleDropdown}
     >
-      <div className="flex gap-x-1 items-center w-full h-[60px] focus:border-primary transition-all duration-300 relative">
-        <label className={`text-gray-500 ${selectedLabel ? "hidden" : ""}`}>
+      <div className="flex gap-x-8 items-center w-full focus:border-primary transition-all duration-300 relative">
+        <label className={`text-black text-sm py-2 cursor-pointer ${selectedLabel ? "hidden" : ""}`}>
 	  {label}
         </label>
 
-        <label className="appearance-none disabled:text-gray-400 text-gray-700 leading-tight focus:outline-none">
+        <label className="appearance-none cursor-pointer disabled:text-gray-400 text-gray-700 leading-tight focus:outline-none">
 	  {selectedLabel}
 	</label>
 
 	{required && !selectedLabel && (
-	  <label className="text-red-500">
-	    *
-	  </label>
+	  <label className="text-red-500">*</label>
 	)}
       </div>
 
-      <AiFillCaretDown
-        className={`transition-transform transform duration-300 ${isDropdownOpen ? 'rotate-180' : 'rotate-0'}`}
+      <IoIosArrowDown
+        className={`transition-transform text-black transform duration-300 ${isDropdownOpen ? 'rotate-180' : 'rotate-0'}`}
       />
 
       {isDropdownOpen && (

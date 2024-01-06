@@ -55,8 +55,7 @@ const NewCategoryPage = () => {
       <div className="flex flex-col gap-y-4 p-12">
 	<div>
 	  <CategoryForm
-//	    onFormChange={handleFormChange}
-//	    onDropdownChange={handleDropdownChange}
+	    onFormChange={handleFormChange}
 	    categoryDetails={formDetails}
 	  />
 	</div>

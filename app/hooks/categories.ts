@@ -5,6 +5,7 @@ export interface Category {
   _id: string;
   name: string;
   href: string;
+  description: string;
 };
 
 interface ResponseMessage {
@@ -35,12 +36,13 @@ export const useCategories = () => {
       setCategory({
 	_id: "",
 	name: "Alla Produkter",
-	href: "all"
+	href: "all",
+	description: "Det här är en beskrivning av alla produkter."
       });
     } else {
       const endpoint = `/api/getCategory?category=${encodeURIComponent(category)}`
       const data: Category = await apiCall<Category>("GET", endpoint);
-      //setCategory(data[0]);
+      setCategory(data);
     }
   };
 

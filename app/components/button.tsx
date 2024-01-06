@@ -62,7 +62,7 @@ const Button = ({
       'font-medium text-center': true,
       'w-full': fill,
       'w-fit': !fill,
-      'rounded-xl': true,
+      'rounded-lg': true,
       'transition-all duration-150': !disabled && !noBackground,
     },
     className

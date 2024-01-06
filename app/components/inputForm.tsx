@@ -13,7 +13,7 @@ type FormProps = {
   disabled?: boolean,
   required?: boolean,
 
-  onChange?: (id: string, value: string) => void
+  onChange?: (fieldId: string, newValue: string) => void
 };
 
 const InputForm = ({
@@ -44,8 +44,8 @@ const InputForm = ({
     setIsFocused(inputValue !== "");
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const newValue = e.target.value;
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const newValue = event.target.value;
     setInputValue(newValue);
 
     if (onChange) {

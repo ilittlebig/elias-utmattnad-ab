@@ -2,6 +2,7 @@ import HeroSection from '@/(marketplace)/sections/hero/index'
 import ReviewsSection from '@/(marketplace)/sections/reviews/index'
 import ServicesSection from '@/(marketplace)/sections/services/index'
 import ReadMoreSection from '@/(marketplace)/sections/readMore/index'
+import CharitySection from '@/(marketplace)/sections/charity/index'
 import TrustedBySection from '@/(marketplace)/sections/trustedBy/index'
 import VisionSection from '@/(marketplace)/sections/vision/index'
 import CollectionSection from '@/(marketplace)/sections/collection/index'
@@ -13,7 +14,10 @@ export default function Home() {
   return (
     <main className="">
       <HeroSection />
-      <ReadMoreSection />
+      <ReadMoreSection
+        title="Beställning av Anpassade Mattor"
+	description="Här kan du läsa mer om hur du beställer din egen anpassade matta och ger ditt hem en personlig touch."
+      />
       <TrustedBySection />
       {/* <VisionSection /> */}
       <ServicesSection />
@@ -59,6 +63,12 @@ export default function Home() {
 	/>
       </div>
 
+      <CharitySection/>
+      <ReadMoreSection
+        title="Hemdesign med Hjärta"
+	description="Vi donerar 10% av alla intäkter till diabetesforskning. Läs mer om vårt engagemang och hur ditt köp gör skillnad på vår webbplats."
+	rightDecoration
+      />
       <ReviewsSection />
       <CollectionSection />
       <FAQSection />

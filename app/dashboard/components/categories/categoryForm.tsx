@@ -6,7 +6,7 @@ import InputForm from '@/components/inputForm'
 import FileDrop from '@/dashboard/components/fileDrop'
 
 type FormProps = {
-  onFormChange?: () => void
+  onFormChange?: (fieldId: string, newValue: string) => void
   categoryDetails: CategoryDetails
 };
 
@@ -49,6 +49,16 @@ const CategoryForm = ({
 	  htmlFor="href"
 	  label="Href"
 	  text={categoryDetails.href}
+	  type="text"
+	  required
+	  onChange={onFormChange}
+	/>
+
+	<InputForm
+	  id="description"
+	  htmlFor="description"
+	  label="Beskrivning"
+	  text={categoryDetails.description}
 	  type="text"
 	  required
 	  onChange={onFormChange}

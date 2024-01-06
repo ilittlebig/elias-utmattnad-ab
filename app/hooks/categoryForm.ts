@@ -2,12 +2,14 @@ import useGenericForm from '@/hooks/genericForm'
 
 export type CategoryDetails = {
   name: string,
-  href: string
+  href: string,
+  description: string
 };
 
 const useCategoryForm = (initialState: CategoryDetails = {
   name: "",
-  href: ""
+  href: "",
+  description: ""
 }) => {
   return useGenericForm<CategoryDetails>(initialState);
 }

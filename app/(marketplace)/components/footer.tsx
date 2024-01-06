@@ -38,7 +38,7 @@ const Footer = () => {
 	      </Link>
 	    </div>
 
-	    <div className="lg:text-xl text-center lg:text-left font-medium text-lg max-w-xs">
+	    <div className="lg:text-md text-center lg:text-left font-medium text-md max-w-xs">
 	      Hantverk Möter Hem – Skapa Din Värld Med Oss
 	    </div>
 
@@ -48,9 +48,9 @@ const Footer = () => {
 	  <div className="flex lg:gap-x-28 lg:justify-between gap-x-20 justify-center lg:justify-start">
 	    {/* Pages */}
 	    <div className="flex flex-col gap-y-3">
-	      <div className="text-2xl font-bold">Sidor</div>
+	      <div className="text-lg font-bold">Sidor</div>
 	      {pages.map((page, index) => (
-		<Link key={index} href={page.href} className="hover:underline font-medium text-xl hover:text-primary">
+		<Link key={index} href={page.href} className="hover:underline font-medium text-md hover:text-primary">
 		  {page.label}
 		</Link>
 	      ))}
@@ -58,9 +58,9 @@ const Footer = () => {
 
 	    {/* Legal */}
 	    <div className="flex flex-col gap-y-3">
-	      <div className="text-2xl font-bold">Juridiskt</div>
+	      <div className="text-lg font-bold">Juridiskt</div>
 	      {legalities.map((legal, index) => (
-		<Link key={index} href={legal.href} className="hover:underline font-medium text-xl hover:text-primary">
+		<Link key={index} href={legal.href} className="hover:underline font-medium text-md hover:text-primary">
 		  {legal.label}
 		</Link>
 	      ))}
@@ -70,7 +70,7 @@ const Footer = () => {
 
 	<div className="mt-8 w-full border" />
 
-	<div className="pb-8 font-medium text-lg text-center">
+	<div className="pb-8 font-medium text-md text-center max-w-sm lg:max-w-none">
 	  © 2024 Elias Utmattad AB. Alla rättigheter förbehållna.
 	</div>
       </div>

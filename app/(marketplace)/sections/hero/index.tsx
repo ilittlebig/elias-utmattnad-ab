@@ -72,17 +72,17 @@ const HeroSection = () => {
 	</div>
       </div>
 
-      <div className="absolute w-[150px] h-[38px] top-[84%] right-[-12%] -z-10">
+      <div className="absolute w-[150px] h-[45px] top-[86%] right-[-12%] -z-10">
         <div className="flex flex-col gap-y-2 relative items-center">
-	  <label className="absolute text-[#000000] font-semibold text-lg rotate-[10deg] right-[4%] bottom-0">
+	  <label className="absolute text-[#000000] font-semibold rotate-[30deg] text-lg right-[-3%] bottom-[5px]">
 	    Skrolla Ner
 	  </label>
 
-	  <div className="absolute top-0">
+	  <div className="absolute top-0 rotate-[-6deg]">
 	    <Image
 	      src="/SquigglyArrow.svg"
-	      width={38}
-	      height={38}
+	      width={45}
+	      height={45}
 	      style={{ objectFit: "contain" }}
 	      alt="Squiggly Arrow"
 	    />

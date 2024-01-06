@@ -2,39 +2,20 @@ import Image from 'next/image'
 
 const ProductImages = () => {
   return (
-    <div className="flex flex-wrap justify-center gap-y-12 lg:justify-between w-full py-8 pb-24">
-      <div className="relative w-[370px] h-[370px]">
-	<Image
-	  src="/rug1.png"
-	  layout="fill"
-	  objectFit="contain"
-	  alt="Product Image"
-	/>
-      </div>
-      <div className="relative w-[370px] h-[370px]">
-	<Image
-	  src="/rug1.png"
-	  layout="fill"
-	  objectFit="contain"
-	  alt="Product Image"
-	/>
-      </div>
-      <div className="relative w-[370px] h-[370px]">
-	<Image
-	  src="/rug1.png"
-	  layout="fill"
-	  objectFit="contain"
-	  alt="Product Image"
-	/>
-      </div>
-      <div className="relative w-[370px] h-[370px]">
-	<Image
-	  src="/rug1.png"
-	  layout="fill"
-	  objectFit="contain"
-	  alt="Product Image"
-	/>
-      </div>
+    <div className="lg:flex flex-col gap-y-2 w-full max-w-[370px] hidden">
+      {[...Array(5)].map((_, index) => (
+	<div key={index} className="flex items-center justify-center border cursor-pointer w-[90px] h-[90px]">
+	  <div key={index} className="relative w-[80px] h-[80px]">
+	    <Image
+	      src="/rug1.png"
+	      fill
+	      style={{ objectFit: "contain" }}
+	      className="opacity-50 hover:opacity-100"
+	      alt="Product Image"
+	    />
+	  </div>
+	</div>
+      ))}
     </div>
   )
 }

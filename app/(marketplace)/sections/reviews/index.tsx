@@ -112,27 +112,9 @@ const ReviewsSection = () => {
 
   return (
     <div className="relative flex flex-col py-36 gap-y-8">
-      <div className="absolute w-[25px] h-[25px] top-[15%] left-[-8%]">
-	<Image
-	  src="/decorations/Star1.svg"
-	  fill
-	  style={{ objectFit: "contain" }}
-	  alt="Star"
-	/>
-      </div>
-
-      <div className="absolute w-[35px] h-[35px] top-[18%] left-[-6%]">
+      <div className="absolute w-[35px] h-[35px] top-[18%] left-[-5%]">
 	<Image
 	  src="/decorations/Star2.svg"
-	  fill
-	  style={{ objectFit: "contain" }}
-	  alt="Star"
-	/>
-      </div>
-
-      <div className="absolute w-[30px] h-[30px] top-[12%] left-[-2%]">
-	<Image
-	  src="/decorations/Star3.svg"
 	  fill
 	  style={{ objectFit: "contain" }}
 	  alt="Star"
@@ -151,7 +133,7 @@ const ReviewsSection = () => {
       <div className="flex flex-col text-black items-center text-center mx-auto px-4 lg-px:0 gap-y-6">
 	<h1 className="relative font-rockwell lg:text-5xl text-4xl font-bold w-fit">
 	  <div className="absolute left-[-14px] w-12 h-12 -mt-3 -z-10 bg-orange-200 rounded-full" />
-	  <div className="absolute w-[400px] h-[25px] top-[61%] left-[-2%]">
+	  <div className="absolute w-[400px] h-[25px] top-[75%] left-[-2%]">
 	    <Image
 	      src="/decorations/BlueLine.svg"
 	      fill

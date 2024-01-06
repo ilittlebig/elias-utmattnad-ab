@@ -5,7 +5,15 @@ const useGenericForm = <T extends Record<string, any>>(initialState: T) => {
   const [formDetails, setFormDetails] = useState<T>(initialState);
   const [isFormValid, setFormValid] = useState<boolean>(false);
   const [isChanged, setIsChanged] = useState<boolean>(false);
-  const isInitialized = useRef(false);
+  const prevInitialStateRef = useRef<T>(initialState);
+
+  const resetForm = () => {
+    setFormDetails(initialState);
+  };
+
+  const resetIsChanged = () => {
+    setIsChanged(false);
+  };
 
   const isValueEqual = (value1: any, value2: any) => {
     const isBothNumber =
@@ -26,10 +34,9 @@ const useGenericForm = <T extends Record<string, any>>(initialState: T) => {
     });
   };
 
-  const handleFormChange = useCallback((fieldId: keyof T, newValue: string | number) => {
+  const handleFormChange = useCallback((fieldId: string, newValue: string) => {
     const numberFields = ["rating", "inventory", "price"];
-    const fieldIdString = fieldId as string; // Assert fieldId as string
-    const value = numberFields.includes(fieldIdString) ? Number(newValue) : newValue;
+    const value = numberFields.includes(fieldId) ? Number(newValue) : newValue;
 
     setFormDetails(prevDetails => {
       const newDetails = {
@@ -56,14 +63,6 @@ const useGenericForm = <T extends Record<string, any>>(initialState: T) => {
     });
   }, [initialState]);
 
-  const resetForm = () => {
-    setFormDetails(initialState);
-  };
-
-  const resetIsChanged = () => {
-    setIsChanged(false);
-  };
-
   useEffect(() => {
     if (formDetails && typeof formDetails === "object") {
       const isValid = Object.values(formDetails).every(value => value !== "");
@@ -74,11 +73,12 @@ const useGenericForm = <T extends Record<string, any>>(initialState: T) => {
   }, [formDetails]);
 
   useEffect(() => {
-    if (!isInitialized.current && initialState) {
+    if (!deepEqual(prevInitialStateRef.current, initialState)) {
       setFormDetails(initialState);
-      isInitialized.current = true;
+      setIsChanged(false);
+      prevInitialStateRef.current = initialState;
     }
-  }, [initialState]);
+  }, [initialState, deepEqual]);
 
   return {
     formDetails,

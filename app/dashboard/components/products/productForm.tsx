@@ -8,8 +8,8 @@ import InputForm from '@/components/inputForm'
 import FileDrop from '@/dashboard/components/fileDrop'
 
 type FormProps = {
-  onFormChange?: () => void,
-  onDropdownChange?: () => void,
+  onFormChange?: (fieldId: string, newValue: string) => void,
+  onDropdownChange?: (selection: string) => void,
   productDetails: ProductDetails
 };
 
@@ -58,7 +58,7 @@ const ProductForm = ({
 	    id="name"
 	    htmlFor="name"
 	    label="Namn"
-	    text={productDetails.name}
+	    text={productDetails?.name}
 	    type="text"
 	    required
 	    onChange={onFormChange}
@@ -68,7 +68,7 @@ const ProductForm = ({
 	    id="description"
 	    htmlFor="description"
 	    label="Beskrivning"
-	    text={productDetails.description}
+	    text={productDetails?.description}
 	    required
 	    onChange={onFormChange}
 	    type="text"
@@ -78,7 +78,7 @@ const ProductForm = ({
 	    id="dimensions"
 	    htmlFor="dimensions"
 	    label="Dimensioner"
-	    text={productDetails.dimensions}
+	    text={productDetails?.dimensions}
 	    required
 	    onChange={onFormChange}
 	    type="text"
@@ -88,7 +88,17 @@ const ProductForm = ({
 	    id="material"
 	    htmlFor="material"
 	    label="Material"
-	    text={productDetails.material}
+	    text={productDetails?.material}
+	    required
+	    onChange={onFormChange}
+	    type="text"
+	  />
+
+	  <InputForm
+	    id="moreInfo"
+	    htmlFor="moreInfo"
+	    label="Mer Info"
+	    text={productDetails?.moreInfo}
 	    required
 	    onChange={onFormChange}
 	    type="text"
@@ -96,7 +106,7 @@ const ProductForm = ({
 
 	  <Dropdown
 	    label="Kategori"
-	    text={productDetails.category}
+	    text={productDetails?.category}
 	    required
 	    onChange={onDropdownChange}
 	  >
@@ -113,7 +123,7 @@ const ProductForm = ({
 	      htmlFor="price"
 	      label="Pris"
 	      type="number"
-	      text={productDetails.price}
+	      text={productDetails?.price}
 	      required
 	      onChange={onFormChange}
 	    />
@@ -125,7 +135,7 @@ const ProductForm = ({
 	      htmlFor="inventory"
 	      label="Inventory"
 	      type="number"
-	      text={productDetails.inventory}
+	      text={productDetails?.inventory}
 	      required
 	      onChange={onFormChange}
 	    />
@@ -137,7 +147,7 @@ const ProductForm = ({
 	      htmlFor="rating"
 	      label="Betyg"
 	      type="number"
-	      text={productDetails.rating}
+	      text={productDetails?.rating}
 	      required
 	      onChange={onFormChange}
 	    />

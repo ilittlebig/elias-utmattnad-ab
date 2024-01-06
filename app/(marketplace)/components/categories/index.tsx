@@ -14,13 +14,16 @@ const Categories = () => {
   }, []);
 
   return (
-    <div className={`flex min-w-[200px] flex-col gap-y-8 pb-12 lg:py-12 w-full lg:w-auto`}>
-      <div className="flex flex-col gap-y-2 px-6 lg:px-0">
-	<h1 className="text-xl font-bold">Kategorier</h1>
+    <div className={`flex justify-center`}>
+      <div className="flex items-center">
 	{isLoading ? (
-	  <div></div>
+	  <div className="animate-pulse flex items-center gap-x-6 w-full">
+	    {[...Array(5)].map((_, index) => (
+	      <div key={index} className="w-16 h-3 bg-gray-200 rounded-full" />
+	    ))}
+	  </div>
 	) : (
-	  <div className="flex flex-wrap lg:block gap-x-6 gap-y-1">
+	  <div className="flex items-center gap-x-6">
 	    <Link href="/products/all">
 	      <CategoryLabel label="Se Alla" href="all" />
 	    </Link>
