@@ -2,8 +2,8 @@ import Image from 'next/image'
 
 const CharitySection = () => {
   return (
-    <>
-      <div className="flex pb-0 lg:pt-36 pt-44">
+    <div className="py-36">
+      <div className="flex">
 	<div className="flex flex-col text-black items-center text-center mx-auto px-4 lg-px:0 gap-y-6">
 	  <label className="font-semibold lg:text-lg text-lg text-center text-primary">
 	    HJÄLP ATT HJÄLPA
@@ -30,7 +30,7 @@ const CharitySection = () => {
 	</div>
       </div>
 
-      <div className="flex flex-col items-center gap-y-24 pt-24">
+      <div className="flex flex-col items-center gap-y-16 pt-16">
         <div className="flex gap-x-12 font-medium">
 	  <div className="relative flex bg-white drop-shadow-card text-7xl w-24 h-32 items-center justify-center text-center rounded-xl overflow-hidden">
 	    <label className="absolute top-[-42%] opacity-20">0</label>
@@ -73,7 +73,7 @@ const CharitySection = () => {
 	  Kronor donerade till diabetesforskning
 	</label>
       </div>
-    </>
+    </div>
   )
 }
 

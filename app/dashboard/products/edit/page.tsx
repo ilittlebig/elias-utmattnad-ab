@@ -31,6 +31,7 @@ const EditProductPage = () => {
     description: "",
     dimensions: "",
     material: "",
+    moreInfo: "",
     category: "",
     price: "",
     inventory: "",
@@ -83,8 +84,8 @@ const EditProductPage = () => {
 	    <div></div>
 	  ) : (
 	    <ProductForm
-//	      onFormChange={handleFormChange}
-//	      onDropdownChange={handleDropdownChange}
+	      onFormChange={handleFormChange}
+	      onDropdownChange={handleDropdownChange}
 	      productDetails={formDetails || {}}
 	    />
 	  )}

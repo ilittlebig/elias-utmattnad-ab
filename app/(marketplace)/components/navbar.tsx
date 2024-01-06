@@ -41,9 +41,8 @@ const Navbar: FC = () => {
   }
 
   return (
-    <div className="flex items-center py-2 lg:justify-between w-full lg:w-auto max-h-[64px]">
-      {/* Hamburger Menu */}
-      <div className="flex items-center">
+    <div className="flex items-center py-2 lg:justify-between w-full max-h-[64px]">
+      <div className="flex lg:gap-x-8 items-center">
 	<div className="lg:hidden py-3 pl-4 z-30">
 	  <Hamburger
 	    toggled={isMenuOpen}
@@ -51,7 +50,6 @@ const Navbar: FC = () => {
 	  />
 	</div>
 
-	{/* Logo */}
 	<Link key="Logo" href="/" className="relative w-[110px] h-[40px] lg:w-[91px] lg:w-[90px]">
 	  <Image
 	    src="/logo.svg"
@@ -60,26 +58,21 @@ const Navbar: FC = () => {
 	    alt="Logo"
 	  />
 	</Link>
-      </div>
 
-      <div className="flex gap-x-8 items-center w-full lg:w-auto">
-	{/* Links */}
 	<div className="lg:flex hidden gap-x-8">
 	  {links.map((link, index) => (
-	    <Link key={index} href={link.href} className="hover:underline text-base text-black font-medium hover:text-primary">
+	    <Link
+	      key={index}
+	      href={link.href}
+	      className="hover:underline text-sm font-medium text-black hover:text-primary"
+	    >
 	      {link.label}
 	    </Link>
 	  ))}
 	</div>
+      </div>
 
-	<Button
-	  actionText="Designa Din Matta"
-	  href="/"
-	  className="lg:hidden hidden text-md px-4 py-2"
-	/>
-
-	<div className="w-full lg:hidden" />
-
+      <div className="flex gap-x-8 items-center justify-end w-full lg:w-auto">
 	<div className="flex cursor-pointer lg:gap-x-6 gap-x-3">
 	  {/* Shopping Cart Button */}
 	  <div
@@ -93,7 +86,7 @@ const Navbar: FC = () => {
 	      alt="Shopping Bag"
 	    />
 	    <div className="absolute -bottom-2 lg:-right-2 bg-red-500 rounded-full h-6 w-6 flex items-center justify-center text-white">
-	      <span className="text-xs pt-1">
+	      <span className="text-xs">
 		{getTotalItemCount()}
 	      </span>
 	    </div>

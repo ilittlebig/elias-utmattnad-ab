@@ -53,6 +53,16 @@ const CategoryForm = ({
 	  required
 	  onChange={onFormChange}
 	/>
+
+	<InputForm
+	  id="description"
+	  htmlFor="description"
+	  label="Beskrivning"
+	  text={categoryDetails.description}
+	  type="text"
+	  required
+	  onChange={onFormChange}
+	/>
       </div>
     </div>
   )

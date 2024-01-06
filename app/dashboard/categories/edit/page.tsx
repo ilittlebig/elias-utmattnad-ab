@@ -73,7 +73,7 @@ const EditCategoryPage = () => {
 	    <div></div>
 	  ) : (
 	    <CategoryForm
-//	      onFormChange={handleFormChange}
+	      onFormChange={handleFormChange}
 	      categoryDetails={formDetails || {}}
 	    />
 	  )}

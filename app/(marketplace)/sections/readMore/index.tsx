@@ -2,7 +2,13 @@ import { FaArrowRight } from 'react-icons/fa6'
 import Image from 'next/image'
 import Button from '@/components/button'
 
-const ReadMoreSection = () => {
+type ReadMoreProps = {
+   title: string,
+   description: string,
+   rightDecoration?: boolean
+};
+
+const ReadMoreSection = ({ title, description, rightDecoration }: ReadMoreProps) => {
   return (
     <div className="relative h-[310px]">
       <div className="absolute h-[310px] bg-[#FCFCFE] z-10"
@@ -15,25 +21,37 @@ const ReadMoreSection = () => {
       />
 
       <div className="flex h-full items-center">
-	<div className="absolute -scale-x-100 left-[-8%] top-[-2%] w-[150px] h-[150px] -mt-[11px] z-40">
-	  <Image
-	    src="/Spark.svg"
-	    width={150}
-	    height={150}
-	    style={{ objectFit: "contain" }}
-	    alt="Spark"
-	  />
-	</div>
+        {!rightDecoration ? (
+	  <div className="absolute -scale-x-100 left-[-8%] top-[-2%] w-[150px] h-[150px] -mt-[11px] z-40">
+	    <Image
+	      src="/Spark.svg"
+	      width={150}
+	      height={150}
+	      style={{ objectFit: "contain" }}
+	      alt="Spark"
+	    />
+	  </div>
+	) : (
+	  <div className="absolute right-[-7.25%] top-[0%] w-[150px] h-[150px] -mt-[11px] z-40">
+	    <Image
+	      src="/Spark.svg"
+	      width={150}
+	      height={150}
+	      style={{ objectFit: "contain" }}
+	      alt="Spark"
+	    />
+	  </div>
+	)}
 
 	<div className="relative overflow-hidden bg-white pt-7 pb-10 px-10 rounded-3xl drop-shadow-card relative flex w-full items-center z-20">
 	  <div className="flex flex-col gap-y-6 w-full">
 	    <label className="text-2xl font-semibold text-black">
-	      Beställning av Anpassade Mattor
+	      {title}
 	    </label>
 
 	    <div className="flex justify-between pr-1">
 	      <label className="text-lg max-w-xl opacity-40 font-medium">
-		Här kan du läsa mer om hur du beställer din egen anpassade matta och ger ditt hem en personlig touch.
+	        {description}
 	      </label>
 
 	      <Button

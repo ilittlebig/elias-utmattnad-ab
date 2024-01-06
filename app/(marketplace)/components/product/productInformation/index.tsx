@@ -1,61 +1,39 @@
-import { Product, useCart } from '@/hooks/cart'
-import { useToast } from '@/contexts/toastContext'
+import { Category } from '@/hooks/category'
+import { Product } from '@/hooks/product'
 import useLocale from '@/hooks/locale'
+import Link from 'next/link'
 
 import currencyFormatter from '@/utils/currencyFormatter'
 import LoadingInformation from './loading'
-import Button from '@/components/button'
 
 type ProductInformationProps = {
-  product: Product | null
+  product: Product | null,
 }
 
-const ProductInformation = ({ product }: ProductInformationProps) => {
-  const { cart, addToCart } = useCart();
-  const { showToast } = useToast();
+const ProductInformation = ({
+  product,
+}: ProductInformationProps) => {
   const locale = useLocale();
   const formattedPrice = currencyFormatter(product ? product.price : 0, "SEK", locale);
 
-  const handleAddToCart = (product: Product) => {
-    addToCart(product);
-    showToast({
-      name: product.name,
-      price: product.price,
-      image: "/rug1.png"
-    });
-  };
-
   return (
-    <div className="flex flex-col gap-y-8 lg:w-[40%] w-full">
+    <div className="flex flex-col gap-y-8 w-full">
       {product ? (
         <>
-	  <div className="flex flex-col gap-y-6 px-4">
-	    <div className="flex flex-col gap-y-1">
-	      <h1 className="text-3xl font-bold">
-	        {product.name}
+	  <div className="flex flex-col gap-y-5 lg:px-0 px-4">
+	    <div className="flex flex-col gap-y-0">
+	      <h1 className="text-md font-bold text-black">
+		{product.name}
 	      </h1>
-	      <h3 className="text-lg text-gray-600">
-	        Dimensioner: {product.dimensions}
-	      </h3>
-	      <h3 className="text-lg text-gray-600">
-	        Material: {product.material}
-	      </h3>
+
+	      <h2 className="text-md text-black underline">
+		{product.dimensions}
+	      </h2>
 	    </div>
 
-	    <h3 className="text-lg text-gray-600">
-	      {product.description}
+	    <h3 className="text-[28px] font-semibold text-black">
+	      {formattedPrice}
 	    </h3>
-	    <h3 className="text-xl font-medium">{formattedPrice}</h3>
-	  </div>
-
-	  <div className="flex flex-col gap-y-2 fixed bottom-0 left-0 sticky py-3 bg-white">
-	    <div className="px-4">
-	      <Button
-		actionText="Lägg Till"
-		onClick={() => handleAddToCart(product)}
-		fill
-	      />
-	    </div>
 	  </div>
 	</>
       ) : (

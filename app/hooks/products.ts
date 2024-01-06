@@ -7,6 +7,7 @@ export interface Product {
   description: string;
   dimensions: string;
   material: string;
+  moreInfo: string;
   category: string;
   price: number;
   inventory: number;
