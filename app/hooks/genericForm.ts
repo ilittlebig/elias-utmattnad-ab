@@ -34,10 +34,9 @@ const useGenericForm = <T extends Record<string, any>>(initialState: T) => {
     });
   };
 
-  const handleFormChange = useCallback((fieldId: keyof T, newValue: string | number) => {
+  const handleFormChange = useCallback((fieldId: string, newValue: string) => {
     const numberFields = ["rating", "inventory", "price"];
-    const fieldIdString = fieldId as string;
-    const value = numberFields.includes(fieldIdString) ? Number(newValue) : newValue;
+    const value = numberFields.includes(fieldId) ? Number(newValue) : newValue;
 
     setFormDetails(prevDetails => {
       const newDetails = {

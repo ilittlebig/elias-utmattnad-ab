@@ -1,3 +1,5 @@
+import { Category } from '@/hooks/categories'
+import { Product } from '@/hooks/products'
 import { FaCircle } from 'react-icons/fa'
 import Link from 'next/link'
 

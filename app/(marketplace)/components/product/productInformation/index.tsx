@@ -1,5 +1,5 @@
-import { Category } from '@/hooks/category'
-import { Product } from '@/hooks/product'
+import { Category } from '@/hooks/categories'
+import { Product } from '@/hooks/products'
 import useLocale from '@/hooks/locale'
 import Link from 'next/link'
 

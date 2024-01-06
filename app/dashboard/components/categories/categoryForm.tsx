@@ -6,7 +6,7 @@ import InputForm from '@/components/inputForm'
 import FileDrop from '@/dashboard/components/fileDrop'
 
 type FormProps = {
-  onFormChange?: () => void
+  onFormChange?: (fieldId: string, newValue: string) => void
   categoryDetails: CategoryDetails
 };
 

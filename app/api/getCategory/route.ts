@@ -11,7 +11,7 @@ export async function GET(request: NextRequest) {
 
     let model = Category;
     const query = { href: category };
-    const collection = await model.find(query).exec();
+    const collection = await model.findOne(query).exec();
 
     return new Response(JSON.stringify(collection), {
       headers: {

@@ -35,6 +35,7 @@ const ProductsContainer = () => {
 
 	  <Dropdown
 	    label="Mest Populär"
+	    children={[]}
 	  />
 	</div>
       </div>

@@ -56,7 +56,6 @@ const NewCategoryPage = () => {
 	<div>
 	  <CategoryForm
 	    onFormChange={handleFormChange}
-	    onDropdownChange={handleDropdownChange}
 	    categoryDetails={formDetails}
 	  />
 	</div>

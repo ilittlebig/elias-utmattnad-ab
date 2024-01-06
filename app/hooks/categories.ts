@@ -5,6 +5,7 @@ export interface Category {
   _id: string;
   name: string;
   href: string;
+  description: string;
 };
 
 interface ResponseMessage {
@@ -41,7 +42,7 @@ export const useCategories = () => {
     } else {
       const endpoint = `/api/getCategory?category=${encodeURIComponent(category)}`
       const data: Category = await apiCall<Category>("GET", endpoint);
-      setCategory(data[0]);
+      setCategory(data);
     }
   };
 

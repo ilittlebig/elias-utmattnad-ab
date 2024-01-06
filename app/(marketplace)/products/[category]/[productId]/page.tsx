@@ -27,7 +27,7 @@ const ProductPage = () => {
   const { showToast } = useToast();
   const { showNotification } = useNotification();
 
-  const handleAddToCart = (product: Product) => {
+  const handleAddToCart = (product: Product | null) => {
     if (product) {
       showToast({
 	name: product.name,
@@ -81,8 +81,6 @@ const ProductPage = () => {
 	<div className="flex flex-col w-full gap-y-3 pt-7">
 	  <ProductInformation
 	    product={product}
-	    category={categoryData}
-	    currentCategory={currentCategory ?? ""}
 	  />
 
 	  <div className="px-4 py-3 lg:px-0">
@@ -103,22 +101,22 @@ const ProductPage = () => {
 	  <div className="flex flex-col gap-y-6 pb-6 pt-5 px-4 lg:px-0">
 	    <Accordion
 	      title="Produktbeskrivning"
-	      content={product?.description}
+	      content={product?.description || ""}
 	    />
 
 	    <Accordion
 	      title="Material"
-	      content={product?.material}
+	      content={product?.material || ""}
 	    />
 
 	    <Accordion
 	      title="Mått"
-	      content={product?.dimensions}
+	      content={product?.dimensions || ""}
 	    />
 
 	    <Accordion
 	      title="Mer Info"
-	      content={product?.moreInfo}
+	      content={product?.moreInfo || ""}
 	    />
 	  </div>
 	</div>

@@ -8,8 +8,8 @@ import InputForm from '@/components/inputForm'
 import FileDrop from '@/dashboard/components/fileDrop'
 
 type FormProps = {
-  onFormChange?: () => void,
-  onDropdownChange?: () => void,
+  onFormChange?: (fieldId: string, newValue: string) => void,
+  onDropdownChange?: (selection: string) => void,
   productDetails: ProductDetails
 };
 

@@ -21,12 +21,9 @@ const EditCategoryPage = () => {
   const searchParams = useSearchParams();
   const categoryId = searchParams.get("id");
 
-  useEffect(() => {
-    if (!categoryId) return;
-    fetchCategoryFromId(categoryId, setCategory, setLoading);
-  }, [categoryId]);
-
-  const defaultCategoryDetails: CategoryDetails = { name: "", href: "" };
+  const defaultCategoryDetails: CategoryDetails = {
+    name: "", href: "", description: ""
+  };
   const formInitialState = useMemo(() => category || defaultCategoryDetails, [category]);
 
   const {
@@ -53,6 +50,11 @@ const EditCategoryPage = () => {
     });
     setSaving(false);
   }
+
+  useEffect(() => {
+    if (!categoryId) return;
+    fetchCategoryFromId(categoryId, setCategory, setLoading);
+  }, [categoryId]);
 
   return (
     <div className="flex flex-col w-full">
