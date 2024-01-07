@@ -20,9 +20,9 @@ const ProductCard = ({
   const formattedPrice = currencyFormatter(price, "SEK", locale);
 
   return (
-    <div className="flex flex-col p-4 w-[203px] h-[280px] lg:w-[282px] lg:h-[350px] gap-y-4 bg-[#F6F7F9] hover:border hover:border-black">
+    <div className="flex flex-col lg:w-[299px] gap-y-4">
       <div className="flex items-center justify-center w-full h-full">
-	<div className="relative w-[65%] h-full">
+	<div className="relative w-full h-[297px]">
 	  <Image
 	    src={imagePath}
 	    fill
@@ -33,11 +33,11 @@ const ProductCard = ({
       </div>
 
       <div className="flex flex-col gap-y-1">
-	<div className="flex flex-col">
-	  <div className="text-sm hover:underline truncate">
+	<div className="flex justify-between">
+	  <div className="text-xs hover:underline truncate">
 	    {name}
 	  </div>
-	  <div className="text-sm">
+	  <div className="text-xs font-medium">
 	    {formattedPrice}
 	  </div>
 	</div>

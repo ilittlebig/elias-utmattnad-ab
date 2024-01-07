@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import AcceptedPayments from '@/(marketplace)/components/acceptedPayments'
+import SubscriptionForm from '@/components/subscriptionForm'
 
 interface Link {
   label: string,
@@ -21,47 +21,44 @@ const Footer = () => {
     { label: "Returpolicy", href: "/refund-policy" },
   ];
 
+  const account: Link[] = [
+    { label: "Logga In", href: "/login/identifier" },
+    { label: "Skapa Konto", href: "/sign-up" },
+  ];
+
   return (
     <div className="absolute left-0 right-0 bg-gray-100">
       <div className="flex flex-col gap-y-8 items-center text-black">
 	<div className="flex max-w-6xl lg:flex-row flex-col lg:justify-between gap-y-12 lg:px-0 px-4 lg:items-center gap-x-64 pt-28">
-	  <div className="flex flex-col gap-y-6 items-center lg:items-start">
-	    {/* Logo */}
-	    <div className="flex lg:w-[389px] w-[300px] justify-center lg:justify-start">
-	      <Link key="Logo" href="/">
-		<Image
-		  src="/logo.svg"
-		  width={100}
-		  height={32}
-		  alt="Logo"
-		/>
-	      </Link>
-	    </div>
-
-	    <div className="lg:text-md text-center lg:text-left font-medium text-md max-w-xs">
-	      Hantverk Möter Hem – Skapa Din Värld Med Oss
-	    </div>
-
-	    <AcceptedPayments />
-	  </div>
+	  <SubscriptionForm />
 
 	  <div className="flex lg:gap-x-28 lg:justify-between gap-x-20 justify-center lg:justify-start">
 	    {/* Pages */}
-	    <div className="flex flex-col gap-y-3">
-	      <div className="text-lg font-bold">Sidor</div>
+	    <div className="flex flex-col gap-y-3 flex-shrink-0">
+	      <div className="text-lg font-semibold">Sidor</div>
 	      {pages.map((page, index) => (
-		<Link key={index} href={page.href} className="hover:underline font-medium text-md hover:text-primary">
+		<Link key={index} href={page.href} className="text-sub-gray hover:underline text-md hover:text-primary">
 		  {page.label}
 		</Link>
 	      ))}
 	    </div>
 
 	    {/* Legal */}
-	    <div className="flex flex-col gap-y-3">
-	      <div className="text-lg font-bold">Juridiskt</div>
+	    <div className="flex flex-col gap-y-3 flex-shrink-0">
+	      <div className="text-lg font-semibold">Juridiskt</div>
 	      {legalities.map((legal, index) => (
-		<Link key={index} href={legal.href} className="hover:underline font-medium text-md hover:text-primary">
+		<Link key={index} href={legal.href} className="text-sub-gray hover:underline text-md hover:text-primary">
 		  {legal.label}
+		</Link>
+	      ))}
+	    </div>
+
+	    {/* Account */}
+	    <div className="flex flex-col gap-y-3 flex-shrink-0">
+	      <div className="text-lg font-semibold">Konto</div>
+	      {account.map((acc, index) => (
+		<Link key={index} href={acc.href} className="text-sub-gray hover:underline text-md hover:text-primary">
+		  {acc.label}
 		</Link>
 	      ))}
 	    </div>
@@ -70,8 +67,10 @@ const Footer = () => {
 
 	<div className="mt-8 w-full border" />
 
-	<div className="pb-8 font-medium text-md text-center max-w-sm lg:max-w-none">
-	  © 2024 Elias Utmattad AB. Alla rättigheter förbehållna.
+	<div className="flex flex-col gap-y-4 pb-8 max-w-sm lg:max-w-none">
+	  <div className="text-sub-gray text-md text-center">
+	    © 2024 Elias Utmattad AB. Alla rättigheter förbehållna.
+	  </div>
 	</div>
       </div>
     </div>

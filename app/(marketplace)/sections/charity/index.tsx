@@ -30,7 +30,7 @@ const CharitySection = () => {
 	</div>
       </div>
 
-      <div className="flex flex-col items-center gap-y-16 pt-16">
+      <div className="flex flex-col items-center gap-y-10 pt-10">
         <div className="flex gap-x-12 font-medium">
 	  <div className="relative flex bg-white drop-shadow-card text-7xl w-24 h-32 items-center justify-center text-center rounded-xl overflow-hidden">
 	    <label className="absolute top-[-42%] opacity-20">0</label>

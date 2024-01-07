@@ -1,28 +1,37 @@
 import { FaRegTrashCan } from 'react-icons/fa6'
-import { FaPlus } from 'react-icons/fa6'
-import { FaMinus } from 'react-icons/fa'
-import { useCart } from '@/hooks/cart'
+import { useCartContext } from '@/contexts/cartContext'
 import useLocale from '@/hooks/locale'
 
 import Image from 'next/image'
 import Link from 'next/link'
 import currencyFormatter from '@/utils/currencyFormatter'
+import QuantityAdjuster from '@/(marketplace)/components/cart/quantityAdjuster'
 
 type ProductCardProps = {
   id: string,
   name: string,
+  dimensions: string,
   price: number,
   quantity: number,
 }
 
-const ProductCard = ({ id, name, price, quantity }: ProductCardProps) => {
-  const { removeProduct, incrementQuantity, decrementQuantity } = useCart();
+const ProductCard = ({
+  id,
+  name,
+  dimensions,
+  price,
+  quantity
+}: ProductCardProps) => {
   const locale = useLocale();
+  const {
+    toggleCart,
+    removeProduct,
+  } = useCartContext();
 
   return (
-    <div className="flex drop-shadow-card bg-white p-4 justify-between rounded-md">
-      <div className="flex gap-x-2">
-	<div className="relative w-24 h-24">
+    <div className="flex px-6 w-full">
+      <div className="flex gap-x-4 w-full">
+	<div className="relative min-w-[72px] h-24">
 	  <Image
 	    src="/rug1.png"
 	    fill
@@ -31,35 +40,40 @@ const ProductCard = ({ id, name, price, quantity }: ProductCardProps) => {
 	  />
 	</div>
 
-	<div className="flex flex-col justify-between">
-	  <div className="flex flex-col">
-	    <Link href={`/products/all/${id}`} className="w-full text-lg font-bold hover:underline">
-	      {name}
-	    </Link>
+	<div className="flex flex-col justify-between w-full">
+	  <div className="flex justify-between items-center">
+	    <div className="flex flex-col">
+	      <Link
+	        onClick={toggleCart}
+		href={`/products/all/${id}`}
+		className="w-full text-sm text-black font-medium hover:underline"
+	      >
+		{name}
+	      </Link>
 
-	    <div className="w-full text-lg">
-	      {currencyFormatter(price, "SEK", locale)}
+	      <label className="text-xs text-[#737373]">
+	        {dimensions}
+	      </label>
 	    </div>
+
+	    <FaRegTrashCan
+	      onClick={() => removeProduct(id)}
+	      className="w-4 h-4 cursor-pointer hover:text-red-500"
+	    />
 	  </div>
 
-	  <div className="flex gap-x-3 select-none">
-	    <div onClick={() => decrementQuantity(id)} className="bg-gray-200 hover:bg-gray-400 rounded-md cursor-pointer px-2 py-2 text-xl">
-	      <FaMinus className="w-4 h-4" />
+          <div className="flex justify-between items-center w-full">
+	    <div className="text-xs font-semibold">
+	      {currencyFormatter(price, "SEK", locale)}
 	    </div>
-	    <div className="flex px-3 text-lg pt-1">
-	      {quantity}
-	    </div>
-	    <div onClick={() => incrementQuantity(id)} className="bg-gray-200 hover:bg-gray-400 cursor-pointer rounded-md px-2 py-2 text-xl">
-	      <FaPlus className="w-4 h-4" />
-	    </div>
+
+	    <QuantityAdjuster
+	      id={id}
+	      quantity={quantity}
+	    />
 	  </div>
 	</div>
       </div>
-
-      <FaRegTrashCan
-        onClick={() => removeProduct(id)}
-	className="w-5 h-5 cursor-pointer hover:text-red-500"
-      />
     </div>
   )
 }

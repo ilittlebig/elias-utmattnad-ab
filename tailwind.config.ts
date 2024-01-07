@@ -18,6 +18,7 @@ const config: Config = {
         'primary-hover': '#2db82d',
         'primary-click': '#2db82d',
 	'black': '#47250E',
+	'sub-gray': '#737373',
       },
       fontFamily: {
         rockwell: ['Rockwell', 'sans-serif'],

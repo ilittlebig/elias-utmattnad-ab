@@ -1,7 +1,7 @@
 "use client"
 import { FC, useState } from 'react'
 import { useCart } from '@/hooks/cart'
-import { useScrolling } from '@/hooks/scrolling'
+import { useCartContext } from '@/contexts/cartContext'
 
 import Link from 'next/link'
 import Image from 'next/image'
@@ -18,9 +18,7 @@ interface Link {
 
 const Navbar: FC = () => {
   const [isMenuOpen, setMenuOpen] = useState<boolean>(false);
-  const [isCartOpen, setCartOpen] = useState<boolean>(false);
-  const { toggleScrolling } = useScrolling();
-  const { getTotalItemCount } = useCart();
+  const { toggleCart, getTotalItemCount, isCartToggled } = useCartContext();
 
   const links: Link[] = [
     { label: "Hem", href: "/" },
@@ -33,15 +31,8 @@ const Navbar: FC = () => {
     setMenuOpen(!isMenuOpen);
   };
 
-  const toggleCart = (onlyScroll: boolean) => {
-    if (!onlyScroll) {
-      setCartOpen(!isCartOpen);
-    }
-    toggleScrolling(isCartOpen);
-  }
-
   return (
-    <div className="flex items-center py-2 lg:justify-between w-full max-h-[64px]">
+    <div className="flex items-center py-2 lg:justify-between w-full min-h-[64px]">
       <div className="flex lg:gap-x-8 items-center">
 	<div className="lg:hidden py-3 pl-4 z-30">
 	  <Hamburger
@@ -50,21 +41,12 @@ const Navbar: FC = () => {
 	  />
 	</div>
 
-	<Link key="Logo" href="/" className="relative w-[110px] h-[40px] lg:w-[91px] lg:w-[90px]">
-	  <Image
-	    src="/logo.svg"
-	    fill
-	    style={{ objectFit: "contain" }}
-	    alt="Logo"
-	  />
-	</Link>
-
 	<div className="lg:flex hidden gap-x-8">
 	  {links.map((link, index) => (
 	    <Link
 	      key={index}
 	      href={link.href}
-	      className="hover:underline text-sm font-medium text-black hover:text-primary"
+	      className="hover:underline text-sm text-black hover:text-primary"
 	    >
 	      {link.label}
 	    </Link>
@@ -72,19 +54,32 @@ const Navbar: FC = () => {
 	</div>
       </div>
 
+      <div className="absolute h-[25px] w-full max-w-6xl pointer-events-none mt-1.5">
+	<Link key="Logo" href="/" className="w-[110px] h-full lg:w-[91px] lg:w-[90px]">
+	  <Image
+	    src="/logo.svg"
+	    fill
+	    style={{ objectFit: "contain" }}
+	    alt="Logo"
+	  />
+	</Link>
+      </div>
+
       <div className="flex gap-x-8 items-center justify-end w-full lg:w-auto">
-	<div className="flex cursor-pointer lg:gap-x-6 gap-x-3">
-	  {/* Shopping Cart Button */}
-	  <div
-	    onClick={() => setCartOpen(!isCartOpen)}
-	    className="relative lg:w-6 lg:h-6 w-8 h-8"
-	  >
+	<div className="flex lg:gap-x-6 gap-x-3 items-center">
+	  <Button
+	    actionText="Designa Din Matta"
+	    className="lg:hidden hidden text-sm px-6 py-3"
+	  />
+
+	  <div onClick={toggleCart} className="cursor-pointer relative lg:w-6 lg:h-6 w-8 h-8">
 	    <Image
 	      src="/shoppingBag.png"
 	      fill
 	      style={{ objectFit: "contain" }}
 	      alt="Shopping Bag"
 	    />
+
 	    <div className="absolute -bottom-2 lg:-right-2 bg-red-500 rounded-full h-6 w-6 flex items-center justify-center text-white">
 	      <span className="text-xs">
 		{getTotalItemCount()}
@@ -103,18 +98,13 @@ const Navbar: FC = () => {
 	</div>
       </div>
 
-      {/* Mobile Menu */}
       <HamburgerMenu
       	toggled={isMenuOpen}
 	onToggle={toggleMenu}
 	children={links}
       />
 
-      {/* Cart */}
-      <Cart
-	toggled={isCartOpen}
-	onToggle={toggleCart}
-      />
+      <Cart />
     </div>
   );
 }

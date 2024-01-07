@@ -1,27 +1,23 @@
+import { useState } from 'react'
+import { Product } from '@/hooks/products'
 import useLocalStorageState from 'use-local-storage-state'
 
-const STORAGE_ID = "shoppingCart"
-
-export interface Product {
-  name: string,
-  dimensions: string,
-  material: string,
-  description: string,
-  price: number,
-  _id: string
-}
-
-interface CartItem {
+export interface CartItem {
   product: Product,
   quantity: number
 }
 
-interface CartProps {
+export interface CartProps {
   [productId: string]: CartItem
 }
 
 export const useCart = () => {
-  const [cart, setCart] = useLocalStorageState<CartProps>(STORAGE_ID, {});
+  const [cart, setCart] = useLocalStorageState<CartProps>("Cart", {});
+  const [isCartToggled, setCartToggled] = useState<boolean>(false);
+
+  const toggleCart = () => {
+    setCartToggled(!isCartToggled);
+  };
 
   const addToCart = (product: Product) => {
     setCart((prevCart = {}) => {
@@ -76,5 +72,5 @@ export const useCart = () => {
 
   const getProducts = () => Object.values(cart || {});
 
-  return { cart, setCart, addToCart, getProducts, removeProduct, incrementQuantity, decrementQuantity, getOrderValue, getTotalItemCount };
+  return { isCartToggled, toggleCart, cart, setCart, addToCart, getProducts, removeProduct, incrementQuantity, decrementQuantity, getOrderValue, getTotalItemCount };
 };

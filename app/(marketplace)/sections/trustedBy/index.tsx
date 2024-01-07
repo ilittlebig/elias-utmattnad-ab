@@ -29,36 +29,14 @@ const TrustedBySection = () => {
   };
 
   return (
-    <div className="lg:h-[569px] h-[440px] pt-36">
-      <div className="relative">
-	<div className="absolute w-[38px] h-[38px] top-[0px] right-[0px]">
-	  <Image
-	    src="/decorations/PurpleCircle.svg"
-	    width={38}
-	    height={38}
-	    style={{ objectFit: "contain" }}
-	    alt="Squiggly Arrow"
-	  />
-	</div>
-
-	<div className="absolute w-[38px] h-[38px] top-[140px] left-[0px] rotate-[-15deg]">
-	  <Image
-	    src="/decorations/GreenTriangle.svg"
-	    width={38}
-	    height={38}
-	    style={{ objectFit: "contain" }}
-	    alt="Squiggly Arrow"
-	  />
-	</div>
-      </div>
-
+    <div className="lg:h-[354px] h-[440px]">
       <div className="absolute left-0 overflow-hidden items-center flex flex-col gap-y-12 w-screen">
         <div className="max-w-6xl text-center items-center flex justify-center flex-col gap-y-6">
 	  <label className="font-semibold lg:text-lg text-lg text-center text-primary">
-	    VARFÖR ELIAS MATTOR?
+	    FÖRETAG VI LEVERERAR TILL
 	  </label>
 
-	  <label className="max-w-4xl px-4 font-rockwell font-bold lg:text-h1 text-3xl text-center text-black">
+	  <label className="max-w-4xl px-4 font-rockwell font-bold lg:text-h1 text-3xl text-center text-black hidden">
 	    <p className="break-after-column">
 	      Tusentals Unika Mattor,
 	    </p>
@@ -67,7 +45,7 @@ const TrustedBySection = () => {
 	    </p>
 	  </label>
 
-	  <label className="max-w-3xl px-4 font-medium lg:text-lg text-lg text-center text-black">
+	  <label className="max-w-3xl px-4 font-medium lg:text-lg text-lg text-center text-black hidden">
 	    Med vår skicklighet i att skapa unika, handtuftade mattor, förstår våra kunder värdet av Elias Utmattad AB i att förvandla deras utrymmen med stil och komfort.
 	  </label>
 	</div>

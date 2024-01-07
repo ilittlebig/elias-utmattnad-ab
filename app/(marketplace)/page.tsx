@@ -14,11 +14,11 @@ export default function Home() {
   return (
     <main className="">
       <HeroSection />
+      <TrustedBySection />
       <ReadMoreSection
         title="Beställning av Anpassade Mattor"
 	description="Här kan du läsa mer om hur du beställer din egen anpassade matta och ger ditt hem en personlig touch."
       />
-      <TrustedBySection />
       {/* <VisionSection /> */}
       <ServicesSection />
 

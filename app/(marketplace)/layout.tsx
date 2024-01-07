@@ -1,4 +1,5 @@
 import { Inter } from 'next/font/google'
+import { CartProvider } from '@/contexts/cartContext'
 import Navbar from '@/(marketplace)/components/navbar'
 import Footer from '@/(marketplace)/components/footer'
 
@@ -11,7 +12,9 @@ export default function Layout({
 }) {
   return (
     <div className={`lg:max-w-6xl mx-auto lg:px-16 xl:px-0 ${inter.className}`}>
-      <Navbar />
+      <CartProvider>
+	<Navbar />
+      </CartProvider>
       {children}
       <Footer />
     </div>
