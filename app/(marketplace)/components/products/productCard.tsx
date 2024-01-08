@@ -6,29 +6,40 @@ import currencyFormatter from '@/utils/currencyFormatter'
 type ProductProps = {
   price: number,
   name: string,
-  rating: number,
-  imagePath: string,
+  dimensions: string,
 }
 
 const ProductCard = ({
   price,
   name,
-  rating,
-  imagePath
+  dimensions,
 }: ProductProps) => {
   const locale = useLocale();
   const formattedPrice = currencyFormatter(price, "SEK", locale);
 
   return (
     <div className="flex flex-col lg:w-[299px] gap-y-4">
-      <div className="flex items-center justify-center w-full h-full">
-	<div className="relative w-full h-[297px]">
-	  <Image
-	    src={imagePath}
-	    fill
-	    style={{ objectFit: "contain" }}
-	    alt="Product Image"
-	  />
+      <div className="relative flex items-center justify-center w-full h-full group">
+        <div className="h-[297px] transition-opacity duration-300 group-hover:opacity-0">
+	  <div className="absolute inset-0 w-full h-[297px]">
+	    <Image
+	      src="/ProductImage1.png"
+	      fill
+	      style={{ objectFit: "contain" }}
+	      alt="Product Image1"
+	    />
+	  </div>
+	</div>
+
+        <div className="h-[297px]">
+	  <div className="absolute inset-0 w-full h-[297px] transition-opacity duration-300 opacity-0 group-hover:opacity-100">
+	    <Image
+	      src="/ProductImage2.png"
+	      fill
+	      style={{ objectFit: "contain" }}
+	      alt="Product Image1"
+	    />
+	  </div>
 	</div>
       </div>
 
@@ -42,17 +53,8 @@ const ProductCard = ({
 	  </div>
 	</div>
 
-	<div className="flex gap-x-1">
-	  {[...Array(5)].map((_, index) => (
-	    <Image
-	      key={index}
-	      src="/Star.svg"
-	      width={14}
-	      height={14}
-	      className={`object-contain ${index < rating ? 'opacity-100' : 'opacity-25'}`}
-	      alt="Star"
-	    />
-	  ))}
+	<div className="text-xs text-sub-gray">
+	  {dimensions}
 	</div>
       </div>
     </div>

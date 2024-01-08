@@ -3,7 +3,7 @@ import InputForm from '@/components/inputForm'
 
 const SubscriptionForm = () => {
   return (
-    <div className="flex flex-col gap-y-4">
+    <div className="flex flex-col gap-y-8 max-w-[500px]">
       <label className="text-black text-2xl">
 	Registrera dig för att få 10% rabatt på din första beställning.
       </label>
@@ -16,8 +16,8 @@ const SubscriptionForm = () => {
 	  label="E-postaddress"
 	/>
 
-	<div className="flex bg-black items-center justify-center px-6">
-	  <FaArrowRight className="text-white" />
+	<div role="button" className="flex bg-black hover:bg-[#000000] items-center justify-center px-6">
+	  <FaArrowRight className="text-white w-3 h-3" />
 	</div>
       </div>
     </div>

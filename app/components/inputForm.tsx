@@ -78,7 +78,7 @@ const InputForm = ({
           onFocus={handleFocus}
           onBlur={handleBlur}
 	  disabled={disabled}
-          className="appearance-none disabled:text-gray-400 w-full text-gray-700 py-4 leading-tight focus:outline-none"
+          className="appearance-none text-xs disabled:text-gray-400 w-full text-gray-700 py-4 leading-tight focus:outline-none"
         />
       </div>
 

@@ -29,15 +29,13 @@ const Footer = () => {
   return (
     <div className="absolute left-0 right-0 bg-gray-100">
       <div className="flex flex-col gap-y-8 items-center text-black">
-	<div className="flex max-w-6xl lg:flex-row flex-col lg:justify-between gap-y-12 lg:px-0 px-4 lg:items-center gap-x-64 pt-28">
-	  <SubscriptionForm />
-
+	<div className="flex max-w-6xl lg:flex-row flex-col w-full gap-y-12 lg:justify-between lg:px-0 px-4 pt-28">
 	  <div className="flex lg:gap-x-28 lg:justify-between gap-x-20 justify-center lg:justify-start">
 	    {/* Pages */}
 	    <div className="flex flex-col gap-y-3 flex-shrink-0">
-	      <div className="text-lg font-semibold">Sidor</div>
+	      <div className="text-md font-semibold">Sidor</div>
 	      {pages.map((page, index) => (
-		<Link key={index} href={page.href} className="text-sub-gray hover:underline text-md hover:text-primary">
+		<Link key={index} href={page.href} className="text-sm text-sub-gray hover:underline text-md hover:text-primary">
 		  {page.label}
 		</Link>
 	      ))}
@@ -45,9 +43,9 @@ const Footer = () => {
 
 	    {/* Legal */}
 	    <div className="flex flex-col gap-y-3 flex-shrink-0">
-	      <div className="text-lg font-semibold">Juridiskt</div>
+	      <div className="text-md font-semibold">Juridiskt</div>
 	      {legalities.map((legal, index) => (
-		<Link key={index} href={legal.href} className="text-sub-gray hover:underline text-md hover:text-primary">
+		<Link key={index} href={legal.href} className="text-sm text-sub-gray hover:underline text-md hover:text-primary">
 		  {legal.label}
 		</Link>
 	      ))}
@@ -55,20 +53,21 @@ const Footer = () => {
 
 	    {/* Account */}
 	    <div className="flex flex-col gap-y-3 flex-shrink-0">
-	      <div className="text-lg font-semibold">Konto</div>
+	      <div className="text-md font-semibold">Konto</div>
 	      {account.map((acc, index) => (
-		<Link key={index} href={acc.href} className="text-sub-gray hover:underline text-md hover:text-primary">
+		<Link key={index} href={acc.href} className="text-sm text-sub-gray hover:underline text-md hover:text-primary">
 		  {acc.label}
 		</Link>
 	      ))}
 	    </div>
 	  </div>
+	  <SubscriptionForm />
 	</div>
 
 	<div className="mt-8 w-full border" />
 
 	<div className="flex flex-col gap-y-4 pb-8 max-w-sm lg:max-w-none">
-	  <div className="text-sub-gray text-md text-center">
+	  <div className="text-sub-gray text-sm text-center">
 	    © 2024 Elias Utmattad AB. Alla rättigheter förbehållna.
 	  </div>
 	</div>

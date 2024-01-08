@@ -15,25 +15,36 @@ const Categories = () => {
 
   return (
     <div className="min-w-[215px] h-[350px]">
-      {isLoading ? (
-	<div className="animate-pulse flex flex-col gap-y-6 w-full">
-	  {[...Array(5)].map((_, index) => (
-	    <div key={index} className="w-16 h-3 bg-gray-200 rounded-full" />
-	  ))}
+      <div className="pr-5">
+	<div className="flex flex-col divide-y gap-y-4">
+	  <label className="text-xs text-sub-gray">
+	    521 produkter
+	  </label>
+	  <label className="text-sm font-semibold text-black pt-4">
+	    Kategorier
+	  </label>
 	</div>
-      ) : (
-	<div className="flex flex-col gap-y-3">
-	  <Link href="/products/all">
-	    <CategoryLabel label="Se Alla" href="all" />
-	  </Link>
 
-	  {categories.map((category, index) => (
-	    <Link key={index} href={`/products/${encodeURIComponent(category.href)}`}>
-	      <CategoryLabel label={category.name} href={category.href} />
+	{isLoading ? (
+	  <div className="animate-pulse flex flex-col gap-y-2 pt-2 w-full">
+	    {[...Array(5)].map((_, index) => (
+	      <div key={index} className="w-16 h-2 bg-gray-200 rounded-full" />
+	    ))}
+	  </div>
+	) : (
+	  <div className="flex flex-col gap-y-0">
+	    <Link href="/products/all">
+	      <CategoryLabel label="Se Alla" href="all" />
 	    </Link>
-	  ))}
-	</div>
-      )}
+
+	    {categories.map((category, index) => (
+	      <Link key={index} href={`/products/${encodeURIComponent(category.href)}`}>
+		<CategoryLabel label={category.name} href={category.href} />
+	      </Link>
+	    ))}
+	  </div>
+	)}
+      </div>
     </div>
   )
 }

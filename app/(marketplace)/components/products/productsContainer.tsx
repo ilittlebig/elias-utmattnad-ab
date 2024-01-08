@@ -26,7 +26,7 @@ const ProductsContainer = () => {
 	  {[...Array(14)].map((_, index) => (
 	    <div
 	      key={index}
-	      className="animate-pulse bg-gray-200 lg:w-[282px] lg:h-[350px]"
+	      className="animate-pulse bg-gray-200 w-[299px] h-[349px]"
 	    />
 	  ))}
 	</>
@@ -39,8 +39,7 @@ const ProductsContainer = () => {
 	    <ProductCard
 	      name={product.name}
 	      price={product.price}
-	      rating={product.rating}
-	      imagePath="/ProductImage1.png"
+	      dimensions={product.dimensions}
 	    />
 	  </Link>
 	))
