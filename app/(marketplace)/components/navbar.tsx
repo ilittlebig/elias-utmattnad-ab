@@ -1,6 +1,5 @@
 "use client"
 import { FC, useState } from 'react'
-import { useCart } from '@/hooks/cart'
 import { useCartContext } from '@/contexts/cartContext'
 
 import Link from 'next/link'

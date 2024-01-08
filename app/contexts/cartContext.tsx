@@ -9,6 +9,7 @@ interface CartContextProps {
   cart: CartProps | undefined;
   setCart: React.Dispatch<React.SetStateAction<CartProps | undefined>>;
   addToCart: (product: Product) => void;
+  handleAddToCart: (product: Product | null) => void;
   getProducts: () => CartItem[];
   removeProduct: (productId: string) => void;
   incrementQuantity: (productId: string) => void;

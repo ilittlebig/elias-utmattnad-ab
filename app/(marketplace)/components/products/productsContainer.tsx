@@ -22,10 +22,16 @@ const ProductsContainer = () => {
       {isLoading ? (
 	<>
 	  {[...Array(14)].map((_, index) => (
-	    <div
-	      key={index}
-	      className="animate-pulse bg-gray-200 w-[299px] h-[349px]"
-	    />
+	    <div key={index} className="flex flex-col gap-y-4 animate-pulse">
+	      <div className="bg-gray-200 w-[299px] h-[297px]" />
+	      <div className="flex flex-col gap-y-1">
+		<div className="flex justify-between">
+		  <div className="bg-gray-200 rounded-full w-1/2 h-5" />
+		  <div className="bg-gray-200 rounded-full w-16 h-5" />
+		</div>
+		<div className="bg-gray-200 rounded-full w-1/3 h-3" />
+	      </div>
+	    </div>
 	  ))}
 	</>
       ) : (
@@ -34,11 +40,7 @@ const ProductsContainer = () => {
 	    key={product._id}
 	    href={`/products/${category}/${encodeURIComponent(product._id)}`}
 	  >
-	    <ProductCard
-	      name={product.name}
-	      price={product.price}
-	      dimensions={product.dimensions}
-	    />
+	    <ProductCard product={product} />
 	  </Link>
 	))
       )}

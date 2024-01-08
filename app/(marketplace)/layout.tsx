@@ -14,8 +14,8 @@ export default function Layout({
     <div className={`lg:max-w-6xl mx-auto lg:px-16 xl:px-0 ${inter.className}`}>
       <CartProvider>
 	<Navbar />
+	{children}
       </CartProvider>
-      {children}
       <Footer />
     </div>
   )

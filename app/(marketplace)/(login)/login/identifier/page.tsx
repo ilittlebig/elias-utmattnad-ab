@@ -7,9 +7,14 @@ const LoginIdentifierPage = () => {
     <div className="flex flex-col h-screen max-w-sm mx-auto lg:min-w-[320px] w-full -mt-[64px] py-6 items-center pointer-events-none">
       <div className="flex flex-col w-full h-full justify-center">
         <div className="flex flex-col pointer-events-auto gap-y-8">
-	  <h1 className="lg:text-3xl text-2xl text-center font-bold">
-	    Välkommen Tillbaka
-	  </h1>
+	  <div className="flex flex-col text-black gap-y-2 items-center">
+	    <h1 className="lg:text-[40px] text-2xl text-center leading-tight">
+	      Kul att se dig igen.
+	    </h1>
+	    <p className="text-sm text-center">
+	      Vänligen logga in på ditt konto.
+	    </p>
+	  </div>
 
 	  <InputForm
 	    id="email"
@@ -24,10 +29,10 @@ const LoginIdentifierPage = () => {
 	  />
 
 	  <div className="flex gap-x-2 justify-center">
-	    <p className="text-lg text-center">
+	    <p className="text-sm text-center text-black">
 	      Ingen Användare?
 	    </p>
-	    <Link href="/sign-up" className="text-lg font-medium text-center text-primary hover:underline">
+	    <Link href="/sign-up" className="text-sm text-center text-primary hover:underline">
 	      Klicka här
 	    </Link>
 	  </div>

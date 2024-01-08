@@ -57,8 +57,9 @@ const ProductCard = ({
 	    </div>
 
 	    <FaRegTrashCan
+	      role="button"
 	      onClick={() => removeProduct(id)}
-	      className="w-4 h-4 cursor-pointer hover:text-red-500"
+	      className="w-4 h-4 hover:text-red-500"
 	    />
 	  </div>
 

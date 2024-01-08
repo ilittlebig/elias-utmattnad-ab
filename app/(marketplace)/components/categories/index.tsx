@@ -17,9 +17,9 @@ const Categories = () => {
   }, []);
 
   return (
-    <div className="min-w-[215px] h-[350px]">
+    <div className="min-w-[215px] h-[350px] pt-[5px]">
       <div className="pr-5">
-	<div className="flex flex-col divide-y gap-y-4">
+	<div className="flex flex-col divide-y gap-y-4 divide-sub-gray">
 	  <label className="text-xs text-sub-gray">
 	    {products.length} produkter
 	  </label>
@@ -29,9 +29,9 @@ const Categories = () => {
 	</div>
 
 	{isLoading ? (
-	  <div className="animate-pulse flex flex-col gap-y-2 pt-2 w-full">
+	  <div className="animate-pulse flex flex-col gap-y-3 pt-2 w-full">
 	    {[...Array(5)].map((_, index) => (
-	      <div key={index} className="w-16 h-2 bg-gray-200 rounded-full" />
+	      <div key={index} className="w-full h-3 bg-gray-200 rounded-full" />
 	    ))}
 	  </div>
 	) : (

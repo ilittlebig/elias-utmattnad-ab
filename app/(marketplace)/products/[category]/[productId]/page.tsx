@@ -3,9 +3,7 @@ import { useState, useEffect } from 'react'
 import { useParams } from 'next/navigation'
 import { useCategories, Category } from '@/hooks/categories'
 import { useProducts, Product } from '@/hooks/products'
-import { useCart } from '@/hooks/cart'
-import { useToast } from '@/contexts/toastContext'
-import { useNotification } from '@/contexts/notificationContext'
+import { useCartContext } from '@/contexts/cartContext'
 
 import ProductImage from '@/(marketplace)/components/product/productImage'
 import ProductInformation from '@/(marketplace)/components/product/productInformation'
@@ -23,25 +21,7 @@ const ProductPage = () => {
   const { productId, category } = useParams();
   const { fetchCategory } = useCategories();
   const { fetchProduct } = useProducts();
-  const { addToCart } = useCart();
-  const { showToast } = useToast();
-  const { showNotification } = useNotification();
-
-  const handleAddToCart = (product: Product | null) => {
-    if (product) {
-      showToast({
-	name: product.name,
-	price: product.price,
-	image: "/rug1.png"
-      });
-      addToCart(product);
-    } else {
-      showNotification({
-	message: "Something went wrong. Please try again!",
-	type: "error"
-      });
-    }
-  };
+  const { handleAddToCart } = useCartContext();
 
   useEffect(() => {
     if (!product) return;

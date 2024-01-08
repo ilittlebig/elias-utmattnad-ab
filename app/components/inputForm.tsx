@@ -58,7 +58,7 @@ const InputForm = ({
       <div className="w-full transition-all duration-300 relative">
         <label
           htmlFor={htmlFor}
-          className={`flex gap-x-1 pointer-events-none text-xs absolute left-0 transition-all duration-300 ${
+          className={`flex gap-x-1 pointer-events-none text-sm absolute left-0 transition-all duration-300 ${
             isFocused || inputValue ? '-top-2.5 bg-white px-3' : 'top-1/2 -translate-y-1/2'
           } ${isFocused || inputValue ? 'text-primary' : 'text-gray-500'}`}
         >
@@ -78,12 +78,12 @@ const InputForm = ({
           onFocus={handleFocus}
           onBlur={handleBlur}
 	  disabled={disabled}
-          className="appearance-none text-xs disabled:text-gray-400 w-full text-gray-700 py-4 leading-tight focus:outline-none"
+          className="appearance-none bg-transparent text-sm disabled:text-gray-400 w-full text-gray-700 py-[18px] leading-tight focus:outline-none"
         />
       </div>
 
       {linkText && linkHref && (
-        <Link href={linkHref} className="text-primary hover:underline transition-all duration-300">
+        <Link href={linkHref} className="text-sm text-primary hover:underline transition-all duration-300">
 	  {linkText}
         </Link>
       )}

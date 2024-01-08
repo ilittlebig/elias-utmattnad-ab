@@ -1,21 +1,22 @@
+import { useCartContext } from '@/contexts/cartContext'
+import { Product } from '@/hooks/products'
+
 import Image from 'next/image'
 import Link from 'next/link'
 import useLocale from '@/hooks/locale'
 import currencyFormatter from '@/utils/currencyFormatter'
+import Button from '@/components/button'
 
 type ProductProps = {
-  price: number,
-  name: string,
-  dimensions: string,
+  product: Product
 }
 
 const ProductCard = ({
-  price,
-  name,
-  dimensions,
+  product
 }: ProductProps) => {
+  const { handleAddToCart } = useCartContext();
   const locale = useLocale();
-  const formattedPrice = currencyFormatter(price, "SEK", locale);
+  const formattedPrice = currencyFormatter(product.price, "SEK", locale);
 
   return (
     <div className="flex flex-col lg:w-[299px] gap-y-4">
@@ -39,6 +40,15 @@ const ProductCard = ({
 	      style={{ objectFit: "contain" }}
 	      alt="Product Image1"
 	    />
+
+	    <div className="flex items-end w-full h-full px-2 py-2">
+	      <Button
+		actionText="Lägg Till"
+		fill
+		className="text-sm py-3"
+		onClick={() => handleAddToCart(product)}
+	      />
+	    </div>
 	  </div>
 	</div>
       </div>
@@ -46,7 +56,7 @@ const ProductCard = ({
       <div className="flex flex-col gap-y-1">
 	<div className="flex justify-between">
 	  <div className="text-xs hover:underline truncate">
-	    {name}
+	    {product.name}
 	  </div>
 	  <div className="text-xs font-medium">
 	    {formattedPrice}
@@ -54,7 +64,7 @@ const ProductCard = ({
 	</div>
 
 	<div className="text-xs text-sub-gray">
-	  {dimensions}
+	  {product.dimensions}
 	</div>
       </div>
     </div>

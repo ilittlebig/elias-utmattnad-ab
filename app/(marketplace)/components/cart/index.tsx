@@ -3,6 +3,7 @@ import { useCartContext } from '@/contexts/cartContext'
 import useLocale from '@/hooks/locale'
 import currencyFormatter from '@/utils/currencyFormatter'
 
+import Image from 'next/image'
 import Button from '@/components/button'
 import ProductCard from '@/(marketplace)/components/cart/productCard'
 
@@ -33,14 +34,13 @@ const Cart = () => {
 	transition-opacity
 	duration-300
 	ease-in-out
-	backdrop-blur-md
-	bg-[#000000]/50
+	bg-[#000000]/30
 	h-full
 	z-40`
       }/>
 
       <div className={`
-	${isCartToggled ? 'translate-x-0' : 'translate-x-full hidden'}
+	${isCartToggled ? 'translate-x-0' : 'translate-x-full'}
 	bg-white
 	fixed
 	right-0
@@ -67,16 +67,37 @@ const Cart = () => {
 	  </h1>
 
 	  <div className="flex flex-col h-full py-4 gap-y-3 overflow-scroll">
-	    {getProducts().map((cartItem, index) => (
-	      <ProductCard
-	        key={index}
-	        id={cartItem.product._id}
-	        name={cartItem.product.name}
-	        dimensions={cartItem.product.dimensions}
-		price={cartItem.product.price * cartItem.quantity}
-		quantity={cartItem.quantity}
-	      />
-	    ))}
+	    {!isCartEmpty ? (
+	      getProducts().map((cartItem, index) => (
+		<ProductCard
+		  key={index}
+		  id={cartItem.product._id}
+		  name={cartItem.product.name}
+		  dimensions={cartItem.product.dimensions}
+		  price={cartItem.product.price * cartItem.quantity}
+		  quantity={cartItem.quantity}
+		/>
+	      ))
+	    ) : (
+	      <div className="flex flex-col w-full h-full justify-center">
+	        <div className="relative flex flex-col h-[400px] items-center">
+		  <div className="absolute top-[-9%]">
+		    <div className="relative w-[400px] h-[400px]">
+		      <Image
+			src="/customers.svg"
+			fill
+			style={{ objectFit: "contain" }}
+			alt="Empty Cart Image"
+		      />
+		    </div>
+		  </div>
+
+		  <label className="text-lg text-black absolute bottom-[20%]">
+		    Din kundvagn är tom
+		  </label>
+		</div>
+	      </div>
+	    )}
 	  </div>
 
 	  <div className="flex flex-col gap-y-6 px-6 bg-white shadow-[0px_4px_16px_rgba(17,17,26,0.1),_0px_8px_24px_rgba(17,17,26,0.1),_0px_16px_56px_rgba(17,17,26,0.1)]">

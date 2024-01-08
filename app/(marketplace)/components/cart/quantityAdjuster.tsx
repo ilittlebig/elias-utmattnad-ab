@@ -16,8 +16,9 @@ const QuantityAdjuster = ({ id, quantity }: QuantityAdjusterProps) => {
   return (
     <div className="flex gap-x-3 select-none items-center border h-[34px]">
       <div
+        role="button"
 	onClick={() => decrementQuantity(id)}
-	className="flex items-center border border-transparent hover:border-black cursor-pointer px-2 h-full text-xl"
+	className="flex items-center border border-transparent hover:border-black px-2 h-full text-xl"
       >
 	<FaMinus className="w-3 h-3" />
       </div>
@@ -27,8 +28,9 @@ const QuantityAdjuster = ({ id, quantity }: QuantityAdjusterProps) => {
       </div>
 
       <div
+        role="button"
 	onClick={() => incrementQuantity(id)}
-	className="flex items-center border border-transparent hover:border-black cursor-pointer px-2 h-full text-xl"
+	className="flex items-center border border-transparent hover:border-black px-2 h-full text-xl"
       >
 	<FaPlus className="w-3 h-3" />
       </div>

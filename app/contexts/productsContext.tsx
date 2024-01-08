@@ -28,7 +28,7 @@ interface ProductsProviderProps {
 
 export const ProductsProvider = ({ children }: ProductsProviderProps) => {
   const [products, setProducts] = useState<Product[]>([]);
-  const [category, setCategory] = useState<string>("snow");
+  const [category, setCategory] = useState<string>("all");
   const [isLoading, setLoading] = useState<boolean>(true);
   const { fetchProducts } = useProducts();
 

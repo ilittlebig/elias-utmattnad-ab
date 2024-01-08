@@ -1,16 +1,23 @@
 "use client"
-import React, { createContext, useContext, useState, ReactNode, useCallback, useEffect } from 'react';
+import React, { createContext, useContext, useState, ReactNode, useCallback, useEffect } from 'react'
 import CartNotificationToast from '@/(marketplace)/components/cart/cartNotificationToast'
 
 export interface Toast {
-  name: string,
-  price: number,
-  image: string,
-  className?: string
+  name: string;
+  dimensions: string;
+  price: number;
+  image: string;
+  className?: string;
 }
 
 interface ToastContextValue {
-  showToast: ({ name, price, image, className }: Toast) => void
+  showToast: ({
+    name,
+    dimensions,
+    price,
+    image,
+    className
+  }: Toast) => void
 }
 
 const defaultState: ToastContextValue = {
@@ -27,9 +34,10 @@ let timeoutId: NodeJS.Timeout | null = null;
 
 export const ToastProvider: React.FC<ToastProviderProps> = ({ children }) => {
   const [toast, setToast] = useState({
-    name: "",
+    name: "Produkt",
+    dimensions: "0x0cm",
     price: 0,
-    image: "",
+    image: "/rug1.png",
     className: "",
     isVisible: false
   });
@@ -46,14 +54,28 @@ export const ToastProvider: React.FC<ToastProviderProps> = ({ children }) => {
     }
   }, [toast.isVisible]);
 
-  const showToast = useCallback(({ name, price, image, className = "" }: Toast) => {
-    if (timeoutId) {
+  const showToast = useCallback(({ name, dimensions, price, image, className = "" }: Toast) => {
+    if (timeoutId)
       clearTimeout(timeoutId);
-    }
-    setToast({ name, price, image, className, isVisible: true });
+
+    setToast({
+      name,
+      dimensions,
+      price,
+      image,
+      className,
+      isVisible: true
+    });
 
     timeoutId = setTimeout(() => {
-      setToast({ name, price, image, className, isVisible: false });
+      setToast({
+	name,
+	dimensions,
+	price,
+	image,
+	className,
+	isVisible: false
+      });
       timeoutId = null;
     }, 3000);
   }, []);
@@ -62,6 +84,7 @@ export const ToastProvider: React.FC<ToastProviderProps> = ({ children }) => {
     <ToastContext.Provider value={{ showToast }}>
       <CartNotificationToast
 	name={toast.name}
+	dimensions={toast.dimensions}
 	price={toast.price}
 	image={toast.image}
 	className={toastClass}
@@ -71,4 +94,10 @@ export const ToastProvider: React.FC<ToastProviderProps> = ({ children }) => {
   );
 };
 
-export const useToast = () => useContext(ToastContext);
+export const useToastContext = () => {
+  const context = useContext(ToastContext);
+  if (!context) {
+    throw new Error("useToastContext must be used within a 'ToastProvider'");
+  }
+  return context;
+};
