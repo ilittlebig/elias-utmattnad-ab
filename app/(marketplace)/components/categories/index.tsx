@@ -1,6 +1,8 @@
 "use client"
 import { useState, useEffect } from 'react'
 import { Category, useCategories } from '@/hooks/categories'
+import { useProductsContext } from '@/contexts/productsContext'
+
 import Link from 'next/link'
 import CategoryLabel from './categoryLabel'
 
@@ -8,6 +10,7 @@ const Categories = () => {
   const [categories, setCategories] = useState<Category[]>([]);
   const [isLoading, setLoading] = useState<boolean>(true);
   const { fetchCategories } = useCategories();
+  const { products } = useProductsContext();
 
   useEffect(() => {
     fetchCategories(setCategories, setLoading);
@@ -18,7 +21,7 @@ const Categories = () => {
       <div className="pr-5">
 	<div className="flex flex-col divide-y gap-y-4">
 	  <label className="text-xs text-sub-gray">
-	    521 produkter
+	    {products.length} produkter
 	  </label>
 	  <label className="text-sm font-semibold text-black pt-4">
 	    Kategorier

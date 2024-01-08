@@ -5,6 +5,8 @@ import { Product, useProducts } from '@/hooks/products'
 interface ProductsContextType {
   products: Product[];
   isLoading: boolean;
+  category: string,
+  setCategory: (category: string) => void;
   addProductToList: (newProduct: Product) => void;
   updateProductInList: (updatedProduct: Product) => void;
   removeProductFromList: (productId: string) => void;
@@ -13,6 +15,8 @@ interface ProductsContextType {
 const ProductsContext = createContext<ProductsContextType>({
   products: [],
   isLoading: true,
+  category: "all",
+  setCategory: () => {},
   addProductToList: () => {},
   updateProductInList: () => {},
   removeProductFromList: () => {}
@@ -24,12 +28,18 @@ interface ProductsProviderProps {
 
 export const ProductsProvider = ({ children }: ProductsProviderProps) => {
   const [products, setProducts] = useState<Product[]>([]);
+  const [category, setCategory] = useState<string>("snow");
   const [isLoading, setLoading] = useState<boolean>(true);
   const { fetchProducts } = useProducts();
 
   useEffect(() => {
-    fetchProducts("all", setLoading, setProducts);
-  }, []);
+    const fetchData = async () => {
+      setLoading(true);
+      await fetchProducts(category, setProducts);
+      setLoading(false);
+    };
+    fetchData();
+  }, [category]);
 
   const addProductToList = (newProduct: Product) => {
     setProducts(currentProducts => [...currentProducts, newProduct]);
@@ -52,6 +62,8 @@ export const ProductsProvider = ({ children }: ProductsProviderProps) => {
   return (
     <ProductsContext.Provider value={{
       products,
+      category,
+      setCategory,
       isLoading,
       addProductToList,
       updateProductInList,

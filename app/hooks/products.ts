@@ -23,16 +23,11 @@ interface ResponseMessage {
 export const useProducts = () => {
   const fetchProducts = async (
     category: string,
-    setLoading: (value: boolean) => void,
     setProducts: (products: Product[]) => void
   ): Promise<void> => {
-    setLoading(true);
-
     const endpoint = `/api/getCollection?collection=products&category=${encodeURIComponent(category)}`
     const data: Product[] = await apiCall<Product[]>("GET", endpoint);
     setProducts(data);
-
-    setLoading(false);
   };
 
   const fetchProduct = async (

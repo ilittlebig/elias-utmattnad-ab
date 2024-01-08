@@ -1,21 +1,19 @@
 "use client"
 import { useState, useEffect } from 'react'
 import { useParams } from 'next/navigation'
-import { useProducts, Product } from '@/hooks/products'
+import { useProductsContext } from '@/contexts/productsContext'
 
 import Link from 'next/link'
 import ProductCard from './productCard'
 
 const ProductsContainer = () => {
-  const [products, setProducts] = useState<Product[]>([]);
-  const [isLoading, setLoading] = useState<boolean>(true);
+  const { products, setCategory, isLoading } = useProductsContext();
   const { category } = useParams();
-  const { fetchProducts } = useProducts();
 
   useEffect(() => {
     const categoryValue = Array.isArray(category) ? category[0] : category;
     if (categoryValue) {
-      fetchProducts(categoryValue, setLoading, setProducts);
+      setCategory(categoryValue);
     }
   }, [category]);
 
