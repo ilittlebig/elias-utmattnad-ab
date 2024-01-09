@@ -96,7 +96,7 @@ const HeroSection = () => {
 	  width={38}
 	  height={38}
 	  style={{ objectFit: "contain" }}
-	  alt="Squiggly Arrow"
+	  alt="Orange Swirl"
 	/>
       </div>
 
@@ -106,7 +106,7 @@ const HeroSection = () => {
 	  width={38}
 	  height={38}
 	  style={{ objectFit: "contain" }}
-	  alt="Squiggly Arrow"
+	  alt="Purple Circle"
 	/>
       </div>
 
@@ -116,7 +116,7 @@ const HeroSection = () => {
 	  width={70}
 	  height={70}
 	  style={{ objectFit: "contain" }}
-	  alt="Squiggly Arrow"
+	  alt="Orange Arrow"
 	/>
       </div>
 
@@ -126,7 +126,7 @@ const HeroSection = () => {
 	  width={20}
 	  height={20}
 	  style={{ objectFit: "contain" }}
-	  alt="Squiggly Arrow"
+	  alt="Red Plus"
 	/>
       </div>
 
@@ -181,7 +181,7 @@ const HeroSection = () => {
 		  width={295}
 		  height={50}
 		  style={{ objectFit: "fill" }}
-		  alt="Vision"
+		  alt="Text Border"
 		/>
 	      </div>
 	      Möjligheter

@@ -43,7 +43,7 @@ const ProductCard = ({
 
 	    <div className="flex items-end w-full h-full px-2 py-2">
 	      <Button
-		actionText="Lägg Till"
+		actionText="+ Lägg Till"
 		fill
 		className="text-sm py-3"
 		onClick={() => handleAddToCart(product)}

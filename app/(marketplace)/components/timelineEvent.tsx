@@ -1,10 +1,9 @@
-import { forwardRef, useEffect, useCallback } from 'react'
+import { forwardRef, useEffect, useCallback, useRef } from 'react'
 import { useInView } from 'react-intersection-observer'
 
 type EventProps = {
   index: number,
   text: string,
-  side: "left" | "right",
   selected?: boolean,
   onInView: (index: number) => void
 };
@@ -12,19 +11,21 @@ type EventProps = {
 const TimelineEvent = forwardRef<HTMLDivElement, EventProps>(({
   index,
   text,
-  side,
   selected,
   onInView
 }, ref) => {
   const [inViewRef, inView] = useInView({
-    triggerOnce: true,
-    rootMargin: '-300px 0px -300px 0px'
+    triggerOnce: false,
+    rootMargin: '0px 0px -500px 0px'
   });
 
+  const prevInView = useRef(inView);
+
   useEffect(() => {
-    if (inView) {
+    if ((prevInView.current && !inView) || inView) {
       onInView(index);
     }
+    prevInView.current = inView;
   }, [inView, onInView, index]);
 
   const setRefs = useCallback((node: HTMLDivElement | null) => {
@@ -36,22 +37,22 @@ const TimelineEvent = forwardRef<HTMLDivElement, EventProps>(({
     inViewRef(node);
   }, [ref, inViewRef]);
 
-  const isRightSide = side === "right";
+  const isRightSide = index % 2 === 0;
 
   return (
     <div ref={setRefs} className="relative flex gap-y-8 gap-x-4 lg:gap-x-0 items-center">
-      <div className={`flex items-center justify-center rounded-full ${selected ? 'lg:w-16 lg:h-16 w-12 h-12 bg-black' : 'lg:w-12 lg:h-12 w-8 h-8 bg-gray-400'}`}>
-	<div className={`text-white font-semibold ${selected ? 'lg:text-3xl text-2xl' : 'lg:text-xl text-lg'}`}>
+      <div className={`flex items-center justify-center rounded-full ${selected ? 'w-12 h-12 bg-black' : 'w-8 h-8 bg-zinc-300'}`}>
+	<div className={`text-white font-medium ${selected ? 'text-lg' : 'text-sm'}`}>
 	  {index}
 	</div>
       </div>
 
       <div className={`absolute ${isRightSide ? 'left-full' : 'right-full'} h-full lg:flex hidden items-center`}>
-	<div className={`w-7 h-2 ${selected ? 'bg-black' : 'bg-gray-400'}`}></div>
+	<div className={`w-7 h-1 ${selected ? 'bg-black' : 'bg-zinc-300'}`} />
       </div>
 
       <div className={`lg:absolute text-left ${isRightSide ? 'lg:left-full lg:ml-16' : 'lg:right-full lg:mr-16'} ${selected ? 'text-black' : 'text-zinc-300'} flex items-center`}>
-	<div className="font-medium text-lg px-2 lg:w-[400px] w-[350px] max-h-32 lg:max-w-lg max-w-sm">
+	<div className="leading-8 text-lg px-2 lg:w-[400px] w-[350px] max-h-32 lg:max-w-lg max-w-sm">
 	  {text}
 	</div>
       </div>
