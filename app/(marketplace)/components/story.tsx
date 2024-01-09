@@ -1,3 +1,7 @@
+"use client"
+import { useEffect } from 'react'
+import { motion, useAnimation } from 'framer-motion'
+import { useInView } from 'react-intersection-observer'
 import Image from 'next/image'
 
 type StoryProps = {
@@ -8,16 +12,38 @@ type StoryProps = {
 };
 
 const Story = ({ image, title, description, leftSideText }: StoryProps) => {
+  const controls = useAnimation();
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    rootMargin: "-150px 0px"
+  });
+
+  useEffect(() => {
+    if (inView) controls.start("visible");
+  }, [controls, inView]);
+
+  const variants = {
+    hidden: { x: leftSideText ? 200 : -200, opacity: 0 },
+    visible: { x: 0, opacity: 1, transition: { duration: 0.8 } }
+  };
+
   return (
-    <div className={`flex ${leftSideText ? "flex-row-reverse" : ""} justify-center gap-x-28`}>
-      <div className="relative w-[450px] h-[450px]">
+    <div className={`flex overflow-hidden ${leftSideText ? "flex-row-reverse" : ""} justify-center gap-x-28`}>
+      <motion.div
+        ref={ref}
+	animate={controls}
+	initial="hidden"
+	variants={variants}
+        className="relative w-[450px] h-[450px]"
+       >
 	<Image
 	  src={image}
 	  fill
 	  style={{ objectFit: "contain" }}
+	  className="rounded-md"
 	  alt="Image"
 	/>
-      </div>
+      </motion.div>
 
       <div className="flex flex-col gap-y-12 w-[450px] text-black">
 	<label className="text-[22px] font-semibold">
