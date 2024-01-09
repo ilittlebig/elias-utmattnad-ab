@@ -36,9 +36,12 @@ const Button = ({
   const [isClicked, setIsClicked] = useState(false);
   const router = useRouter();
 
-  const handleClick = () => {
+  const handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
     if (disabled) return;
     setIsClicked(true);
+
+    event.stopPropagation();
+    event.preventDefault();
 
     setTimeout(() => {
       setIsClicked(false);
@@ -56,20 +59,19 @@ const Button = ({
     {
       'text-white': destructive,
       'text-[#000000]': !destructive,
-      'cursor-pointer': !disabled,
-      'px-8 py-4 text-lg': !className,
+      'px-8 py-4 text-md': !className,
       'text-black hover:text-[#000000]': noBackground,
-      'font-medium text-center': true,
+      'text-center': true,
       'w-full': fill,
       'w-fit': !fill,
-      'rounded-lg': true,
+      'rounded-md': true,
       'transition-all duration-150': !disabled && !noBackground,
     },
     className
   );
 
   return (
-    <div className={buttonClasses} onClick={handleClick} tabIndex={0}>
+    <div role="button" className={buttonClasses} onClick={handleClick} tabIndex={0}>
       {isLoading && <CgSpinner className="w-8 h-8 animate-spin" />}
       <label className="y-fit cursor-pointer">{actionText}</label>
       {icon && icon}

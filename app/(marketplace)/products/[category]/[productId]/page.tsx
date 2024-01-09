@@ -3,15 +3,13 @@ import { useState, useEffect } from 'react'
 import { useParams } from 'next/navigation'
 import { useCategories, Category } from '@/hooks/categories'
 import { useProducts, Product } from '@/hooks/products'
-import { useCart } from '@/hooks/cart'
-import { useToast } from '@/contexts/toastContext'
-import { useNotification } from '@/contexts/notificationContext'
+import { useCartContext } from '@/contexts/cartContext'
 
-import MainProductImage from '@/(marketplace)/components/product/productImage'
-import ProductInformation from '@/(marketplace)/components/product/productInformation/index'
+import ProductImage from '@/(marketplace)/components/product/productImage'
+import ProductInformation from '@/(marketplace)/components/product/productInformation'
 import Breadcrumbs from '@/(marketplace)/components/product/breadcrumbs'
+import ProductPerks from '@/(marketplace)/components/product/productPerks'
 import Accordion from '@/(marketplace)/components/product/accordion'
-import ProductImages from '@/(marketplace)/components/product/productImages'
 import AcceptedPayments from '@/(marketplace)/components/acceptedPayments'
 import Button from '@/components/button'
 
@@ -23,25 +21,7 @@ const ProductPage = () => {
   const { productId, category } = useParams();
   const { fetchCategory } = useCategories();
   const { fetchProduct } = useProducts();
-  const { addToCart } = useCart();
-  const { showToast } = useToast();
-  const { showNotification } = useNotification();
-
-  const handleAddToCart = (product: Product | null) => {
-    if (product) {
-      showToast({
-	name: product.name,
-	price: product.price,
-	image: "/rug1.png"
-      });
-      addToCart(product);
-    } else {
-      showNotification({
-	message: "Something went wrong. Please try again!",
-	type: "error"
-      });
-    }
-  };
+  const { handleAddToCart } = useCartContext();
 
   useEffect(() => {
     if (!product) return;
@@ -63,61 +43,68 @@ const ProductPage = () => {
   }, [productId]);
 
   return (
-    <div className="flex flex-col justify-between lg:py-6 h-full">
+    <div className="flex flex-col justify-between lg:pb-6 h-full">
       <div className="flex lg:flex-row gap-x-6 flex-col">
-        <div className="flex flex-col gap-y-3">
+        <div className="flex flex-wrap gap-2 h-full">
+	  {[...Array(5)].map((_, index) => (
+	    <ProductImage
+	      key={index}
+	      src="/ProductImage1.png"
+	    />
+	  ))}
+	</div>
+
+	<div className="flex flex-col max-w-[420px] min-w-[420px] gap-y-1">
 	  <Breadcrumbs
 	    category={categoryData}
 	    product={product}
 	    currentCategory={currentCategory}
 	  />
 
-	  <div className="flex select-none">
-	    <ProductImages />
-	    <MainProductImage />
-	  </div>
-	</div>
-
-	<div className="flex flex-col w-full gap-y-3 pt-7">
-	  <ProductInformation
-	    product={product}
-	  />
-
-	  <div className="px-4 py-3 lg:px-0">
-	    <Button
-	      actionText="Lägg Till"
-	      onClick={() => handleAddToCart(product)}
-	      fill
-	    />
-	  </div>
-
-	  <div className="flex flex-col gap-y-4 w-full bg-gray-100 lg:rounded-lg px-6 py-6 lg:-mt-3 mt-0">
-	    <label className="text-black text-lg font-medium">
-	      Säker betalning genom
-	    </label>
-	    <AcceptedPayments />
-	  </div>
-
-	  <div className="flex flex-col gap-y-6 pb-6 pt-5 px-4 lg:px-0">
-	    <Accordion
-	      title="Produktbeskrivning"
-	      content={product?.description || ""}
+	  <div className="flex flex-col gap-y-5">
+	    <ProductInformation
+	      product={product}
 	    />
 
-	    <Accordion
-	      title="Material"
-	      content={product?.material || ""}
-	    />
+	    <div className="flex flex-col gap-y-2">
+	      <div className="px-4 py-3 lg:px-0">
+		<Button
+		  actionText="Lägg Till"
+		  onClick={() => handleAddToCart(product)}
+		  fill
+		/>
+	      </div>
+	      <ProductPerks />
+	    </div>
 
-	    <Accordion
-	      title="Mått"
-	      content={product?.dimensions || ""}
-	    />
+	    <div className="flex flex-col gap-y-4 w-full bg-gray-100 lg:rounded-md px-4 py-4">
+	      <label className="text-black text-md font-medium">
+		Säker betalning genom
+	      </label>
+	      <AcceptedPayments />
+	    </div>
 
-	    <Accordion
-	      title="Mer Info"
-	      content={product?.moreInfo || ""}
-	    />
+	    <div className="flex flex-col gap-y-6 pb-6 pt-3 px-4 lg:px-0">
+	      <Accordion
+		title="Produktbeskrivning"
+		content={product?.description || ""}
+	      />
+
+	      <Accordion
+		title="Material"
+		content={product?.material || ""}
+	      />
+
+	      <Accordion
+		title="Mått"
+		content={product?.dimensions || ""}
+	      />
+
+	      <Accordion
+		title="Mer Info"
+		content={product?.moreInfo || ""}
+	      />
+	    </div>
 	  </div>
 	</div>
       </div>

@@ -1,63 +1,48 @@
 import { IoCloseOutline } from 'react-icons/io5'
-import { useCart } from '@/hooks/cart'
+import { useCartContext } from '@/contexts/cartContext'
 import useLocale from '@/hooks/locale'
 import currencyFormatter from '@/utils/currencyFormatter'
 
-import CartPropss from '@/(marketplace)/components/product/productInformation/index'
+import Image from 'next/image'
 import Button from '@/components/button'
 import ProductCard from '@/(marketplace)/components/cart/productCard'
 
-type CartProps = {
-  toggled: boolean,
-  onToggle: (value: boolean) => void
-}
+const Cart = () => {
+  const {
+    isCartToggled,
+    toggleCart,
+    getProducts,
+    getOrderValue,
+    getTotalItemCount
+  } = useCartContext();
 
-function clamp(value: number, min: number, max: number): number {
-  return Math.min(Math.max(value, min), max);
-}
-
-const Cart = ({ toggled, onToggle }: CartProps) => {
-  const { getProducts, getOrderValue, getTotalItemCount } = useCart();
-  const isCartEmpty = getTotalItemCount() === 0;
-  const FREE_DELIVERY = 499
+  const totalItemCount = getTotalItemCount();
+  const isCartEmpty = totalItemCount === 0;
 
   const locale = useLocale();
   const orderValue = getOrderValue();
-  const formattedOrderValue = currencyFormatter(orderValue, "SEK", locale);
-
-  const untilFreeDelivery = clamp(FREE_DELIVERY - orderValue, 0, FREE_DELIVERY);
-  const formattedUntilFreeDelivery = currencyFormatter(untilFreeDelivery, "SEK", locale);
-
-  let deliveryFee = untilFreeDelivery <= 0 ? 0 : 79;
-  const formattedDeliveryFee = currencyFormatter(deliveryFee, "SEK", locale);
-
-  const totalPrice = orderValue + deliveryFee;
-  const formattedTotalPrice = currencyFormatter(totalPrice, "SEK", locale);
-
-  /* Disables scrolling */
-  onToggle(true);
+  const formattedTotalPrice = currencyFormatter(orderValue, "SEK", locale);
 
   return (
     <>
-      <div onClick={() => onToggle(!toggled)} className={`
-	${toggled ? 'opacity-100 visible' : 'opacity-0 invisible'}
-	absolute
+      <div onClick={toggleCart} className={`
+	${isCartToggled ? 'opacity-100 visible' : 'opacity-0 invisible'}
+	fixed
 	left-0
 	top-0
 	w-full
 	transition-opacity
 	duration-300
 	ease-in-out
-	backdrop-blur-md
-	bg-[#000000]/50
+	bg-[#000000]/30
 	h-full
 	z-40`
       }/>
 
       <div className={`
-	${toggled ? 'translate-x-0' : 'translate-x-full hidden'}
+	${isCartToggled ? 'translate-x-0' : 'translate-x-full'}
 	bg-white
-	absolute
+	fixed
 	right-0
 	top-0
 	transition-transform
@@ -69,54 +54,78 @@ const Cart = ({ toggled, onToggle }: CartProps) => {
 	h-full
 	z-50`
       }>
-	<div className="flex flex-col py-6 h-full justify-between">
-	    <div
-	      className="flex w-full px-6 text-3xl justify-between"
-	      onClick={() => onToggle(!toggled)}
-	    >
-	      <h1 className="font-bold lg:text-3xl text-2xl pt-3">
-	        Kundvagn
-	      </h1>
-	      <IoCloseOutline className="cursor-pointer w-12 h-12" />
-	    </div>
+        <div className="absolute w-full flex justify-end p-3">
+	  <IoCloseOutline
+	    onClick={toggleCart}
+	    className="cursor-pointer w-7 h-7"
+	  />
+	</div>
 
-	  <div className="flex flex-col px-2 h-full py-6 gap-y-3 overflow-scroll">
-	    {getProducts().map((cartItem, index) => (
-	      <ProductCard
-	        key={index}
-	        id={cartItem.product._id}
-	        name={cartItem.product.name}
-		price={cartItem.product.price}
-		quantity={cartItem.quantity}
-	      />
-	    ))}
+	<div className="flex flex-col pt-16 h-full justify-between">
+	  <h1 className="font-semibold px-6 text-2xl text-black">
+	    Din Kundvagn
+	  </h1>
+
+	  <div className="flex flex-col h-full py-4 gap-y-3 overflow-scroll">
+	    {!isCartEmpty ? (
+	      getProducts().map((cartItem, index) => (
+		<ProductCard
+		  key={index}
+		  id={cartItem.product._id}
+		  name={cartItem.product.name}
+		  dimensions={cartItem.product.dimensions}
+		  price={cartItem.product.price * cartItem.quantity}
+		  quantity={cartItem.quantity}
+		/>
+	      ))
+	    ) : (
+	      <div className="flex flex-col w-full h-full justify-center">
+	        <div className="relative flex flex-col h-[400px] items-center">
+		  <div className="absolute top-[-9%]">
+		    <div className="relative w-[400px] h-[400px]">
+		      <Image
+			src="/customers.svg"
+			fill
+			style={{ objectFit: "contain" }}
+			alt="Empty Cart Image"
+		      />
+		    </div>
+		  </div>
+
+		  <label className="text-lg text-black absolute bottom-[20%]">
+		    Din kundvagn är tom
+		  </label>
+		</div>
+	      </div>
+	    )}
 	  </div>
 
-	  <div className="flex flex-col gap-y-3 px-6 font-medium">
-	    <div className="w-full h-0.5 bg-gray-200" />
-	    <div className="flex justify-between">
-	      <h2 className="text-lg pt-3">Beställningsvärde:</h2>
-	      <h2 className="text-lg pt-3">{formattedOrderValue}</h2>
-	    </div>
-	    <div className="flex justify-between">
-	      <h2 className="text-lg pt-3">Leverans:</h2>
-	      <h2 className="text-lg pt-3">{formattedDeliveryFee}</h2>
-	    </div>
-	    <div className="w-full h-0.5 bg-gray-200" />
-	    <div className="flex justify-between">
-	      <h2 className="text-xl pt-3 font-bold">Summa:</h2>
-	      <h2 className="text-xl pt-3 font-bold">{formattedTotalPrice}</h2>
+	  <div className="flex flex-col gap-y-6 px-6 bg-white shadow-[0px_4px_16px_rgba(17,17,26,0.1),_0px_8px_24px_rgba(17,17,26,0.1),_0px_16px_56px_rgba(17,17,26,0.1)]">
+	    <div className="flex justify-between text-md pt-6">
+	      <div className="flex gap-x-1 items-end">
+		<h2 className="font-semibold text-md">
+		  Summa
+		</h2>
+		<p className="text-xs">
+		  ({totalItemCount} {totalItemCount == 1 ? "sak" : "saker"})
+		</p>
+	      </div>
+
+	      <h2 className="font-semibold">
+	        {formattedTotalPrice}
+	      </h2>
 	    </div>
 
 	    <Button
 	      actionText="Till Kassan"
 	      href="/"
 	      disabled={isCartEmpty}
+	      onClick={toggleCart}
 	      fill
 	    />
 
-	    <h2 className="text-center text-lg py-6 font-medium">
-	      {formattedUntilFreeDelivery} kvar till fri leverans
+	    <h2 className="text-center text-sm font-medium pb-6">
+	      Psst, köp nu innan det är för sent.
 	    </h2>
 	  </div>
 	</div>

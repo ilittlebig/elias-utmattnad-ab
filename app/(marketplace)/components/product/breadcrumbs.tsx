@@ -1,6 +1,5 @@
 import { Category } from '@/hooks/categories'
 import { Product } from '@/hooks/products'
-import { FaCircle } from 'react-icons/fa'
 import Link from 'next/link'
 
 type BreadcrumbsProps = {
@@ -18,18 +17,18 @@ const Breadcrumbs = ({
     <>
       {category && product ? (
 	<div className="lg:flex flex-col gap-y-6 hidden">
-	  <div className="flex items-center gap-x-3 text-sm font-medium">
+	  <div className="flex items-center gap-x-2 text-xs text-sub-gray">
 	    <Link href="/products/all" className="hover:underline">
 	      Produkter
 	    </Link>
 
- 	    <FaCircle className="w-1 h-1 text-black" />
+	    <div>/</div>
 
 	    <Link href={`/products/${currentCategory}`} className="hover:underline">
 	      {category.name}
 	    </Link>
 
- 	    <FaCircle className="w-1 h-1 text-black" />
+	    <div>/</div>
 
 	    <Link href={`/products/${currentCategory}/${product._id}`} className="text-primary hover:underline">
 	      {product.name}

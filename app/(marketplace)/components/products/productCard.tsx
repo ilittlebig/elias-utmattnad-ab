@@ -1,58 +1,70 @@
+import { useCartContext } from '@/contexts/cartContext'
+import { Product } from '@/hooks/products'
+
 import Image from 'next/image'
 import Link from 'next/link'
 import useLocale from '@/hooks/locale'
 import currencyFormatter from '@/utils/currencyFormatter'
+import Button from '@/components/button'
 
 type ProductProps = {
-  price: number,
-  name: string,
-  rating: number,
-  imagePath: string,
+  product: Product
 }
 
 const ProductCard = ({
-  price,
-  name,
-  rating,
-  imagePath
+  product
 }: ProductProps) => {
+  const { handleAddToCart } = useCartContext();
   const locale = useLocale();
-  const formattedPrice = currencyFormatter(price, "SEK", locale);
+  const formattedPrice = currencyFormatter(product.price, "SEK", locale);
 
   return (
-    <div className="flex flex-col p-4 w-[203px] h-[280px] lg:w-[282px] lg:h-[350px] gap-y-4 bg-[#F6F7F9] hover:border hover:border-black">
-      <div className="flex items-center justify-center w-full h-full">
-	<div className="relative w-[65%] h-full">
-	  <Image
-	    src={imagePath}
-	    fill
-	    style={{ objectFit: "contain" }}
-	    alt="Product Image"
-	  />
+    <div className="flex flex-col lg:w-[299px] gap-y-4">
+      <div className="relative flex items-center justify-center w-full h-full group">
+        <div className="h-[297px] transition-opacity duration-300 group-hover:opacity-0">
+	  <div className="absolute inset-0 w-full h-[297px]">
+	    <Image
+	      src="/ProductImage1.png"
+	      fill
+	      style={{ objectFit: "contain" }}
+	      alt="Product Image1"
+	    />
+	  </div>
+	</div>
+
+        <div className="h-[297px]">
+	  <div className="absolute inset-0 w-full h-[297px] transition-opacity duration-300 opacity-0 group-hover:opacity-100">
+	    <Image
+	      src="/ProductImage2.png"
+	      fill
+	      style={{ objectFit: "contain" }}
+	      alt="Product Image1"
+	    />
+
+	    <div className="flex items-end w-full h-full px-2 py-2">
+	      <Button
+		actionText="Lägg Till"
+		fill
+		className="text-sm py-3"
+		onClick={() => handleAddToCart(product)}
+	      />
+	    </div>
+	  </div>
 	</div>
       </div>
 
       <div className="flex flex-col gap-y-1">
-	<div className="flex flex-col">
-	  <div className="text-sm hover:underline truncate">
-	    {name}
+	<div className="flex justify-between">
+	  <div className="text-xs hover:underline truncate">
+	    {product.name}
 	  </div>
-	  <div className="text-sm">
+	  <div className="text-xs font-medium">
 	    {formattedPrice}
 	  </div>
 	</div>
 
-	<div className="flex gap-x-1">
-	  {[...Array(5)].map((_, index) => (
-	    <Image
-	      key={index}
-	      src="/Star.svg"
-	      width={14}
-	      height={14}
-	      className={`object-contain ${index < rating ? 'opacity-100' : 'opacity-25'}`}
-	      alt="Star"
-	    />
-	  ))}
+	<div className="text-xs text-sub-gray">
+	  {product.dimensions}
 	</div>
       </div>
     </div>

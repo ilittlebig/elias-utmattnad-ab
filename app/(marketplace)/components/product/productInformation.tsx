@@ -4,7 +4,6 @@ import useLocale from '@/hooks/locale'
 import Link from 'next/link'
 
 import currencyFormatter from '@/utils/currencyFormatter'
-import LoadingInformation from './loading'
 
 type ProductInformationProps = {
   product: Product | null,
@@ -14,10 +13,10 @@ const ProductInformation = ({
   product,
 }: ProductInformationProps) => {
   const locale = useLocale();
-  const formattedPrice = currencyFormatter(product ? product.price : 0, "SEK", locale);
+  const formattedPrice = currencyFormatter(product?.price || 0, "SEK", locale);
 
   return (
-    <div className="flex flex-col gap-y-8 w-full">
+    <div className="flex flex-col gap-y-8">
       {product ? (
         <>
 	  <div className="flex flex-col gap-y-5 lg:px-0 px-4">
@@ -26,18 +25,23 @@ const ProductInformation = ({
 		{product.name}
 	      </h1>
 
-	      <h2 className="text-md text-black underline">
+	      <h2 className="text-md text-black">
 		{product.dimensions}
 	      </h2>
 	    </div>
 
-	    <h3 className="text-[28px] font-semibold text-black">
+	    <h3 className="text-2xl font-semibold text-black">
 	      {formattedPrice}
 	    </h3>
 	  </div>
 	</>
       ) : (
-        <LoadingInformation />
+	<div className="animate-pulse">
+	  <div className="flex flex-col gap-y-3">
+	    <div className="w-full h-8 bg-gray-100 rounded-full" />
+	    <div className="w-full mt-4 h-10 bg-gray-100 rounded-full" />
+	  </div>
+	</div>
       )}
     </div>
   )
