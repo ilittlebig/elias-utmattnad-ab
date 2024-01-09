@@ -10,9 +10,15 @@ export default function Layout({
       {children}
 
       <div className="flex text-sm gap-x-4 -mt-16 py-4">
-	<Link href="/terms-of-service" className="hover:underline text-primary">Användarvillkor</Link>
+	<Link href="/terms" className="hover:underline text-primary">
+	  Användarvillkor
+	</Link>
+
 	<label className="text-lg">|</label>
-	<Link href="/privacy-policy" className="hover:underline text-primary">Integritetspolicy</Link>
+
+	<Link href="/privacy" className="hover:underline text-primary">
+	  Integritetspolicy
+	</Link>
       </div>
     </div>
   )

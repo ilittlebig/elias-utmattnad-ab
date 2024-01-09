@@ -51,8 +51,9 @@ const ProductsPage = () => {
 	<div className="flex flex-col gap-y-4 w-full">
 	  <div className="flex justify-between">
 	    <SearchBar />
+
 	    <div className="flex gap-x-3 items-center">
-	      <label className="text-xs flex-shrink-0 text-sub-gray">
+	      <label className="text-xs flex-shrink-0 text-black">
 		31 produkter sorterade
 	      </label>
 

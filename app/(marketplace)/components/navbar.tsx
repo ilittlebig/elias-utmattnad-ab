@@ -68,7 +68,7 @@ const Navbar: FC = () => {
 	<div className="flex lg:gap-x-6 gap-x-3 items-center">
 	  <Button
 	    actionText="Designa Din Matta"
-	    className="lg:hidden hidden text-sm px-6 py-3"
+	    className="lg:block hidden text-sm px-6 py-3"
 	  />
 
 	  <div onClick={toggleCart} className="cursor-pointer relative lg:w-6 lg:h-6 w-8 h-8">

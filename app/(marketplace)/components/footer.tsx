@@ -16,9 +16,9 @@ const Footer = () => {
   ];
 
   const legalities: Link[] = [
-    { label: "Integritetspolicy", href: "/privacy-policy" },
-    { label: "Användarvillkor", href: "/terms-of-service" },
-    { label: "Returpolicy", href: "/refund-policy" },
+    { label: "Integritetspolicy", href: "/privacy" },
+    { label: "Användarvillkor", href: "/terms" },
+    { label: "Returpolicy", href: "/refund" },
   ];
 
   const account: Link[] = [

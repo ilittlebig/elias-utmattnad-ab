@@ -63,11 +63,11 @@ const Dropdown = ({
 
   return (
     <form
-      className="flex max-w-sm select-none items-center hover:bg-gray-100 cursor-pointer border border-sub-gray rounded-md w-full relative px-3 dropdown-container"
+      className="flex max-w-sm select-none items-center hover:bg-gray-100 cursor-pointer border rounded-md w-full relative px-3 dropdown-container"
       onClick={toggleDropdown}
     >
       <div className="flex gap-x-8 items-center w-full focus:border-primary transition-all duration-300 relative">
-        <label className={`text-sub-gray text-xs py-2.5 cursor-pointer ${selectedLabel ? "hidden" : ""}`}>
+        <label className={`text-black text-xs py-2.5 cursor-pointer ${selectedLabel ? "hidden" : ""}`}>
 	  {label}
         </label>
 
@@ -81,7 +81,7 @@ const Dropdown = ({
       </div>
 
       <IoIosArrowDown
-        className={`transition-transform text-sub-gray transform duration-300 ${isDropdownOpen ? 'rotate-180' : 'rotate-0'}`}
+        className={`transition-transform text-black transform duration-300 ${isDropdownOpen ? 'rotate-180' : 'rotate-0'}`}
       />
 
       {isDropdownOpen && (
