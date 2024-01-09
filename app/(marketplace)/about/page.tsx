@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Story from '@/(marketplace)/components/story'
-import EventSection, { EventProps } from '@/(marketplace)/components/eventSection'
+import EventSection from '@/(marketplace)/components/eventSection'
 
 const AboutPage = () => {
   const futureEvents: string[] = [
