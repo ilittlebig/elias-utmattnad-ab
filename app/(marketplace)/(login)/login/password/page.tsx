@@ -23,6 +23,7 @@ const LoginPasswordPage = () => {
 		id="email"
 		htmlFor="email"
 		text="elias@jamee.se"
+		label="E-postaddress"
 		type="text"
 		linkText="Edit"
 		linkHref="/login/identifier"

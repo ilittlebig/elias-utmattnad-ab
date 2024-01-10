@@ -28,7 +28,7 @@ const Story = ({ image, title, description, leftSideText }: StoryProps) => {
   };
 
   return (
-    <div className={`flex overflow-hidden ${leftSideText ? "flex-row-reverse" : ""} justify-center gap-x-28`}>
+    <div className={`flex ${leftSideText ? "flex-row-reverse" : ""} justify-center gap-x-28`}>
       <motion.div
         ref={ref}
 	animate={controls}
@@ -46,7 +46,16 @@ const Story = ({ image, title, description, leftSideText }: StoryProps) => {
       </motion.div>
 
       <div className="flex flex-col gap-y-12 w-[450px] text-black">
-	<label className="text-[22px] font-semibold">
+	<label className="relative text-[22px] font-semibold w-fit">
+	  <div className="absolute right-[-22px] w-[38px] h-[38px] -mt-[14px]">
+	    <Image
+	      src="/Spark.svg"
+	      width={38}
+	      height={38}
+	      style={{ objectFit: "contain" }}
+	      alt="Spark"
+	    />
+	  </div>
 	  {title}
 	</label>
 

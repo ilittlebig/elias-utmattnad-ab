@@ -13,7 +13,7 @@ const AboutPage = () => {
 
   return (
     <div className="relative flex flex-col py-20 gap-y-20">
-      <div className="absolute w-[38px] h-[38px] top-[6%] right-[10%]">
+      <div className="absolute w-[38px] h-[38px] top-[5%] right-[10%]">
 	<Image
 	  src="/decorations/OrangeSwirl.svg"
 	  width={38}
@@ -23,7 +23,7 @@ const AboutPage = () => {
 	/>
       </div>
 
-      <div className="absolute w-[70px] h-[70px] top-[2%] left-[5%]">
+      <div className="absolute w-[70px] h-[70px] top-[2%] left-[8%] -rotate-90">
 	<Image
 	  src="/decorations/OrangeArrow.svg"
 	  width={70}
@@ -33,7 +33,7 @@ const AboutPage = () => {
 	/>
       </div>
 
-      <div className="absolute w-[20px] h-[20px] top-[26%] right-[-6%]">
+      <div className="absolute w-[20px] h-[20px] top-[18%] right-[-6%]">
 	<Image
 	  src="/decorations/RedPlus.svg"
 	  width={20}
@@ -43,7 +43,7 @@ const AboutPage = () => {
 	/>
       </div>
 
-      <div className="absolute w-[20px] h-[20px] top-[40%] left-[-6%]">
+      <div className="absolute w-[20px] h-[20px] top-[32%] left-[-6%]">
 	<Image
 	  src="/decorations/RedPlus.svg"
 	  width={20}
@@ -53,7 +53,17 @@ const AboutPage = () => {
 	/>
       </div>
 
-      <div className="absolute w-[70px] h-[70px] top-[76%] right-[20%] -z-10">
+      <div className="absolute w-[20px] h-[20px] top-[55%] right-[-6%]">
+	<Image
+	  src="/decorations/RedPlus.svg"
+	  width={20}
+	  height={20}
+	  style={{ objectFit: "contain" }}
+	  alt="Red Plus"
+	/>
+      </div>
+
+      <div className="absolute w-[70px] h-[70px] top-[71%] right-[20%] -z-10">
 	<Image
 	  src="/decorations/OrangeArrow.svg"
 	  width={70}
@@ -108,18 +118,22 @@ const AboutPage = () => {
 	Vårt mål är att erbjuda prisvärda, lekfulla och kreativt designade mattor som gör konstnärlig stil tillgänglig och njutbar för varje hem.
       </p>
 
-      <div className="flex flex-col gap-y-4 max-w-3xl mx-auto text-black pt-8">
+      <div className="flex flex-col gap-y-8 max-w-3xl mx-auto text-black">
 	<p className="text-lg leading-8">
 	  Med diabetes som den ursprungliga drivkraften bakom företagets grundande, och med min personliga erfarenhet av att leva med sjukdomen, är mitt mål att aktivt bidra till utvecklingen av effektiva hjälpmedel och stödja relevant forskning. Detta engagemang kan ta sig olika uttryck:
 	</p>
 
-	<ul className="flex flex-col list-disc gap-y-4 max-w-2xl mx-auto">
-	  <li className="text-sm"><p className="font-semibold">Forskning och Utveckling:</p> Vårt företag kan investera i, eller samarbeta med, forskningsinstitut för att utveckla nya teknologier och behandlingar för diabetes. Detta kan innefatta allt från att förbättra blodsockermätare till att utforska nya terapeutiska metoder.</li>
-	  <li className="text-sm"><p className="font-semibold">Advokatverksamhet och Medvetenhet:</p>Genom att öka medvetenheten om diabetes och dess utmaningar kan vi påverka politik och samhällsåsikter. Detta inkluderar att arbeta för bättre sjukvårdspolitik, stödja utbildningskampanjer och bidra till att minska stigmatiseringen kring sjukdomen.</li>
-	  <li className="text-sm"><p className="font-semibold">Stöd till Diabetesgemenskapen:</p>Att skapa och stödja gemenskaper för de som lever med diabetes är viktigt. Detta kan innebära att erbjuda stödgrupper, informationsresurser och tillgång till expertis inom området.</li>
-	  <li className="text-sm"><p className="font-semibold">Innovation inom Hjälpmedel:</p>Att utveckla och förbättra hjälpmedel som förenklar livet för personer med diabetes är centralt. Detta kan inkludera allt från användarvänliga blodsockermätare till avancerade insulinpumpar och appbaserade hälsoövervakningssystem.</li>
+	<ul className="flex flex-col list-disc gap-y-4 max-w-[735px] mx-auto">
+	  <li><p className="font-semibold">Forskning och Utveckling:</p> Vårt företag kan investera i, eller samarbeta med, forskningsinstitut för att utveckla nya teknologier och behandlingar för diabetes. Detta kan innefatta allt från att förbättra blodsockermätare till att utforska nya terapeutiska metoder.</li>
+	  <li><p className="font-semibold">Advokatverksamhet och Medvetenhet:</p>Genom att öka medvetenheten om diabetes och dess utmaningar kan vi påverka politik och samhällsåsikter. Detta inkluderar att arbeta för bättre sjukvårdspolitik, stödja utbildningskampanjer och bidra till att minska stigmatiseringen kring sjukdomen.</li>
+	  <li><p className="font-semibold">Stöd till Diabetesgemenskapen:</p>Att skapa och stödja gemenskaper för de som lever med diabetes är viktigt. Detta kan innebära att erbjuda stödgrupper, informationsresurser och tillgång till expertis inom området.</li>
+	  <li><p className="font-semibold">Innovation inom Hjälpmedel:</p>Att utveckla och förbättra hjälpmedel som förenklar livet för personer med diabetes är centralt. Detta kan inkludera allt från användarvänliga blodsockermätare till avancerade insulinpumpar och appbaserade hälsoövervakningssystem.</li>
 	</ul>
       </div>
+
+      <p className="text-4xl text-black max-w-3xl leading-[50px] mx-auto">
+	Anslut dig till vår resa och hjälp oss att bli pionjärer inom tuftbranschen, där vi förvandlar varje hem med våra prisvärda, kreativa mattor.
+      </p>
     </div>
   )
 }
