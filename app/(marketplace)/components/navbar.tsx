@@ -56,7 +56,7 @@ const Navbar: FC = () => {
 
   return (
     <motion.div
-      className="min-h-[70px] sticky top-0 z-40"
+      className="min-h-[70px] sticky top-0 z-[100]"
       animate={controls}
       initial="initial"
       variants={navbarVariants}

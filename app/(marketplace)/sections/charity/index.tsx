@@ -1,8 +1,55 @@
+"use client"
+import { useEffect, useState, useRef } from 'react'
+import { useInView } from 'react-intersection-observer'
+import gsap from 'gsap'
 import Image from 'next/image'
 
 const CharitySection = () => {
+  const targetNumber = 198090;
+  const numDigits = targetNumber.toString().length;
+  const digitContainers = useRef<HTMLDivElement[]>([]);
+
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    rootMargin: "-100px 0px"
+  });
+
+  const animateDigits = () => {
+    const targetDigits = String(targetNumber).padStart(6, '0').split('').map(Number);
+
+    digitContainers.current.forEach((container, index) => {
+      const digits = Array.from(container.children) as HTMLElement[];
+      const numStackHeight = digits[0].offsetHeight;
+
+      const finalDigit = targetDigits[index];
+      const finalYPosition = -(10 + finalDigit) * numStackHeight;
+      const centerDigitIndex = 10 + finalDigit;
+
+      gsap.to(container, {
+	y: finalYPosition,
+	duration: 2.5,
+	ease: "power1.out",
+      });
+
+      digits.forEach((digit, digitIndex) => {
+	const isCenterDigit = digitIndex === centerDigitIndex;
+	const opacity = isCenterDigit ? 1 : 0.1;
+
+	gsap.to(digit, {
+	  opacity: opacity,
+	  duration: 2.5,
+	  ease: "power1.out",
+	});
+      });
+    });
+  };
+
+  useEffect(() => {
+    if (inView) animateDigits();
+  }, [inView]);
+
   return (
-    <div className="py-36">
+    <div ref={ref} className="py-36">
       <div className="flex">
 	<div className="flex flex-col text-black items-center text-center mx-auto px-4 lg-px:0 gap-y-6">
 	  <label className="font-semibold lg:text-lg text-lg text-center text-primary">
@@ -31,47 +78,28 @@ const CharitySection = () => {
       </div>
 
       <div className="flex flex-col items-center gap-y-10 pt-10">
-        <div className="flex gap-x-12 font-medium">
-	  <div className="relative flex bg-white drop-shadow-card text-7xl w-24 h-32 items-center justify-center text-center rounded-xl overflow-hidden">
-	    <label className="absolute top-[-42%] opacity-20">0</label>
-	    <label className="absolute">1</label>
-	    <label className="absolute bottom-[-42%] opacity-20">2</label>
+	<div className="flex flex-col items-center gap-y-10 pt-10">
+	  <div className="flex gap-x-12 font-medium">
+	    {Array.from({ length: numDigits }).map((_, index) => (
+	      <div key={index} className="relative flex bg-white drop-shadow-card text-7xl w-24 h-32 items-center justify-center text-center rounded-xl overflow-hidden">
+		<div
+		  ref={el => {
+		    if (el) digitContainers.current[index] = el
+		  }}
+		  className="absolute top-[25%] left-0 h-full w-full flex flex-col items-center justify-start"
+		>
+		  {Array.from({ length: 20 }).map((_, numIndex) => (
+		    <div key={numIndex} className="h-full w-full flex items-center justify-center">{numIndex % 10}</div>
+		  ))}
+		</div>
+	      </div>
+	    ))}
 	  </div>
 
-	  <div className="relative flex bg-white drop-shadow-card text-7xl w-24 h-32 items-center justify-center text-center rounded-xl overflow-hidden">
-	    <label className="absolute top-[-42%] opacity-20">7</label>
-	    <label className="absolute">8</label>
-	    <label className="absolute bottom-[-42%] opacity-20">9</label>
-	  </div>
-
-	  <div className="relative flex bg-white drop-shadow-card text-7xl w-24 h-32 items-center justify-center text-center rounded-xl overflow-hidden">
-	    <label className="absolute top-[-42%] opacity-20">4</label>
-	    <label className="absolute">5</label>
-	    <label className="absolute bottom-[-42%] opacity-20">6</label>
-	  </div>
-
-	  <div className="relative flex bg-white drop-shadow-card text-7xl w-24 h-32 items-center justify-center text-center rounded-xl overflow-hidden">
-	    <label className="absolute top-[-42%] opacity-20">3</label>
-	    <label className="absolute">4</label>
-	    <label className="absolute bottom-[-42%] opacity-20">5</label>
-	  </div>
-
-	  <div className="relative flex bg-white drop-shadow-card text-7xl w-24 h-32 items-center justify-center text-center rounded-xl overflow-hidden">
-	    <label className="absolute top-[-42%] opacity-20">9</label>
-	    <label className="absolute">0</label>
-	    <label className="absolute bottom-[-42%] opacity-20">1</label>
-	  </div>
-
-	  <div className="relative flex bg-white drop-shadow-card text-7xl w-24 h-32 items-center justify-center text-center rounded-xl overflow-hidden">
-	    <label className="absolute top-[-42%] opacity-20">8</label>
-	    <label className="absolute">9</label>
-	    <label className="absolute bottom-[-42%] opacity-20">0</label>
-	  </div>
+	  <label className="text-lg text-black font-medium">
+	    Kronor donerade till diabetesforskning
+	  </label>
 	</div>
-
-	<label className="text-lg text-black font-medium">
-	  Kronor donerade till diabetesforskning
-	</label>
       </div>
     </div>
   )
