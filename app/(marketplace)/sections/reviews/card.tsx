@@ -9,8 +9,8 @@ type CardProps = {
 
 const Card = ({ author, paragraph, rating }: CardProps) => {
   return (
-    <div className="flex flex-col rounded-2xl lg:w-1/3 gap-y-4 justify-between bg-white text-lg drop-shadow-xl p-6 max-w-sm">
-      <div className="flex justify-between items-center">
+    <div className="flex flex-col rounded-2xl w-[360px] gap-y-4 bg-white hover:bg-zinc-50 group text-lg transition-bg duration-300 border p-6 max-w-sm">
+      <div className="flex justify-between">
         <div className="flex gap-x-4">
 	  <div className="bg-red-500 relative rounded-full w-14 h-14">
 	    <Image
@@ -46,9 +46,9 @@ const Card = ({ author, paragraph, rating }: CardProps) => {
 	  </div>
 	</div>
 
-	<ImQuotesRight className="w-12 h-12 opacity-10" />
+	<ImQuotesRight className="w-10 h-10 opacity-10 group-hover:text-black group-hover:opacity-100 transition-all duration-300" />
       </div>
-      <p className="italic opacity-40">{paragraph}</p>
+      <p className="italic opacity-40 group-hover:text-black group-hover:opacity-100 transition-all duration-300">{paragraph}</p>
     </div>
   )
 }

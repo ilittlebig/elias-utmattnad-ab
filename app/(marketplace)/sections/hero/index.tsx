@@ -14,7 +14,7 @@ const HeroSection = () => {
     visible: (custom: number) => ({
       opacity: 1,
       y: 0,
-      transition: { delay: custom * 0.25 }
+      transition: { delay: custom * 0.15 }
     })
   };
 
@@ -47,7 +47,7 @@ const HeroSection = () => {
       </div>
 
       <div className="w-full relative">
-	<div className="bg-[#FFBB55] lg:flex hidden items-center justify-center absolute -left-[90px] rotate-[15deg] top-[550px] w-[450px] h-[300px] rounded-[75px]">
+	<div className="bg-[#FFBB55] lg:flex hidden items-center justify-center absolute -left-[90px] rotate-[15deg] top-[570px] w-[450px] h-[300px] rounded-[75px]">
 	  <div className="relative w-[400px] h-[225px]">
 	    <Image
 	      src="/Illustration4.svg"
@@ -60,7 +60,7 @@ const HeroSection = () => {
       </div>
 
       <div className="w-full relative">
-	<div className="bg-[#5D2B0E] lg:flex hidden items-center justify-center absolute -right-[-20px] -rotate-[15deg] top-[570px] w-[350px] h-[220px] rounded-[50px]">
+	<div className="bg-[#5D2B0E] lg:flex hidden items-center justify-center absolute -right-[-20px] -rotate-[15deg] top-[580px] w-[350px] h-[220px] rounded-[50px]">
 	  <div className="relative w-[400px] h-[175px]">
 	    <Image
 	      src="/Illustration2.svg"
@@ -72,31 +72,13 @@ const HeroSection = () => {
 	</div>
       </div>
 
-      <div className="absolute w-[150px] h-[45px] top-[86%] right-[-12%] -z-10">
-        <div className="flex flex-col gap-y-2 relative items-center">
-	  <label className="absolute text-[#000000] font-semibold rotate-[30deg] text-lg right-[-3%] bottom-[5px]">
-	    Skrolla Ner
-	  </label>
-
-	  <div className="absolute top-0 rotate-[-6deg]">
-	    <Image
-	      src="/SquigglyArrow.svg"
-	      width={45}
-	      height={45}
-	      style={{ objectFit: "contain" }}
-	      alt="Squiggly Arrow"
-	    />
-	  </div>
-	</div>
-      </div>
-
-      <div className="absolute w-[38px] h-[38px] top-[70%] right-[35%] -z-10">
+      <div className="absolute w-[38px] h-[38px] top-[80%] left-[35%] -z-10">
 	<Image
 	  src="/decorations/OrangeSwirl.svg"
 	  width={38}
 	  height={38}
 	  style={{ objectFit: "contain" }}
-	  alt="Squiggly Arrow"
+	  alt="Orange Swirl"
 	/>
       </div>
 
@@ -106,7 +88,7 @@ const HeroSection = () => {
 	  width={38}
 	  height={38}
 	  style={{ objectFit: "contain" }}
-	  alt="Squiggly Arrow"
+	  alt="Purple Circle"
 	/>
       </div>
 
@@ -116,17 +98,17 @@ const HeroSection = () => {
 	  width={70}
 	  height={70}
 	  style={{ objectFit: "contain" }}
-	  alt="Squiggly Arrow"
+	  alt="Orange Arrow"
 	/>
       </div>
 
-      <div className="absolute w-[20px] h-[20px] top-[26%] right-[40%] -z-10">
+      <div className="absolute w-[20px] h-[20px] top-[20%] right-[40%] -z-10">
 	<Image
 	  src="/decorations/RedPlus.svg"
 	  width={20}
 	  height={20}
 	  style={{ objectFit: "contain" }}
-	  alt="Squiggly Arrow"
+	  alt="Red Plus"
 	/>
       </div>
 
@@ -137,6 +119,10 @@ const HeroSection = () => {
         animate="visible"
       >
         <div className="flex flex-col text-black items-center text-center mx-auto gap-y-8">
+	  <label className="font-semibold lg:text-lg text-lg text-center text-primary">
+	    VÄLKOMMEN TILL ELIAS MATTOR
+	  </label>
+
 	  <div className="flex relative max-w-xl flex-wrap lg:flex-row font-rockwell justify-center lg:text-h1 text-3xl font-bold gap-x-3 mx-auto">
 	    <motion.h1
 	      variants={itemVariants}
@@ -181,7 +167,7 @@ const HeroSection = () => {
 		  width={295}
 		  height={50}
 		  style={{ objectFit: "fill" }}
-		  alt="Vision"
+		  alt="Text Border"
 		/>
 	      </div>
 	      Möjligheter

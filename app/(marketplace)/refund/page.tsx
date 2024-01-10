@@ -8,7 +8,7 @@ const RefundPolicyPage = () => {
     },
     {
       title: "Returrätt",
-      description: "Du har rätt att returnera din produkt inom 14 dagar efter att du har mottagit den. För att vara berättigad till en retur måste produkten vara i samma skick som när du mottog den, oanvänd och i originalförpackningen."
+      description: "Du har rätt att returnera din produkt inom 45 dagar efter att du har mottagit den. För att vara berättigad till en retur måste produkten vara i samma skick som när du mottog den, oanvänd och i originalförpackningen."
     },
     {
       title: "Skadade eller Felaktiga Varor",

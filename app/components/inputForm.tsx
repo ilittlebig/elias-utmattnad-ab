@@ -30,6 +30,11 @@ const InputForm = ({
 }: FormProps) => {
   const [isFocused, setIsFocused] = useState(false);
   const [inputValue, setInputValue] = useState(text || "");
+  const isTextarea = type === "textarea";
+
+  const labelClass = `flex gap-x-1 pointer-events-none text-sm absolute left-0 transition-all duration-300 ${
+    isFocused || inputValue ? '-top-2.5 left-[-1%] bg-white px-3' : isTextarea ? 'top-4' : 'top-1/2 -translate-y-1/2'
+  } ${isFocused || inputValue ? 'text-xs text-primary' : 'text-gray-500'}`;
 
   useEffect(() => {
     setInputValue(text || "");
@@ -41,27 +46,50 @@ const InputForm = ({
 
   const handleFocus = () => setIsFocused(true);
   const handleBlur = () => {
-    setIsFocused(inputValue !== "");
+    setIsFocused(false);
   };
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (
+    event: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>,
+  ) => {
     const newValue = event.target.value;
     setInputValue(newValue);
+    if (onChange) onChange(id, newValue);
+  };
 
-    if (onChange) {
-      onChange(id, newValue);
+  const renderInputField = () => {
+    if (isTextarea) {
+      return (
+        <textarea
+          id={id}
+          value={inputValue}
+          onChange={handleChange}
+          onFocus={handleFocus}
+          onBlur={handleBlur}
+          disabled={disabled}
+          className="appearance-none h-44 bg-transparent text-sm disabled:text-gray-400 w-full text-gray-700 py-[18px] leading-tight focus:outline-none resize-none"
+        />
+      );
+    } else {
+      return (
+        <input
+          id={id}
+          type={type}
+          value={inputValue}
+          onChange={handleChange}
+          onFocus={handleFocus}
+          onBlur={handleBlur}
+          disabled={disabled}
+          className="appearance-none bg-transparent text-sm disabled:text-gray-400 w-full text-gray-700 py-[18px] leading-tight focus:outline-none"
+        />
+      );
     }
-  }
+  };
 
   return (
-    <form className="flex items-center bg-white border rounded-md w-full relative px-4">
+    <form className={`flex bg-white items-center ${isFocused ? "border-primary" : ""} border rounded-md w-full relative px-4`}>
       <div className="w-full transition-all duration-300 relative">
-        <label
-          htmlFor={htmlFor}
-          className={`flex gap-x-1 pointer-events-none text-sm absolute left-0 transition-all duration-300 ${
-            isFocused || inputValue ? '-top-2.5 bg-white px-3' : 'top-1/2 -translate-y-1/2'
-          } ${isFocused || inputValue ? 'text-primary' : 'text-gray-500'}`}
-        >
+        <label htmlFor={htmlFor} className={labelClass}>
 	  {label}
 	  {required && !inputValue && (
 	    <label className="text-red-500">
@@ -70,16 +98,7 @@ const InputForm = ({
 	  )}
         </label>
 
-        <input
-          id={id}
-          type={type}
-          value={inputValue}
-          onChange={handleChange}
-          onFocus={handleFocus}
-          onBlur={handleBlur}
-	  disabled={disabled}
-          className="appearance-none bg-transparent text-sm disabled:text-gray-400 w-full text-gray-700 py-[18px] leading-tight focus:outline-none"
-        />
+	{renderInputField()}
       </div>
 
       {linkText && linkHref && (

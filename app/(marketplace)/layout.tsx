@@ -11,12 +11,12 @@ export default function Layout({
   children: React.ReactNode
 }) {
   return (
-    <div className={`lg:max-w-6xl mx-auto lg:px-16 xl:px-0 ${inter.className}`}>
-      <CartProvider>
-	<Navbar />
+    <CartProvider>
+      <Navbar />
+      <div className={`lg:max-w-6xl mx-auto lg:px-16 xl:px-0 ${inter.className}`}>
 	{children}
-      </CartProvider>
-      <Footer />
-    </div>
+	<Footer />
+      </div>
+    </CartProvider>
   )
 }

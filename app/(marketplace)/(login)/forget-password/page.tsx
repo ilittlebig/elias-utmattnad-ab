@@ -3,9 +3,9 @@ import Image from 'next/image'
 import InputForm from '@/components/inputForm'
 import Button from '@/components/button'
 
-const LoginForgetPasswordPage = () => {
+const ForgetPasswordPage = () => {
   return (
-    <div className="flex gap-x-16 items-center -mt-[64px] h-screen pointer-events-none">
+    <div className="flex gap-x-16 items-center -mt-[70px] h-screen pointer-events-none">
       <div className="flex flex-col max-w-sm mx-auto lg:w-[400px] w-full py-6 items-center">
 	<div className="flex flex-col w-full h-full justify-center">
 	  <div className="flex flex-col pointer-events-auto gap-y-8">
@@ -46,11 +46,11 @@ const LoginForgetPasswordPage = () => {
 	  src="/ForgetPassword.svg"
 	  fill
 	  style={{ objectFit: "contain" }}
-	  alt="Login Illustration"
+	  alt="Forget Password Illustration"
 	/>
       </div>
     </div>
   )
 }
 
-export default LoginForgetPasswordPage;
+export default ForgetPasswordPage;
