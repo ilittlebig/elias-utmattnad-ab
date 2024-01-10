@@ -1,7 +1,5 @@
-"use client"
-import { motion } from 'framer-motion'
-import Image from 'next/image'
 import CompanyCard from '@/(marketplace)/components/companyCard'
+import Scroller from '@/(marketplace)/components/scroller'
 
 const TrustedBySection = () => {
   const companyImages = [
@@ -15,22 +13,10 @@ const TrustedBySection = () => {
   ];
 
   const repeatedImages = Array(5).fill(companyImages).flat();
-  const initialOffset = -3 * (244 + 8);
-
-  const scrollVariants = {
-    animate: {
-      x: [3000, -1000 * 5],
-      transition: {
-        duration: 120,
-        ease: "linear",
-        repeat: Infinity
-      }
-    }
-  };
 
   return (
     <div className="h-[430px]">
-      <div className="absolute left-0 overflow-hidden items-center flex flex-col gap-y-12 w-screen">
+      <div className="flex flex-col gap-y-12 w-full">
         <div className="max-w-6xl text-center items-center flex justify-center flex-col gap-y-6">
 	  <label className="font-semibold lg:text-lg text-lg text-center text-primary">
 	    VARFÖR ELIAS MATTOR?
@@ -46,20 +32,16 @@ const TrustedBySection = () => {
 	  </label>
 
 	  <label className="max-w-3xl px-4 font-medium lg:text-lg text-lg text-center text-black">
-	    Med vår skicklighet i att skapa unika, handtuftade mattor, förstår våra kunder värdet av Elias Utmattad AB i att förvandla deras utrymmen med stil och komfort.
+	    Med vår skicklighet i att skapa unika, handtuftade mattor, förstår våra kunder värdet av Elias Mattor i att förvandla deras utrymmen med stil och komfort.
 	  </label>
 	</div>
 
-	<div className="flex flex-col items-center gap-y-2">
-	  <motion.div
-	    className="flex gap-x-2"
-	    variants={scrollVariants}
-	    animate="animate"
-	  >
-	    {repeatedImages.map((image, index) => (
+	<div className="overflow-hidden">
+	  <Scroller direction="left">
+	    {companyImages.map((image, index) => (
 	      <CompanyCard key={index} image={image} />
 	    ))}
-	  </motion.div>
+	  </Scroller>
 	</div>
       </div>
     </div>

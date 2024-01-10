@@ -20,7 +20,7 @@ const CartNotificationToast = ({
   const totalItems = getTotalItemCount();
 
   return (
-    <div className="fixed w-full top-0 left-0 z-40 pointer-events-none">
+    <div className="fixed w-full top-[7%] left-0 z-50 pointer-events-none">
       <div className="flex justify-center w-full">
         <div className="flex justify-end w-full max-w-6xl mr-5 lg:mr-0">
 	  <div className={`bg-white drop-shadow-card p-4 rounded-md mt-2 z-20 ease-in-out transition-opacity duration-300 ${className}`}>

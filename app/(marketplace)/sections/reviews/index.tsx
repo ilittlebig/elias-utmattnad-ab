@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
 import Card from './card'
+import Scroller from '@/(marketplace)/components/scroller'
 
 const ReviewsSection = () => {
   const reviews = [
@@ -68,48 +69,6 @@ const ReviewsSection = () => {
     },
   ];
 
-  const variants = {
-    enter: {
-      opacity: 0,
-      x: 500,
-      transition: { duration: 1.0 },
-    },
-    center: {
-      opacity: 1,
-      x: 0,
-      transition: { delay: 0.55, duration: 0.75 }
-    },
-    exit: {
-      opacity: 0,
-      x: -500,
-      transition: { duration: 0.75 }
-    },
-  };
-
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const setsCount = Math.ceil(reviews.length / 3);
-  const [userInteracted, setUserInteracted] = useState(false);
-
-  const cardSets = new Array(setsCount).fill(null).map((_, i) =>
-    reviews.slice(i * 3, i * 3 + 3)
-  );
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      if (!userInteracted) {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % setsCount);
-      }
-    }, 5000);
-
-    return () => clearInterval(interval);
-  }, [userInteracted, setsCount]);
-
-  useEffect(() => {
-    if (userInteracted) {
-      setUserInteracted(false);
-    }
-  }, [currentIndex]);
-
   return (
     <div className="relative flex flex-col py-36 gap-y-8">
       <div className="absolute w-[35px] h-[35px] top-[18%] left-[-5%]">
@@ -131,57 +90,38 @@ const ReviewsSection = () => {
       </div>
 
       <div className="flex flex-col text-black items-center text-center mx-auto px-4 lg-px:0 gap-y-6">
+	<label className="font-semibold lg:text-lg text-lg text-center text-primary">
+	  VÄGG AV KÄRLEK
+	</label>
+
 	<h1 className="relative font-rockwell lg:text-5xl text-4xl font-bold w-fit">
 	  <div className="absolute left-[-14px] w-12 h-12 -mt-3 -z-10 bg-orange-200 rounded-full" />
-	  <div className="absolute w-[400px] h-[25px] top-[75%] left-[-2%]">
-	    <Image
-	      src="/decorations/BlueLine.svg"
-	      fill
-	      style={{ objectFit: "contain" }}
-	      alt="Blue Line"
-	    />
-	  </div>
-	  Kundomdömen
+	  Vad kunder säger om oss
 	</h1>
-
-	<h2 className="max-w-4xl lg:text-lg text-lg font-medium">
-	  Ta del av våra kunders erfarenheter och omdömen för att få en inblick i kvaliteten på våra tjänster. Deras värdefulla feedback hjälper oss att ständigt förbättra och utveckla vår verksamhet.
-	</h2>
       </div>
 
-      <div className="relative lg:min-h-[250px] min-h-[650px] overflow-hidden py-8">
-        <AnimatePresence>
-          <motion.div
-            key={currentIndex}
-            variants={variants}
-            initial="enter"
-            animate="center"
-            exit="exit"
-            className="absolute inset-0 flex lg:flex-row gap-x-4 flex-col gap-y-6 px-4 lg:px-4 items-center lg:justify-between"
-          >
-            {cardSets[currentIndex].map((review, index) => (
-              <Card
-                key={index}
-                author={review.author}
-                paragraph={review.paragraph}
-                rating={review.rating}
-              />
-            ))}
-          </motion.div>
-        </AnimatePresence>
-      </div>
+      <div className="flex flex-col gap-y-4 overflow-hidden">
+	<Scroller direction="left">
+	  {reviews.map((review, index) => (
+	    <Card
+	      key={index}
+	      author={review.author}
+	      paragraph={review.paragraph}
+	      rating={review.rating}
+	    />
+	  ))}
+	</Scroller>
 
-      <div className="flex gap-x-6 items-center mx-auto">
-	{new Array(setsCount).fill(null).map((_, index) => (
-          <div
-            key={index}
-            className={`cursor-pointer ${currentIndex === index ? 'w-3 h-3 bg-primary' : 'w-2 h-2 bg-gray-500'} rounded-full`}
-            onClick={() => {
-	      setCurrentIndex(index);
-	      setUserInteracted(true);
-	    }}
-          />
-        ))}
+	<Scroller>
+	  {reviews.map((review, index) => (
+	    <Card
+	      key={index}
+	      author={review.author}
+	      paragraph={review.paragraph}
+	      rating={review.rating}
+	    />
+	  ))}
+	</Scroller>
       </div>
     </div>
   )

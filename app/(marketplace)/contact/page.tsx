@@ -6,8 +6,8 @@ import Button from '@/components/button'
 
 const ContactPage = () => {
   return (
-    <div className="flex flex-col gap-y-16 justify-center h-screen -mt-[64px]">
-      <div className="flex gap-x-16 pointer-events-none">
+    <div className="flex flex-col gap-y-16 justify-center h-screen -mt-[70px]">
+      <div className="flex gap-x-32 pointer-events-none">
 	<div className="flex flex-col mx-auto w-full py-6 items-center">
 	  <div className="flex flex-col w-full h-full justify-center">
 	    <div className="flex flex-col pointer-events-auto gap-y-8">
