@@ -49,7 +49,9 @@ const InputForm = ({
     setIsFocused(false);
   };
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (
+    event: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>,
+  ) => {
     const newValue = event.target.value;
     setInputValue(newValue);
     if (onChange) onChange(id, newValue);
