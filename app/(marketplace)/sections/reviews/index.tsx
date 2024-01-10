@@ -100,7 +100,7 @@ const ReviewsSection = () => {
 	</h1>
       </div>
 
-      <div className="flex flex-col gap-y-4 overflow-hidden">
+      <div className="flex flex-col gap-y-8 overflow-hidden">
 	<Scroller direction="left">
 	  {reviews.map((review, index) => (
 	    <Card
@@ -123,6 +123,10 @@ const ReviewsSection = () => {
 	  ))}
 	</Scroller>
       </div>
+
+      <label className="font-medium lg:text-lg text-lg text-center text-black">
+        Vill du synas här?
+      </label>
     </div>
   )
 }
