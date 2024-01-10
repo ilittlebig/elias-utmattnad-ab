@@ -123,12 +123,13 @@ const HeroSection = () => {
 	    VÄLKOMMEN TILL ELIAS MATTOR
 	  </label>
 
-	  <div className="flex relative max-w-xl flex-wrap lg:flex-row font-rockwell justify-center lg:text-h1 text-3xl font-bold gap-x-3 mx-auto">
+	  <div className="flex max-w-xl flex-wrap lg:flex-row font-rockwell justify-center lg:text-h1 text-3xl font-bold gap-x-3 mx-auto">
 	    <motion.h1
 	      variants={itemVariants}
 	      custom={1}
+	      className="relative"
 	    >
-	      <div className="absolute lg:left-[85px] left-[60px] lg:w-12 lg:h-12 w-10 h-10 lg:-mt-3 -mt-4 -z-10 bg-green-200 rounded-full" />
+	      <div className="absolute lg:left-[-20px] left-[60px] lg:w-12 lg:h-12 w-10 h-10 lg:-mt-3 -mt-4 -z-10 bg-green-200 rounded-full" />
 	      Tuftade
 	    </motion.h1>
 
