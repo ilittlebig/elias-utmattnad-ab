@@ -84,9 +84,9 @@ const Navbar: FC = () => {
 	  </div>
 	</div>
 
-	<div className="flex items-center absolute h-[25px] w-full max-w-6xl pointer-events-none">
-	  <Link key="Logo" href="/" className="w-full h-full text-center -mt-1.5">
-	    <label className="text-2xl tracking-wider text-black">
+	<div className="flex justify-center items-center absolute h-[25px] w-full max-w-6xl pointer-events-none">
+	  <Link key="Logo" href="/" className="h-[25px] -mt-1.5 pointer-events-auto">
+	    <label className="text-2xl font-semibold tracking-widest text-black cursor-pointer">
 	      ELIAS MATTOR
 	    </label>
 	  </Link>

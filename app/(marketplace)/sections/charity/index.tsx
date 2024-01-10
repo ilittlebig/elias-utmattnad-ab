@@ -5,7 +5,7 @@ import gsap from 'gsap'
 import Image from 'next/image'
 
 const CharitySection = () => {
-  const targetNumber = 198090;
+  const targetNumber = 241566;
   const numDigits = targetNumber.toString().length;
   const digitContainers = useRef<HTMLDivElement[]>([]);
 
@@ -15,7 +15,7 @@ const CharitySection = () => {
   });
 
   const animateDigits = () => {
-    const targetDigits = String(targetNumber).padStart(6, '0').split('').map(Number);
+    const targetDigits = String(targetNumber).padStart(numDigits, "0").split("").map(Number);
 
     digitContainers.current.forEach((container, index) => {
       const digits = Array.from(container.children) as HTMLElement[];
@@ -77,11 +77,10 @@ const CharitySection = () => {
 	</div>
       </div>
 
-      <div className="flex flex-col items-center gap-y-10 pt-10">
 	<div className="flex flex-col items-center gap-y-10 pt-10">
 	  <div className="flex gap-x-12 font-medium">
 	    {Array.from({ length: numDigits }).map((_, index) => (
-	      <div key={index} className="relative flex bg-white drop-shadow-card text-7xl w-24 h-32 items-center justify-center text-center rounded-xl overflow-hidden">
+	      <div key={index} className="relative flex bg-white drop-shadow-card transition-border duration-300 border-2 border-transparent hover:border-primary text-7xl w-24 h-32 items-center justify-center text-center rounded-xl overflow-hidden">
 		<div
 		  ref={el => {
 		    if (el) digitContainers.current[index] = el
@@ -89,7 +88,7 @@ const CharitySection = () => {
 		  className="absolute top-[25%] left-0 h-full w-full flex flex-col items-center justify-start"
 		>
 		  {Array.from({ length: 20 }).map((_, numIndex) => (
-		    <div key={numIndex} className="h-full w-full flex items-center justify-center">{numIndex % 10}</div>
+		    <div key={numIndex} className="h-full w-full flex items-center justify-center text-black">{numIndex % 10}</div>
 		  ))}
 		</div>
 	      </div>
@@ -100,7 +99,6 @@ const CharitySection = () => {
 	    Kronor donerade till diabetesforskning
 	  </label>
 	</div>
-      </div>
     </div>
   )
 }
