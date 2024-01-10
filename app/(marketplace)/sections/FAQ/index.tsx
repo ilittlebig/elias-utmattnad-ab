@@ -117,6 +117,7 @@ const FAQSection = () => {
 
 	<Button
 	  actionText="Kontakta Oss"
+	  href="/contact"
 	/>
       </div>
     </div>

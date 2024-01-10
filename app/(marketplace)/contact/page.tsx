@@ -1,4 +1,4 @@
-import { RiCustomerService2Fill } from 'react-icons/ri'
+import { RiCustomerService2Line } from 'react-icons/ri'
 import { IoChatbubblesOutline, IoBulbOutline } from 'react-icons/io5'
 import Image from 'next/image'
 import InputForm from '@/components/inputForm'
@@ -12,17 +12,31 @@ const ContactPage = () => {
 	  <div className="flex flex-col w-full h-full justify-center">
 	    <div className="flex flex-col pointer-events-auto gap-y-8">
 	      <div className="flex flex-col text-black gap-y-2 items-center">
-		<h1 className="relative lg:text-[40px] text-2xl text-center leading-tight">
-		  <div className="absolute right-[-8%] w-[38px] h-[38px] -mt-[5px]">
-		    <Image
-		      src="/Spark.svg"
-		      width={38}
-		      height={38}
-		      style={{ objectFit: "contain" }}
-		      alt="Spark"
-		    />
+		<h1 className="relative flex gap-x-3 lg:text-[40px] text-2xl text-center leading-tight">
+		  <div className="relative flex items-center justify-center">
+		    <div className="absolute w-[180px] h-[50px] -z-10">
+		      <Image
+			src="/TextBorder2.svg"
+			fill
+			style={{ objectFit: "contain" }}
+			alt="Text Border"
+		      />
+		    </div>
+		    Kontakta
 		  </div>
-		  Kontakta Oss
+
+		  <div className="relative flex w-fit">
+		    <div className="absolute right-[-27%] w-[38px] h-[38px] -mt-[3px]">
+		      <Image
+			src="/Spark.svg"
+			width={38}
+			height={38}
+			style={{ objectFit: "contain" }}
+			alt="Spark"
+		      />
+		    </div>
+		    Oss
+		  </div>
 		</h1>
 	      </div>
 
@@ -82,7 +96,7 @@ const ContactPage = () => {
 
       <div className="flex justify-between text-black">
         <div className="flex gap-x-4">
-	  <RiCustomerService2Fill className="w-10 h-10" />
+	  <RiCustomerService2Line className="w-10 h-10" />
 	  <div className="flex flex-col gap-y-2 max-w-[250px]">
 	    <label className="font-semibold text-md">
 	      Garanterad Snabb Svarstid

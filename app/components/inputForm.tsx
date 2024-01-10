@@ -46,7 +46,7 @@ const InputForm = ({
 
   const handleFocus = () => setIsFocused(true);
   const handleBlur = () => {
-    setIsFocused(inputValue !== "");
+    setIsFocused(false);
   };
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -85,7 +85,7 @@ const InputForm = ({
   };
 
   return (
-    <form className={`flex bg-white items-center ${isFocused || inputValue ? "border-primary" : ""} border rounded-md w-full relative px-4`}>
+    <form className={`flex bg-white items-center ${isFocused ? "border-primary" : ""} border rounded-md w-full relative px-4`}>
       <div className="w-full transition-all duration-300 relative">
         <label htmlFor={htmlFor} className={labelClass}>
 	  {label}
