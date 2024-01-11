@@ -80,7 +80,7 @@ const CharitySection = () => {
 	<div className="flex flex-col items-center gap-y-10 pt-10">
 	  <div className="flex gap-x-12 font-medium">
 	    {Array.from({ length: numDigits }).map((_, index) => (
-	      <div key={index} className="relative flex bg-white drop-shadow-card transition-border duration-300 border-2 border-transparent hover:border-primary text-7xl w-24 h-32 items-center justify-center text-center rounded-xl overflow-hidden">
+	      <div key={index} className="relative flex bg-white drop-shadow-card hover:bg-zinc-50 transition-all duration-300 border-2 border-transparent hover:border-primary text-7xl w-24 h-32 items-center justify-center text-center rounded-xl overflow-hidden">
 		<div
 		  ref={el => {
 		    if (el) digitContainers.current[index] = el

@@ -9,7 +9,7 @@ type CardProps = {
 
 const Card = ({ author, paragraph, rating }: CardProps) => {
   return (
-    <div className="flex flex-col rounded-2xl w-[360px] gap-y-4 bg-white hover:bg-zinc-50 group text-lg transition-bg duration-300 border p-6 max-w-sm">
+    <div className="flex flex-col rounded-2xl w-[360px] gap-y-4 bg-white hover:bg-zinc-50 group text-lg transition-bg duration-300 border hover:border-2 hover:border-primary p-6 max-w-sm">
       <div className="flex justify-between">
         <div className="flex gap-x-4">
 	  <div className="bg-red-500 relative rounded-full w-14 h-14">

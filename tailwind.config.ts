@@ -22,7 +22,6 @@ const config: Config = {
       },
       fontFamily: {
         rockwell: ['Rockwell', 'sans-serif'],
-        awanZaman: ['AwanZaman', 'sans-serif'],
       },
       dropShadow: {
 	'card': '0px 24px 24px rgba(149, 157, 165, 0.20)'

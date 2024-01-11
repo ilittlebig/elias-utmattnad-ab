@@ -23,7 +23,7 @@ const FAQSection = () => {
     },
     {
       question: "Vad är er returpolicy?",
-      answer: "Om du inte är nöjd med din matta, erbjuder vi en retur- eller utbytesrätt inom 14 dagar från mottagandet, förutsatt att mattan är i sitt ursprungliga skick."
+      answer: "Om du inte är nöjd med din matta, erbjuder vi en retur- eller utbytesrätt inom 45 dagar från mottagandet, förutsatt att mattan är i sitt ursprungliga skick."
     },
   ];
 
