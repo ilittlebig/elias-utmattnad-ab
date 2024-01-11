@@ -16,7 +16,7 @@ const TimelineEvent = forwardRef<HTMLDivElement, EventProps>(({
 }, ref) => {
   const [inViewRef, inView] = useInView({
     triggerOnce: false,
-    rootMargin: '0px 0px -100px 0px'
+    rootMargin: '0px 0px -300px 0px'
   });
 
   const prevInView = useRef(inView);
