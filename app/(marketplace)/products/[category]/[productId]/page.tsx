@@ -78,7 +78,7 @@ const ProductPage = () => {
 	    </div>
 
 	    <div className="flex flex-col gap-y-4 w-full bg-gray-100 lg:rounded-md px-4 py-4">
-	      <label className="text-black text-md font-medium">
+	      <label className="text-black text-md font-semibold">
 		Säker betalning genom
 	      </label>
 	      <AcceptedPayments />

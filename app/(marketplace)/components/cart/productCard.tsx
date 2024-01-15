@@ -41,17 +41,17 @@ const ProductCard = ({
 	</div>
 
 	<div className="flex flex-col justify-between w-full">
-	  <div className="flex justify-between items-center">
+	  <div className="flex justify-between items-center font-semibold">
 	    <div className="flex flex-col">
 	      <Link
 	        onClick={toggleCart}
 		href={`/products/all/${id}`}
-		className="w-full text-sm text-black font-medium hover:underline"
+		className="w-full text-sm text-black hover:underline"
 	      >
 		{name}
 	      </Link>
 
-	      <label className="text-xs text-[#737373]">
+	      <label className="text-xs text-black text-opacity-60">
 	        {dimensions}
 	      </label>
 	    </div>
@@ -59,12 +59,12 @@ const ProductCard = ({
 	    <FaRegTrashCan
 	      role="button"
 	      onClick={() => removeProduct(id)}
-	      className="w-4 h-4 hover:text-red-500"
+	      className="w-4 h-4 hover:text-red-500 transition-text duration-300"
 	    />
 	  </div>
 
           <div className="flex justify-between items-center w-full">
-	    <div className="text-xs font-semibold">
+	    <div className="text-xs font-semibold text-black">
 	      {currencyFormatter(price, "SEK", locale)}
 	    </div>
 

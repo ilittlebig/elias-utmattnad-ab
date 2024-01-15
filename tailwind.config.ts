@@ -19,6 +19,10 @@ const config: Config = {
         'primary-click': '#2db82d',
 	'black': '#47250E',
 	'sub-gray': '#737373',
+
+	'gradient-start': '#66FF66',
+	'gradient-middle': '#32CD32',
+	'gradient-end': '#228B22',
       },
       fontFamily: {
         rockwell: ['Rockwell', 'sans-serif'],
@@ -30,8 +34,9 @@ const config: Config = {
 	'max-height': 'max-height'
       },
       fontSize: {
-	'h1': ['45px', {
-	  lineHeight: '55px'
+	'h1': ['40px', {
+	  letterSpacing: '-0,8px',
+	  lineHeight: '48px'
 	}]
       },
     },

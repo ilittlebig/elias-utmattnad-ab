@@ -14,131 +14,79 @@ const HeroSection = () => {
     visible: (custom: number) => ({
       opacity: 1,
       y: 0,
-      transition: { delay: custom * 0.15 }
+      transition: { delay: custom * 0.1 }
     })
   };
 
   return (
-    <div className="h-[1030px] pointer-events-none relative">
-      <div className="w-full relative">
-	<div className="bg-[#F2796A] lg:flex hidden items-center justify-center absolute -right-[120px] rotate-[15deg] mt-[150px] w-[450px] h-[300px] rounded-[75px]">
-	  <div className="relative w-[400px] h-[225px]">
-	    <Image
-	      src="/Illustration1.svg"
-	      fill
-	      style={{ objectFit: "contain" }}
-	      alt="Vision"
-	    />
-	  </div>
-	</div>
-      </div>
-
-      <div className="w-full relative">
-	<div className="bg-[#7FB482] lg:flex hidden items-center justify-center absolute -left-[30px] -rotate-[15deg] mt-[190px] w-[350px] h-[220px] rounded-[50px]">
-	  <div className="relative w-[400px] h-[175px]">
-	    <Image
-	      src="/Illustration3.svg"
-	      fill
-	      style={{ objectFit: "contain" }}
-	      alt="Vision"
-	    />
-	  </div>
-	</div>
-      </div>
-
-      <div className="w-full relative">
-	<div className="bg-[#FFBB55] lg:flex hidden items-center justify-center absolute -left-[90px] rotate-[15deg] top-[570px] w-[450px] h-[300px] rounded-[75px]">
-	  <div className="relative w-[400px] h-[225px]">
-	    <Image
-	      src="/Illustration4.svg"
-	      fill
-	      style={{ objectFit: "contain" }}
-	      alt="Vision"
-	    />
-	  </div>
-	</div>
-      </div>
-
-      <div className="w-full relative">
-	<div className="bg-[#5D2B0E] lg:flex hidden items-center justify-center absolute -right-[-20px] -rotate-[15deg] top-[580px] w-[350px] h-[220px] rounded-[50px]">
-	  <div className="relative w-[400px] h-[175px]">
-	    <Image
-	      src="/Illustration2.svg"
-	      fill
-	      style={{ objectFit: "contain" }}
-	      alt="Vision"
-	    />
-	  </div>
-	</div>
-      </div>
-
-      <div className="absolute w-[38px] h-[38px] top-[80%] left-[35%] -z-10">
+    <div className="pointer-events-none relative">
+      {/* Right Side */}
+      <div className="absolute w-[300px] h-[300px] top-[10%] right-[-20%] -z-10">
 	<Image
-	  src="/decorations/OrangeSwirl.svg"
-	  width={38}
-	  height={38}
+	  src="/HeroRug1.png"
+	  fill
 	  style={{ objectFit: "contain" }}
-	  alt="Orange Swirl"
+	  alt="Rug"
 	/>
       </div>
 
-      <div className="absolute w-[38px] h-[38px] top-[25%] right-[108%] -z-10 rotate-90">
+      <div className="absolute w-[300px] h-[300px] top-[100%] right-[-30%] -z-10">
 	<Image
-	  src="/decorations/PurpleCircle.svg"
-	  width={38}
-	  height={38}
+	  src="/HeroRug1.png"
+	  fill
 	  style={{ objectFit: "contain" }}
-	  alt="Purple Circle"
+	  alt="Rug"
 	/>
       </div>
 
-      <div className="absolute w-[70px] h-[70px] top-[13%] right-[-10%] -z-10">
+      <div className="absolute w-[200px] h-[200px] top-[75%] right-[5%] -z-10">
 	<Image
-	  src="/decorations/OrangeArrow.svg"
-	  width={70}
-	  height={70}
+	  src="/HeroRug1.png"
+	  fill
 	  style={{ objectFit: "contain" }}
-	  alt="Orange Arrow"
+	  alt="Rug"
 	/>
       </div>
 
-      <div className="absolute w-[20px] h-[20px] top-[20%] right-[40%] -z-10">
+      {/* Left Side */}
+      <div className="absolute w-[300px] h-[300px] top-[10%] left-[-20%] -z-10">
 	<Image
-	  src="/decorations/RedPlus.svg"
-	  width={20}
-	  height={20}
+	  src="/HeroRug1.png"
+	  fill
 	  style={{ objectFit: "contain" }}
-	  alt="Red Plus"
+	  alt="Rug"
 	/>
       </div>
 
-      <motion.div
-        className="flex px-4 -mt-[64px] h-full items-center lg:px-0"
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-      >
-        <div className="flex flex-col text-black items-center text-center mx-auto gap-y-8">
-	  <label className="font-semibold lg:text-lg text-lg text-center text-primary">
-	    VÄLKOMMEN TILL ELIAS MATTOR
+      <div className="absolute w-[300px] h-[300px] top-[100%] left-[-30%] -z-10">
+	<Image
+	  src="/HeroRug1.png"
+	  fill
+	  style={{ objectFit: "contain" }}
+	  alt="Rug"
+	/>
+      </div>
+
+      <div className="absolute w-[200px] h-[200px] top-[75%] left-[5%] -z-10">
+	<Image
+	  src="/HeroRug1.png"
+	  fill
+	  style={{ objectFit: "contain" }}
+	  alt="Rug"
+	/>
+      </div>
+
+      <div className="flex items-center pt-[82px]">
+        <div className="flex flex-col items-center text-center mx-auto gap-y-4">
+	  <label className="font-semibold lg:text-base text-base text-center text-primary">
+	    Välkommen till Elias Mattor
 	  </label>
 
-	  <div className="flex max-w-xl flex-wrap lg:flex-row font-rockwell justify-center lg:text-h1 text-3xl font-bold gap-x-3 mx-auto">
-	    <motion.h1
-	      variants={itemVariants}
-	      custom={1}
-	      className="relative"
-	    >
-	      <div className="absolute lg:left-[-20px] left-[60px] lg:w-12 lg:h-12 w-10 h-10 lg:-mt-3 -mt-4 -z-10 bg-green-200 rounded-full" />
-	      Tuftade
-	    </motion.h1>
+	  <div className="flex max-w-[585px] flex-wrap lg:flex-row justify-center lg:text-h1 text-3xl font-bold gap-x-1.5 gap-y-1 text-black mx-auto">
+	    Stil möter funktion, ge
 
-	    <motion.h2
-	      variants={itemVariants}
-	      custom={2}
-	      className="relative"
-	    >
-	      <div className="absolute right-[-5%] w-[38px] h-[38px] -mt-[11px] -z-10">
+	    <div className="relative">
+	      <div className="absolute right-[-25%] w-[38px] h-[38px] -mt-[11px] -z-10">
 		<Image
 		  src="/Spark.svg"
 		  width={38}
@@ -147,52 +95,38 @@ const HeroSection = () => {
 		  alt="Spark"
 		/>
 	      </div>
-	      Mattor,
-	    </motion.h2>
+	      ditt
+	    </div>
 
-	    <motion.h3
-	      variants={itemVariants}
-	      custom={3}
-	    >
- 	      Oändliga
-	    </motion.h3>
+	    hem värme
 
-	    <motion.h4
-	      variants={itemVariants}
-	      custom={4}
-	      className="flex relative justify-center"
-	    >
-	      <div className="absolute w-[295px] h-[50px] -mt-[11px] -z-10">
+	    <div className="flex relative justify-center">
+	      <div className="flex items-center justify-center absolute w-[200px] h-[50px] -z-10">
 		<Image
-		  src="/TextBorder.svg"
-		  width={295}
-		  height={50}
-		  style={{ objectFit: "fill" }}
+		  src="/decorations/TextHighlight.svg"
+		  fill
+		  style={{ objectFit: "contain" }}
 		  alt="Text Border"
 		/>
 	      </div>
-	      Möjligheter
-	    </motion.h4>
+	      med
+	    </div>
+
+	    våra mattor
 	  </div>
 
-          <motion.p
-            className="max-w-xl lg:text-lg text-lg font-medium"
-            variants={itemVariants}
-            custom={5}
-          >
-            Upptäck en värld där varje matta är ett mästerverk - Handgjorda, unika, och med en personlig prägel. Välkommen till en plats där design möter passion.
-          </motion.p>
+	  <p className="lg:text-base text-base font-semibold text-black text-opacity-60 max-w-[480px]">
+	    Upptäck en värld där varje matta är ett mästerverk - Handgjorda, unika, och med en personlig prägel.
+	  </p>
 
 	  <div className="flex justify-center w-full pointer-events-auto">
-	    <motion.div variants={itemVariants} custom={6}>
-	      <Button
-		actionText="Gör Din Egen Design"
-		href="/"
-	      />
-	    </motion.div>
+	    <Button
+	      actionText="Gör Din Egen Design"
+	      href="/"
+	    />
 	  </div>
         </div>
-      </motion.div>
+      </div>
     </div>
   )
 }

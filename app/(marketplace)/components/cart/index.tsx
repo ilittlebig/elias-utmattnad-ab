@@ -92,7 +92,7 @@ const Cart = () => {
 		    </div>
 		  </div>
 
-		  <label className="text-lg text-black absolute bottom-[20%]">
+		  <label className="text-lg text-black absolute bottom-[20%] font-semibold">
 		    Din kundvagn är tom
 		  </label>
 		</div>
@@ -103,15 +103,15 @@ const Cart = () => {
 	  <div className="flex flex-col gap-y-6 px-6 bg-white shadow-[0px_4px_16px_rgba(17,17,26,0.1),_0px_8px_24px_rgba(17,17,26,0.1),_0px_16px_56px_rgba(17,17,26,0.1)]">
 	    <div className="flex justify-between text-md pt-6">
 	      <div className="flex gap-x-1 items-end">
-		<h2 className="font-semibold text-md">
+		<h2 className="font-semibold text-md text-black">
 		  Summa
 		</h2>
-		<p className="text-xs">
+		<p className="text-xs font-semibold text-black text-opacity-60">
 		  ({totalItemCount} {totalItemCount == 1 ? "sak" : "saker"})
 		</p>
 	      </div>
 
-	      <h2 className="font-semibold">
+	      <h2 className="font-semibold text-black">
 	        {formattedTotalPrice}
 	      </h2>
 	    </div>
@@ -124,7 +124,7 @@ const Cart = () => {
 	      fill
 	    />
 
-	    <h2 className="text-center text-sm font-medium pb-6">
+	    <h2 className="text-center text-sm font-semibold text-black pb-6">
 	      Psst, köp nu innan det är för sent.
 	    </h2>
 	  </div>

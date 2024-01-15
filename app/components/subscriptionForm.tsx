@@ -4,7 +4,7 @@ import InputForm from '@/components/inputForm'
 const SubscriptionForm = () => {
   return (
     <div className="flex flex-col gap-y-8 max-w-[500px]">
-      <label className="text-black text-2xl">
+      <label className="text-black font-semibold text-2xl">
 	Registrera dig för att få 10% rabatt på din första beställning.
       </label>
 

@@ -5,7 +5,7 @@ import { ToastProvider } from '@/contexts/toastContext'
 import { NotificationProvider } from '@/contexts/notificationContext'
 
 export const metadata: Metadata = {
-  title: "Elias Mattor: Unika Handtuftade Designmattor",
+  title: "Elias Mattor - Unika Handtuftade Designmattor",
   description: "Utforska våra unika handtuftade mattor, perfekta för varje hem. Stil, kvalitet och ett bidrag till diabetesforskning i varje köp.",
 }
 

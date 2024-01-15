@@ -45,8 +45,8 @@ const Story = ({ image, title, description, leftSideText }: StoryProps) => {
 	/>
       </motion.div>
 
-      <div className="flex flex-col gap-y-12 w-[450px] text-black">
-	<label className="relative text-[22px] font-semibold w-fit">
+      <div className="flex flex-col gap-y-8 w-[450px]">
+	<label className="relative text-[22px] font-semibold w-fit text-black">
 	  <div className="absolute right-[-22px] w-[38px] h-[38px] -mt-[14px]">
 	    <Image
 	      src="/Spark.svg"
@@ -59,7 +59,7 @@ const Story = ({ image, title, description, leftSideText }: StoryProps) => {
 	  {title}
 	</label>
 
-	<label className="text-lg leading-8">
+	<label className="text-lg leading-8 font-semibold text-black text-opacity-60">
 	  {description}
 	</label>
       </div>

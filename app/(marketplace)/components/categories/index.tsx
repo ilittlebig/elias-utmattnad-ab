@@ -19,8 +19,8 @@ const Categories = () => {
   return (
     <div className="min-w-[215px] h-[350px] pt-[5px]">
       <div className="pr-5">
-	<div className="flex flex-col divide-y gap-y-4">
-	  <label className="text-xs text-black">
+	<div className="flex flex-col divide-y gap-y-4 font-semibold">
+	  <label className="text-xs text-black text-opacity-60">
 	    {products.length} produkter
 	  </label>
 	  <label className="text-sm font-semibold text-black pt-4">

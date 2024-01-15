@@ -42,7 +42,7 @@ const TimelineEvent = forwardRef<HTMLDivElement, EventProps>(({
   return (
     <div ref={setRefs} className="relative flex gap-y-8 gap-x-4 lg:gap-x-0 items-center">
       <div className={`flex items-center justify-center rounded-full ${selected ? 'w-12 h-12 bg-black' : 'w-8 h-8 bg-zinc-300'} transition-all duration-300`}>
-	<div className={`text-white font-medium ${selected ? 'text-lg' : 'text-sm'}`}>
+	<div className={`text-white font-semibold ${selected ? 'text-lg' : 'text-sm'}`}>
 	  {index}
 	</div>
       </div>
@@ -52,7 +52,7 @@ const TimelineEvent = forwardRef<HTMLDivElement, EventProps>(({
       </div>
 
       <div className={`lg:absolute text-left ${isRightSide ? 'lg:left-full lg:ml-16' : 'lg:right-full lg:mr-16'} ${selected ? 'text-black' : 'text-zinc-300'} transition-all duration-300 flex items-center`}>
-	<div className="leading-8 text-lg px-2 lg:w-[400px] w-[350px] max-h-32 lg:max-w-lg max-w-sm">
+	<div className="leading-8 text-lg px-2 font-semibold lg:w-[400px] w-[350px] max-h-32 lg:max-w-lg max-w-sm">
 	  {text}
 	</div>
       </div>

@@ -9,26 +9,37 @@ import CollectionSection from '@/(marketplace)/sections/collection/index'
 import FAQSection from '@/(marketplace)/sections/FAQ/index'
 
 import ShowcaseCard from '@/(marketplace)/sections/showcase/card'
+import Achievements from '@/(marketplace)/components/achievements/index'
 
 export default function Home() {
   return (
-    <main className="">
-      <HeroSection />
-      <TrustedBySection />
+    <main className="flex flex-col gap-y-[50px]">
+      <div className="flex flex-col">
+	<HeroSection />
+	<div className="pt-[140px]">
+	  <Achievements />
+	</div>
+      </div>
 
-      <div className="pt-36">
+      <div className="pt-[60px]">
+	<TrustedBySection />
+      </div>
+
+      {/*
+      <div className="pt-40">
 	<ReadMoreSection
 	  title="Beställning av Anpassade Mattor"
 	  description="Här kan du läsa mer om hur du beställer din egen anpassade matta och ger ditt hem en personlig touch."
 	/>
       </div>
+      */}
 
       {/* <VisionSection /> */}
       <ServicesSection />
 
       {/* Content Showcase Section */}
 
-      <div className="flex flex-col pt-[928px] gap-y-36 lg:pt-[135px]">
+      <div className="flex flex-col gap-y-[130px] pt-[130px]">
       	<ShowcaseCard
 	  title="Innovativ Tufting"
 	  description="Med precision och omsorg använder vi modern tuftingteknik för att förvandla dina idéer till verklighet. Vår tuftingpistol gör det möjligt att skapa detaljerade och varaktiga mönster som speglar din personliga stil."
@@ -68,11 +79,13 @@ export default function Home() {
       </div>
 
       <CharitySection/>
+      {/*
       <ReadMoreSection
         title="Hemdesign med Hjärta"
 	description="Vi donerar 10% av alla intäkter till diabetesforskning. Läs mer om vårt engagemang och hur ditt köp gör skillnad på vår webbplats."
 	rightDecoration
       />
+      */}
       <ReviewsSection />
       <CollectionSection />
       <FAQSection />

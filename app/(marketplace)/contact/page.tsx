@@ -12,9 +12,9 @@ const ContactPage = () => {
 	  <div className="flex flex-col w-full h-full justify-center">
 	    <div className="flex flex-col pointer-events-auto gap-y-8">
 	      <div className="flex flex-col text-black gap-y-2 items-center">
-		<h1 className="relative flex gap-x-3 lg:text-[40px] text-2xl text-center leading-tight">
+		<h1 className="relative flex gap-x-3 lg:text-[40px] font-semibold text-2xl text-center leading-tight">
 		  <div className="relative flex items-center justify-center">
-		    <div className="absolute w-[180px] h-[50px] -z-10">
+		    <div className="absolute w-[190px] h-[50px] -z-10">
 		      <Image
 			src="/TextBorder2.svg"
 			fill
@@ -94,14 +94,14 @@ const ContactPage = () => {
 	</div>
       </div>
 
-      <div className="flex justify-between text-black">
+      <div className="flex justify-between font-semibold">
         <div className="flex gap-x-4">
 	  <RiCustomerService2Line className="w-10 h-10" />
 	  <div className="flex flex-col gap-y-2 max-w-[250px]">
-	    <label className="font-semibold text-md">
+	    <label className="font-semibold text-md text-black">
 	      Garanterad Snabb Svarstid
 	    </label>
-	    <label className="text-sm">
+	    <label className="text-sm text-black text-opacity-60">
 	      Vårt engagemang är att erbjuda snabba svar. Förvänta er ett personligt och professionellt svar inom 2-4 timmar, varje dag mellan 08:00 och 20:00.
 	    </label>
 	  </div>
@@ -110,10 +110,10 @@ const ContactPage = () => {
         <div className="flex gap-x-4">
 	  <IoChatbubblesOutline className="w-10 h-10" />
 	  <div className="flex flex-col gap-y-2 max-w-[250px]">
-	    <label className="font-semibold text-md">
+	    <label className="font-semibold text-md text-black">
 	      Personlig Kundservice
 	    </label>
-	    <label className="text-sm">
+	    <label className="text-sm text-black text-opacity-60">
 	      Vi är här för att erbjuda dig personlig och uppmärksam service. Varje förfrågan behandlas med omsorg och expertis, anpassad efter dina behov.
 	    </label>
 	  </div>
@@ -122,10 +122,10 @@ const ContactPage = () => {
         <div className="flex gap-x-4">
 	  <IoBulbOutline className="w-10 h-10" />
 	  <div className="flex flex-col gap-y-2 max-w-[250px]">
-	    <label className="font-semibold text-md">
+	    <label className="font-semibold text-md text-black">
 	      Expertis bakom Varje Svar
 	    </label>
-	    <label className="text-sm">
+	    <label className="text-sm text-black text-opacity-60">
 	      Vårt team, med djupgående kunskap och erfarenhet, garanterar välinformerade och noggranna svar på alla dina frågor.
 	    </label>
 	  </div>

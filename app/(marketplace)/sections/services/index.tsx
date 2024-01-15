@@ -1,32 +1,13 @@
 "use client"
-import { useEffect } from 'react'
-import { motion, useAnimation } from 'framer-motion'
-import { useInView } from 'react-intersection-observer'
+import { useEffect, useRef } from 'react'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Image from 'next/image'
 import Service from './service'
 
+gsap.registerPlugin(ScrollTrigger);
+
 const ServicesSection = () => {
-  const controls = useAnimation();
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    rootMargin: "-100px 0px"
-  });
-
-  useEffect(() => {
-    if (inView) {
-      controls.start("visible");
-    }
-  }, [controls, inView]);
-
-  const serviceVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: (i: number) => ({
-      opacity: 1,
-      y: 0,
-      transition: { delay: i * 0.2, duration: 0.6, ease: "easeOut" },
-    }),
-  };
-
   const services = [
     {
       title: "Egen Design",
@@ -35,12 +16,12 @@ const ServicesSection = () => {
     },
     {
       title: "Hantverk av Kvalitet",
-      description: "Varje matta är ett mästerverk, skapat med precision och omsorg.",
+      description: "Varje matta är ett mästerverk, skapat med.",
       image: "/Illustration3.svg",
     },
     {
       title: "Personlig Service",
-      description: "Individuell kundservice för att uppfylla dina specifika behov.",
+      description: "Individuell kundservice för att uppfylla dina specifika.",
       image: "/supportIllustration.svg",
     },
     {
@@ -48,55 +29,88 @@ const ServicesSection = () => {
       description: "Effektiv och pålitlig leverans av din anpassade matta.",
       image: "/Illustration2.svg",
     }
-  ]
+  ];
+
+  const sectionRef = useRef(null);
+  const serviceRefs = useRef<HTMLDivElement[] | null>([]);
+  serviceRefs.current = [];
+
+  const addToRefs = (el: HTMLDivElement | null) => {
+    const serviceRef = serviceRefs.current;
+    if (!serviceRef)
+      return;
+
+    if (el && !serviceRef.includes(el)) {
+      serviceRef.push(el);
+    }
+  };
+
+  useEffect(() => {
+    serviceRefs.current?.forEach((el, index) => {
+      gsap.fromTo(el,
+        { opacity: 0, y: 20 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          ease: 'easeOut',
+          delay: index * 0.2,
+          scrollTrigger: {
+            trigger: el,
+            start: 'top bottom-=100',
+            toggleActions: 'play none none none',
+          },
+        }
+      );
+    });
+  }, []);
 
   return (
-    <>
-      <div className="flex pb-0 lg:pt-36 pt-44">
-	<div className="flex flex-col text-black items-center text-center mx-auto px-4 lg-px:0 gap-y-6">
-	  <h1 className="flex gap-x-2.5 relative lg:text-h1 font-rockwell text-3xl font-bold w-fit">
-	    <div className="absolute left-[-14px] w-12 h-12 -mt-3 -z-10 bg-blue-200 rounded-full" />
-	    Utforska Våra
+    <section className="relative flex flex-col gap-y-16 pt-[130px]">
+      <div className="absolute w-[70px] h-[70px] top-[16%] left-[26%] -scale-x-100 -z-10">
+	<Image
+	  src="/decorations/OrangeArrow.svg"
+	  fill
+	  style={{ objectFit: "contain" }}
+	  alt="Orange Arrow"
+	/>
+      </div>
 
-	    <div className="flex relative justify-center">
-	      Tjänster
-	      <div className="absolute w-[207px] h-[50px] top-0 -mt-[6px] -z-10">
-		<Image
-		  src="/TextBorder2.svg"
-		  width={240}
-		  height={50}
-		  alt="Text Border"
-		/>
-	      </div>
+      <div className="flex flex-col text-black items-center text-center mx-auto px-4 lg-px:0 gap-y-4">
+	<label className="font-semibold lg:text-base text-base text-center text-primary">
+	  Våra tjänster
+	</label>
+
+	<h1 className="flex gap-x-1.5 relative text-h1 font-bold w-fit">
+	  Service <p className="underline">utöver</p> det
+
+	  <div className="flex relative justify-center items-center">
+	    vanliga
+	    <div className="absolute w-[160px] h-[45px] -z-10">
+	      <Image
+		src="/TextBorder4.svg"
+		fill
+		style={{ objectFit: "contain" }}
+		alt="Text Border"
+	      />
 	    </div>
-	  </h1>
-
-	  <h2 className="max-w-3xl lg:text-lg text-lg font-medium">
-	    Utforska våra tjänster och upptäck en värld av skräddarsydda mattlösningar. Varje design är unik, skapad med hantverksskicklighet för att förhöja och personifiera ditt hem eller arbetsplats.
-	  </h2>
-	</div>
+	  </div>
+	</h1>
       </div>
 
-      <div>
-	<motion.div
-          ref={ref}
-          initial="hidden"
-          animate={controls}
-          className="flex lg:flex-row flex-col justify-center pt-[70px] relative left-0 right-0 rounded-xl bg-white w-full pt-6 gap-y-16 gap-x-8 px-4 z-10"
-        >
-          {services.map((service, index) => (
-            <motion.div key={service.title} custom={index} variants={serviceVariants}>
-              <Service
-                title={service.title}
-                description={service.description}
-                path={service.image}
-                index={index + 1}
-              />
-            </motion.div>
-          ))}
-        </motion.div>
+      <div ref={sectionRef} className="flex lg:flex-row flex-col justify-center relative left-0 right-0 rounded-xl bg-white w-full gap-4 px-4 z-10">
+	{services.map((service, index) => (
+	  <div key={service.title} ref={addToRefs}>
+	    <Service
+	      title={service.title}
+	      description={service.description}
+	      path={service.image}
+	      index={index + 1}
+	    />
+	  </div>
+	))}
       </div>
-    </>
+    </section>
   )
 }
 

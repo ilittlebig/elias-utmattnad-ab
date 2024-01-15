@@ -53,17 +53,17 @@ const ProductCard = ({
 	</div>
       </div>
 
-      <div className="flex flex-col gap-y-1">
+      <div className="flex flex-col gap-y-1 font-semibold">
 	<div className="flex justify-between">
 	  <div className="text-xs hover:underline truncate">
 	    {product.name}
 	  </div>
-	  <div className="text-xs font-medium">
+	  <div className="text-xs text-black">
 	    {formattedPrice}
 	  </div>
 	</div>
 
-	<div className="text-xs text-sub-gray">
+	<div className="text-xs text-black text-opacity-60">
 	  {product.dimensions}
 	</div>
       </div>

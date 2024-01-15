@@ -28,72 +28,64 @@ const FAQSection = () => {
   ];
 
   return (
-    <div className="flex flex-col pt-36 pb-36 gap-y-12">
-      <div className="relative">
-	<div className="absolute w-[70px] h-[70px] top-[150px] left-[-5%]">
-	  <Image
-	    src="/decorations/BlueArrow.svg"
-	    fill
-	    style={{ objectFit: "contain" }}
-	    alt="Blue Arrow"
-	  />
+    <div className="flex flex-col pt-[210px] pb-[130px] gap-y-16">
+      <div>
+	<div className="relative">
+	  <div className="absolute w-[70px] h-[70px] top-[150px] left-[-5%]">
+	    <Image
+	      src="/decorations/BlueArrow.svg"
+	      fill
+	      style={{ objectFit: "contain" }}
+	      alt="Blue Arrow"
+	    />
+	  </div>
+
+	  <div className="absolute w-[20px] h-[20px] top-[0px] right-[28%]">
+	    <Image
+	      src="/decorations/RedPlus.svg"
+	      fill
+	      style={{ objectFit: "contain" }}
+	      alt="Red Plus"
+	    />
+	  </div>
+
+	  <div className="absolute w-[30px] h-[30px] top-[400px] right-[-10%] rotate-[25deg]">
+	    <Image
+	      src="/decorations/GreenTriangle.svg"
+	      fill
+	      style={{ objectFit: "contain" }}
+	      alt="Green Triangle"
+	    />
+	  </div>
+
+	  <div className="absolute w-[30px] h-[30px] top-[750px] right-[90%] rotate-[70deg]">
+	    <Image
+	      src="/decorations/OrangeSwirl.svg"
+	      fill
+	      style={{ objectFit: "contain" }}
+	      alt="Orange Swirl"
+	    />
+	  </div>
 	</div>
 
-	<div className="absolute w-[20px] h-[20px] top-[0px] right-[28%]">
-	  <Image
-	    src="/decorations/RedPlus.svg"
-	    fill
-	    style={{ objectFit: "contain" }}
-	    alt="Red Plus"
-	  />
-	</div>
+	<div className="flex px-4 lg:px-0">
+	  <div className="flex flex-col text-center mx-auto items-center gap-y-4">
+	    <h1 className="relative text-h1 text-black font-bold w-fit">
+	      <div className="absolute right-[-39%] w-[60px] h-[60px] -mt-[27px] -z-10">
+		<Image
+		  src="/Spark.svg"
+		  fill
+		  style={{ objectFit: "contain" }}
+		  alt="Spark"
+		/>
+	      </div>
+	      FAQ
+	    </h1>
 
-	<div className="absolute w-[30px] h-[30px] top-[400px] right-[-10%] rotate-[25deg]">
-	  <Image
-	    src="/decorations/GreenTriangle.svg"
-	    fill
-	    style={{ objectFit: "contain" }}
-	    alt="Green Triangle"
-	  />
-	</div>
-
-	<div className="absolute w-[20px] h-[20px] top-[950px] right-[20%]">
-	  <Image
-	    src="/decorations/RedPlus.svg"
-	    fill
-	    style={{ objectFit: "contain" }}
-	    alt="Red Plus"
-	  />
-	</div>
-
-	<div className="absolute w-[30px] h-[30px] top-[750px] right-[90%] rotate-[70deg]">
-	  <Image
-	    src="/decorations/OrangeSwirl.svg"
-	    fill
-	    style={{ objectFit: "contain" }}
-	    alt="Orange Swirl"
-	  />
-	</div>
-      </div>
-
-      <div className="flex px-4 lg:px-0">
-	<div className="flex flex-col text-black text-center mx-auto items-center gap-y-6">
-	  <h1 className="relative lg:text-5xl text-4xl font-bold w-fit">
-	    <div className="absolute right-[-36%] w-[70px] h-[70px] -mt-[30px] -z-10">
-	      <Image
-		src="/Spark.svg"
-		width={70}
-		height={70}
-		style={{ objectFit: "contain" }}
-		alt="Spark"
-	      />
-	    </div>
-	    FAQ
-	  </h1>
-
-	  <h2 className="max-w-2xl lg:text-lg text-lg font-medium">
-	    Få svar på vanliga frågor om våra produkter och tjänster i vår FAQ-sektion, där vi ger tydliga och kortfattade förklaringar.
-	  </h2>
+	    <h2 className="max-w-[480px] text-base font-semibold text-black text-opacity-60">
+	      Få svar på vanliga frågor om våra produkter och tjänster i vår FAQ-sektion, där vi ger tydliga och kortfattade förklaringar.
+	    </h2>
+	  </div>
 	</div>
       </div>
 
@@ -107,13 +99,15 @@ const FAQSection = () => {
 	))}
       </div>
 
-      <div className="bg-green-50 text-center items-center max-w-lg rounded-2xl flex flex-col gap-y-4 w-fit mx-auto text-black px-12 py-8">
-        <label className="font-semibold text-xl">
-	  Har du fortfarande frågor?
-	</label>
-        <label className="text-lg">
-	  Vi beklagar att vi inte kunde tillhandahålla de svar du sökte. Om du har ytterligare frågor eller behöver assistans, tveka inte att kontakta oss här.
-	</label>
+      <div className="bg-green-50 text-center items-center max-w-lg rounded-2xl flex flex-col gap-y-4 w-fit mx-auto px-12 py-8">
+        <div className="flex flex-col gap-y-4">
+	  <label className="font-semibold text-[22px] text-black">
+	    Har du fortfarande frågor?
+	  </label>
+	  <label className="text-base font-semibold text-opacity-60 text-black">
+	    Vi beklagar att vi inte kunde tillhandahålla de svar du sökte. Om du har ytterligare frågor eller behöver assistans, tveka inte att kontakta oss här.
+	  </label>
+	</div>
 
 	<Button
 	  actionText="Kontakta Oss"
