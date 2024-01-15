@@ -10,7 +10,7 @@ const CategoryLabel = ({ label, href }: CategoryLabelProps) => {
   const isSelected = href === category;
 
   return (
-    <label role="button" className={`${isSelected ? "text-primary" : "text-black"} text-xs hover:underline transition-transform duration-300 hover:translate-x-1`}>
+    <label role="button" className={`${isSelected ? "text-primary" : "text-black text-opacity-60"} font-semibold text-xs hover:underline transition-transform duration-300 hover:translate-x-1`}>
       {label}
     </label>
   )

@@ -9,7 +9,7 @@ export default function Layout({
     <div className="flex flex-col items-center">
       {children}
 
-      <div className="flex text-sm gap-x-4 -mt-16 py-4">
+      <div className="flex text-sm gap-x-4 -mt-[72px] py-4 font-semibold">
 	<Link href="/terms" className="hover:underline text-primary">
 	  Användarvillkor
 	</Link>

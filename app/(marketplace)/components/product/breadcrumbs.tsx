@@ -17,7 +17,7 @@ const Breadcrumbs = ({
     <>
       {category && product ? (
 	<div className="lg:flex flex-col gap-y-6 hidden">
-	  <div className="flex items-center gap-x-2 text-xs text-sub-gray">
+	  <div className="flex font-semibold items-center gap-x-2 text-xs text-black text-opacity-60">
 	    <Link href="/products/all" className="hover:underline">
 	      Produkter
 	    </Link>

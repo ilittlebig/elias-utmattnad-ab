@@ -33,9 +33,9 @@ const Footer = () => {
 	  <div className="flex lg:gap-x-28 lg:justify-between gap-x-20 justify-center lg:justify-start">
 	    {/* Pages */}
 	    <div className="flex flex-col gap-y-3 flex-shrink-0">
-	      <div className="text-md font-semibold">Sidor</div>
+	      <div className="text-lg font-semibold">Sidor</div>
 	      {pages.map((page, index) => (
-		<Link key={index} href={page.href} className="text-sm text-sub-gray hover:underline text-md hover:text-primary">
+		<Link key={index} href={page.href} className="text-black text-opacity-60 hover:underline font-semibold text-base hover:text-primary">
 		  {page.label}
 		</Link>
 	      ))}
@@ -43,9 +43,9 @@ const Footer = () => {
 
 	    {/* Legal */}
 	    <div className="flex flex-col gap-y-3 flex-shrink-0">
-	      <div className="text-md font-semibold">Juridiskt</div>
+	      <div className="text-lg font-semibold">Juridiskt</div>
 	      {legalities.map((legal, index) => (
-		<Link key={index} href={legal.href} className="text-sm text-sub-gray hover:underline text-md hover:text-primary">
+		<Link key={index} href={legal.href} className="text-black text-opacity-60 hover:underline font-semibold text-base hover:text-primary">
 		  {legal.label}
 		</Link>
 	      ))}
@@ -53,9 +53,9 @@ const Footer = () => {
 
 	    {/* Account */}
 	    <div className="flex flex-col gap-y-3 flex-shrink-0">
-	      <div className="text-md font-semibold">Konto</div>
+	      <div className="text-lg font-semibold">Konto</div>
 	      {account.map((acc, index) => (
-		<Link key={index} href={acc.href} className="text-sm text-sub-gray hover:underline text-md hover:text-primary">
+		<Link key={index} href={acc.href} className="text-black text-opacity-60 font-semibold hover:underline hover:text-primary">
 		  {acc.label}
 		</Link>
 	      ))}
@@ -67,7 +67,7 @@ const Footer = () => {
 	<div className="mt-8 w-full border" />
 
 	<div className="flex flex-col gap-y-4 pb-8 max-w-sm lg:max-w-none">
-	  <div className="text-sub-gray text-sm text-center">
+	  <div className="text-black text-opacity-60 text-base font-semibold text-center">
 	    © 2024 Elias Utmattad AB. Alla rättigheter förbehållna.
 	  </div>
 	</div>

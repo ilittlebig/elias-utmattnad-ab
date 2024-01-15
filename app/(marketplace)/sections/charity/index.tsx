@@ -11,7 +11,7 @@ const CharitySection = () => {
 
   const { ref, inView } = useInView({
     triggerOnce: true,
-    rootMargin: "-100px 0px"
+    rootMargin: "0px 0px"
   });
 
   const animateDigits = () => {
@@ -33,7 +33,7 @@ const CharitySection = () => {
 
       digits.forEach((digit, digitIndex) => {
 	const isCenterDigit = digitIndex === centerDigitIndex;
-	const opacity = isCenterDigit ? 1 : 0.1;
+	const opacity = isCenterDigit ? 1 : 0.05;
 
 	gsap.to(digit, {
 	  opacity: opacity,
@@ -49,56 +49,62 @@ const CharitySection = () => {
   }, [inView]);
 
   return (
-    <div ref={ref} className="py-36">
-      <div className="flex">
-	<div className="flex flex-col text-black items-center text-center mx-auto px-4 lg-px:0 gap-y-6">
-	  <label className="font-semibold lg:text-lg text-lg text-center text-primary">
-	    HJÄLP ATT HJÄLPA
-	  </label>
+    <div className="relative flex flex-col gap-y-16 pt-[130px]">
+      <div className="absolute w-[500px] h-[500px] top-[25%] left-[-45%] -z-10">
+	<Image
+	  src="/HeroRug1.png"
+	  fill
+	  style={{ objectFit: "contain" }}
+	  alt="Rug"
+	/>
+      </div>
 
-	  <h1 className="flex gap-x-2.5 relative lg:text-h1 font-rockwell text-3xl font-bold w-fit">
-	    Ditt
-	    <div className="flex relative items-center justify-center">
-	      Köp
-	      <div className="absolute w-[105px] h-[70px] -mt-[17px] -z-10">
-		<Image
-		  src="/decorations/TextHighlight.svg"
-		  fill
-		  alt="Text Highlight"
-		/>
-	      </div>
+      <div className="flex flex-col text-black items-center text-center mx-auto px-4 lg-px:0 gap-y-4">
+	<label className="font-semibold text-md text-center text-primary">
+	  Hjälp att hjälpa
+	</label>
+
+	<div className="flex flex-col items-center gap-y-4">
+	  <h1 className="max-w-[480px] flex gap-x-2.5 relative text-h1 font-bold w-fit">
+	    Ditt köp stödjer diabetesforskning
+	    <div className="absolute w-[90px] h-[70px] left-[33.5%] top-[-10%] -z-10">
+	      <Image
+		src="/decorations/TextHighlight.svg"
+		fill
+		style={{ objectFit: "contain" }}
+		alt="Text Highlight"
+	      />
 	    </div>
-	    Stödjer Diabetesforskning
 	  </h1>
 
-	  <h2 className="max-w-3xl lg:text-lg text-lg font-medium">
-	    Varje designad matta bär ett löfte – 10% av ditt köp hjälper till att finansiera banbrytande diabetesforskning, för en värld med bättre hälsa. Tillsammans kan vi stödja hjälpmedel för diabetes.
+	  <h2  className="max-w-[480px] text-md font-semibold text-black text-opacity-60">
+	    Varje designad matta bär ett löfte – 10% av ditt köp hjälper till att finansiera banbrytande diabetesforskning.
 	  </h2>
 	</div>
       </div>
 
-	<div className="flex flex-col items-center gap-y-10 pt-10">
-	  <div className="flex gap-x-12 font-medium">
-	    {Array.from({ length: numDigits }).map((_, index) => (
-	      <div key={index} className="relative flex bg-white drop-shadow-card hover:bg-zinc-50 transition-all duration-300 border-2 border-transparent hover:border-primary text-7xl w-24 h-32 items-center justify-center text-center rounded-xl overflow-hidden">
-		<div
-		  ref={el => {
-		    if (el) digitContainers.current[index] = el
-		  }}
-		  className="absolute top-[25%] left-0 h-full w-full flex flex-col items-center justify-start"
-		>
-		  {Array.from({ length: 20 }).map((_, numIndex) => (
-		    <div key={numIndex} className="h-full w-full flex items-center justify-center text-black">{numIndex % 10}</div>
-		  ))}
-		</div>
+      <div ref={ref} className="flex justify-center">
+	<div className="flex gap-x-12 font-medium">
+	  {Array.from({ length: numDigits }).map((_, index) => (
+	    <div key={index} className="relative flex bg-white drop-shadow-card hover:scale-110 transition-all duration-300 border hover:border-primary text-7xl w-24 h-32 items-center justify-center text-center rounded-xl overflow-hidden">
+	      <div
+		ref={el => {
+		  if (el) digitContainers.current[index] = el
+		}}
+		className="absolute top-[22.5%] left-0 h-full w-full flex flex-col items-center justify-start"
+	      >
+		{Array.from({ length: 20 }).map((_, numIndex) => (
+		  <div key={numIndex} className="h-full w-full flex items-center justify-center text-black">{numIndex % 10}</div>
+		))}
 	      </div>
-	    ))}
-	  </div>
-
-	  <label className="text-lg text-black font-medium">
-	    Kronor donerade till diabetesforskning
-	  </label>
+	    </div>
+	  ))}
 	</div>
+      </div>
+
+      <label className="text-base text-black font-semibold text-center text-opacity-60">
+	Kronor donerade till diabetesforskning
+      </label>
     </div>
   )
 }

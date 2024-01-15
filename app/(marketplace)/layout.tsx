@@ -1,9 +1,9 @@
-import { Inter } from 'next/font/google'
+import { Manrope } from 'next/font/google'
 import { CartProvider } from '@/contexts/cartContext'
 import Navbar from '@/(marketplace)/components/navbar'
 import Footer from '@/(marketplace)/components/footer'
 
-const inter = Inter({ subsets: ['latin'] });
+const manrope = Manrope({ subsets: ['latin'] });
 
 export default function Layout({
   children
@@ -13,9 +13,11 @@ export default function Layout({
   return (
     <CartProvider>
       <Navbar />
-      <div className={`lg:max-w-6xl mx-auto lg:px-16 xl:px-0 ${inter.className}`}>
-	{children}
-	<Footer />
+      <div className="overflow-x-hidden">
+	<div className={`lg:max-w-6xl mx-auto lg:px-16 xl:px-0 ${manrope.className}`}>
+	  {children}
+	  <Footer />
+	</div>
       </div>
     </CartProvider>
   )

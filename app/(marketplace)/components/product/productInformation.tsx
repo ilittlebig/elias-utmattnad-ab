@@ -25,7 +25,7 @@ const ProductInformation = ({
 		{product.name}
 	      </h1>
 
-	      <h2 className="text-md text-black">
+	      <h2 className="text-md font-semibold text-black text-opacity-60">
 		{product.dimensions}
 	      </h2>
 	    </div>

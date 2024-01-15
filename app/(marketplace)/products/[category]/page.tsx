@@ -28,15 +28,9 @@ const ProductsPage = () => {
 	<div className="absolute bg-[#F7F7F7] left-0 w-screen h-[250px]">
 	  <div className="flex flex-col items-center gap-y-3 justify-center mx-auto z-10 h-full">
 	    {categoryData ? (
-	      <>
-		<h1 className="text-4xl text-black text-center">
-		  {categoryData.name}
-		</h1>
-
-		<p className="text-lg font-light max-w-2xl text-black text-center hidden">
-		  {categoryData.description}
-		</p>
-	      </>
+	      <h1 className="text-h1 text-black text-center font-semibold">
+		{categoryData.name}
+	      </h1>
 	    ) : (
 	      <div className="animate-pulse flex flex-col items-center gap-y-2 w-[600px]">
 		<div className="w-64 h-7 bg-gray-200 rounded-full" />
@@ -53,7 +47,7 @@ const ProductsPage = () => {
 	    <SearchBar />
 
 	    <div className="flex gap-x-3 items-center">
-	      <label className="text-xs flex-shrink-0 text-black">
+	      <label className="text-xs flex-shrink-0 text-black text-opacity-60 font-semibold">
 		31 produkter sorterade
 	      </label>
 

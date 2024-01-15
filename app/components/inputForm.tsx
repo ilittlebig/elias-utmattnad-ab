@@ -32,9 +32,9 @@ const InputForm = ({
   const [inputValue, setInputValue] = useState(text || "");
   const isTextarea = type === "textarea";
 
-  const labelClass = `flex gap-x-1 pointer-events-none text-sm absolute left-0 transition-all duration-300 ${
+  const labelClass = `flex gap-x-1 font-semibold pointer-events-none text-sm absolute left-0 transition-all duration-300 ${
     isFocused || inputValue ? '-top-2.5 left-[-1%] bg-white px-3' : isTextarea ? 'top-4' : 'top-1/2 -translate-y-1/2'
-  } ${isFocused || inputValue ? 'text-xs text-primary' : 'text-gray-500'}`;
+  } ${isFocused || inputValue ? 'text-xs text-primary' : 'text-black text-opacity-60'}`;
 
   useEffect(() => {
     setInputValue(text || "");
@@ -80,14 +80,14 @@ const InputForm = ({
           onFocus={handleFocus}
           onBlur={handleBlur}
           disabled={disabled}
-          className="appearance-none bg-transparent text-sm disabled:text-gray-400 w-full text-gray-700 py-[18px] leading-tight focus:outline-none"
+          className="appearance-none bg-transparent text-sm disabled:text-opacity-60 text-black w-full py-[18px] leading-tight focus:outline-none"
         />
       );
     }
   };
 
   return (
-    <form className={`flex bg-white items-center ${isFocused ? "border-primary" : ""} border rounded-md w-full relative px-4`}>
+    <form className={`flex font-semibold bg-white items-center ${isFocused ? "border-primary" : ""} border rounded-md w-full relative px-4`}>
       <div className="w-full transition-all duration-300 relative">
         <label htmlFor={htmlFor} className={labelClass}>
 	  {label}

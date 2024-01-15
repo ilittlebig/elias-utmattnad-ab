@@ -66,7 +66,7 @@ const Dropdown = ({
       className="flex max-w-sm select-none items-center hover:bg-gray-100 cursor-pointer border rounded-md w-full relative px-3 dropdown-container"
       onClick={toggleDropdown}
     >
-      <div className="flex gap-x-8 items-center w-full focus:border-primary transition-all duration-300 relative">
+      <div className="flex gap-x-8 items-center w-full focus:border-primary transition-all duration-300 relative font-semibold">
         <label className={`text-black text-xs py-2.5 cursor-pointer ${selectedLabel ? "hidden" : ""}`}>
 	  {label}
         </label>

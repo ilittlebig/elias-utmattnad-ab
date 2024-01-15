@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Lager_2" data-name="Lager 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150.44 43.91">
+  <defs>
+    <style>
+      .cls-1 {
+        opacity: .5;
+      }
+
+      .cls-2 {
+        fill: #e0b357;
+      }
+
+      .cls-2, .cls-3 {
+        stroke-width: 0px;
+      }
+
+      .cls-3 {
+        fill: #f6cf7b;
+      }
+    </style>
+  </defs>
+  <g id="Lager_2-2" data-name="Lager 2">
+    <g id="Lager_3" data-name="Lager 3" class="cls-1">
+      <rect class="cls-3" x="3.14" y="2.94" width="144.35" height="37.7"/>
+    </g>
+    <circle class="cls-2" cx="147.5" cy="2.94" r="2.94"/>
+    <ellipse class="cls-2" cx="147.5" cy="40.64" rx="2.94" ry="2.89"/>
+    <rect class="cls-2" x="3.14" y="2.24" width="7.16" height="1.39"/>
+    <rect class="cls-2" x="14.25" y="2.24" width="7.16" height="1.39"/>
+    <rect class="cls-2" x="25.35" y="2.24" width="7.16" height="1.39"/>
+    <rect class="cls-2" x="36.46" y="2.24" width="7.16" height="1.39"/>
+    <rect class="cls-2" x="47.56" y="2.24" width="7.16" height="1.39"/>
+    <rect class="cls-2" x="58.67" y="2.24" width="7.16" height="1.39"/>
+    <rect class="cls-2" x="69.77" y="2.24" width="7.16" height="1.39"/>
+    <rect class="cls-2" x="80.88" y="2.24" width="7.16" height="1.39"/>
+    <rect class="cls-2" x="91.98" y="2.24" width="7.16" height="1.39"/>
+    <rect class="cls-2" x="103.08" y="2.24" width="7.16" height="1.39"/>
+    <rect class="cls-2" x="114.19" y="2.24" width="7.16" height="1.39"/>
+    <rect class="cls-2" x="125.29" y="2.24" width="7.16" height="1.39"/>
+    <rect class="cls-2" x="136.4" y="2.24" width="7.16" height="1.39"/>
+    <rect class="cls-2" x="2.55" y="4.37" width="1.18" height="8.41"/>
+    <rect class="cls-2" x="2.55" y="17.43" width="1.18" height="8.41"/>
+    <rect class="cls-2" x="2.55" y="30.48" width="1.18" height="8.41"/>
+    <rect class="cls-2" x="3.14" y="39.94" width="7.16" height="1.39"/>
+    <rect class="cls-2" x="14.25" y="39.94" width="7.16" height="1.39"/>
+    <rect class="cls-2" x="25.35" y="39.94" width="7.16" height="1.39"/>
+    <rect class="cls-2" x="36.46" y="39.94" width="7.16" height="1.39"/>
+    <rect class="cls-2" x="47.56" y="39.94" width="7.16" height="1.39"/>
+    <rect class="cls-2" x="58.67" y="39.94" width="7.16" height="1.39"/>
+    <rect class="cls-2" x="69.77" y="39.94" width="7.16" height="1.39"/>
+    <rect class="cls-2" x="80.88" y="39.94" width="7.16" height="1.39"/>
+    <rect class="cls-2" x="91.98" y="39.94" width="7.16" height="1.39"/>
+    <rect class="cls-2" x="103.08" y="39.94" width="7.16" height="1.39"/>
+    <rect class="cls-2" x="114.19" y="39.94" width="7.16" height="1.39"/>
+    <rect class="cls-2" x="125.29" y="39.94" width="7.16" height="1.39"/>
+    <rect class="cls-2" x="136.4" y="39.94" width="7.16" height="1.39"/>
+    <rect class="cls-2" x="146.91" y="4.37" width="1.18" height="8.41"/>
+    <rect class="cls-2" x="146.91" y="17.43" width="1.18" height="8.41"/>
+    <rect class="cls-2" x="146.91" y="30.48" width="1.18" height="8.41"/>
+    <circle class="cls-2" cx="2.94" cy="3.64" r="2.94"/>
+    <ellipse class="cls-2" cx="2.94" cy="41.02" rx="2.94" ry="2.89"/>
+  </g>
+</svg>
