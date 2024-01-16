@@ -13,7 +13,7 @@ const Question = ({ question, answer, index }: QuestionProps) => {
 
   return (
     <div
-      className="flex justify-between cursor-pointer items-center select-none w-full bg-white w-full rounded-md px-6"
+      className="flex justify-between cursor-pointer items-center select-none w-full bg-white w-full rounded-md lg:px-6"
       onClick={() => setToggled(!isToggled)}
     >
       <div className="flex flex-col w-full">

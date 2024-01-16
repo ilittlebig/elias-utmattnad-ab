@@ -23,7 +23,7 @@ const TrustedBySection = () => {
 	Tillsammans bygger vi framtidens mattor
       </label>
 
-      <label className="max-w-[480px] px-4 font-semibold text-base text-center text-black text-opacity-60">
+      <label className="lg:max-w-[480px] max-w-[382px] px-4 font-semibold text-base text-center text-black text-opacity-60">
 	Med stöd från branschledare, förnyar vi ständigt våra handtuftade mattor för framtiden.
       </label>
 

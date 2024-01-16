@@ -38,14 +38,19 @@ const ReviewsSection = () => {
 
   return (
     <div className="relative flex flex-col pt-[130px] gap-y-16">
-      <div className="flex flex-col text-black items-center text-center mx-auto px-4 lg-px:0 gap-y-4">
+      <div className="flex flex-col text-black items-center text-center mx-auto gap-y-4">
 	<label className="font-semibold text-base text-center text-primary">
 	  Vägg av kärlek
 	</label>
 
-	<h1 className="flex gap-x-1.5 relative lg:text-h1 text-4xl font-bold w-fit">
-	  <div className="absolute left-[-14px] w-12 h-12 -mt-1 -z-10 bg-orange-200 rounded-full" />
-	  Vad <p className="underline">kunder</p> säger om oss
+	<h1 className="flex lg:flex-row flex-col gap-x-1.5 justify-center lg:max-w-full max-w-[360px] relative lg:text-h1 text-h1-small font-bold w-fit">
+	  <div className="absolute lg:left-[-4%] left-[-6%] lg:w-12 lg:h-12 w-10 h-10 lg:top-[-4%] top-[-5%] -z-10 bg-orange-200 rounded-full" />
+	  <div className="flex gap-x-1.5">
+	    Vad
+	    <p className="underline">kunder</p>
+	    säger
+	  </div>
+	  om oss
 	</h1>
       </div>
 

@@ -14,7 +14,7 @@ type LegalProps = {
 
 const Legal = ({ title, legalities, imagePath}: LegalProps) => {
   return (
-    <div className="flex pt-8 pb-16">
+    <div className="flex pt-8 pb-16 px-4 lg:px-0">
       <div className="flex flex-col mx-auto gap-y-6">
 	<h1 className="text-2xl">
 	  {title}

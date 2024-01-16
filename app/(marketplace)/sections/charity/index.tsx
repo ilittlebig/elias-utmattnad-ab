@@ -50,7 +50,7 @@ const CharitySection = () => {
 
   return (
     <div className="relative flex flex-col gap-y-16 pt-[130px]">
-      <div className="absolute w-[500px] h-[500px] top-[25%] left-[-45%] -z-10">
+      <div className="absolute w-[500px] h-[500px] top-[25%] left-[-45%] -z-10 hidden lg:block">
 	<Image
 	  src="/HeroRug1.png"
 	  fill
@@ -65,19 +65,11 @@ const CharitySection = () => {
 	</label>
 
 	<div className="flex flex-col items-center gap-y-4">
-	  <h1 className="max-w-[480px] flex gap-x-2.5 relative text-h1 font-bold w-fit">
+	  <h1 className="max-w-[480px] flex gap-x-1.5 relative lg:text-h1 text-h1-small font-bold w-fit">
 	    Ditt köp stödjer diabetesforskning
-	    <div className="absolute w-[90px] h-[70px] left-[33.5%] top-[-10%] -z-10">
-	      <Image
-		src="/decorations/TextHighlight.svg"
-		fill
-		style={{ objectFit: "contain" }}
-		alt="Text Highlight"
-	      />
-	    </div>
 	  </h1>
 
-	  <h2  className="max-w-[480px] text-md font-semibold text-black text-opacity-60">
+	  <h2  className="max-w-[480px] max-w-[382px] text-md font-semibold text-black text-opacity-60">
 	    Varje designad matta bär ett löfte – 10% av ditt köp hjälper till att finansiera banbrytande diabetesforskning.
 	  </h2>
 	</div>

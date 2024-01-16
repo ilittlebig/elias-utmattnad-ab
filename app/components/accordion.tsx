@@ -1,20 +1,19 @@
 "use client"
 import { useState } from 'react'
-import { FaPlus } from 'react-icons/fa'
-import { FaMinus } from 'react-icons/fa'
+import { FaPlus, FaMinus } from 'react-icons/fa'
 
 type AccordionProps = {
   title: string,
-  content: string
+  content: React.ReactNode
 };
 
 const Accordion = ({ title, content }: AccordionProps) => {
-  const [isToggled, setToggled] = useState(false);
+  const [isToggled, setToggled] = useState<boolean>(false);
 
   return (
     <div className="flex flex-col select-none">
       <div
-        className="flex items-center justify-between border-b pb-6 cursor-pointer"
+        className="flex w-auto items-center justify-between border-b pb-8 cursor-pointer"
 	onClick={() => setToggled(!isToggled)}
       >
 	<label className="text-md font-semibold text-black cursor-pointer">

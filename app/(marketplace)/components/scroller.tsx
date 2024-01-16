@@ -94,8 +94,8 @@ const Scroller = ({
 
       {/* Gradient Overlays */}
       <div className="pointer-events-none">
-        <div className="absolute left-0 top-0 bottom-0 w-44 bg-gradient-to-r from-white to-transparent z-30" />
-        <div className="absolute right-0 top-0 bottom-0 w-44 bg-gradient-to-l from-white to-transparent z-30" />
+        <div className="absolute left-0 top-0 bottom-0 w-[17%] bg-gradient-to-r from-white to-transparent z-30" />
+        <div className="absolute right-0 top-0 bottom-0 w-[17%] bg-gradient-to-l from-white to-transparent z-30" />
       </div>
     </div>
   );

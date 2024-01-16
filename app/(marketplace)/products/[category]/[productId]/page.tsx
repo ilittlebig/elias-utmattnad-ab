@@ -9,9 +9,10 @@ import ProductImage from '@/(marketplace)/components/product/productImage'
 import ProductInformation from '@/(marketplace)/components/product/productInformation'
 import Breadcrumbs from '@/(marketplace)/components/product/breadcrumbs'
 import ProductPerks from '@/(marketplace)/components/product/productPerks'
-import Accordion from '@/(marketplace)/components/product/accordion'
 import AcceptedPayments from '@/(marketplace)/components/acceptedPayments'
+
 import Button from '@/components/button'
+import Accordion from '@/components/accordion'
 
 const ProductPage = () => {
   const [product, setProduct] = useState<Product | null>(null);
@@ -44,8 +45,8 @@ const ProductPage = () => {
 
   return (
     <div className="flex flex-col justify-between lg:pb-6 h-full">
-      <div className="flex lg:flex-row gap-x-6 flex-col">
-        <div className="flex flex-wrap gap-2 h-full">
+      <div className="flex lg:flex-row gap-x-6 flex-col gap-y-5">
+        <div className="lg:flex flex-wrap gap-2 h-full hidden">
 	  {[...Array(5)].map((_, index) => (
 	    <ProductImage
 	      key={index}
@@ -54,7 +55,14 @@ const ProductPage = () => {
 	  ))}
 	</div>
 
-	<div className="flex flex-col max-w-[420px] min-w-[420px] gap-y-1">
+	{/* Should be an image courosell here */}
+	<div className="lg:hidden">
+	  <ProductImage
+	    src="/ProductImage1.png"
+	  />
+	</div>
+
+	<div className="flex flex-col lg:max-w-[420px] lg:min-w-[420px] gap-y-1">
 	  <Breadcrumbs
 	    category={categoryData}
 	    product={product}
@@ -77,7 +85,8 @@ const ProductPage = () => {
 	      <ProductPerks />
 	    </div>
 
-	    <div className="flex flex-col gap-y-4 w-full bg-gray-100 lg:rounded-md px-4 py-4">
+	    {/* Not sure if I want to display this */}
+	    <div className="flex flex-col gap-y-4 w-full bg-gray-100 lg:rounded-md px-6 py-6 hidden">
 	      <label className="text-black text-md font-semibold">
 		Säker betalning genom
 	      </label>

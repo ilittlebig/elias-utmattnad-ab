@@ -17,11 +17,23 @@ const Achievements = () => {
 	Varje siffra har sin historia av framsteg
       </label>
 
-      <div className="flex gap-x-32">
-        <Achievement title="Kunder" number={1000} suffix="+" />
-        <Achievement title="Designs" number={250} suffix="+" />
-        <Achievement title="Nöjdhet" number={95} suffix="%" />
-        <Achievement title="Donationer" number={1500} suffix="+" />
+      <div className="lg:flex gap-x-32 hidden">
+	<Achievement title="Kunder" number={1000} suffix="+" />
+	<Achievement title="Designs" number={250} suffix="+" />
+	<Achievement title="Nöjdhet" number={95} suffix="%" />
+	<Achievement title="Donationer" number={1500} suffix="+" />
+      </div>
+
+      <div className="flex flex-col gap-y-4 w-[270px] lg:hidden">
+        <div className="flex justify-between">
+	  <Achievement title="Kunder" number={1000} suffix="+" />
+	  <Achievement title="Designs" number={250} suffix="+" />
+	</div>
+
+        <div className="flex justify-between">
+	  <Achievement title="Nöjdhet" number={95} suffix="%" />
+	  <Achievement title="Donationer" number={1500} suffix="+" />
+	</div>
       </div>
     </div>
   )

@@ -21,8 +21,8 @@ const ProductCard = ({
   return (
     <div className="flex flex-col lg:w-[299px] gap-y-4">
       <div className="relative flex items-center justify-center w-full h-full group">
-        <div className="h-[297px] transition-opacity duration-300 group-hover:opacity-0">
-	  <div className="absolute inset-0 w-full h-[297px]">
+        <div className="lg:h-[297px] h-[187px] transition-opacity duration-300 group-hover:opacity-0">
+	  <div className="absolute inset-0 w-full lg:h-[297px] h-[187px]">
 	    <Image
 	      src="/ProductImage1.png"
 	      fill
@@ -32,7 +32,7 @@ const ProductCard = ({
 	  </div>
 	</div>
 
-        <div className="h-[297px]">
+        <div className="h-[297px] hidden lg:block">
 	  <div className="absolute inset-0 w-full h-[297px] transition-opacity duration-300 opacity-0 group-hover:opacity-100">
 	    <Image
 	      src="/ProductImage2.png"
@@ -41,7 +41,7 @@ const ProductCard = ({
 	      alt="Product Image1"
 	    />
 
-	    <div className="flex items-end w-full h-full px-2 py-2">
+	    <div className="items-end w-full h-full px-2 py-2 hidden lg:flex">
 	      <Button
 		actionText="+ Lägg Till"
 		fill
