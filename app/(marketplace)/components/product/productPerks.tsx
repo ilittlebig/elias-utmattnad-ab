@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 const ProductPerks = () => {
   return (
-    <div className="flex flex-col gap-y-6 w-full font-semibold border-t border-b pt-6 pl-6 pb-6">
+    <div className="flex flex-col gap-y-6 w-full font-semibold lg:border-t lg:border-b pt-6 pl-6 pb-6">
       <div className="flex gap-x-4">
 	<FiTruck className="w-9 h-9 text-black flex-shrink-0" />
 
@@ -15,7 +15,7 @@ const ProductPerks = () => {
 	</div>
       </div>
 
-      <div className="flex gap-x-4">
+      <div className="flex gap-x-4 max-w-xs">
 	<FiBox className="w-9 h-9 text-black flex-shrink-0" />
 
 	<div className="flex flex-col text-black">

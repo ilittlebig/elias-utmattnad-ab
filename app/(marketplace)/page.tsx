@@ -39,43 +39,55 @@ export default function Home() {
 
       {/* Content Showcase Section */}
 
-      <div className="flex flex-col gap-y-[130px] pt-[130px]">
-      	<ShowcaseCard
-	  title="Innovativ Tufting"
-	  description="Med precision och omsorg använder vi modern tuftingteknik för att förvandla dina idéer till verklighet. Vår tuftingpistol gör det möjligt att skapa detaljerade och varaktiga mönster som speglar din personliga stil."
-	  imagePath="/tufting.jpg"
-	  subTexts={[
-	    "This is something about the image",
-	    "Another thing about something",
-	    "Even another thing about a service",
-	    "Maybe, maybe not...",
-	  ]}
-	/>
+      <div className="flex flex-col gap-y-16 pt-[130px]">
+        <div className="flex flex-col gap-y-4 items-center">
+	  <label className="font-semibold text-base text-center text-primary">
+	    Varför Elias Mattor?
+	  </label>
 
-      	<ShowcaseCard
-	  title="Skapad för Fantasi"
-	  description="Dina visioner är vår canvas. Från abstrakta konstverk till naturtrogna avbildningar – vi tuftar ditt önskemotiv med liv och känsla. Upptäck en värld av möjligheter där endast fantasin sätter gränserna."
-	  imagePath="/tufting2.jpg"
-	  way="left"
-	  subTexts={[
-	    "This is something about the image",
-	    "Another thing about something",
-	    "Even another thing about a service",
-	    "Maybe, maybe not...",
-	  ]}
-	/>
+	  <label className="max-w-[480px] gap-y-1 px-4 font-bold lg:text-h1 text-3xl text-center text-black">
+	    Tillsammans bygger vi framtidens mattor
+	  </label>
+	</div>
 
-      	<ShowcaseCard
-	  title="Innovativ Tufting"
-	  description="Med precision och omsorg använder vi modern tuftingteknik för att förvandla dina idéer till verklighet. Vår tuftingpistol gör det möjligt att skapa detaljerade och varaktiga mönster som speglar din personliga stil."
-	  imagePath="/tufting.jpg"
-	  subTexts={[
-	    "This is something about the image",
-	    "Another thing about something",
-	    "Even another thing about a service",
-	    "Maybe, maybe not...",
-	  ]}
-	/>
+	<div className="flex flex-col gap-y-[130px]">
+	  <ShowcaseCard
+	    title="Innovativ Tufting"
+	    description="Med precision och omsorg använder vi modern tuftingteknik för att förvandla dina idéer till verklighet. Vår tuftingpistol gör det möjligt att skapa detaljerade och varaktiga mönster som speglar din personliga stil."
+	    imagePath="/tufting.jpg"
+	    subTexts={[
+	      "This is something about the image",
+	      "Another thing about something",
+	      "Even another thing about a service",
+	      "Maybe, maybe not...",
+	    ]}
+	  />
+
+	  <ShowcaseCard
+	    title="Skapad för Fantasi"
+	    description="Dina visioner är vår canvas. Från abstrakta konstverk till naturtrogna avbildningar – vi tuftar ditt önskemotiv med liv och känsla. Upptäck en värld av möjligheter där endast fantasin sätter gränserna."
+	    imagePath="/tufting2.jpg"
+	    way="left"
+	    subTexts={[
+	      "This is something about the image",
+	      "Another thing about something",
+	      "Even another thing about a service",
+	      "Maybe, maybe not...",
+	    ]}
+	  />
+
+	  <ShowcaseCard
+	    title="Innovativ Tufting"
+	    description="Med precision och omsorg använder vi modern tuftingteknik för att förvandla dina idéer till verklighet. Vår tuftingpistol gör det möjligt att skapa detaljerade och varaktiga mönster som speglar din personliga stil."
+	    imagePath="/tufting.jpg"
+	    subTexts={[
+	      "This is something about the image",
+	      "Another thing about something",
+	      "Even another thing about a service",
+	      "Maybe, maybe not...",
+	    ]}
+	  />
+	</div>
       </div>
 
       <CharitySection/>

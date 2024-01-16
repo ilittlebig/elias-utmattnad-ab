@@ -18,12 +18,12 @@ const ProductsContainer = () => {
   }, [category]);
 
   return (
-    <div className="flex flex-wrap gap-5 w-full h-full px-2 lg:px-0">
+    <div className="lg:flex flex-wrap gap-5 grid grid-cols-2 w-full h-full">
       {isLoading ? (
 	<>
 	  {[...Array(14)].map((_, index) => (
 	    <div key={index} className="flex flex-col gap-y-4 animate-pulse">
-	      <div className="bg-gray-200 w-[299px] h-[297px]" />
+	      <div className="bg-gray-200 lg:w-[299px] lg:h-[297px] w-full h-[189px]" />
 	      <div className="flex flex-col gap-y-1">
 		<div className="flex justify-between">
 		  <div className="bg-gray-200 rounded-full w-1/2 h-5" />

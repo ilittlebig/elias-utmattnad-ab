@@ -28,8 +28,7 @@ const HamburgerMenu = ({ toggled, children, onToggle }: MenuProps) => {
 	transition-opacity
 	duration-300
 	ease-in-out
-	backdrop-blur-md
-	bg-black/50
+	bg-[#000000]/30
 	h-screen
 	z-20`
       }/>
@@ -72,7 +71,7 @@ const HamburgerMenu = ({ toggled, children, onToggle }: MenuProps) => {
 
 	  <div className="flex mx-auto relative w-[110px] h-[90px]">
 	    <Image
-	      src="/logo.svg"
+	      src="/TuftingGun.svg"
 	      fill
 	      style={{ objectFit: "contain" }}
 	      alt="Logo"

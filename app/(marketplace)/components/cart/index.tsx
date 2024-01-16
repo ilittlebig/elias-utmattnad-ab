@@ -66,7 +66,7 @@ const Cart = () => {
 	    Din Kundvagn
 	  </h1>
 
-	  <div className="flex flex-col h-full py-4 gap-y-3 overflow-scroll">
+	  <div className="flex flex-col h-full py-4 gap-y-3 overflow-scroll overflow-x-hidden">
 	    {!isCartEmpty ? (
 	      getProducts().map((cartItem, index) => (
 		<ProductCard

@@ -9,8 +9,8 @@ type ServiceProps = {
 
 const Service = ({ title, description, path, index }: ServiceProps) => {
   return (
-    <div className={`flex flex-col gap-y-8 hover:scale-105 border w-[268px] p-6 rounded-xl drop-shadow-card bg-white hover:border-primary transition-all duration-300`}>
-      <div className="relative flex flex-col mx-auto w-full h-[150px]">
+    <div className="relative flex flex-col gap-y-8 hover:scale-105 border lg:w-[268px] w-full p-6 rounded-xl drop-shadow-card bg-white hover:border-primary transition-all duration-300">
+      <div className="relative flex flex-col mx-auto w-full lg:h-[150px] h-[250px]">
 	<Image
 	  src={path}
 	  fill
@@ -22,7 +22,7 @@ const Service = ({ title, description, path, index }: ServiceProps) => {
 
       <div className="flex flex-col text-black gap-y-2">
         <div className="flex gap-x-2 items-center">
-	  <div className="flex items-center justify-center rounded-full w-6 h-6 bg-black">
+	  <div className="flex items-center justify-center rounded-full w-6 h-6 bg-black hidden">
 	    <div className="text-white font-semibold text-sm">
 	      {index}
 	    </div>

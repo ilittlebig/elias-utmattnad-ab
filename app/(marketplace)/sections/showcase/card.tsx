@@ -1,9 +1,11 @@
 "use client"
-import { useEffect } from 'react'
-import { motion, useAnimation } from 'framer-motion'
-import { useInView } from 'react-intersection-observer'
+import { useEffect, useRef } from 'react'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { IoIosCheckmarkCircle } from 'react-icons/io'
+import gsap from 'gsap'
 import Image from 'next/image'
+
+gsap.registerPlugin(ScrollTrigger);
 
 type CardProps = {
   title: string,
@@ -20,44 +22,33 @@ const Card = ({
   subTexts,
   way = "right"
 }: CardProps) => {
-  const controls = useAnimation();
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    rootMargin: "-100px 0px"
-  });
+  const ref = useRef<HTMLDivElement>(null);
   const isRight = way === "right";
 
   useEffect(() => {
-    if (inView) {
-      controls.start("visible");
+    if (ref.current) {
+      gsap.fromTo(ref.current,
+        { opacity: 0, x: isRight ? 50 : -50 },
+        {
+          opacity: 1,
+          x: 0,
+          duration: 0.75,
+          scrollTrigger: {
+            trigger: ref.current,
+            start: "top bottom-=100",
+            toggleActions: "play none none none"
+          }
+        }
+      );
     }
-  }, [controls, inView]);
-
-  const variants = {
-    hidden: { opacity: 0, x: isRight ? 50 : -50 },
-    visible: { opacity: 1, x: 0 }
-  };
+  }, [isRight]);
 
   return (
-    <div ref={ref} className={`flex flex-col gap-y-12 lg:flex-row justify-between ${isRight ? '' : 'lg:flex-row-reverse'}`}>
-      {/* Small Screens */}
-      <div className="flex justify-center w-full lg:hidden">
-	<div className="flex flex-col text-black max-w-xl justify-center items-center gap-y-8 text-center px-4">
-	  <h1 className="relative text-3xl font-rockwell font-bold w-fit">
-	    <div className="absolute left-[-15px] w-12 h-12 lg:-mt-4 -mt-3 -z-10 bg-blue-200 rounded-full" />
-	    {title}
-	  </h1>
-	  <h2 className="max-w-4xl text-lg font-medium">
-	    {description}
-	  </h2>
-	</div>
-      </div>
-
-      {/* Large Screen */}
-      <div className="flex-col max-w-lg hidden lg:flex justify-center gap-y-8">
+    <div ref={ref} className={`flex flex-col gap-y-12 lg:flex-row px-6 lg:px-0 justify-between flex-col-reverse ${isRight ? '' : 'lg:flex-row-reverse'}`}>
+      <div className="flex-col max-w-lg flex justify-center gap-y-8">
 	<div className="flex flex-col gap-y-4">
-	  <h1 className="relative lg:text-h1 text-black font-bold">
-	    <div className="absolute -scale-x-100 left-[-5%] top-[-15%] w-[50px] h-[50px] -mt-[11px] -z-10">
+	  <h1 className="relative lg:text-h1 text-h1-small text-black font-bold w-fit">
+	    <div className="absolute lg:-scale-x-100 lg:left-[-9%] right-[-9%] top-[-30%] lg:top-[-18%] lg:w-[50px] lg:h-[50px] w-[45px] h-[45px] lg:-mt-[11px] -z-10">
 	      <Image
 		src="/Spark.svg"
 		width={50}
@@ -70,7 +61,7 @@ const Card = ({
 	    {title}
 	  </h1>
 
-	  <h2 className="max-w-2xl text-base font-semibold text-black text-opacity-60">
+	  <h2 className="lg:max-w-2xl max-w-[382px] text-base font-semibold text-black text-opacity-60">
 	    {description}
 	  </h2>
 	</div>
@@ -87,14 +78,8 @@ const Card = ({
 	</div>
       </div>
 
-      <motion.div
-        className="relative lg:w-1/2 h-64 lg:h-[480px] lg:w-[720px]"
-        initial="hidden"
-        animate={controls}
-        variants={variants}
-        transition={{ duration: 0.75 }}
-      >
-        <div className={`absolute ${isRight ? "left-[15%]" : "right-[15%]"} lg:w-[720px] lg:h-[480px]`}>
+      <div className="relative lg:w-1/2 h-64 lg:h-[480px]">
+        <div className={`lg:absolute ${isRight ? "left-[15%]" : "right-[15%]"} lg:w-[720px] lg:h-[480px] w-full h-full`}>
           <Image
             src={imagePath}
             fill
@@ -103,7 +88,7 @@ const Card = ({
             alt="Content Description"
           />
         </div>
-      </motion.div>
+      </div>
     </div>
   )
 }

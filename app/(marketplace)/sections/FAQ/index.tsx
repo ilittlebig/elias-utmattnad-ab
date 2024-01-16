@@ -31,7 +31,7 @@ const FAQSection = () => {
     <div className="flex flex-col pt-[210px] pb-[130px] gap-y-16">
       <div>
 	<div className="relative">
-	  <div className="absolute w-[70px] h-[70px] top-[150px] left-[-5%]">
+	  <div className="absolute w-[70px] h-[70px] top-[150px] left-[-5%] hidden lg:block">
 	    <Image
 	      src="/decorations/BlueArrow.svg"
 	      fill
@@ -40,7 +40,7 @@ const FAQSection = () => {
 	    />
 	  </div>
 
-	  <div className="absolute w-[20px] h-[20px] top-[0px] right-[28%]">
+	  <div className="absolute w-[20px] h-[20px] top-[0px] right-[28%] hidden lg:block">
 	    <Image
 	      src="/decorations/RedPlus.svg"
 	      fill
@@ -49,7 +49,7 @@ const FAQSection = () => {
 	    />
 	  </div>
 
-	  <div className="absolute w-[30px] h-[30px] top-[400px] right-[-10%] rotate-[25deg]">
+	  <div className="absolute w-[30px] h-[30px] top-[400px] right-[-10%] rotate-[25deg] hidden lg:block">
 	    <Image
 	      src="/decorations/GreenTriangle.svg"
 	      fill
@@ -58,7 +58,7 @@ const FAQSection = () => {
 	    />
 	  </div>
 
-	  <div className="absolute w-[30px] h-[30px] top-[750px] right-[90%] rotate-[70deg]">
+	  <div className="absolute w-[30px] h-[30px] top-[750px] right-[90%] rotate-[70deg] hidden lg:block">
 	    <Image
 	      src="/decorations/OrangeSwirl.svg"
 	      fill
@@ -68,10 +68,10 @@ const FAQSection = () => {
 	  </div>
 	</div>
 
-	<div className="flex px-4 lg:px-0">
+	<div className="flex px-6 lg:px-0">
 	  <div className="flex flex-col text-center mx-auto items-center gap-y-4">
-	    <h1 className="relative text-h1 text-black font-bold w-fit">
-	      <div className="absolute right-[-39%] w-[60px] h-[60px] -mt-[27px] -z-10">
+	    <h1 className="relative lg:text-h1 text-h1-small text-black font-bold w-fit">
+	      <div className="absolute lg:right-[-41%] right-[-45%] lg:w-[60px] lg:h-[60px] w-[50px] h-[50px] top-[-55%] -z-10">
 		<Image
 		  src="/Spark.svg"
 		  fill
@@ -82,7 +82,7 @@ const FAQSection = () => {
 	      FAQ
 	    </h1>
 
-	    <h2 className="max-w-[480px] text-base font-semibold text-black text-opacity-60">
+	    <h2 className="max-w-[480px] max-w-[382px] text-base font-semibold text-black text-opacity-60">
 	      Få svar på vanliga frågor om våra produkter och tjänster i vår FAQ-sektion, där vi ger tydliga och kortfattade förklaringar.
 	    </h2>
 	  </div>
@@ -99,20 +99,22 @@ const FAQSection = () => {
 	))}
       </div>
 
-      <div className="bg-green-50 text-center items-center max-w-lg rounded-2xl flex flex-col gap-y-4 w-fit mx-auto px-12 py-8">
-        <div className="flex flex-col gap-y-4">
-	  <label className="font-semibold text-[22px] text-black">
-	    Har du fortfarande frågor?
-	  </label>
-	  <label className="text-base font-semibold text-opacity-60 text-black">
-	    Vi beklagar att vi inte kunde tillhandahålla de svar du sökte. Om du har ytterligare frågor eller behöver assistans, tveka inte att kontakta oss här.
-	  </label>
-	</div>
+      <div className="px-4 lg:px-0">
+	<div className="bg-green-50 text-center items-center max-w-lg rounded-2xl flex flex-col gap-y-4 w-fit mx-auto lg:px-12 p-8">
+	  <div className="flex flex-col gap-y-4">
+	    <label className="font-semibold text-base text-black">
+	      Har du fortfarande frågor?
+	    </label>
+	    <label className="text-base font-semibold text-opacity-60 text-black">
+	      Vi beklagar att vi inte kunde tillhandahålla de svar du sökte. Om du har ytterligare frågor eller behöver assistans, tveka inte att kontakta oss här.
+	    </label>
+	  </div>
 
-	<Button
-	  actionText="Kontakta Oss"
-	  href="/contact"
-	/>
+	  <Button
+	    actionText="Kontakta Oss"
+	    href="/contact"
+	  />
+	</div>
       </div>
     </div>
   )

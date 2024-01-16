@@ -17,7 +17,7 @@ const Categories = () => {
   }, []);
 
   return (
-    <div className="min-w-[215px] h-[350px] pt-[5px]">
+    <div className="min-w-[215px] h-[350px] pt-[5px] lg:block hidden">
       <div className="pr-5">
 	<div className="flex flex-col divide-y gap-y-4 font-semibold">
 	  <label className="text-xs text-black text-opacity-60">

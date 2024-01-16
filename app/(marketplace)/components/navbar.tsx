@@ -64,10 +64,18 @@ const Navbar: FC = () => {
       variants={navbarVariants}
       transition={{ duration: 0.3 }}
     >
-      <div className="flex items-center py-2 lg:justify-between w-full min-h-[90px] max-w-6xl mx-auto">
-	<div className="flex justify-center items-center pointer-events-none">
-	  <Link key="Logo" href="/" className="flex items-center h-[25px] pointer-events-auto">
-	    <div className="flex items-center gap-x-3">
+      <div className="relative flex items-center py-2 px-4 lg:px-0 lg:justify-between w-full min-h-[90px] max-w-6xl mx-auto">
+	<div className="flex gap-x-4 justify-center items-center pointer-events-none">
+	  <div className="lg:hidden py-3 z-50 pointer-events-auto">
+	    <Hamburger
+	      toggled={isMenuOpen}
+	      toggle={setMenuOpen}
+	      size={24}
+	    />
+	  </div>
+
+	  <Link key="Logo" href="/" className="lg:relative absolute w-screen lg:w-auto left-0 justify-center lg:justify-start flex items-center h-[25px] pointer-events-none">
+	    <div className="flex items-center gap-x-3 pointer-events-auto">
 	      <Image
 		src="/TuftingGun.svg"
 		width={56}
@@ -75,21 +83,14 @@ const Navbar: FC = () => {
 		alt="Tufting Gun"
 	      />
 
-	      <label className="text-base text-black font-semibold cursor-pointer">
+	      <label className="text-base text-black font-semibold cursor-pointer flex-shrink-0 hidden lg:block">
 		Elias Mattor
 	      </label>
 	    </div>
 	  </Link>
 	</div>
 
-	<div className="flex lg:gap-x-8 justify-center absolute h-[25px] w-full max-w-6xl pointer-events-none items-center">
-	  <div className="lg:hidden py-3 pl-4 z-30">
-	    <Hamburger
-	      toggled={isMenuOpen}
-	      toggle={setMenuOpen}
-	    />
-	  </div>
-
+	<div className="lg:flex hidden lg:gap-x-8 justify-center absolute h-[25px] w-full max-w-6xl pointer-events-none items-center">
 	  <div className="lg:flex hidden gap-x-8">
 	    {links.map((link, index) => (
 	      <Link
@@ -120,7 +121,7 @@ const Navbar: FC = () => {
 	      </div>
 	    </div>
 
-	    <Link href="/login/identifier" className="relative w-8 h-8 lg:px-0 pr-16">
+	    <Link href="/login/identifier" className="relative w-8 h-8">
 	      <HiOutlineUser className="w-8 h-8 text-black stroke-[1.25px]" />
 	    </Link>
 	  </div>

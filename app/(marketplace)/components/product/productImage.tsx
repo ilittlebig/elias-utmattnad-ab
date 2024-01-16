@@ -1,13 +1,13 @@
 import Image from 'next/image'
 
 type ProductImageProps = {
-  key: number,
+  key?: number,
   src: string
 };
 
 const ProductImage = ({ key, src }: ProductImageProps) => {
   return (
-    <div key={key} className="relative w-[350px] h-[350px]">
+    <div key={key} className="relative lg:w-[350px] lg:h-[350px] w-full h-[430px]">
       <Image
 	src={src}
 	fill

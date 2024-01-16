@@ -35,9 +35,13 @@ const config: Config = {
       },
       fontSize: {
 	'h1': ['40px', {
-	  letterSpacing: '-0,8px',
+	  letterSpacing: '-0.8px',
 	  lineHeight: '48px'
-	}]
+	}],
+	'h1-small': ['32px', {
+	  letterSpacing: '-0.8px',
+	  lineHeight: '40px'
+	}],
       },
     },
   },

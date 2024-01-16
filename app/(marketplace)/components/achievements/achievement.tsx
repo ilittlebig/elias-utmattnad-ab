@@ -9,7 +9,11 @@ interface AchievementProps {
   suffix: string;
 };
 
-const Achievement = ({ title, number, suffix }: AchievementProps) => {
+const Achievement = ({
+  title,
+  number,
+  suffix,
+}: AchievementProps) => {
   const [displayNumber, setDisplayNumber] = useState<number>(0);
   const [ref, inView] = useInView({
     triggerOnce: true,
@@ -37,9 +41,9 @@ const Achievement = ({ title, number, suffix }: AchievementProps) => {
   }, [number, inView]);
 
   return (
-    <div ref={ref} className="flex flex-col">
+    <div ref={ref} className="flex flex-col w-fit items-center lg:items-start justify-center lg:justify-start">
       <div className="flex">
-	<label ref={numberRef} className="text-4xl text-black font-semibold">
+	<label ref={numberRef} className="text-4xl text-center text-black font-semibold">
 	  {displayNumber}
 	</label>
 	<label className="text-4xl text-black font-semibold">
@@ -47,7 +51,7 @@ const Achievement = ({ title, number, suffix }: AchievementProps) => {
 	</label>
       </div>
 
-      <label className="text-md text-black font-semibold">
+      <label className="text-md text-black font-semibold text-center">
         {title}
       </label>
     </div>
