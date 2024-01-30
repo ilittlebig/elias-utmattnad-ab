@@ -23,7 +23,7 @@ const Story = ({ image, title, description, leftSideText }: StoryProps) => {
   }, [controls, inView]);
 
   const variants = {
-    hidden: { x: leftSideText ? 200 : -200, opacity: 0 },
+    hidden: { x: leftSideText ? 50 : -50, opacity: 0 },
     visible: { x: 0, opacity: 1, transition: { duration: 0.8 } }
   };
 

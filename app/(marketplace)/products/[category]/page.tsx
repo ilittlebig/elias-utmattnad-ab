@@ -25,7 +25,7 @@ const ProductsPage = () => {
   return (
     <div className="flex flex-col">
       <div className="lg:h-[250px] h-[200px]">
-	<div className="absolute bg-[#F7F7F7] left-0 w-screen lg:h-[250px] h-[200px]">
+	<div className="absolute bg-[#F7F7F7] left-0 w-full lg:h-[250px] h-[200px]">
 	  <div className="flex flex-col items-center gap-y-3 justify-center mx-auto z-10 h-full">
 	    {categoryData ? (
 	      <h1 className="lg:text-h1 text-h1-small text-black text-center font-semibold">
