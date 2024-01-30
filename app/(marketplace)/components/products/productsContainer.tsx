@@ -19,7 +19,7 @@ const ProductsContainer = () => {
 
   return (
     <div className="lg:flex flex-wrap gap-5 grid grid-cols-2 w-full h-full">
-      {(isLoading || typeof products !== "Array") ? (
+      {(isLoading || typeof products !== "object") ? (
 	<>
 	  {[...Array(14)].map((_, index) => (
 	    <div key={index} className="flex flex-col gap-y-4 animate-pulse">
