@@ -6,7 +6,7 @@ type CompanyProps = {
 
 const CompanyCard = ({ image }: CompanyProps) => {
   return (
-    <div className="flex group items-center justify-center px-8 py-6 grayscale rounded-md min-w-[244px] max-w-[244px] h-[138px]">
+    <div className="flex group items-center justify-center px-8 py-6 grayscale rounded-md min-w-[244px] max-w-[244px] h-[100px]">
       <Image
 	src={`/companies/${image}`}
 	height={50}

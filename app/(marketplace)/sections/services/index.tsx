@@ -66,7 +66,7 @@ const ServicesSection = () => {
   }, []);
 
   return (
-    <div className="pt-[65px] min-h-[640px]">
+    <div className="pt-[60px] min-h-[640px]">
       <div className="absolute left-0 right-0 bg-gray-50 lg:h-[680px] h-[2085px]" />
       <div className="relative flex flex-col gap-y-16 pt-[100px]">
 	<div className="absolute w-[70px] h-[70px] top-[16%] left-[26%] -scale-x-100 -z-10">
