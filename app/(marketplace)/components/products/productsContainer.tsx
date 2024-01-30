@@ -19,7 +19,7 @@ const ProductsContainer = () => {
 
   return (
     <div className="lg:flex flex-wrap gap-5 grid grid-cols-2 w-full h-full">
-      {isLoading ? (
+      {(isLoading || typeof products !== "Array") ? (
 	<>
 	  {[...Array(14)].map((_, index) => (
 	    <div key={index} className="flex flex-col gap-y-4 animate-pulse">
@@ -35,14 +35,16 @@ const ProductsContainer = () => {
 	  ))}
 	</>
       ) : (
-	products.map((product, index) => (
-	  <Link
-	    key={product._id}
-	    href={`/products/${category}/${encodeURIComponent(product._id)}`}
-	  >
-	    <ProductCard product={product} />
-	  </Link>
-	))
+	<>
+	  {products.map((product, index) => (
+	    <Link
+	      key={product._id}
+	      href={`/products/${category}/${encodeURIComponent(product._id)}`}
+	    >
+	      <ProductCard product={product} />
+	    </Link>
+	  ))}
+	</>
       )}
     </div>
   )

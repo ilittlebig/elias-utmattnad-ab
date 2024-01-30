@@ -71,7 +71,7 @@ const SignUpPage = () => {
 
       <div className="relative min-w-[600px] min-h-[600px]">
 	<Image
-	  src="/SignUp.svg"
+	  src="/SignUp.png"
 	  fill
 	  style={{ objectFit: "contain" }}
 	  alt="Sign Up Illustration"

@@ -9,7 +9,7 @@ type ServiceProps = {
 
 const Service = ({ title, description, path, index }: ServiceProps) => {
   return (
-    <div className="relative flex flex-col gap-y-8 hover:scale-105 border lg:w-[268px] w-full p-6 rounded-xl drop-shadow-card bg-white hover:border-primary transition-all duration-300">
+    <div className="relative flex flex-col gap-y-8 order lg:w-[268px] w-full p-6 rounded-xl drop-shadow-card bg-white">
       <div className="relative flex flex-col mx-auto w-full lg:h-[150px] h-[250px]">
 	<Image
 	  src={path}

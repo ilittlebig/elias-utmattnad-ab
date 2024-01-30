@@ -43,7 +43,7 @@ const ForgetPasswordPage = () => {
 
       <div className="relative min-w-[600px] min-h-[600px]">
         <Image
-	  src="/ForgetPassword.svg"
+	  src="/ForgetPassword.png"
 	  fill
 	  style={{ objectFit: "contain" }}
 	  alt="Forget Password Illustration"

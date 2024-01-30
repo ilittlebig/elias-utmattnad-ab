@@ -57,7 +57,7 @@ const LoginPasswordPage = () => {
 
       <div className="relative min-w-[600px] min-h-[600px]">
         <Image
-	  src="/Login.svg"
+	  src="/Login.png"
 	  fill
 	  style={{ objectFit: "contain" }}
 	  alt="Login Illustration"

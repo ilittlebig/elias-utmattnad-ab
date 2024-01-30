@@ -28,7 +28,7 @@ const Categories = () => {
 	  </label>
 	</div>
 
-	{isLoading ? (
+	{(isLoading || typeof categories !== "Array") ? (
 	  <div className="animate-pulse flex flex-col gap-y-3 pt-2 w-full">
 	    {[...Array(5)].map((_, index) => (
 	      <div key={index} className="w-full h-3 bg-gray-200 rounded-full" />

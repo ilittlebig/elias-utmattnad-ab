@@ -12,22 +12,22 @@ const ServicesSection = () => {
     {
       title: "Egen Design",
       description: "Anpassa din matta efter din stil och dina önskemål.",
-      image: "/designIllustration.svg",
+      image: "/services/designIllustration.png",
     },
     {
       title: "Hantverk av Kvalitet",
       description: "Varje matta är ett mästerve, skapat med karakt.",
-      image: "/Illustration3.svg",
+      image: "/services/Illustration3.png",
     },
     {
       title: "Personlig Service",
       description: "Individuell kundservice för att uppfylla dina specifika.",
-      image: "/supportIllustration.svg",
+      image: "/services/supportIllustration.png",
     },
     {
       title: "Snabb Leverans",
       description: "Effektiv och pålitlig leverans av din anpassade matta.",
-      image: "/Illustration2.svg",
+      image: "/services/Illustration2.png",
     }
   ];
 

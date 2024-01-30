@@ -6,7 +6,7 @@ export default function Layout({
   children: React.ReactNode
 }) {
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center overflow-hidden">
       {children}
 
       <div className="flex text-sm gap-x-4 -mt-[72px] py-4 font-semibold">
